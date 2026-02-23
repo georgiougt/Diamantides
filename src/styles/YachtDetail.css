@@ -1,0 +1,255 @@
+.yacht-detail-page {
+    background-color: var(--color-light-gray);
+    min-height: 100vh;
+}
+
+.detail-hero {
+    height: 60vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 4rem;
+}
+
+.detail-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+}
+
+.detail-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    color: var(--color-white);
+}
+
+.detail-hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-white);
+}
+
+.detail-price {
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+    font-weight: 700;
+}
+
+.detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    transition: color var(--transition-fast);
+}
+
+.btn-back:hover {
+    color: var(--color-secondary);
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+}
+
+.detail-section {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.detail-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 1rem;
+}
+
+.detail-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-dark);
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.spec-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+}
+
+.spec-icon {
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.spec-card span {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.spec-card strong {
+    color: var(--color-primary);
+    font-size: 1rem;
+}
+
+.features-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.features-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+}
+
+.check-icon {
+    color: green;
+}
+
+.detail-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform var(--transition-medium);
+}
+
+.gallery-img:hover {
+    transform: scale(1.02);
+}
+
+/* Sidebar */
+.enquiry-card {
+    position: sticky;
+    top: 100px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.enquiry-card h3 {
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    margin-bottom: 0.5rem;
+}
+
+.enquiry-card p {
+    color: #a8b2d1;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.detail-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.detail-form input,
+.detail-form textarea {
+    padding: 0.8rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-white);
+    font-family: var(--font-body);
+}
+
+.detail-form input::placeholder,
+.detail-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.detail-form input:focus,
+.detail-form textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-submit-detail {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border: none;
+    padding: 1rem;
+    font-weight: 700;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.btn-submit-detail:hover {
+    background-color: var(--color-white);
+}
+
+.sidebar-contact {
+    margin-top: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+.phone-link {
+    display: block;
+    font-size: 1.25rem;
+    color: var(--color-secondary);
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 900px) {
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .enquiry-card {
+        position: static;
+    }
+}

@@ -1,0 +1,25 @@
+:root {
+  /* Colors */
+  --color-primary: #0a192f; /* Deep Navy Blue */
+  --color-secondary: #d4af37; /* Gold/Bronze */
+  --color-white: #ffffff;
+  --color-light-gray: #f8f9fa; /* Off-white/Sand */
+  --color-text-dark: #333333;
+  --color-text-light: #f0f0f0;
+  --color-accent: #1e3a5f; /* Lighter Navy for accents */
+
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+
+  /* Transitions */
+  --transition-fast: 0.3s ease;
+  --transition-medium: 0.5s ease;
+}

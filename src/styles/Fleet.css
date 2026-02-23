@@ -1,0 +1,132 @@
+.fleet-section {
+    padding: var(--spacing-xl) 2rem;
+    background-color: var(--color-light-gray);
+}
+
+.fleet-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all var(--transition-fast);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.fleet-card {
+    background: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition-medium);
+}
+
+.fleet-card:hover {
+    transform: translateY(-5px);
+}
+
+.fleet-image-container {
+    position: relative;
+    height: 250px;
+}
+
+.fleet-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fleet-tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+.fleet-content {
+    padding: 1.5rem;
+}
+
+.fleet-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-primary);
+}
+
+.fleet-type {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.fleet-specs {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-dark);
+}
+
+.btn-enquire {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: background-color var(--transition-fast);
+}
+
+.btn-enquire:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+@media (max-width: 480px) {
+    .fleet-grid {
+        grid-template-columns: 1fr;
+    }
+}
