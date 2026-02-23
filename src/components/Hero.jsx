@@ -13,7 +13,7 @@ const Hero = () => {
                 playsInline
                 poster="https://images.unsplash.com/photo-1569263979104-865ab7dd8d36?q=80&w=2070&auto=format&fit=crop"
             >
-                <source src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+                <source src="https://videos.pexels.com/video-files/7169073/7169073-hd_1920_1080_25fps.mp4" type="video/mp4" />
             </video>
             <div className="hero-overlay"></div>
             <div className="hero-content">
