@@ -25,7 +25,7 @@ const LandingPage = () => {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Diamantides">
       <div className="app-container">
         <Navbar />
         <Routes>
