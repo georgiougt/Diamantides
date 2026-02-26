@@ -194,7 +194,19 @@ const YachtDetail = () => {
                             <form className="detail-form" onSubmit={(e) => { e.preventDefault(); alert('Enquiry sent!'); }}>
                                 <input type="text" placeholder="Your Name" required />
                                 <input type="email" placeholder="Email Address" required />
-                                <input type="tel" placeholder="Phone Number" />
+                                <div className="phone-input-wrapper-dark">
+                                    <select className="country-code-select-dark" defaultValue="+357">
+                                        <option value="+357">+357 (CY)</option>
+                                        <option value="+30">+30 (GR)</option>
+                                        <option value="+44">+44 (UK)</option>
+                                        <option value="+1">+1 (US/CA)</option>
+                                        <option value="+971">+971 (UAE)</option>
+                                        <option value="+33">+33 (FR)</option>
+                                        <option value="+39">+39 (IT)</option>
+                                        <option value="+49">+49 (DE)</option>
+                                    </select>
+                                    <input type="tel" placeholder="Phone Number" />
+                                </div>
                                 <textarea placeholder="Message" rows="4"></textarea>
                                 <button type="submit" className="btn-submit-detail">Send Enquiry</button>
                             </form>
