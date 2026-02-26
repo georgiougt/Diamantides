@@ -166,8 +166,12 @@ const YachtDetail = () => {
                                 </div>
                             </div>
                             <div className="postcard">
-                                <div className="postcard-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1499678329028-101435549a4e?q=80&w=600&auto=format&fit=crop" alt="The World" className="postcard-img" />
+                                <div className="postcard-img-wrapper multi-image-grid">
+                                    <img src="/Diamantides/world/world_1.jpg" alt="The World 1" className="postcard-img" />
+                                    <img src="/Diamantides/world/world_2.jpg" alt="The World 2" className="postcard-img" />
+                                    <img src="/Diamantides/world/world_3.jpg" alt="The World 3" className="postcard-img" />
+                                    <img src="/Diamantides/world/world_4.jpg" alt="The World 4" className="postcard-img" />
+                                    <img src="/Diamantides/world/world_5.jpg" alt="The World 5" className="postcard-img" />
                                 </div>
                                 <div className="postcard-text">
                                     <h3>The World</h3>
