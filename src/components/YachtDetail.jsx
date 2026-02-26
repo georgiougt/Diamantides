@@ -26,6 +26,11 @@ const YachtDetail = () => {
         }
     };
 
+    const basePrice = yacht ? (parseInt(yacht.price.replace(/[^\d]/g, '')) || 8800) : 0;
+    const halfDayPrice = `€${(basePrice * 0.9).toLocaleString()}`;
+    const fullDayPrice = yacht && yacht.price.includes('€') ? yacht.price.split(' ')[0] : `€${basePrice.toLocaleString()}`;
+    const overnightPrice = `€${(basePrice * 1.2).toLocaleString()}`;
+
     if (!yacht) {
         return (
             <div className="yacht-not-found">
@@ -97,31 +102,49 @@ const YachtDetail = () => {
                             <p className="detail-description">{yacht.description}</p>
                         </section>
 
-                        <section className="detail-section">
-                            <h2>Specifications</h2>
-                            <div className="specs-grid">
-                                <div className="spec-card">
-                                    <Ruler className="spec-icon" />
-                                    <span>Length</span>
-                                    <strong>{yacht.length}</strong>
-                                </div>
-                                <div className="spec-card">
-                                    <Users className="spec-icon" />
-                                    <span>Capacity</span>
-                                    <strong>{yacht.capacity}</strong>
-                                </div>
-                                <div className="spec-card">
-                                    <Gauge className="spec-icon" />
-                                    <span>Speed</span>
-                                    <strong>{yacht.speed}</strong>
-                                </div>
-                                {Object.entries(yacht.specs).map(([key, value]) => (
-                                    <div className="spec-card" key={key}>
-                                        <Shield className="spec-icon" />
-                                        <span style={{ textTransform: 'capitalize' }}>{key}</span>
-                                        <strong>{value}</strong>
+                        <section className="detail-section information-section">
+                            <div className="section-title-wrapper">
+                                <hr className="title-line" />
+                                <h2>Information</h2>
+                                <hr className="title-line" />
+                            </div>
+
+                            <div className="info-columns">
+                                {/* Pricing Column */}
+                                <div className="info-column pricing-column">
+                                    <div className="info-row">
+                                        <span className="info-label">Half Day</span>
+                                        <span className="info-value">{halfDayPrice}</span>
                                     </div>
-                                ))}
+                                    <div className="info-row">
+                                        <span className="info-label">Full Day</span>
+                                        <span className="info-value">{fullDayPrice}</span>
+                                    </div>
+                                    <div className="info-row">
+                                        <span className="info-label">Overnight</span>
+                                        <span className="info-value">{overnightPrice}</span>
+                                    </div>
+                                    <div className="info-row">
+                                        <span className="info-label">Weekly</span>
+                                        <span className="info-value">Upon Request</span>
+                                    </div>
+                                </div>
+
+                                {/* Accommodations Column */}
+                                <div className="info-column specs-column">
+                                    <div className="info-row">
+                                        <span className="info-label">ACCOMODATION</span>
+                                        <span className="info-value">{yacht.specs?.cabins || '3 Double, 1 Twin'}</span>
+                                    </div>
+                                    <div className="info-row">
+                                        <span className="info-label">PASSENGERS</span>
+                                        <span className="info-value">{yacht.capacity || '12'}</span>
+                                    </div>
+                                    <div className="info-row">
+                                        <span className="info-label">HOME PORT</span>
+                                        <span className="info-value">Limassol</span>
+                                    </div>
+                                </div>
                             </div>
                         </section>
 

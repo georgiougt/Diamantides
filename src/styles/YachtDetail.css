@@ -155,36 +155,96 @@
     color: var(--color-text-dark);
 }
 
-.specs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1.5rem;
+/* Information Section */
+.information-section {
+    background-color: transparent;
+    padding: 1rem 0 3rem;
+    box-shadow: none;
 }
 
-.spec-card {
+.section-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+}
+
+.title-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    margin: 0 1.5rem;
+}
+
+.information-section h2 {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    font-size: 1.6rem;
+    color: var(--color-text-dark);
+    font-weight: 600;
+}
+
+.info-columns {
+    display: flex;
+    gap: 2rem;
+}
+
+.info-column {
+    flex: 1;
+    background: #f8fbff;
+    padding: 2rem;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
+    gap: 1.2rem;
+    box-shadow: inset 0 0 0 1px rgba(26, 54, 93, 0.05);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.info-column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(26, 54, 93, 0.1);
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
-    padding: 1rem;
-    background-color: #f9f9f9;
-    border-radius: 6px;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(26, 54, 93, 0.08);
+    transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
-.spec-icon {
-    color: var(--color-secondary);
-    margin-bottom: 0.5rem;
+.info-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
-.spec-card span {
-    font-size: 0.85rem;
-    color: #666;
-    margin-bottom: 0.25rem;
+.info-row:hover {
+    background-color: rgba(26, 54, 93, 0.04);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    border-radius: 4px;
 }
 
-.spec-card strong {
-    color: var(--color-primary);
-    font-size: 1rem;
+.info-label {
+    color: var(--color-text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.specs-column .info-label {
+    text-transform: uppercase;
+}
+
+.info-value {
+    color: var(--color-text-dark);
+    font-weight: 400;
+    font-size: 0.95rem;
 }
 
 .features-list {
@@ -347,6 +407,10 @@
 @media (max-width: 900px) {
     .detail-grid {
         grid-template-columns: 1fr;
+    }
+
+    .info-columns {
+        flex-direction: column;
     }
 
     .detail-bottom-columns {
