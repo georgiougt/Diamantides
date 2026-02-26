@@ -135,18 +135,27 @@ const YachtDetail = () => {
                         </section>
 
                         <section className="detail-bottom-columns">
-                            <Link to="/" className="bottom-col-card all-yachts-card">
-                                <div className="bottom-col-content">
+                            <Link to="/" className="postcard">
+                                <div className="postcard-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=600&auto=format&fit=crop" alt="All Yachts" className="postcard-img" />
+                                </div>
+                                <div className="postcard-text">
                                     <h3>All Yachts</h3>
                                 </div>
                             </Link>
-                            <div className="bottom-col-card destination-card">
-                                <div className="bottom-col-content">
+                            <div className="postcard">
+                                <div className="postcard-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1571249718428-56eb0f04e1ac?q=80&w=600&auto=format&fit=crop" alt="Top Cyprus Destinations" className="postcard-img" />
+                                </div>
+                                <div className="postcard-text">
                                     <h3>Top Cyprus Destinations</h3>
                                 </div>
                             </div>
-                            <div className="bottom-col-card world-card">
-                                <div className="bottom-col-content">
+                            <div className="postcard">
+                                <div className="postcard-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1499678329028-101435549a4e?q=80&w=600&auto=format&fit=crop" alt="The World" className="postcard-img" />
+                                </div>
+                                <div className="postcard-text">
                                     <h3>The World</h3>
                                 </div>
                             </div>
