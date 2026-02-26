@@ -70,16 +70,21 @@ const YachtDetail = () => {
                                 <button className="gallery-arrow right-arrow" onClick={nextImage}><ArrowLeft size={24} style={{ transform: 'rotate(180deg)' }} /></button>
                             </>
                         )}
-                        <div className="gallery-dots">
-                            {yacht.gallery.map((_, index) => (
-                                <span
+                    </div>
+                    {/* Thumbnail Strip */}
+                    {yacht.gallery.length > 1 && (
+                        <div className="gallery-thumbnails">
+                            {yacht.gallery.map((imgSrc, index) => (
+                                <div
                                     key={index}
-                                    className={`dot ${index === currentImageIndex ? 'active' : ''}`}
+                                    className={`thumbnail-wrapper ${index === currentImageIndex ? 'active' : ''}`}
                                     onClick={() => setCurrentImageIndex(index)}
-                                ></span>
+                                >
+                                    <img src={imgSrc} alt={`Thumbnail ${index + 1}`} className="thumbnail-img" />
+                                </div>
                             ))}
                         </div>
-                    </div>
+                    )}
                 </section>
             )}
 
