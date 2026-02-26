@@ -31,7 +31,7 @@ const Navbar = () => {
     };
 
     return (
-        <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+        <header className={`navbar ${isScrolled || !isHomePage ? 'scrolled' : ''}`}>
             <div className="navbar-container">
                 <Link to="/" className="logo">
                     <Anchor className="logo-icon" />
