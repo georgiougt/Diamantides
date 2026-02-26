@@ -169,8 +169,14 @@ const YachtDetail = () => {
                                 </div>
                             </Link>
                             <div className="postcard">
-                                <div className="postcard-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1571249718428-56eb0f04e1ac?q=80&w=600&auto=format&fit=crop" alt="Top Cyprus Destinations" className="postcard-img" />
+                                <div className="postcard-img-wrapper multi-image-grid">
+                                    <img src="https://images.unsplash.com/photo-1571249718428-56eb0f04e1ac?q=80&w=600&auto=format&fit=crop" alt="Cyprus Dest 1" className="postcard-img" />
+                                    <img src="https://images.unsplash.com/photo-1588661609139-440cc070cb1e?q=80&w=300&auto=format&fit=crop" alt="Cyprus Dest 2" className="postcard-img" />
+                                    <img src="https://images.unsplash.com/photo-1621379374092-2cc35bed0bbd?q=80&w=300&auto=format&fit=crop" alt="Cyprus Dest 3" className="postcard-img" />
+                                    <img src="https://images.unsplash.com/photo-1594916698622-c2cb13642ea8?q=80&w=300&auto=format&fit=crop" alt="Cyprus Dest 4" className="postcard-img" />
+                                    <img src="https://images.unsplash.com/photo-1622306231908-54ef1e97ee94?q=80&w=300&auto=format&fit=crop" alt="Cyprus Dest 5" className="postcard-img" />
+                                    <img src="https://images.unsplash.com/photo-1614704383437-0243451733de?q=80&w=300&auto=format&fit=crop" alt="Cyprus Dest 6" className="postcard-img" />
+                                    <img src="https://images.unsplash.com/photo-1601633513364-ffcd87ff1c33?q=80&w=300&auto=format&fit=crop" alt="Cyprus Dest 7" className="postcard-img" />
                                 </div>
                                 <div className="postcard-text">
                                     <h3>Top Cyprus Destinations</h3>
