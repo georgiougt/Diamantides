@@ -2,16 +2,29 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Users, Ruler, Gauge, Anchor, Check, Shield } from 'lucide-react';
 import { yachts } from '../data/yachts';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/YachtDetail.css';
 
 const YachtDetail = () => {
     const { id } = useParams();
     const yacht = yachts.find(y => y.id === parseInt(id));
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [id]);
+
+    const nextImage = () => {
+        if (yacht && yacht.gallery) {
+            setCurrentImageIndex((prev) => (prev + 1) % yacht.gallery.length);
+        }
+    };
+
+    const prevImage = () => {
+        if (yacht && yacht.gallery) {
+            setCurrentImageIndex((prev) => (prev - 1 + yacht.gallery.length) % yacht.gallery.length);
+        }
+    };
 
     if (!yacht) {
         return (
@@ -24,10 +37,9 @@ const YachtDetail = () => {
 
     return (
         <div className="yacht-detail-page">
-            {/* Hero Section */}
-            <section className="detail-hero" style={{ backgroundImage: `url(${yacht.image})` }}>
-                <div className="detail-hero-overlay"></div>
-                <div className="detail-hero-content">
+            {/* Title Section */}
+            <section className="detail-header">
+                <div className="detail-header-content">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -45,6 +57,34 @@ const YachtDetail = () => {
                     </motion.p>
                 </div>
             </section>
+
+            {/* Spotlight Gallery */}
+            {yacht.gallery && yacht.gallery.length > 0 && (
+                <section className="spotlight-gallery">
+                    <div className="spotlight-image-container">
+                        <img
+                            src={yacht.gallery[currentImageIndex]}
+                            alt={`${yacht.name} spotlight`}
+                            className="spotlight-image"
+                        />
+                        {yacht.gallery.length > 1 && (
+                            <>
+                                <button className="gallery-arrow left-arrow" onClick={prevImage}><ArrowLeft size={24} /></button>
+                                <button className="gallery-arrow right-arrow" onClick={nextImage}><ArrowLeft size={24} style={{ transform: 'rotate(180deg)' }} /></button>
+                            </>
+                        )}
+                        <div className="gallery-dots">
+                            {yacht.gallery.map((_, index) => (
+                                <span
+                                    key={index}
+                                    className={`dot ${index === currentImageIndex ? 'active' : ''}`}
+                                    onClick={() => setCurrentImageIndex(index)}
+                                ></span>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
 
             <div className="detail-container">
                 <Link to="/" className="btn-back"><ArrowLeft size={16} /> Back to Fleet</Link>
@@ -94,12 +134,21 @@ const YachtDetail = () => {
                             </ul>
                         </section>
 
-                        <section className="detail-section">
-                            <h2>Gallery</h2>
-                            <div className="detail-gallery">
-                                {yacht.gallery?.map((img, index) => (
-                                    <img key={index} src={img} alt={`${yacht.name} view ${index + 1}`} className="gallery-img" />
-                                ))}
+                        <section className="detail-bottom-columns">
+                            <Link to="/" className="bottom-col-card all-yachts-card">
+                                <div className="bottom-col-content">
+                                    <h3>All Yachts</h3>
+                                </div>
+                            </Link>
+                            <div className="bottom-col-card destination-card">
+                                <div className="bottom-col-content">
+                                    <h3>Top Cyprus Destinations</h3>
+                                </div>
+                            </div>
+                            <div className="bottom-col-card world-card">
+                                <div className="bottom-col-content">
+                                    <h3>The World</h3>
+                                </div>
                             </div>
                         </section>
                     </div>
