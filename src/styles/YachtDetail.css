@@ -266,10 +266,11 @@
 
 /* 3 Columns Area / Postcard Style */
 .detail-bottom-columns {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    /* Changed from grid to flex for smooth width transitions */
     gap: 1.5rem;
     margin-top: 3rem;
+    width: 100%;
 }
 
 .postcard {
@@ -278,15 +279,19 @@
     border-radius: 4px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-decoration: none;
-    transition: transform var(--transition-medium), box-shadow 0.3s;
+    transition: transform var(--transition-medium), box-shadow 0.3s, flex 0.4s ease;
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    flex: 1;
+    /* Initial equal width */
 }
 
 .postcard:hover {
-    transform: translateY(-8px) scale(1.03);
+    transform: translateY(-8px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    flex: 1.5;
+    /* Expands width on hover */
 }
 
 .postcard-img-wrapper {
