@@ -392,6 +392,10 @@
 .postcard-text {
     padding: 15px 5px 5px;
     text-align: center;
+    position: relative;
+    z-index: 2;
+    background: var(--color-white);
+    flex-shrink: 0;
 }
 
 .postcard-text h3 {
