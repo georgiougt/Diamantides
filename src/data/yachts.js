@@ -1,4 +1,3 @@
-
 export const yachts = [
     {
         id: 1,
@@ -7,7 +6,7 @@ export const yachts = [
         length: '75 ft',
         capacity: '12 Guests',
         speed: '32 Knots',
-        image: '/Diamantides/gallery/yacht1.png',
+        image: '/Diamantides/gallery/yacht_1.jpg',
         category: 'charter',
         price: '€4,500 / day',
         description: 'The Aegean Pearl is a masterpiece of modern design and engineering. Perfect for day trips or extended charters, she offers ample deck space, luxurious cabins, and a state-of-the-art entertainment system.',
@@ -20,11 +19,10 @@ export const yachts = [
         },
         features: ['Jacuzzi', 'Jet Ski', 'Seabob', 'WiFi', 'Premium Sound System'],
         gallery: [
-            '/Diamantides/gallery/yacht1.png',
-            '/Diamantides/gallery/yacht2.png',
-            '/Diamantides/gallery/yacht3.png',
-            '/Diamantides/gallery/yacht4.png',
-            '/Diamantides/gallery/yacht5.png'
+            '/Diamantides/gallery/yacht_1.jpg',
+            '/Diamantides/gallery/yacht_2.jpg',
+            '/Diamantides/gallery/yacht_3.jpg',
+            '/Diamantides/gallery/yacht_4.jpg'
         ]
     },
     {
@@ -34,7 +32,7 @@ export const yachts = [
         length: '105 ft',
         capacity: '20 Guests',
         speed: '28 Knots',
-        image: '/Diamantides/gallery/yacht2.png',
+        image: '/Diamantides/gallery/yacht_2.jpg',
         category: 'sales',
         price: '€8,500,000',
         description: 'A true queen of the seas, this super yacht combines opulence with performance. Featuring a beach club, cinema room, and expansive sundeck, specifically designed for grand entertaining.',
@@ -47,11 +45,10 @@ export const yachts = [
         },
         features: ['Beach Club', 'Cinema', 'Gym', 'Stabilizers', 'Helipad Touch-and-Go'],
         gallery: [
-            '/Diamantides/gallery/yacht2.png',
-            '/Diamantides/gallery/yacht3.png',
-            '/Diamantides/gallery/yacht4.png',
-            '/Diamantides/gallery/yacht5.png',
-            '/Diamantides/gallery/yacht1.png'
+            '/Diamantides/gallery/yacht_2.jpg',
+            '/Diamantides/gallery/yacht_3.jpg',
+            '/Diamantides/gallery/yacht_4.jpg',
+            '/Diamantides/gallery/yacht_1.jpg'
         ]
     },
     {
@@ -61,7 +58,7 @@ export const yachts = [
         length: '55 ft',
         capacity: '8 Guests',
         speed: '40 Knots',
-        image: '/Diamantides/gallery/yacht3.png',
+        image: '/Diamantides/gallery/yacht_3.jpg',
         category: 'charter',
         price: '€2,800 / day',
         description: 'Speed and style combined. The Limassol Star is ideal for quick getaways to secluded bays. Features a retractable sunroof and spacious aft deck dining area.',
@@ -74,11 +71,10 @@ export const yachts = [
         },
         features: ['Retractable Roof', 'Hydraulic Platform', 'Snorkeling Gear', 'BBQ Grill'],
         gallery: [
-            '/Diamantides/gallery/yacht3.png',
-            '/Diamantides/gallery/yacht4.png',
-            '/Diamantides/gallery/yacht5.png',
-            '/Diamantides/gallery/yacht1.png',
-            '/Diamantides/gallery/yacht2.png'
+            '/Diamantides/gallery/yacht_3.jpg',
+            '/Diamantides/gallery/yacht_4.jpg',
+            '/Diamantides/gallery/yacht_1.jpg',
+            '/Diamantides/gallery/yacht_2.jpg'
         ]
     },
     {
@@ -88,7 +84,7 @@ export const yachts = [
         length: '62 ft',
         capacity: '10 Guests',
         speed: '12 Knots',
-        image: '/Diamantides/gallery/yacht4.png',
+        image: '/Diamantides/gallery/yacht_4.jpg',
         category: 'sales',
         price: '€1,200,000',
         description: 'Experience the romance of sailing without compromising luxury. Azure Dream offers a silent, smooth cruise with all the amenities of a motor yacht.',
@@ -101,11 +97,10 @@ export const yachts = [
         },
         features: ['Sailing Rig', 'Water Maker', 'Solar Panels', 'Dinghy Garage'],
         gallery: [
-            '/Diamantides/gallery/yacht4.png',
-            '/Diamantides/gallery/yacht5.png',
-            '/Diamantides/gallery/yacht1.png',
-            '/Diamantides/gallery/yacht2.png',
-            '/Diamantides/gallery/yacht3.png'
+            '/Diamantides/gallery/yacht_4.jpg',
+            '/Diamantides/gallery/yacht_1.jpg',
+            '/Diamantides/gallery/yacht_2.jpg',
+            '/Diamantides/gallery/yacht_3.jpg'
         ]
     }
 ];
