@@ -148,6 +148,7 @@ const YachtDetail = () => {
                             </div>
                         </section>
 
+                        {/* 
                         <section className="detail-section">
                             <h2>Features & Amenities</h2>
                             <ul className="features-list">
@@ -156,6 +157,7 @@ const YachtDetail = () => {
                                 ))}
                             </ul>
                         </section>
+                        */}
 
                         <section className="detail-bottom-columns">
                             <Link to="/" className="postcard">
