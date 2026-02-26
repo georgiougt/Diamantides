@@ -1,7 +1,7 @@
 export const yachts = [
     {
         id: 1,
-        name: 'Aegean Pearl',
+        name: 'Princess 88',
         type: 'Motor Yacht',
         length: '75 ft',
         capacity: '12 Guests',
@@ -9,7 +9,7 @@ export const yachts = [
         image: '/Diamantides/gallery/yacht_1.jpg',
         category: 'charter',
         price: '€4,500 / day',
-        description: 'The Aegean Pearl is a masterpiece of modern design and engineering. Perfect for day trips or extended charters, she offers ample deck space, luxurious cabins, and a state-of-the-art entertainment system.',
+        description: 'The Princess 88, named Trinity, provides outstanding efficiency and incredibly luxurious style by combining exceptional engineering and craftsmanship. With a drop down balcony, which unfolds over the sea, it provides one of a kind, magnificent sunset views. Her distinctive deep-V hull design balances incredible fuel efficiency with spectacular performance and agility while meeting the highest industry standards. Featuring a spacious saloon with panoramic views and a formal dining area, it is the ideal yacht to entertain guests, for formal or social occasions. The flybridge includes generous seating as well as a dining area, large sun pad, wet bar and sociable helm side with companion seating, making the yacht the perfect fit for large groups during the day and eight guests overnight in four luxuriously furnished cabins.',
         specs: {
             builder: 'Sunseeker',
             year: '2020',

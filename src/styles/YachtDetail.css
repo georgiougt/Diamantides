@@ -12,7 +12,7 @@
 .detail-header-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 2rem 2rem 0;
 }
 
 .detail-header-content h1 {
@@ -339,10 +339,10 @@
     transform: scale(1.12);
 }
 
-/* 7-Image Mosaic Grid specifically for postcards */
+/* 5-Image Mosaic Grid specifically for postcards */
 .multi-image-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 2px;
     height: 100%;
