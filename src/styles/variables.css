@@ -1,16 +1,16 @@
 :root {
   /* Colors */
-  --color-primary: #111111;
-  /* Deep Black */
-  --color-secondary: #d4af37;
-  /* Luxury Gold */
+  --color-primary: #1a365d;
+  /* Deep Blue */
+  --color-secondary: #e2e8f0;
+  /* Silver */
   --color-white: #ffffff;
   --color-light-gray: #f8f9fa;
-  /* Off-white/Sand */
-  --color-text-dark: #222222;
+  /* Off-white */
+  --color-text-dark: #2d3748;
   --color-text-light: #f0f0f0;
-  --color-accent: #2a2a2a;
-  /* Lighter Black for accents */
+  --color-accent: #2c5282;
+  /* Lighter Blue for accents */
 
   /* Typography */
   --font-heading: 'Playfair Display', serif;
