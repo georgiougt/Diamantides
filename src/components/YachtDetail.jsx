@@ -52,14 +52,6 @@ const YachtDetail = () => {
                     >
                         {yacht.name}
                     </motion.h1>
-                    <motion.p
-                        className="detail-price"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                    >
-                        {yacht.price}
-                    </motion.p>
                 </div>
             </section>
 
