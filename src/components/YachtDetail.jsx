@@ -142,11 +142,15 @@ const YachtDetail = () => {
 
                         <section className="detail-bottom-columns">
                             <Link to="/" className="postcard">
-                                <div className="postcard-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=600&auto=format&fit=crop" alt="All Yachts" className="postcard-img" />
+                                <div className="postcard-img-wrapper yachts-mosaic-grid">
+                                    <img src="/Diamantides/gallery/yacht_1.jpg" alt="All Yachts 1" className="postcard-img" />
+                                    <img src="/Diamantides/gallery/yacht_2.jpg" alt="All Yachts 2" className="postcard-img" />
+                                    <img src="/Diamantides/gallery/yacht_3.jpg" alt="All Yachts 3" className="postcard-img" />
+                                    <img src="/Diamantides/gallery/yacht_4.jpg" alt="All Yachts 4" className="postcard-img" />
                                 </div>
                                 <div className="postcard-text">
                                     <h3>All Yachts</h3>
+                                    <span className="btn-view-all">View Fleet</span>
                                 </div>
                             </Link>
                             <div className="postcard">
