@@ -7,7 +7,8 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
-    const isHomePage = location.pathname === '/';
+    const transparentRoutes = ['/', '/members-only'];
+    const isTransparentStart = transparentRoutes.includes(location.pathname);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -31,7 +32,7 @@ const Navbar = () => {
     };
 
     return (
-        <header className={`navbar ${isScrolled || !isHomePage ? 'scrolled' : ''}`}>
+        <header className={`navbar ${isScrolled || !isTransparentStart ? 'scrolled' : ''}`}>
             <div className="navbar-container">
                 <Link to="/" className="logo">
                     <Anchor className="logo-icon" />
