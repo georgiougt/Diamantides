@@ -51,30 +51,36 @@ const Fleet = () => {
                             transition={{ duration: 0.4 }}
                             layout
                         >
-                            <div className="fleet-image-container">
-                                <img src={yacht.image} alt={yacht.name} className="fleet-image" />
-                                <span className="fleet-tag">{yacht.category === 'charter' ? 'For Charter' : 'For Sale'}</span>
-                            </div>
-                            <div className="fleet-content">
-                                <h3>{yacht.name}</h3>
-                                <p className="fleet-type">{yacht.type}</p>
-
-                                <div className="fleet-specs">
-                                    <div className="spec-item">
-                                        <Ruler size={16} /> {yacht.length}
-                                    </div>
-                                    <div className="spec-item">
-                                        <Users size={16} /> {yacht.capacity}
-                                    </div>
-                                    <div className="spec-item">
-                                        <Gauge size={16} /> {yacht.speed}
-                                    </div>
+                            <Link to={`/yacht/${yacht.id}`} className="fleet-card-link">
+                                <div className="fleet-img-wrapper">
+                                    <img src={yacht.image || yacht.gallery?.[0]} alt={yacht.name} />
+                                    <span className="fleet-tag">{yacht.category === 'charter' ? 'For Charter' : 'For Sale'}</span>
                                 </div>
+                                <div className="fleet-glass-panel">
+                                    <div className="glass-header">
+                                        <h3>{yacht.name}</h3>
+                                        <p className="fleet-type">{yacht.type}</p>
+                                    </div>
 
-                                <Link to={`/yacht/${yacht.id}`} className="btn-enquire">
-                                    View Details <ArrowRight size={16} />
-                                </Link>
-                            </div>
+                                    <div className="glass-specs">
+                                        <div className="spec-item">
+                                            <Ruler size={14} /> {yacht.length}
+                                        </div>
+                                        {yacht.capacity && (
+                                            <div className="spec-item">
+                                                <Users size={14} /> {yacht.capacity}
+                                            </div>
+                                        )}
+                                        {yacht.speed && (
+                                            <div className="spec-item">
+                                                <Gauge size={14} /> {yacht.speed}
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    <span className="glass-cta">View Details</span>
+                                </div>
+                            </Link>
                         </motion.div>
                     ))}
                 </div>
