@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Anchor, Users, Ruler, Send, Star } from 'lucide-react';
 import { yachts } from '../data/yachts';
 import '../styles/CharterYachts.css'; // Reusing the high-end styles
+import vipVideo from '../assets/vip_hero.mp4';
 
 const VIPCharterPage = () => {
     const charterYachts = yachts.filter(y => y.category === 'charter' || !y.category);
@@ -49,7 +50,7 @@ const VIPCharterPage = () => {
                     playsInline
                     style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: -2 }}
                 >
-                    <source src="/Diamantides/vip_hero.mp4" type="video/mp4" />
+                    <source src={vipVideo} type="video/mp4" />
                 </video>
                 <div className="charter-hero-overlay" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.3))', zIndex: -1 }}></div>
                 <div className="charter-hero-content">
