@@ -41,7 +41,7 @@ const VIPCharterPage = () => {
     return (
         <main className="charter-page vip-page">
             {/* Immersive Hero Section */}
-            <section className="charter-hero">
+            <section className="charter-hero" style={{ backgroundImage: 'none', backgroundColor: '#000' }}>
                 <video
                     className="hero-video"
                     autoPlay
