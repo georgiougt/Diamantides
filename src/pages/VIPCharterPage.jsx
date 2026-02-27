@@ -41,7 +41,17 @@ const VIPCharterPage = () => {
         <main className="charter-page vip-page">
             {/* Immersive Hero Section */}
             <section className="charter-hero">
-                <div className="charter-hero-overlay" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.3))' }}></div>
+                <video
+                    className="hero-video"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: -2 }}
+                >
+                    <source src="/Diamantides/vip_hero.mp4" type="video/mp4" />
+                </video>
+                <div className="charter-hero-overlay" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.3))', zIndex: -1 }}></div>
                 <div className="charter-hero-content">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
