@@ -145,18 +145,21 @@ const YachtDetail = () => {
 
                         <section className="detail-bottom-columns">
                             <Link to="/" className="postcard">
+                                <div className="postcard-text">
+                                    <h3>All Yachts</h3>
+                                    <span className="btn-view-all">View Fleet</span>
+                                </div>
                                 <div className="postcard-img-wrapper yachts-mosaic-grid">
                                     <img src="/Diamantides/gallery/yacht_1.jpg" alt="All Yachts 1" className="postcard-img" />
                                     <img src="/Diamantides/gallery/yacht_2.jpg" alt="All Yachts 2" className="postcard-img" />
                                     <img src="/Diamantides/gallery/yacht_3.jpg" alt="All Yachts 3" className="postcard-img" />
                                     <img src="/Diamantides/gallery/yacht_4.jpg" alt="All Yachts 4" className="postcard-img" />
                                 </div>
-                                <div className="postcard-text">
-                                    <h3>All Yachts</h3>
-                                    <span className="btn-view-all">View Fleet</span>
-                                </div>
                             </Link>
                             <div className="postcard">
+                                <div className="postcard-text">
+                                    <h3>Top Cyprus Destinations</h3>
+                                </div>
                                 <div className="postcard-img-wrapper multi-image-grid">
                                     <img src="/Diamantides/destinations/dest_1.jpg" alt="Cyprus Dest 1" className="postcard-img" />
                                     <img src="/Diamantides/destinations/dest_2.jpg" alt="Cyprus Dest 2" className="postcard-img" />
@@ -164,20 +167,17 @@ const YachtDetail = () => {
                                     <img src="/Diamantides/destinations/dest_4.jpg" alt="Cyprus Dest 4" className="postcard-img" />
                                     <img src="/Diamantides/destinations/dest_5.jpg" alt="Cyprus Dest 5" className="postcard-img" />
                                 </div>
-                                <div className="postcard-text">
-                                    <h3>Top Cyprus Destinations</h3>
-                                </div>
                             </div>
                             <div className="postcard">
+                                <div className="postcard-text">
+                                    <h3>The World</h3>
+                                </div>
                                 <div className="postcard-img-wrapper multi-image-grid">
                                     <img src="/Diamantides/world/world_1.jpg" alt="The World 1" className="postcard-img" />
                                     <img src="/Diamantides/world/world_2.jpg" alt="The World 2" className="postcard-img" />
                                     <img src="/Diamantides/world/world_3.jpg" alt="The World 3" className="postcard-img" />
                                     <img src="/Diamantides/world/world_4.jpg" alt="The World 4" className="postcard-img" />
                                     <img src="/Diamantides/world/world_5.jpg" alt="The World 5" className="postcard-img" />
-                                </div>
-                                <div className="postcard-text">
-                                    <h3>The World</h3>
                                 </div>
                             </div>
                         </section>
