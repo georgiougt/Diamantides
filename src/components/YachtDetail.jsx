@@ -149,11 +149,12 @@ const YachtDetail = () => {
                                     <h3>All Yachts</h3>
                                     <span className="btn-view-all">View Fleet</span>
                                 </div>
-                                <div className="postcard-img-wrapper yachts-mosaic-grid">
+                                <div className="postcard-img-wrapper multi-image-grid">
                                     <img src="/Diamantides/gallery/yacht_1.jpg" alt="All Yachts 1" className="postcard-img" />
                                     <img src="/Diamantides/gallery/yacht_2.jpg" alt="All Yachts 2" className="postcard-img" />
                                     <img src="/Diamantides/gallery/yacht_3.jpg" alt="All Yachts 3" className="postcard-img" />
                                     <img src="/Diamantides/gallery/yacht_4.jpg" alt="All Yachts 4" className="postcard-img" />
+                                    <img src="/Diamantides/gallery/yacht_1.jpg" alt="All Yachts 5" className="postcard-img" />
                                 </div>
                             </Link>
                             <div className="postcard">
