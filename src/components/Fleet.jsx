@@ -62,16 +62,46 @@ const Fleet = () => {
                                         <p className="fleet-type">{yacht.type}</p>
                                     </div>
 
-                                    <div className="glass-specs">
+                                    <div className="glass-specs" style={{ marginBottom: '1rem', paddingBottom: '0.8rem', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
                                         <div className="spec-item">
                                             <Ruler size={14} /> {yacht.length}
                                         </div>
-                                        {yacht.price && (
-                                            <div className="spec-item" style={{ marginLeft: 'auto', color: 'var(--color-secondary)', fontWeight: 700 }}>
-                                                {yacht.price}
-                                            </div>
-                                        )}
                                     </div>
+
+                                    {yacht.price && yacht.category === 'charter' && (() => {
+                                        const basePrice = parseInt(yacht.price.replace(/[^\d]/g, '')) || 0;
+                                        if (basePrice === 0) return null;
+
+                                        const halfDayPrice = `€${(basePrice * 0.9).toLocaleString()}`;
+                                        const fullDayPrice = yacht.price.includes('€') ? yacht.price.split(' ')[0] : `€${basePrice.toLocaleString()}`;
+                                        const overnightPrice = `€${(basePrice * 1.2).toLocaleString()}`;
+
+                                        return (
+                                            <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                    <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Half Day</span>
+                                                    <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{halfDayPrice}</span>
+                                                </div>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                    <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Full Day</span>
+                                                    <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{fullDayPrice}</span>
+                                                </div>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                    <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Overnight</span>
+                                                    <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{overnightPrice}</span>
+                                                </div>
+                                            </div>
+                                        );
+                                    })()}
+
+                                    {yacht.price && yacht.category === 'sales' && (
+                                        <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Sale Price</span>
+                                                <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.price}</span>
+                                            </div>
+                                        </div>
+                                    )}
 
                                     <span className="glass-cta">View Details</span>
                                 </div>
