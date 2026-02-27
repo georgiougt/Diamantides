@@ -1,7 +1,7 @@
 .footer-section {
-    background-color: #05101f;
-    /* Darker than primary */
-    color: #a8b2d1;
+    background-color: #050505;
+    /* Dark black background */
+    color: rgba(255, 255, 255, 0.7);
     padding: 4rem 2rem 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -65,7 +65,7 @@
 }
 
 .footer-links ul li a {
-    color: #a8b2d1;
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     transition: color var(--transition-fast);
 }
@@ -91,7 +91,7 @@
 }
 
 .footer-legal a {
-    color: #a8b2d1;
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
 }
 

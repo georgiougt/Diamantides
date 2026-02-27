@@ -1,20 +1,21 @@
 :root {
   /* Colors */
-  --color-primary: #1a365d;
-  /* Deep Blue */
-  --color-secondary: #e2e8f0;
-  /* Silver */
+  --color-primary: #0a0a0a;
+  /* Deep Black */
+  --color-secondary: #c5a059;
+  /* Premium Gold */
   --color-white: #ffffff;
-  --color-light-gray: #f8f9fa;
-  /* Off-white */
-  --color-text-dark: #2d3748;
+  --color-light-gray: #f4f4f4;
+  /* Light gray for section backgrounds */
+  --color-text-dark: #111111;
+  /* True dark for readability */
   --color-text-light: #f0f0f0;
-  --color-accent: #2c5282;
-  /* Lighter Blue for accents */
+  --color-accent: #d4af37;
+  /* Metallic Gold for accents */
 
   /* Typography */
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Lato', sans-serif;
+  --font-heading: Didot, "Bodoni Moda", "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+  --font-body: "Avenir Next", "Nunito Sans", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* Spacing */
   --spacing-xs: 0.5rem;

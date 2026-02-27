@@ -19,11 +19,12 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Home', href: '#hero' },
-        { name: 'About', href: '#about' },
-        { name: 'Services', href: '#services' },
-        { name: 'Fleet', href: '#fleet' },
-        { name: 'Contact', href: '#contact' },
+        { name: 'Home', href: '/' },
+        { name: 'About', href: '/about' },
+        { name: 'Services', href: '/services' },
+        { name: 'Charter Yachts', href: '/charter' },
+        { name: 'Fleet', href: '/fleet' },
+        { name: 'Contact', href: '/contact' },
     ];
 
     const handleNavClick = () => {
@@ -40,15 +41,9 @@ const Navbar = () => {
 
                 <div className="desktop-menu">
                     {navLinks.map((link) => (
-                        isHomePage ? (
-                            <a key={link.name} href={link.href} className="nav-link">
-                                {link.name}
-                            </a>
-                        ) : (
-                            <Link key={link.name} to={`/${link.href}`} className="nav-link">
-                                {link.name}
-                            </Link>
-                        )
+                        <Link key={link.name} to={link.href} className="nav-link">
+                            {link.name}
+                        </Link>
                     ))}
                     <a href="tel:+35725010561" className="contact-btn">
                         <Phone size={18} />
@@ -68,25 +63,14 @@ const Navbar = () => {
             {isMobileMenuOpen && (
                 <div className="mobile-menu">
                     {navLinks.map((link) => (
-                        isHomePage ? (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                className="mobile-nav-link"
-                                onClick={handleNavClick}
-                            >
-                                {link.name}
-                            </a>
-                        ) : (
-                            <Link
-                                key={link.name}
-                                to={`/${link.href}`}
-                                className="mobile-nav-link"
-                                onClick={handleNavClick}
-                            >
-                                {link.name}
-                            </Link>
-                        )
+                        <Link
+                            key={link.name}
+                            to={link.href}
+                            className="mobile-nav-link"
+                            onClick={handleNavClick}
+                        >
+                            {link.name}
+                        </Link>
                     ))}
                 </div>
             )}

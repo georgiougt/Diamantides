@@ -1,0 +1,364 @@
+/* Charter Yachts Page Styling */
+
+.charter-page {
+    background-color: #fcfcfc;
+    min-height: 100vh;
+}
+
+/* 1. Immersive Hero */
+.charter-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url('/Diamantides/gallery/yacht_1.jpg');
+    /* Use a stunning hero image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.charter-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(10, 10, 10, 0.95) 100%);
+}
+
+.charter-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 2rem;
+    color: var(--color-white);
+}
+
+.charter-hero-content h1 {
+    font-size: 5rem;
+    font-family: var(--font-heading);
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--color-white);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.charter-hero-content p {
+    font-size: 1.3rem;
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* 2. Asymmetrical Masonry Grid */
+.charter-fleet-section {
+    padding: 8rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.charter-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+}
+
+.charter-card {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--color-white);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.large-card {
+    grid-column: span 12;
+    height: 65vh;
+    min-height: 500px;
+}
+
+.standard-card {
+    grid-column: span 6;
+    height: 50vh;
+    min-height: 400px;
+}
+
+/* 3. Glassmorphism Interactivity */
+.charter-card-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.charter-img-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.charter-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.charter-card:hover .charter-img-wrapper img {
+    transform: scale(1.08);
+}
+
+.charter-glass-panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 2rem;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.charter-card:hover .charter-glass-panel {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Show glass panel constantly on mobile */
+@media (max-width: 900px) {
+    .charter-glass-panel {
+        transform: translateY(0);
+        opacity: 1;
+        padding: 1.5rem;
+    }
+
+    .charter-card:hover .charter-glass-panel {
+        transform: translateY(0);
+    }
+}
+
+.glass-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.8rem;
+}
+
+.glass-header h2 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin: 0;
+    line-height: 1.1;
+}
+
+.glass-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.glass-price small {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--color-text-dark);
+}
+
+.glass-specs {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+.dot {
+    opacity: 0.5;
+    margin: 0 2px;
+}
+
+.glass-cta {
+    display: inline-block;
+    position: relative;
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-style: italic;
+    transition: color 0.3s;
+}
+
+.glass-cta::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: var(--color-primary);
+    transition: width 0.4s ease;
+}
+
+.charter-card:hover .glass-cta::after {
+    width: 100%;
+}
+
+/* 4. Bespoke CTA Banner - Full Page Fade In */
+.charter-cta-banner {
+    background-color: #050505;
+    color: var(--color-white);
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.charter-cta-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.cta-banner-content {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cta-icon {
+    color: var(--color-secondary);
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.cta-banner-content h2 {
+    font-size: 3.5rem;
+    font-family: var(--font-heading);
+    color: var(--color-white);
+    margin-bottom: 1.5rem;
+}
+
+.cta-banner-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 4rem;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+/* Embedded Dark Contact Form */
+.charter-contact-form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.charter-contact-form input,
+.charter-contact-form textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+    padding: 1rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s, background 0.3s;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.charter-contact-form input::placeholder,
+.charter-contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.charter-contact-form input:focus,
+.charter-contact-form textarea:focus {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.charter-contact-form textarea {
+    resize: vertical;
+}
+
+.btn-bespoke {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 3rem;
+    background-color: var(--color-secondary);
+    color: #000;
+    border: 1px solid var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin-top: 1rem;
+}
+
+.btn-bespoke:hover {
+    background-color: transparent;
+    color: var(--color-secondary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .charter-hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .large-card,
+    .standard-card {
+        grid-column: span 12;
+        height: 55vh;
+    }
+
+    .charter-fleet-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .cta-banner-content h2 {
+        font-size: 2.2rem;
+    }
+}

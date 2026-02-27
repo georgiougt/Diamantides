@@ -179,6 +179,17 @@
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--color-text-dark);
+    white-space: pre-line;
+}
+
+.detail-description::first-letter {
+    font-family: var(--font-heading);
+    font-size: 3.8rem;
+    color: var(--color-primary);
+    float: left;
+    line-height: 0.8;
+    margin-right: 8px;
+    margin-top: 4px;
 }
 
 /* Information Section */

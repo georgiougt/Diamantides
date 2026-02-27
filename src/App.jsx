@@ -1,6 +1,12 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import AboutPage from './pages/AboutPage';
+import ServicesPage from './pages/ServicesPage';
+import FleetPage from './pages/FleetPage';
+import ContactPage from './pages/ContactPage';
+import CharterYachtsPage from './pages/CharterYachtsPage';
+// Ensure the root-level components remain if used by LandingPage
 import About from './components/About';
 import Services from './components/Services';
 import Fleet from './components/Fleet';
@@ -30,6 +36,11 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/fleet" element={<FleetPage />} />
+          <Route path="/charter" element={<CharterYachtsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/yacht/:id" element={<YachtDetail />} />
         </Routes>
         <Footer />
