@@ -101,14 +101,17 @@ const YachtDetail = () => {
 
                         <section className="detail-section information-section">
                             <div className="section-title-wrapper">
-                                <hr className="title-line" />
+                                <div className="nautical-divider">
+                                    <hr className="gold-line" />
+                                    <Anchor size={24} className="nautical-icon" />
+                                    <hr className="gold-line" />
+                                </div>
                                 <h2>Charter Pricing</h2>
-                                <hr className="title-line" />
                             </div>
 
                             <div className="info-columns">
                                 {/* Pricing Column */}
-                                <div className="info-column pricing-column">
+                                <div className="info-column pricing-column premium-pricing-card">
                                     <div className="info-row">
                                         <span className="info-label">Half Day</span>
                                         <span className="info-value">{halfDayPrice}</span>
