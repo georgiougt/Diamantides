@@ -66,14 +66,9 @@ const Fleet = () => {
                                         <div className="spec-item">
                                             <Ruler size={14} /> {yacht.length}
                                         </div>
-                                        {yacht.capacity && (
-                                            <div className="spec-item">
-                                                <Users size={14} /> {yacht.capacity}
-                                            </div>
-                                        )}
-                                        {yacht.speed && (
-                                            <div className="spec-item">
-                                                <Gauge size={14} /> {yacht.speed}
+                                        {yacht.price && (
+                                            <div className="spec-item" style={{ marginLeft: 'auto', color: 'var(--color-secondary)', fontWeight: 700 }}>
+                                                {yacht.price}
                                             </div>
                                         )}
                                     </div>

@@ -102,7 +102,7 @@ const YachtDetail = () => {
                         <section className="detail-section information-section">
                             <div className="section-title-wrapper">
                                 <hr className="title-line" />
-                                <h2>Information</h2>
+                                <h2>Charter Pricing</h2>
                                 <hr className="title-line" />
                             </div>
 
