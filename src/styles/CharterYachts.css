@@ -147,35 +147,44 @@
     }
 }
 
-.glass-header {
+.charter-glass-panel .glass-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding-bottom: 0.8rem;
+    padding-bottom: 1rem;
 }
 
-.glass-header h2 {
-    font-size: 2rem;
+.charter-glass-panel .glass-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
     color: var(--color-primary);
-    margin: 0;
+    margin: 0 0 0.5rem 0;
     line-height: 1.1;
 }
 
-.glass-price {
-    font-size: 1.2rem;
-    font-weight: 700;
+.charter-glass-panel .glass-price {
+    text-align: right;
+}
+
+.charter-glass-panel .price-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
+}
+
+.charter-glass-panel .price-amount {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
     color: var(--color-primary);
+    font-weight: 600;
 }
 
-.glass-price small {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: var(--color-text-dark);
-}
-
-.glass-specs {
+.charter-glass-panel .glass-specs {
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
@@ -184,7 +193,7 @@
     margin-bottom: 1.5rem;
 }
 
-.spec-item {
+.charter-glass-panel .spec-item {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -196,25 +205,26 @@
     margin: 0 2px;
 }
 
-.glass-cta {
+.charter-glass-panel .glass-cta {
     display: inline-block;
     position: relative;
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     color: var(--color-primary);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
-    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: color 0.3s;
 }
 
-.glass-cta::after {
+.charter-glass-panel .glass-cta::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: -4px;
     left: 0;
     width: 0%;
     height: 1px;
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
     transition: width 0.4s ease;
 }
 

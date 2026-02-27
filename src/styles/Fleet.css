@@ -118,7 +118,7 @@
     }
 }
 
-.glass-header {
+.fleet-glass-panel .glass-header {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
@@ -126,7 +126,7 @@
     padding-bottom: 0.8rem;
 }
 
-.glass-header h3 {
+.fleet-glass-panel .glass-header h3 {
     font-size: 1.8rem;
     font-family: var(--font-heading);
     color: var(--color-white);
@@ -142,7 +142,7 @@
     margin: 0;
 }
 
-.glass-specs {
+.fleet-glass-panel .glass-specs {
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
@@ -151,14 +151,15 @@
     margin-bottom: 1.5rem;
 }
 
-.spec-item {
+.fleet-glass-panel .spec-item {
     display: flex;
     align-items: center;
     gap: 6px;
     font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-.glass-cta {
+.fleet-glass-panel .glass-cta {
     display: inline-block;
     position: relative;
     font-family: var(--font-body);
@@ -170,7 +171,7 @@
     transition: color 0.3s;
 }
 
-.glass-cta::after {
+.fleet-glass-panel .glass-cta::after {
     content: '';
     position: absolute;
     bottom: -4px;
