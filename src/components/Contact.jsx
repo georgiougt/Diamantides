@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, MessageCircle } from 'lucide-react';
 import '../styles/Contact.css';
 
 const Contact = () => {
@@ -140,6 +140,12 @@ const Contact = () => {
                         <button type="submit" className="btn-submit">
                             Send Message <Send size={18} />
                         </button>
+
+                        <div style={{ marginTop: '1.5rem', textAlign: 'center', fontSize: '0.95rem', color: '#666' }}>
+                            <p style={{ margin: 0 }}>
+                                Or message us on <a href="https://wa.me/35799123456" target="_blank" rel="noopener noreferrer" style={{ color: '#25D366', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '5px', verticalAlign: 'middle' }}><MessageCircle size={18} /> +357 99 123 456</a>
+                            </p>
+                        </div>
                     </form>
                 </div>
 
