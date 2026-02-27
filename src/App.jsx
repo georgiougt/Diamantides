@@ -6,6 +6,7 @@ import ServicesPage from './pages/ServicesPage';
 import FleetPage from './pages/FleetPage';
 import ContactPage from './pages/ContactPage';
 import CharterYachtsPage from './pages/CharterYachtsPage';
+import VIPCharterPage from './pages/VIPCharterPage';
 // Ensure the root-level components remain if used by LandingPage
 import About from './components/About';
 import Services from './components/Services';
@@ -40,6 +41,7 @@ function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/fleet" element={<FleetPage />} />
           <Route path="/charter" element={<CharterYachtsPage />} />
+          <Route path="/members-only" element={<VIPCharterPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/yacht/:id" element={<YachtDetail />} />
         </Routes>
