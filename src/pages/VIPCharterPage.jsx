@@ -49,7 +49,7 @@ const VIPCharterPage = () => {
                     playsInline
                     style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: -2 }}
                 >
-                    <source src="https://videos.pexels.com/video-files/30346376/13007434_1920_1080_60fps.mp4" type="video/mp4" />
+                    <source src="/Diamantides/vip_hero.mp4" type="video/mp4" />
                 </video>
                 <div className="charter-hero-overlay" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.3))', zIndex: -1 }}></div>
                 <div className="charter-hero-content">
