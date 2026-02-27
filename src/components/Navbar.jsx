@@ -19,11 +19,11 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'About', href: '/about' },
-        { name: 'Services', href: '/services' },
         { name: 'Charter Yachts', href: '/charter' },
+        { name: 'Services', href: '/services' },
         { name: 'Fleet', href: '/fleet' },
         { name: 'Contact', href: '/contact' },
+        { name: 'About', href: '/about' },
     ];
 
     const handleNavClick = () => {
