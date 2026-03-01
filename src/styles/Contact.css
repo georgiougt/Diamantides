@@ -80,24 +80,7 @@
     justify-content: center;
 }
 
-.google-map-static {
-    width: 100%;
-    height: 100%;
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Google_Maps_Logo_2020.svg/2275px-Google_Maps_Logo_2020.svg.png');
-    /* Very basic placeholder */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.3;
-}
 
-.google-map-static span {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-}
 
 /* Form Styles */
 .contact-form-container {

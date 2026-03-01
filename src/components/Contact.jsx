@@ -60,10 +60,16 @@ const Contact = () => {
                     </div>
 
                     <div className="map-placeholder">
-                        {/* Google Maps Embed Placeholder - Using an image for static nature */}
-                        <div className="google-map-static">
-                            <span>Google Maps Embed Placeholder</span>
-                        </div>
+                        <iframe
+                            title="Diamantides Yachting Location"
+                            src="https://www.google.com/maps?q=Building+D2,+Limassol+Marina+St-Shop+7,+Limassol+3601,+Cyprus&output=embed"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
                     </div>
                 </div>
 
