@@ -2,16 +2,16 @@
   /* Colors */
   --color-primary: #0a0a0a;
   /* Deep Black */
-  --color-secondary: #c5a059;
-  /* Premium Gold */
+  --color-secondary: #D4AF37;
+  /* Premium Metallic Gold */
   --color-white: #ffffff;
   --color-light-gray: #f4f4f4;
   /* Light gray for section backgrounds */
   --color-text-dark: #111111;
   /* True dark for readability */
   --color-text-light: #f0f0f0;
-  --color-accent: #d4af37;
-  /* Metallic Gold for accents */
+  --color-accent: #E5B83B;
+  /* Vibrant Rich Gold for accents */
 
   /* Typography */
   --font-heading: Didot, "Bodoni Moda", "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
