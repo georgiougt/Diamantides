@@ -14,6 +14,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Ensure SVG icons don't break when text-fill-color is transparent */
+svg {
+  color: var(--color-secondary) !important;
+}
+
 h1,
 h2,
 h3,

@@ -226,7 +226,7 @@
     left: 0;
     width: 0%;
     height: 1px;
-    background-color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
     transition: width 0.4s ease;
 }
 
@@ -268,7 +268,11 @@
 }
 
 .cta-icon {
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     margin-bottom: 2rem;
     opacity: 0.8;
 }
@@ -336,7 +340,7 @@
     align-items: center;
     justify-content: center;
     padding: 1.2rem 3rem;
-    background-color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
     color: #000;
     border: 1px solid var(--color-secondary);
     text-transform: uppercase;
@@ -351,7 +355,11 @@
 
 .btn-bespoke:hover {
     background-color: transparent;
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 /* Responsive adjustments */

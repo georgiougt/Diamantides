@@ -40,7 +40,11 @@
 
 .page-header p {
     font-size: 1.2rem;
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     font-family: var(--font-body);
 }
 

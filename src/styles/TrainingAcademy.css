@@ -23,7 +23,11 @@
 .academy-wrapper h3 {
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     margin-bottom: 1rem;
     font-weight: 500;
 }
@@ -37,7 +41,11 @@
 }
 
 .icon-gold {
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     margin-right: 0.8rem;
     flex-shrink: 0;
 }
@@ -103,7 +111,7 @@
 
 .academy-badge {
     display: inline-block;
-    background-color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
     color: var(--color-primary);
     padding: 0.4rem 1.2rem;
     border-radius: 30px;
@@ -135,7 +143,7 @@
 .academy-cta-button {
     display: inline-block;
     padding: 1rem 2.5rem;
-    background-color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
     color: var(--color-white);
     text-decoration: none;
     font-weight: 600;
@@ -244,7 +252,11 @@
     width: 50px;
     height: 50px;
     background-color: var(--color-primary);
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -312,7 +324,11 @@
 }
 
 .docs-list li svg {
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     margin-right: 1rem;
 }
 
@@ -383,7 +399,11 @@
 }
 
 .email-link:hover {
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 @media (max-width: 768px) {

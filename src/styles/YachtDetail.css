@@ -24,7 +24,11 @@
 
 .detail-price {
     font-size: 1.5rem;
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     font-weight: 700;
 }
 
@@ -122,7 +126,11 @@
 
 .thumbnail-wrapper.active {
     opacity: 1;
-    border-color: var(--color-secondary);
+    border-background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     transform: scale(1.05);
 }
@@ -151,7 +159,11 @@
 }
 
 .btn-back:hover {
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 .detail-grid {
@@ -224,7 +236,11 @@
 }
 
 .nautical-icon {
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     opacity: 0.8;
 }
 
@@ -456,7 +472,7 @@
 }
 
 .postcard:hover .btn-view-all {
-    background-color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
     color: var(--color-primary);
 }
 
@@ -507,7 +523,11 @@
 .detail-form input:focus,
 .detail-form textarea:focus {
     outline: none;
-    border-color: var(--color-secondary);
+    border-background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     background: rgba(255, 255, 255, 0.1);
 }
 
@@ -536,7 +556,11 @@
 }
 
 .country-code-select-dark:focus {
-    border-color: var(--color-secondary);
+    border-background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     background: rgba(255, 255, 255, 0.1);
 }
 
@@ -546,7 +570,7 @@
 }
 
 .btn-submit-detail {
-    background-color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
     color: var(--color-primary);
     border: none;
     padding: 1rem;
@@ -572,7 +596,11 @@
 .phone-link {
     display: block;
     font-size: 1.25rem;
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     font-weight: 700;
     text-decoration: none;
     margin-top: 0.5rem;

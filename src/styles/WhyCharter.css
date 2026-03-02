@@ -30,7 +30,11 @@
 
 .benefit-card:hover .benefit-icon {
     background-color: var(--color-primary);
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     transform: scale(1.1);
 }
 
@@ -73,7 +77,11 @@
 
 .testimonial-author {
     font-family: var(--font-body);
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     font-weight: 700;
     letter-spacing: 1px;
 }

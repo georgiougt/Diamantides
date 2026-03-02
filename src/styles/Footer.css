@@ -32,7 +32,11 @@
 }
 
 .footer-logo-icon {
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 .footer-desc {
@@ -51,7 +55,11 @@
 }
 
 .social-links a:hover {
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 .footer-links h3 {
@@ -71,7 +79,11 @@
 }
 
 .footer-links ul li a:hover {
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 .footer-bottom {
@@ -96,7 +108,11 @@
 }
 
 .footer-legal a:hover {
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 @media (max-width: 768px) {

@@ -75,7 +75,7 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background-color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
     color: #000;
     padding: 0.4rem 1rem;
     font-size: 0.8rem;
@@ -135,7 +135,11 @@
 }
 
 .fleet-type {
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     font-size: 0.95rem;
     font-family: var(--font-body);
     font-weight: 500;
@@ -163,7 +167,11 @@
     display: inline-block;
     position: relative;
     font-family: var(--font-body);
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -178,7 +186,7 @@
     left: 0;
     width: 0%;
     height: 1px;
-    background-color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
     transition: width 0.4s ease;
 }
 

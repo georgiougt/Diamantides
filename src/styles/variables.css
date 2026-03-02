@@ -13,6 +13,14 @@
   --color-accent: #E5B83B;
   /* Vibrant Rich Gold for accents */
 
+  /* Gradients */
+  --gradient-metallic-gold: linear-gradient(135deg,
+      #BF953F 0%,
+      #FCF6BA 25%,
+      #B38728 50%,
+      #FBF5B7 75%,
+      #AA771C 100%);
+
   /* Typography */
   --font-heading: Didot, "Bodoni Moda", "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
   --font-body: "Avenir Next", "Nunito Sans", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;

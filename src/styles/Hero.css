@@ -51,7 +51,11 @@
     font-size: 2rem;
     font-weight: 400;
     font-style: italic;
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     display: block;
     margin-top: 0.5rem;
 }
@@ -88,14 +92,18 @@
 }
 
 .btn-primary {
-    background-color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
     color: var(--color-primary);
     border: 2px solid var(--color-secondary);
 }
 
 .btn-primary:hover {
     background-color: transparent;
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 .btn-secondary {
@@ -133,7 +141,7 @@
     transform: translateX(-50%);
     width: 4px;
     height: 4px;
-    background-color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
     border-radius: 50%;
     animation: scroll 2s infinite;
 }

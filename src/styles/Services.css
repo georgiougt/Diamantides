@@ -66,7 +66,7 @@
     right: 20px;
     width: 60px;
     height: 60px;
-    background-color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
     color: var(--color-white);
     border-radius: 50%;
     display: flex;
@@ -93,7 +93,11 @@
 }
 
 .learn-more {
-    color: var(--color-secondary);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     font-weight: 700;
     text-decoration: none;
     font-size: 0.9rem;
