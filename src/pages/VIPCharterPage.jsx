@@ -68,14 +68,14 @@ const VIPCharterPage = () => {
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                         style={{ color: 'var(--color-secondary)' }}
                     >
-                        VIP Members Exclusive
+                        Members Exclusive
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                     >
-                        Welcome to the inner circle. As a valued VIP member, enjoy an exclusive 20% privilege reduction on our entire charter fleet.
+                        Welcome to the inner circle. As a valued Exclusive member, enjoy an exclusive 20% privilege reduction on our entire charter fleet.
                     </motion.p>
                 </div>
             </section>
@@ -95,9 +95,9 @@ const VIPCharterPage = () => {
                             <Link to={`/yacht/${yacht.id}`} className="charter-card-link">
                                 <div className="charter-img-wrapper">
                                     <img src={yacht.image || yacht.gallery?.[0]} alt={yacht.name} />
-                                    {/* VIP Badge */}
+                                    {/* Exclusive Badge */}
                                     <div style={{ position: 'absolute', top: '20px', right: '20px', background: 'var(--color-secondary)', color: 'var(--color-primary)', padding: '5px 15px', borderRadius: '20px', fontWeight: 'bold', fontSize: '0.85rem', zIndex: 10, boxShadow: '0 4px 15px rgba(0,0,0,0.3)' }}>
-                                        VIP -20%
+                                        Exclusive -20%
                                     </div>
                                 </div>
                                 <div className="charter-glass-panel">
@@ -123,7 +123,7 @@ const VIPCharterPage = () => {
                                             <span className="spec-item"><span className="dot">•</span> {yacht.specs.cabins.split('(')[0].trim()} Cabins</span>
                                         )}
                                     </div>
-                                    <span className="glass-cta" style={{ color: 'var(--color-secondary)' }}>Secure VIP Charter</span>
+                                    <span className="glass-cta" style={{ color: 'var(--color-secondary)' }}>Secure Exclusive Charter</span>
                                 </div>
                             </Link>
                         </motion.div>
@@ -185,7 +185,7 @@ const VIPCharterPage = () => {
                     </form>
                 </div>
             </motion.section>
-        </main>
+        </main >
     );
 };
 
