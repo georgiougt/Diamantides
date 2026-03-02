@@ -15,6 +15,7 @@ import WhyCharter from './components/WhyCharter';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import YachtDetail from './components/YachtDetail';
+import TrainingAcademyPage from './pages/TrainingAcademyPage';
 
 // Component for the landing page content
 const LandingPage = () => {
@@ -44,6 +45,7 @@ function App() {
           <Route path="/members-only" element={<VIPCharterPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/yacht/:id" element={<YachtDetail />} />
+          <Route path="/training-academy" element={<TrainingAcademyPage />} />
         </Routes>
         <Footer />
       </div>

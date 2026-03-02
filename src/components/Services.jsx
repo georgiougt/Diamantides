@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Anchor, DollarSign, Wrench, Warehouse, GraduationCap, Utensils } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import '../styles/Services.css';
 
 const Services = () => {
@@ -32,7 +33,8 @@ const Services = () => {
             icon: <GraduationCap size={40} />,
             title: 'Training Academy',
             description: 'Certified speedboat operator license training and navigation courses for all skill levels.',
-            image: 'https://images.unsplash.com/photo-1517400508447-f8dd518b86db?q=80&w=2070&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1517400508447-f8dd518b86db?q=80&w=2070&auto=format&fit=crop',
+            link: '/training-academy'
         },
         {
             icon: <Utensils size={40} />,
@@ -69,7 +71,11 @@ const Services = () => {
                             <div className="service-content">
                                 <h3>{service.title}</h3>
                                 <p>{service.description}</p>
-                                <a href="#contact" className="learn-more">Learn More →</a>
+                                {service.link ? (
+                                    <Link to={service.link} className="learn-more">Learn More →</Link>
+                                ) : (
+                                    <a href="#contact" className="learn-more">Learn More →</a>
+                                )}
                             </div>
                         </motion.div>
                     ))}

@@ -1,0 +1,49 @@
+import React from 'react';
+import '../styles/RollingBanner.css';
+
+import logo1 from '../assets/logos/2021_Black_Axis.png';
+import logo2 from '../assets/logos/2021_Color_White_Text.png';
+import logo3 from '../assets/logos/MED1_LOGO_WEB_TRANSPARENT-02.png';
+import logo4 from '../assets/logos/Marinello logo2.png';
+import logo5 from '../assets/logos/VIPER-LOGO.png';
+import logo6 from '../assets/logos/bsc logo.jpg';
+import logo7 from '../assets/logos/galeon_logo (1).png';
+import logo8 from '../assets/logos/logo-nauticclean.png';
+import logo9 from '../assets/logos/redshark-logo-pr.png';
+import logo10 from '../assets/logos/technohull-boat-seeklogo.png';
+
+const logos = [
+    { src: logo1, alt: 'Axis Logo' },
+    { src: logo2, alt: 'Axis White Logo' },
+    { src: logo3, alt: 'MED1 Logo', customClass: 'logo-lg' },
+    { src: logo4, alt: 'Marinello Logo' },
+    { src: logo5, alt: 'Viper Logo' },
+    { src: logo6, alt: 'BSC Logo' },
+    { src: logo7, alt: 'Galeon Logo', customClass: 'logo-xxl' },
+    { src: logo8, alt: 'Nautic Clean Logo', customClass: 'logo-xl' },
+    { src: logo9, alt: 'Redshark Logo', customClass: 'logo-lg' },
+    { src: logo10, alt: 'Technohull Logo', customClass: 'logo-xxl' },
+];
+
+const RollingBanner = () => {
+    return (
+        <div className="rolling-banner-container">
+            <div className="rolling-banner-track">
+                {/* Original set of logos */}
+                {logos.map((logo, index) => (
+                    <div key={`logo-${index}`} className="rolling-logo-wrapper">
+                        <img src={logo.src} alt={logo.alt} className={`rolling-logo ${logo.customClass || ''}`} />
+                    </div>
+                ))}
+                {/* Duplicate set for infinite scroll effect */}
+                {logos.map((logo, index) => (
+                    <div key={`logo-dup-${index}`} className="rolling-logo-wrapper">
+                        <img src={logo.src} alt={logo.alt} className={`rolling-logo ${logo.customClass || ''}`} />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default RollingBanner;

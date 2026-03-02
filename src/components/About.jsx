@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
-import { Award, Users, Anchor, Globe } from 'lucide-react';
+import CountUp from 'react-countup';
 import '../styles/About.css';
+import companyLogo from '../assets/company-logo.png';
 
 const About = () => {
     const stats = [
-        { icon: <Award size={32} />, value: '20+', label: 'Years Experience' },
-        { icon: <Users size={32} />, value: '500+', label: 'Happy Clients' },
-        { icon: <Anchor size={32} />, value: '50+', label: 'Yachts Managed' },
-        { icon: <Globe size={32} />, value: 'Global', label: 'Reach' },
+        { value: 6, suffix: '+', label: 'international markets' },
+        { value: 250, suffix: '+', label: 'active clients' },
+        { value: 15, suffix: '+', label: 'specialists' },
+        { value: 20, suffix: '+', label: 'years of experience' },
     ];
 
     return (
@@ -15,38 +16,41 @@ const About = () => {
             <div className="about-container">
                 <motion.div
                     className="about-content"
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="section-title">A Legacy of Excellence</h2>
-                    <p className="about-text">
-                        Diamantides Yachting has been a cornerstone of the Cyprus maritime industry for over two decades.
-                        Based in the prestigious Limassol Marina, we specialize in providing bespoke yachting solutions
-                        tailored to the unique needs of our discerning clientele.
-                    </p>
-                    <p className="about-text">
-                        Our mission is simple: to deliver the ultimate yachting experience through unwavering dedication to
-                        quality, safety, and personalized service. Whether you are looking to charter, buy, or manage a yacht,
-                        our team of experts is here to guide you every step of the way.
-                    </p>
+                    <img src={companyLogo} alt="Diamantides Yachting" className="about-company-logo" />
+                    <p className="company-motto">All about Yachting</p>
                 </motion.div>
 
-                <div className="stats-grid">
+                <div className="stats-divider"></div>
+
+                <div className="stats-horizontal-bar">
                     {stats.map((stat, index) => (
-                        <motion.div
-                            key={index}
-                            className="stat-card"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="stat-icon">{stat.icon}</div>
-                            <h3 className="stat-value">{stat.value}</h3>
-                            <p className="stat-label">{stat.label}</p>
-                        </motion.div>
+                        <div key={index} className="stat-item-wrapper">
+                            <motion.div
+                                className="stat-item-content"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: index * 0.15 }}
+                                viewport={{ once: true }}
+                            >
+                                <p className="stat-label-new">{stat.label}</p>
+                                <h3 className="stat-value-new">
+                                    <CountUp
+                                        end={stat.value}
+                                        duration={3}
+                                        suffix={stat.suffix}
+                                        enableScrollSpy={true}
+                                        scrollSpyOnce={true}
+                                    />
+                                </h3>
+                            </motion.div>
+                            {/* Add a vertical divider except for the last item */}
+                            {index < stats.length - 1 && <div className="stat-vertical-divider"></div>}
+                        </div>
                     ))}
                 </div>
             </div>

@@ -1,0 +1,396 @@
+/* src/styles/TrainingAcademy.css */
+
+.academy-wrapper {
+    background-color: var(--color-white);
+    color: var(--color-text-dark);
+}
+
+.academy-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Base Typography adjustments for this page */
+.academy-wrapper h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.academy-wrapper h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.academy-wrapper p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+}
+
+.icon-gold {
+    color: var(--color-secondary);
+    margin-right: 0.8rem;
+    flex-shrink: 0;
+}
+
+/* Common Text Utilities */
+.text-center {
+    text-align: center;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mt-4 {
+    margin-top: 4rem;
+}
+
+/* Grid Utilities */
+.academy-grid {
+    display: grid;
+    gap: 3rem;
+}
+
+.academy-grid.two-cols {
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 900px) {
+    .academy-grid.two-cols {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Hero Section --- */
+.academy-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    background-image: url('../assets/training-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+    padding: 0 2rem;
+    margin-top: 80px;
+    /* Offset for navbar */
+}
+
+.academy-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(10, 37, 64, 0.8), rgba(0, 0, 0, 0.6));
+}
+
+.academy-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+}
+
+.academy-badge {
+    display: inline-block;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    padding: 0.4rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.academy-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: var(--color-white);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+}
+
+.academy-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.academy-cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.academy-cta-button:hover {
+    background-color: #d4a754;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .academy-title {
+        font-size: 2.8rem;
+    }
+
+    .academy-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- Intro Article --- */
+.academy-article {
+    padding: 6rem 0;
+    background-color: var(--color-light-gray);
+}
+
+.academy-intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.academy-intro-text p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.academy-content-card {
+    background-color: var(--color-white);
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.academy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.academy-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* --- The Process Section --- */
+.academy-process {
+    padding: 6rem 0;
+    background-color: var(--color-white);
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 4rem auto;
+}
+
+.process-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Timeline vertical line */
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 24px;
+    width: 2px;
+    background-color: rgba(204, 163, 76, 0.3);
+    /* secondary colored line */
+}
+
+.process-step {
+    display: flex;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.process-step:last-child {
+    margin-bottom: 0;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    flex-shrink: 0;
+    z-index: 2;
+    box-shadow: 0 0 0 8px var(--color-white);
+}
+
+.step-content {
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .process-timeline::before {
+        left: 20px;
+    }
+
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .step-content {
+        padding-left: 1.5rem;
+    }
+}
+
+/* --- Why Choose Us & Requirements --- */
+.academy-details {
+    padding: 6rem 0;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.academy-details h3,
+.academy-details h4,
+.academy-details p {
+    color: var(--color-white);
+}
+
+.details-panel {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 3rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.docs-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.docs-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.docs-list li svg {
+    color: var(--color-secondary);
+    margin-right: 1rem;
+}
+
+.benefits-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.benefit-item h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.benefit-item p {
+    margin: 0;
+    opacity: 0.8;
+    font-size: 1rem;
+}
+
+/* --- CTA Section --- */
+.academy-cta-section {
+    padding: 6rem 0;
+    background-color: var(--color-light-gray);
+    position: relative;
+}
+
+.cta-subtitle {
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.2rem;
+}
+
+.cta-contact-box {
+    background: var(--color-white);
+    padding: 3rem;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.cta-contact-box p {
+    margin-bottom: 1.5rem;
+}
+
+.email-link {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    text-decoration: none;
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.email-link:hover {
+    color: var(--color-secondary);
+}
+
+@media (max-width: 768px) {
+    .email-link {
+        font-size: 1.2rem;
+    }
+}

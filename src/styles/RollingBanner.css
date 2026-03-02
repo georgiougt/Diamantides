@@ -1,0 +1,94 @@
+.rolling-banner-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 10;
+    /* Optional fade effect on the edges */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.rolling-banner-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: scroll-left 35s linear infinite;
+}
+
+.rolling-banner-track:hover {
+    animation-play-state: paused;
+}
+
+.rolling-logo-wrapper {
+    padding: 0 2.5rem;
+    /* Space between logos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rolling-logo {
+    height: 50px;
+    /* Adjust height based on overall look */
+    width: auto;
+    object-fit: contain;
+    /* Convert all logos to solid white to match aesthetic */
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.rolling-logo.logo-lg {
+    height: 90px;
+}
+
+.rolling-logo.logo-xl {
+    height: 120px;
+}
+
+.rolling-logo.logo-xxl {
+    height: 160px;
+}
+
+.rolling-logo:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .rolling-logo {
+        height: 35px;
+    }
+
+    .rolling-logo.logo-lg {
+        height: 60px;
+    }
+
+    .rolling-logo.logo-xl {
+        height: 80px;
+    }
+
+    .rolling-logo.logo-xxl {
+        height: 110px;
+    }
+
+    .rolling-logo-wrapper {
+        padding: 0 1.5rem;
+    }
+
+    .rolling-banner-container {
+        margin-top: 2rem;
+    }
+}
