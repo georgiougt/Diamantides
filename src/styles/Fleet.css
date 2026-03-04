@@ -111,7 +111,22 @@
 
 /* Base styles for mobile (always visible panel) */
 @media (max-width: 900px) {
+    .fleet-card {
+        height: auto;
+    }
+
+    .fleet-card-link {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .fleet-img-wrapper {
+        position: relative;
+        height: 250px;
+    }
+
     .fleet-glass-panel {
+        position: relative;
         transform: translateY(0);
         opacity: 1;
         padding: 1.5rem;

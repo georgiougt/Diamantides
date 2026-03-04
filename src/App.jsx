@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -16,6 +17,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import YachtDetail from './components/YachtDetail';
 import TrainingAcademyPage from './pages/TrainingAcademyPage';
+import LoadingScreen from './components/LoadingScreen';
 
 // Component for the landing page content
 const LandingPage = () => {
@@ -32,9 +34,26 @@ const LandingPage = () => {
 };
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleLoaderFinished = () => {
+    setShowLoader(false);
+  };
+
   return (
     <Router>
       <div className="app-container">
+        {showLoader && (
+          <LoadingScreen isVisible={isLoading} onFinished={handleLoaderFinished} />
+        )}
         <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />

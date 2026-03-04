@@ -136,6 +136,14 @@
 }
 
 @media (max-width: 768px) {
+    .navbar-container {
+        padding: 0 1rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
     .desktop-menu {
         display: none;
     }

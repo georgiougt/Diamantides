@@ -89,7 +89,7 @@
     color: var(--color-text-dark);
     font-family: var(--font-heading);
     line-height: 1;
-    letter-spacing: -2px;
+    letter-spacing: normal;
 }
 
 @media (max-width: 1024px) {
