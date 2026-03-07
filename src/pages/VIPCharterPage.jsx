@@ -103,27 +103,101 @@ const VIPCharterPage = () => {
                                 <div className="charter-glass-panel">
                                     <div className="glass-header">
                                         <h2>{yacht.name}</h2>
-                                        <div style={{ textAlign: 'right' }}>
-                                            <span style={{ display: 'block', fontSize: '0.9rem', textDecoration: 'line-through', color: 'rgba(255,255,255,0.5)', marginBottom: '4px' }}>
-                                                {yacht.price.split('/')[0]}
-                                            </span>
-                                            <span className="glass-price" style={{ color: 'var(--color-secondary)' }}>
-                                                {getDiscountedPrice(yacht.price)} <small style={{ color: 'rgba(255,255,255,0.7)' }}>/ day</small>
-                                            </span>
-                                        </div>
+                                        <p className="fleet-type" style={{ margin: 0, fontSize: '0.95rem', fontFamily: 'var(--font-body)', fontWeight: 500, background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{yacht.type || 'Luxury Motor Yacht'}</p>
                                     </div>
                                     <div className="glass-specs">
-                                        {yacht.length && (
-                                            <span className="spec-item"><Ruler size={14} /> {yacht.length}</span>
-                                        )}
-                                        {yacht.capacity && (
-                                            <span className="spec-item"><Users size={14} /> {yacht.capacity}</span>
-                                        )}
-                                        {yacht.specs?.cabins && (
-                                            <span className="spec-item"><span className="dot">•</span> {yacht.specs.cabins.split('(')[0].trim()} Cabins</span>
-                                        )}
+                                        <span className="spec-item"><Ruler size={14} /> {yacht.length || 'N/A'}</span>
                                     </div>
-                                    <span className="glass-cta" style={{ color: 'var(--color-secondary)' }}>Secure Exclusive Charter</span>
+
+                                    {(() => {
+                                        if (yacht.detailedPricing) {
+                                            return (
+                                                <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.2rem', fontSize: '0.9rem' }}>
+                                                    {yacht.detailedPricing.halfDay && (
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Half Day</span>
+                                                            <div style={{ textAlign: 'right' }}>
+                                                                <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{yacht.detailedPricing.halfDay}</span>
+                                                                <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{getDiscountedPrice(yacht.detailedPricing.halfDay.toString())}</span>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                    {yacht.detailedPricing.fullDay && (
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Full Day</span>
+                                                            <div style={{ textAlign: 'right' }}>
+                                                                <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{yacht.detailedPricing.fullDay}</span>
+                                                                <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{getDiscountedPrice(yacht.detailedPricing.fullDay.toString())}</span>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                    {yacht.detailedPricing.weekly && (
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Weekly</span>
+                                                            <div style={{ textAlign: 'right' }}>
+                                                                <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{yacht.detailedPricing.weekly}</span>
+                                                                <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{getDiscountedPrice(yacht.detailedPricing.weekly.toString())}</span>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            );
+                                        }
+
+                                        if (!yacht.price) return null;
+
+                                        const basePrice = parseInt(yacht.price.replace(/[^\d]/g, '')) || 0;
+
+                                        if (basePrice === 0 || yacht.price.toLowerCase().includes('request')) {
+                                            return (
+                                                <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.2rem', fontSize: '0.9rem' }}>
+                                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                        <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Charter Rate</span>
+                                                        <div style={{ textAlign: 'right' }}>
+                                                            <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{yacht.price}</span>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{getDiscountedPrice(yacht.price)}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+
+                                        const halfDayOriginal = `€${(basePrice * 0.9).toLocaleString()}`;
+                                        const fullDayOriginal = yacht.price.includes('€') ? yacht.price.split(' ')[0] : `€${basePrice.toLocaleString()}`;
+                                        const overnightOriginal = `€${(basePrice * 1.2).toLocaleString()}`;
+
+                                        const halfDayVIP = `€${(basePrice * 0.9 * 0.8).toLocaleString()}`;
+                                        const fullDayVIP = `€${(basePrice * 0.8).toLocaleString()}`;
+                                        const overnightVIP = `€${(basePrice * 1.2 * 0.8).toLocaleString()}`;
+
+                                        return (
+                                            <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.2rem', fontSize: '0.9rem' }}>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                    <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Half Day</span>
+                                                    <div style={{ textAlign: 'right' }}>
+                                                        <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{halfDayOriginal}</span>
+                                                        <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{halfDayVIP}</span>
+                                                    </div>
+                                                </div>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                    <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Full Day</span>
+                                                    <div style={{ textAlign: 'right' }}>
+                                                        <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{fullDayOriginal}</span>
+                                                        <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{fullDayVIP}</span>
+                                                    </div>
+                                                </div>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                    <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Overnight</span>
+                                                    <div style={{ textAlign: 'right' }}>
+                                                        <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{overnightOriginal}</span>
+                                                        <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{overnightVIP}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        );
+                                    })()}
+
+                                    <span className="glass-cta">Secure Exclusive Charter</span>
                                 </div>
                             </Link>
                         </motion.div>

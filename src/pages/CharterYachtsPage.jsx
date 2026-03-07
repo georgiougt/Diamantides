@@ -71,19 +71,75 @@ const CharterYachtsPage = () => {
                                 <div className="charter-glass-panel">
                                     <div className="glass-header">
                                         <h2>{yacht.name}</h2>
-                                        <span className="glass-price">{yacht.price.split('/')[0]} <small>/ day</small></span>
+                                        <p className="fleet-type" style={{ margin: 0, fontSize: '0.95rem', fontFamily: 'var(--font-body)', fontWeight: 500, background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{yacht.type || 'Luxury Motor Yacht'}</p>
                                     </div>
                                     <div className="glass-specs">
-                                        {yacht.length && (
-                                            <span className="spec-item"><Ruler size={14} /> {yacht.length}</span>
-                                        )}
-                                        {yacht.capacity && (
-                                            <span className="spec-item"><Users size={14} /> {yacht.capacity}</span>
-                                        )}
-                                        {yacht.specs?.cabins && (
-                                            <span className="spec-item"><span className="dot">•</span> {yacht.specs.cabins.split('(')[0].trim()} Cabins</span>
-                                        )}
+                                        <span className="spec-item"><Ruler size={14} /> {yacht.length || 'N/A'}</span>
                                     </div>
+
+                                    {(() => {
+                                        if (yacht.detailedPricing) {
+                                            return (
+                                                <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.2rem', fontSize: '0.9rem' }}>
+                                                    {yacht.detailedPricing.halfDay && (
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Half Day</span>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.halfDay}</span>
+                                                        </div>
+                                                    )}
+                                                    {yacht.detailedPricing.fullDay && (
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Full Day</span>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.fullDay}</span>
+                                                        </div>
+                                                    )}
+                                                    {yacht.detailedPricing.weekly && (
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Weekly</span>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.weekly}</span>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            );
+                                        }
+
+                                        if (!yacht.price) return null;
+
+                                        const basePrice = parseInt(yacht.price.replace(/[^\d]/g, '')) || 0;
+
+                                        if (basePrice === 0 || yacht.price.toLowerCase().includes('request')) {
+                                            return (
+                                                <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.2rem', fontSize: '0.9rem' }}>
+                                                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                        <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Charter Rate</span>
+                                                        <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.price}</span>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+
+                                        const halfDayPrice = `€${(basePrice * 0.9).toLocaleString()}`;
+                                        const fullDayPrice = yacht.price.includes('€') ? yacht.price.split(' ')[0] : `€${basePrice.toLocaleString()}`;
+                                        const overnightPrice = `€${(basePrice * 1.2).toLocaleString()}`;
+
+                                        return (
+                                            <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.2rem', fontSize: '0.9rem' }}>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                    <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Half Day</span>
+                                                    <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{halfDayPrice}</span>
+                                                </div>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                    <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Full Day</span>
+                                                    <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{fullDayPrice}</span>
+                                                </div>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                    <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Overnight</span>
+                                                    <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{overnightPrice}</span>
+                                                </div>
+                                            </div>
+                                        );
+                                    })()}
+
                                     <span className="glass-cta">View Details</span>
                                 </div>
                             </Link>
