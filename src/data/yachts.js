@@ -18,7 +18,12 @@ export const yachts = [
             beam: ''
         },
         features: ['Water Toy Collection', 'Panoramic Windows', 'Flybridge'],
-        gallery: []
+        gallery: [
+            '/Diamantides/gallery/extracted/princess-30m/gallery-1.webp',
+            '/Diamantides/gallery/extracted/princess-30m/gallery-2.webp',
+            '/Diamantides/gallery/extracted/princess-30m/gallery-3.webp',
+            '/Diamantides/gallery/extracted/princess-30m/gallery-4.webp'
+        ]
     },
     {
         id: 2,
@@ -39,7 +44,12 @@ export const yachts = [
             beam: ''
         },
         features: ['Alfresco Dining', 'Contemporary Design', 'Spacious Decks'],
-        gallery: []
+        gallery: [
+            '/Diamantides/gallery/extracted/azimut-27-grande/gallery-1.webp',
+            '/Diamantides/gallery/extracted/azimut-27-grande/gallery-2.webp',
+            '/Diamantides/gallery/extracted/azimut-27-grande/gallery-3.webp',
+            '/Diamantides/gallery/extracted/azimut-27-grande/gallery-4.webp'
+        ]
     },
     {
         id: 3,
@@ -61,10 +71,10 @@ export const yachts = [
         },
         features: ['Jacuzzi', 'Jet Ski', 'Seabob', 'WiFi', 'Premium Sound System'],
         gallery: [
-            '/Diamantides/gallery/yacht_1.jpg',
-            '/Diamantides/gallery/yacht_2.jpg',
-            '/Diamantides/gallery/yacht_3.jpg',
-            '/Diamantides/gallery/yacht_4.jpg'
+            '/Diamantides/gallery/extracted/princess-88/gallery-1.webp',
+            '/Diamantides/gallery/extracted/princess-88/gallery-2.webp',
+            '/Diamantides/gallery/extracted/princess-88/gallery-3.webp',
+            '/Diamantides/gallery/extracted/princess-88/gallery-4.webp'
         ]
     },
     {
@@ -86,7 +96,12 @@ export const yachts = [
             beam: ''
         },
         features: ['Flybridge', 'Entertainment System', 'Al Fresco Dining'],
-        gallery: []
+        gallery: [
+            '/Diamantides/gallery/extracted/falcon-86/gallery-1.webp',
+            '/Diamantides/gallery/extracted/falcon-86/gallery-2.webp',
+            '/Diamantides/gallery/extracted/falcon-86/gallery-3.webp',
+            '/Diamantides/gallery/extracted/falcon-86/gallery-4.webp'
+        ]
     },
     {
         id: 5,
@@ -108,7 +123,12 @@ export const yachts = [
             beam: ''
         },
         features: ['Lavish Furnishings', 'Alfresco Areas', 'Cutting-edge Technology'],
-        gallery: []
+        gallery: [
+            '/Diamantides/gallery/extracted/ferretti-69/gallery-1.webp',
+            '/Diamantides/gallery/extracted/ferretti-69/gallery-2.webp',
+            '/Diamantides/gallery/extracted/ferretti-69/gallery-3.webp',
+            '/Diamantides/gallery/extracted/ferretti-69/gallery-4.webp'
+        ]
     },
     {
         id: 6,
@@ -130,7 +150,12 @@ export const yachts = [
             beam: ''
         },
         features: ['Expansive Flybridge', 'Sunbeds', 'Cozy Cabins'],
-        gallery: []
+        gallery: [
+            '/Diamantides/gallery/extracted/azimut-64/gallery-1.webp',
+            '/Diamantides/gallery/extracted/azimut-64/gallery-2.webp',
+            '/Diamantides/gallery/extracted/azimut-64/gallery-3.webp',
+            '/Diamantides/gallery/extracted/azimut-64/gallery-4.webp'
+        ]
     },
     {
         id: 7,
@@ -152,7 +177,12 @@ export const yachts = [
             beam: ''
         },
         features: ['Panoramic Views', 'Outdoor Entertaining Area', 'En-suite Facilities'],
-        gallery: []
+        gallery: [
+            '/Diamantides/gallery/extracted/ferretti-550/gallery-1.webp',
+            '/Diamantides/gallery/extracted/ferretti-550/gallery-2.webp',
+            '/Diamantides/gallery/extracted/ferretti-550/gallery-3.webp',
+            '/Diamantides/gallery/extracted/ferretti-550/gallery-4.webp'
+        ]
     },
     {
         id: 8,
@@ -174,7 +204,12 @@ export const yachts = [
             beam: ''
         },
         features: ['Flybridge', 'Bimini Shade', 'Fully Equipped Galley'],
-        gallery: []
+        gallery: [
+            '/Diamantides/gallery/extracted/beneteau-monte-carlo-50/gallery-1.webp',
+            '/Diamantides/gallery/extracted/beneteau-monte-carlo-50/gallery-2.webp',
+            '/Diamantides/gallery/extracted/beneteau-monte-carlo-50/gallery-3.webp',
+            '/Diamantides/gallery/extracted/beneteau-monte-carlo-50/gallery-4.webp'
+        ]
     },
     {
         id: 9,
@@ -196,7 +231,13 @@ export const yachts = [
             beam: ''
         },
         features: ['Sea Taxi', 'Al-fresco Dining', 'Spacious Cockpit'],
-        gallery: []
+        gallery: [
+            '/Diamantides/gallery/extracted/fairline-targa-48v/gallery-1.webp',
+            '/Diamantides/gallery/extracted/fairline-targa-48v/gallery-2.webp',
+            '/Diamantides/gallery/extracted/fairline-targa-48v/gallery-3.webp',
+            '/Diamantides/gallery/extracted/fairline-targa-48v/gallery-4.webp',
+            '/Diamantides/gallery/extracted/fairline-targa-48v/gallery-5.webp'
+        ]
     },
     {
         id: 10,
@@ -218,7 +259,12 @@ export const yachts = [
             beam: ''
         },
         features: ['Sea Taxi', 'Spacious Sunbeds', 'Comfortable Living Room'],
-        gallery: []
+        gallery: [
+            '/Diamantides/gallery/extracted/fairline-targa-48/gallery-1.webp',
+            '/Diamantides/gallery/extracted/fairline-targa-48/gallery-2.webp',
+            '/Diamantides/gallery/extracted/fairline-targa-48/gallery-3.webp',
+            '/Diamantides/gallery/extracted/fairline-targa-48/gallery-4.webp'
+        ]
     },
     {
         id: 11,
@@ -240,7 +286,12 @@ export const yachts = [
             beam: ''
         },
         features: ['Sea Taxi', 'Hydraulic Swim Platform', 'Sunbeds'],
-        gallery: []
+        gallery: [
+            '/Diamantides/gallery/extracted/azimut-atlantis-47/gallery-1.webp',
+            '/Diamantides/gallery/extracted/azimut-atlantis-47/gallery-2.webp',
+            '/Diamantides/gallery/extracted/azimut-atlantis-47/gallery-3.webp',
+            '/Diamantides/gallery/extracted/azimut-atlantis-47/gallery-4.webp'
+        ]
     },
     {
         id: 12,
@@ -262,7 +313,12 @@ export const yachts = [
             beam: ''
         },
         features: ['Sea Taxi', 'Sound System', 'Spacious Deck'],
-        gallery: []
+        gallery: [
+            '/Diamantides/gallery/extracted/beneteau-monte-carlo-42/gallery-1.webp',
+            '/Diamantides/gallery/extracted/beneteau-monte-carlo-42/gallery-2.webp',
+            '/Diamantides/gallery/extracted/beneteau-monte-carlo-42/gallery-3.webp',
+            '/Diamantides/gallery/extracted/beneteau-monte-carlo-42/gallery-4.webp'
+        ]
     },
     {
         id: 13,
