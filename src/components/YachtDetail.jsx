@@ -14,15 +14,17 @@ const YachtDetail = () => {
         window.scrollTo(0, 0);
     }, [id]);
 
+    const galleryImages = yacht?.gallery?.length > 0 ? yacht.gallery : (yacht?.image ? [yacht.image] : []);
+
     const nextImage = () => {
-        if (yacht && yacht.gallery) {
-            setCurrentImageIndex((prev) => (prev + 1) % yacht.gallery.length);
+        if (galleryImages.length > 0) {
+            setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
         }
     };
 
     const prevImage = () => {
-        if (yacht && yacht.gallery) {
-            setCurrentImageIndex((prev) => (prev - 1 + yacht.gallery.length) % yacht.gallery.length);
+        if (galleryImages.length > 0) {
+            setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
         }
     };
 
@@ -56,15 +58,15 @@ const YachtDetail = () => {
             </section>
 
             {/* Spotlight Gallery */}
-            {yacht.gallery && yacht.gallery.length > 0 && (
+            {galleryImages.length > 0 && (
                 <section className="spotlight-gallery">
                     <div className="spotlight-image-container">
                         <img
-                            src={yacht.gallery[currentImageIndex]}
+                            src={galleryImages[currentImageIndex]}
                             alt={`${yacht.name} spotlight`}
                             className="spotlight-image"
                         />
-                        {yacht.gallery.length > 1 && (
+                        {galleryImages.length > 1 && (
                             <>
                                 <button className="gallery-arrow left-arrow" onClick={prevImage}><ArrowLeft size={24} /></button>
                                 <button className="gallery-arrow right-arrow" onClick={nextImage}><ArrowLeft size={24} style={{ transform: 'rotate(180deg)' }} /></button>
@@ -72,9 +74,9 @@ const YachtDetail = () => {
                         )}
                     </div>
                     {/* Thumbnail Strip */}
-                    {yacht.gallery.length > 1 && (
+                    {galleryImages.length > 1 && (
                         <div className="gallery-thumbnails">
-                            {yacht.gallery.map((imgSrc, index) => (
+                            {galleryImages.map((imgSrc, index) => (
                                 <div
                                     key={index}
                                     className={`thumbnail-wrapper ${index === currentImageIndex ? 'active' : ''}`}
@@ -112,22 +114,58 @@ const YachtDetail = () => {
                             <div className="info-columns">
                                 {/* Pricing Column */}
                                 <div className="info-column pricing-column premium-pricing-card">
-                                    <div className="info-row">
-                                        <span className="info-label">Half Day</span>
-                                        <span className="info-value">{halfDayPrice}</span>
-                                    </div>
-                                    <div className="info-row">
-                                        <span className="info-label">Full Day</span>
-                                        <span className="info-value">{fullDayPrice}</span>
-                                    </div>
-                                    <div className="info-row">
-                                        <span className="info-label">Overnight</span>
-                                        <span className="info-value">{overnightPrice}</span>
-                                    </div>
-                                    <div className="info-row">
-                                        <span className="info-label">Weekly</span>
-                                        <span className="info-value">Upon Request</span>
-                                    </div>
+                                    {yacht.detailedPricing ? (
+                                        <>
+                                            {yacht.detailedPricing.halfDay && (
+                                                <div className="info-row">
+                                                    <span className="info-label">Half Day</span>
+                                                    <span className="info-value">{yacht.detailedPricing.halfDay}</span>
+                                                </div>
+                                            )}
+                                            {yacht.detailedPricing.fullDay && (
+                                                <div className="info-row">
+                                                    <span className="info-label">Full Day</span>
+                                                    <span className="info-value">{yacht.detailedPricing.fullDay}</span>
+                                                </div>
+                                            )}
+                                            {yacht.detailedPricing.overnight && (
+                                                <div className="info-row">
+                                                    <span className="info-label">Overnight</span>
+                                                    <span className="info-value">{yacht.detailedPricing.overnight}</span>
+                                                </div>
+                                            )}
+                                            {yacht.detailedPricing.weekly && (
+                                                <div className="info-row">
+                                                    <span className="info-label">Weekly</span>
+                                                    <span className="info-value">{yacht.detailedPricing.weekly}</span>
+                                                </div>
+                                            )}
+                                        </>
+                                    ) : basePrice === 0 || yacht?.price?.toLowerCase().includes('request') ? (
+                                        <div className="info-row">
+                                            <span className="info-label">Charter Rate</span>
+                                            <span className="info-value">On Request</span>
+                                        </div>
+                                    ) : (
+                                        <>
+                                            <div className="info-row">
+                                                <span className="info-label">Half Day</span>
+                                                <span className="info-value">{halfDayPrice}</span>
+                                            </div>
+                                            <div className="info-row">
+                                                <span className="info-label">Full Day</span>
+                                                <span className="info-value">{fullDayPrice}</span>
+                                            </div>
+                                            <div className="info-row">
+                                                <span className="info-label">Overnight</span>
+                                                <span className="info-value">{overnightPrice}</span>
+                                            </div>
+                                            <div className="info-row">
+                                                <span className="info-label">Weekly</span>
+                                                <span className="info-value">Upon Request</span>
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </section>
