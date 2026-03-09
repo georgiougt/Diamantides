@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Anchor } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
+import horizontalLogo from '../assets/logo-horizontal.png';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
@@ -35,8 +36,7 @@ const Navbar = () => {
         <header className={`navbar ${isScrolled || !isTransparentStart ? 'scrolled' : ''}`}>
             <div className="navbar-container">
                 <Link to="/" className="logo">
-                    <Anchor className="logo-icon" />
-                    <span className="logo-text">Diamantides Yachting</span>
+                    <img src={horizontalLogo} alt="Diamantides Yachting" className="logo-img" />
                 </Link>
 
                 <div className="desktop-menu">

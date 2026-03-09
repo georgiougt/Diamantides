@@ -27,12 +27,18 @@
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-white);
     text-decoration: none;
+}
+
+.logo-img {
+    height: 65px;
+    width: auto;
+    object-fit: contain;
+    transition: height var(--transition-medium);
+}
+
+.navbar.scrolled .logo-img {
+    height: 55px;
 }
 
 .logo-icon {

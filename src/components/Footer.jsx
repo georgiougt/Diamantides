@@ -1,4 +1,5 @@
-import { Anchor, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Instagram, Facebook, Linkedin } from 'lucide-react';
+import horizontalLogo from '../assets/logo-horizontal.png';
 import '../styles/Footer.css';
 
 const Footer = () => {
@@ -7,8 +8,7 @@ const Footer = () => {
             <div className="footer-container">
                 <div className="footer-brand">
                     <a href="#" className="footer-logo">
-                        <Anchor className="footer-logo-icon" size={32} />
-                        <span className="footer-logo-text">Diamantides Yachting</span>
+                        <img src={horizontalLogo} alt="Diamantides Yachting" className="footer-logo-img" />
                     </a>
                     <p className="footer-desc">
                         Your premier partner for luxury yachting experiences in Cyprus.
