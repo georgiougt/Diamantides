@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Linkedin } from 'lucide-react';
 import horizontalLogo from '../assets/diamantides-logo-white-wide.png';
 import '../styles/Footer.css';
@@ -7,9 +8,9 @@ const Footer = () => {
         <footer className="footer-section">
             <div className="footer-container">
                 <div className="footer-brand">
-                    <a href="#" className="footer-logo">
+                    <Link to="/" className="footer-logo">
                         <img src={horizontalLogo} alt="Diamantides Yachting" className="footer-logo-img" />
-                    </a>
+                    </Link>
                     <p className="footer-desc">
                         Your premier partner for luxury yachting experiences in Cyprus.
                         Charter, sales, and management services of the highest caliber.
@@ -24,21 +25,21 @@ const Footer = () => {
                 <div className="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#fleet">Fleet</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/about">About</Link></li>
+                        <li><Link to="/services">Services</Link></li>
+                        <li><Link to="/fleet">Fleet</Link></li>
+                        <li><Link to="/contact">Contact</Link></li>
                     </ul>
                 </div>
 
                 <div className="footer-links">
                     <h3>Services</h3>
                     <ul>
-                        <li><a href="#">Yacht Charter</a></li>
-                        <li><a href="#">Yacht Sales</a></li>
-                        <li><a href="#">Management</a></li>
-                        <li><a href="#">Training</a></li>
+                        <li><Link to="/charter">Yacht Charter</Link></li>
+                        <li><Link to="/fleet">Yacht Sales</Link></li>
+                        <li><Link to="/services">Management</Link></li>
+                        <li><Link to="/training-academy">Training</Link></li>
                     </ul>
                 </div>
             </div>
