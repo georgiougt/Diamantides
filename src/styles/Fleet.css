@@ -41,7 +41,8 @@
     overflow: hidden;
     background: var(--color-primary);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    height: 450px;
+    height: 500px;
+    /* Increased from 450px to accommodate multiple pricing rows */
 }
 
 .fleet-card-link {
@@ -92,16 +93,19 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(10, 10, 10, 0.85);
-    /* Deep black glass for the theme */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 2rem;
+    background: rgba(10, 10, 10, 0.60);
+    /* Reduced opacity for more transparency */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 1rem 1.5rem;
+    /* Reduced padding */
     transform: translateY(20px);
     opacity: 0;
-    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     border-top: 1px solid rgba(197, 160, 89, 0.3);
     /* Gold border top */
+    display: flex;
+    flex-direction: column;
 }
 
 .fleet-card:hover .fleet-glass-panel {
@@ -142,10 +146,12 @@
 }
 
 .fleet-glass-panel .glass-header h3 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    /* Reduced from 1.8rem */
     font-family: var(--font-heading);
     color: var(--color-white);
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.2rem 0;
+    /* Reduced margin */
     line-height: 1.1;
 }
 
