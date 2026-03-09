@@ -48,7 +48,7 @@ const Footer = () => {
                 <p>&copy; {new Date().getFullYear()} Diamantides Yachting. All rights reserved.</p>
                 <div className="footer-legal">
                     <Link to="/privacy-policy">Privacy Policy</Link>
-                    <a href="#">Terms of Service</a>
+                    <Link to="/terms-of-service">Terms of Service</Link>
                 </div>
             </div>
         </footer>

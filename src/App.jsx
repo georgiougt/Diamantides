@@ -19,6 +19,7 @@ import YachtDetail from './components/YachtDetail';
 import TrainingAcademyPage from './pages/TrainingAcademyPage';
 import LoadingScreen from './components/LoadingScreen';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/TermsOfServicePage';
 
 // Component for the landing page content
 const LandingPage = () => {
@@ -67,6 +68,7 @@ function App() {
           <Route path="/yacht/:id" element={<YachtDetail />} />
           <Route path="/training-academy" element={<TrainingAcademyPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
         </Routes>
         <Footer />
       </div>
