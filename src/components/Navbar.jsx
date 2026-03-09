@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
-import horizontalLogo from '../assets/logo-horizontal.png';
+import horizontalLogo from '../assets/diamantides-logo-white-wide.png';
 import '../styles/Navbar.css';
 
 const Navbar = () => {

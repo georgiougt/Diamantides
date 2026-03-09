@@ -1,5 +1,5 @@
 import { Instagram, Facebook, Linkedin } from 'lucide-react';
-import horizontalLogo from '../assets/logo-horizontal.png';
+import horizontalLogo from '../assets/diamantides-logo-white-wide.png';
 import '../styles/Footer.css';
 
 const Footer = () => {
