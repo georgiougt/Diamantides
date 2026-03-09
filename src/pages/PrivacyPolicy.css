@@ -1,0 +1,84 @@
+.privacy-policy-page {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding-bottom: 5rem;
+}
+
+.privacy-policy-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/training-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 10rem 0 5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.privacy-policy-hero h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.privacy-policy-content {
+    max-width: 900px;
+    line-height: 1.8;
+}
+
+.privacy-policy-content section {
+    margin-bottom: 3rem;
+}
+
+.privacy-policy-content h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-secondary);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.privacy-policy-content p {
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.84);
+}
+
+.privacy-policy-content ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.privacy-policy-content ul li {
+    margin-bottom: 0.5rem;
+    list-style-type: disc;
+    color: rgba(255, 255, 255, 0.84);
+}
+
+.privacy-policy-content a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.privacy-policy-content a:hover {
+    color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+    .privacy-policy-hero {
+        padding: 8rem 0 4rem;
+    }
+
+    .privacy-policy-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .privacy-policy-content h2 {
+        font-size: 1.5rem;
+    }
+}
