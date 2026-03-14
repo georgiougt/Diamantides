@@ -22,11 +22,27 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Charter Yachts', href: '/charter' },
-        { name: 'Services', href: '/services' },
+        { name: 'Sales', href: '/sales' },
         { name: 'Fleet', href: '/fleet' },
-        { name: 'Contact', href: '/contact' },
-        { name: 'About', href: '/about' },
     ];
+
+    const servicesDropdown = {
+        name: 'Services',
+        links: [
+            { name: 'Sales & Brokerage', href: '/sales' },
+            { name: 'Management & Maintenance', href: '/services#management-maintenance' },
+            { name: 'Boat Parking & Storage', href: '/services#boat-parking' },
+            { name: 'Training Academy', href: '/training-academy' }
+        ]
+    };
+
+    const aboutDropdown = {
+        name: 'About',
+        links: [
+            { name: 'About Us', href: '/about' },
+            { name: 'Contact Us', href: '/contact' }
+        ]
+    };
 
     const handleNavClick = () => {
         setIsMobileMenuOpen(false);
@@ -45,6 +61,43 @@ const Navbar = () => {
                             {link.name}
                         </Link>
                     ))}
+                    
+                    {/* Services Dropdown */}
+                    <div className="nav-item-dropdown">
+                        <span className="nav-link dropdown-trigger">
+                            {servicesDropdown.name}
+                        </span>
+                        <div className="dropdown-menu">
+                            {servicesDropdown.links.map((sublink) => (
+                                <Link 
+                                    key={sublink.name} 
+                                    to={sublink.href} 
+                                    className="dropdown-link"
+                                >
+                                    {sublink.name}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* About Dropdown */}
+                    <div className="nav-item-dropdown">
+                        <span className="nav-link dropdown-trigger">
+                            {aboutDropdown.name}
+                        </span>
+                        <div className="dropdown-menu">
+                            {aboutDropdown.links.map((sublink) => (
+                                <Link 
+                                    key={sublink.name} 
+                                    to={sublink.href} 
+                                    className="dropdown-link"
+                                >
+                                    {sublink.name}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+
                     <a href="tel:+35725010561" className="contact-btn">
                         <Phone size={18} />
                         <span>+357 25 010 561</span>
@@ -72,6 +125,35 @@ const Navbar = () => {
                             {link.name}
                         </Link>
                     ))}
+                    {/* Mobile Services Section */}
+                    <div className="mobile-dropdown-section">
+                        <span className="mobile-nav-link mobile-dropdown-title">{servicesDropdown.name}</span>
+                        {servicesDropdown.links.map((sublink) => (
+                            <Link
+                                key={sublink.name}
+                                to={sublink.href}
+                                className="mobile-nav-link sub-link"
+                                onClick={handleNavClick}
+                            >
+                                {sublink.name}
+                            </Link>
+                        ))}
+                    </div>
+
+                    {/* Mobile About Section */}
+                    <div className="mobile-dropdown-section">
+                        <span className="mobile-nav-link mobile-dropdown-title">{aboutDropdown.name}</span>
+                        {aboutDropdown.links.map((sublink) => (
+                            <Link
+                                key={sublink.name}
+                                to={sublink.href}
+                                className="mobile-nav-link sub-link"
+                                onClick={handleNavClick}
+                            >
+                                {sublink.name}
+                            </Link>
+                        ))}
+                    </div>
                 </div>
             )}
         </header>

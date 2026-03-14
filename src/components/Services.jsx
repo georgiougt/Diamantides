@@ -1,46 +1,39 @@
 import { motion } from 'framer-motion';
-import { Anchor, DollarSign, Wrench, Warehouse, GraduationCap, Utensils } from 'lucide-react';
+import { DollarSign, Wrench, Warehouse, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import '../styles/Services.css';
 
 const Services = () => {
     const services = [
         {
-            icon: <Anchor size={40} />,
-            title: 'Yacht Charter',
-            description: 'Experience the freedom of the open sea with our exclusive fleet of luxury charter yachts.',
-            image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2070&auto=format&fit=crop'
-        },
-        {
+            id: 'sales-brokerage',
             icon: <DollarSign size={40} />,
             title: 'Sales & Brokerage',
             description: 'Expert guidance in buying or selling your vessel, with a wide network of international buyers.',
-            image: 'https://images.unsplash.com/photo-1605281317010-fe5ffe79b9eb?q=80&w=2070&auto=format&fit=crop'
+            image: 'https://placehold.co/600x400/1a1a1a/e8c27a?text=Sales+%26+Brokerage',
+            link: '/sales'
         },
         {
+            id: 'management-maintenance',
             icon: <Wrench size={40} />,
             title: 'Management & Maintenance',
             description: 'Comprehensive technical support and management services to keep your yacht in pristine condition.',
-            image: 'https://images.unsplash.com/photo-1599643478518-17488fbbcd75?q=80&w=2070&auto=format&fit=crop'
+            image: 'https://placehold.co/600x400/1a1a1a/e8c27a?text=Management+%26+Maintenance'
         },
         {
+            id: 'boat-parking',
             icon: <Warehouse size={40} />,
             title: 'Boat Parking & Storage',
             description: 'Secure and convenient storage solutions for your vessel in premium facilities.',
             image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=2070&auto=format&fit=crop'
         },
         {
+            id: 'training-academy',
             icon: <GraduationCap size={40} />,
             title: 'Training Academy',
             description: 'Certified speedboat operator license training and navigation courses for all skill levels.',
             image: 'https://images.unsplash.com/photo-1517400508447-f8dd518b86db?q=80&w=2070&auto=format&fit=crop',
             link: '/training-academy'
-        },
-        {
-            icon: <Utensils size={40} />,
-            title: 'Luxury Add-ons',
-            description: 'Bespoke catering, water sports equipment, and concierge services to elevate your journey.',
-            image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop'
         }
     ];
 
@@ -56,6 +49,7 @@ const Services = () => {
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
+                            id={service.id}
                             className="service-card"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +68,7 @@ const Services = () => {
                                 {service.link ? (
                                     <Link to={service.link} className="learn-more">Learn More →</Link>
                                 ) : (
-                                    <a href="#contact" className="learn-more">Learn More →</a>
+                                    <a href={`/services#${service.id}`} className="learn-more">Learn More →</a>
                                 )}
                             </div>
                         </motion.div>

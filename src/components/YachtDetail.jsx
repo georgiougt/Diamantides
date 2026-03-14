@@ -108,63 +108,93 @@ const YachtDetail = () => {
                                     <Anchor size={24} className="nautical-icon" />
                                     <hr className="gold-line" />
                                 </div>
-                                <h2>Charter Pricing</h2>
+                                <h2>{yacht.category === 'sales' ? 'Sale Details' : 'Charter Pricing'}</h2>
                             </div>
 
                             <div className="info-columns">
                                 {/* Pricing Column */}
                                 <div className="info-column pricing-column premium-pricing-card">
-                                    {yacht.detailedPricing ? (
+                                    {yacht.category === 'sales' ? (
                                         <>
-                                            {yacht.detailedPricing.halfDay && (
+                                            <div className="info-row">
+                                                <span className="info-label">Brand</span>
+                                                <span className="info-value">{yacht.specs?.builder || 'N/A'}</span>
+                                            </div>
+                                            <div className="info-row">
+                                                <span className="info-label">Listing Status</span>
+                                                <span className="info-value">{yacht.specs?.status || 'Available'}</span>
+                                            </div>
+                                            <div className="info-row">
+                                                <span className="info-label">Asking Price</span>
+                                                <span className="info-value" style={{ color: 'var(--color-secondary)', fontWeight: 700, fontSize: '1.5rem' }}>{yacht.price}</span>
+                                            </div>
+                                            {yacht.specs?.year && (
+                                                <div className="info-row">
+                                                    <span className="info-label">Year Built</span>
+                                                    <span className="info-value">{yacht.specs.year}</span>
+                                                </div>
+                                            )}
+                                            {yacht.specs?.model && (
+                                                <div className="info-row">
+                                                    <span className="info-label">Model</span>
+                                                    <span className="info-value">{yacht.specs.model}</span>
+                                                </div>
+                                            )}
+                                        </>
+                                    ) : (
+                                        // Charter Pricing
+                                        yacht.detailedPricing ? (
+                                            <>
+                                                {yacht.detailedPricing.halfDay && (
+                                                    <div className="info-row">
+                                                        <span className="info-label">Half Day</span>
+                                                        <span className="info-value">{yacht.detailedPricing.halfDay}</span>
+                                                    </div>
+                                                )}
+                                                {yacht.detailedPricing.fullDay && (
+                                                    <div className="info-row">
+                                                        <span className="info-label">Full Day</span>
+                                                        <span className="info-value">{yacht.detailedPricing.fullDay}</span>
+                                                    </div>
+                                                )}
+                                                {yacht.detailedPricing.overnight && (
+                                                    <div className="info-row">
+                                                        <span className="info-label">Overnight</span>
+                                                        <span className="info-value">{yacht.detailedPricing.overnight}</span>
+                                                    </div>
+                                                )}
+                                                {yacht.detailedPricing.weekly && (
+                                                    <div className="info-row">
+                                                        <span className="info-label">Weekly</span>
+                                                        <span className="info-value">{yacht.detailedPricing.weekly}</span>
+                                                    </div>
+                                                )}
+                                            </>
+                                        ) : basePrice === 0 || yacht?.price?.toLowerCase().includes('request') ? (
+                                            <div className="info-row">
+                                                <span className="info-label">Charter Rate</span>
+                                                <span className="info-value">On Request</span>
+                                            </div>
+                                        ) : (
+                                            <>
                                                 <div className="info-row">
                                                     <span className="info-label">Half Day</span>
-                                                    <span className="info-value">{yacht.detailedPricing.halfDay}</span>
+                                                    <span className="info-value">{halfDayPrice}</span>
                                                 </div>
-                                            )}
-                                            {yacht.detailedPricing.fullDay && (
                                                 <div className="info-row">
                                                     <span className="info-label">Full Day</span>
-                                                    <span className="info-value">{yacht.detailedPricing.fullDay}</span>
+                                                    <span className="info-value">{fullDayPrice}</span>
                                                 </div>
-                                            )}
-                                            {yacht.detailedPricing.overnight && (
                                                 <div className="info-row">
                                                     <span className="info-label">Overnight</span>
-                                                    <span className="info-value">{yacht.detailedPricing.overnight}</span>
+                                                    <span className="info-value">{overnightPrice}</span>
                                                 </div>
-                                            )}
-                                            {yacht.detailedPricing.weekly && (
                                                 <div className="info-row">
                                                     <span className="info-label">Weekly</span>
-                                                    <span className="info-value">{yacht.detailedPricing.weekly}</span>
+                                                    <span className="info-value">Upon Request</span>
                                                 </div>
-                                            )}
-                                        </>
-                                    ) : basePrice === 0 || yacht?.price?.toLowerCase().includes('request') ? (
-                                        <div className="info-row">
-                                            <span className="info-label">Charter Rate</span>
-                                            <span className="info-value">On Request</span>
-                                        </div>
-                                    ) : (
-                                        <>
-                                            <div className="info-row">
-                                                <span className="info-label">Half Day</span>
-                                                <span className="info-value">{halfDayPrice}</span>
-                                            </div>
-                                            <div className="info-row">
-                                                <span className="info-label">Full Day</span>
-                                                <span className="info-value">{fullDayPrice}</span>
-                                            </div>
-                                            <div className="info-row">
-                                                <span className="info-label">Overnight</span>
-                                                <span className="info-value">{overnightPrice}</span>
-                                            </div>
-                                            <div className="info-row">
-                                                <span className="info-label">Weekly</span>
-                                                <span className="info-value">Upon Request</span>
-                                            </div>
-                                        </>
+                                            </>
+                                        )
                                     )}
                                 </div>
                             </div>

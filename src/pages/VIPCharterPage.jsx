@@ -58,15 +58,23 @@ const VIPCharterPage = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8 }}
-                        style={{ marginBottom: '1rem', color: 'var(--color-secondary)' }}
+                        style={{ marginBottom: '1.5rem', background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
                     >
-                        <Star size={48} fill="currentColor" />
+                        <Star size={48} fill="url(#metallic-gold-gradient)" />
+                        <svg width="0" height="0">
+                            <linearGradient id="metallic-gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stopColor="#E0B253" />
+                                <stop offset="45%" stopColor="#F5E6AD" />
+                                <stop offset="55%" stopColor="#F5E6AD" />
+                                <stop offset="100%" stopColor="#B88A44" />
+                            </linearGradient>
+                        </svg>
                     </motion.div>
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                        style={{ color: 'var(--color-secondary)' }}
+                        style={{ background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 300, letterSpacing: '-1px' }}
                     >
                         Members Exclusive
                     </motion.h1>
@@ -96,14 +104,14 @@ const VIPCharterPage = () => {
                                 <div className="charter-img-wrapper">
                                     <img src={yacht.image || yacht.gallery?.[0]} alt={yacht.name} />
                                     {/* Exclusive Badge */}
-                                    <div style={{ position: 'absolute', top: '20px', right: '20px', background: 'var(--color-secondary)', color: 'var(--color-primary)', padding: '5px 15px', borderRadius: '20px', fontWeight: 'bold', fontSize: '0.85rem', zIndex: 10, boxShadow: '0 4px 15px rgba(0,0,0,0.3)' }}>
+                                    <div style={{ position: 'absolute', top: '20px', right: '20px', background: 'var(--gradient-metallic-gold)', color: 'var(--color-primary)', padding: '6px 20px', borderRadius: '4px', fontWeight: 'bold', fontSize: '0.8rem', zIndex: 10, boxShadow: '0 4px 15px rgba(0,0,0,0.5)', textTransform: 'uppercase', letterSpacing: '1px' }}>
                                         Exclusive -20%
                                     </div>
                                 </div>
                                 <div className="charter-glass-panel">
                                     <div className="glass-header">
                                         <h2>{yacht.name}</h2>
-                                        <p className="fleet-type" style={{ margin: 0, fontSize: '0.95rem', fontFamily: 'var(--font-body)', fontWeight: 500, background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{yacht.type || 'Luxury Motor Yacht'}</p>
+                                        <p className="fleet-type" style={{ margin: 0, fontSize: '0.9rem', fontFamily: 'var(--font-body)', fontWeight: 500, background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', textTransform: 'uppercase', letterSpacing: '1px' }}>{yacht.type || 'Luxury Motor Yacht'}</p>
                                     </div>
                                     <div className="glass-specs">
                                         <span className="spec-item"><Ruler size={14} /> {yacht.length || 'N/A'}</span>
@@ -118,7 +126,7 @@ const VIPCharterPage = () => {
                                                             <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Half Day</span>
                                                             <div style={{ textAlign: 'right' }}>
                                                                 <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{yacht.detailedPricing.halfDay}</span>
-                                                                <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{getDiscountedPrice(yacht.detailedPricing.halfDay.toString())}</span>
+                                                                <span style={{ color: 'var(--color-secondary)', fontWeight: 600, fontSize: '1.1rem' }}>{getDiscountedPrice(yacht.detailedPricing.halfDay.toString())}</span>
                                                             </div>
                                                         </div>
                                                     )}
@@ -127,7 +135,7 @@ const VIPCharterPage = () => {
                                                             <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Full Day</span>
                                                             <div style={{ textAlign: 'right' }}>
                                                                 <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{yacht.detailedPricing.fullDay}</span>
-                                                                <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{getDiscountedPrice(yacht.detailedPricing.fullDay.toString())}</span>
+                                                                <span style={{ color: 'var(--color-secondary)', fontWeight: 600, fontSize: '1.1rem' }}>{getDiscountedPrice(yacht.detailedPricing.fullDay.toString())}</span>
                                                             </div>
                                                         </div>
                                                     )}
@@ -136,7 +144,7 @@ const VIPCharterPage = () => {
                                                             <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Weekly</span>
                                                             <div style={{ textAlign: 'right' }}>
                                                                 <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{yacht.detailedPricing.weekly}</span>
-                                                                <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{getDiscountedPrice(yacht.detailedPricing.weekly.toString())}</span>
+                                                                <span style={{ color: 'var(--color-secondary)', fontWeight: 600, fontSize: '1.1rem' }}>{getDiscountedPrice(yacht.detailedPricing.weekly.toString())}</span>
                                                             </div>
                                                         </div>
                                                     )}
@@ -155,7 +163,7 @@ const VIPCharterPage = () => {
                                                         <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Charter Rate</span>
                                                         <div style={{ textAlign: 'right' }}>
                                                             <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{yacht.price}</span>
-                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{getDiscountedPrice(yacht.price)}</span>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600, fontSize: '1.1rem' }}>{getDiscountedPrice(yacht.price)}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -176,28 +184,28 @@ const VIPCharterPage = () => {
                                                     <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Half Day</span>
                                                     <div style={{ textAlign: 'right' }}>
                                                         <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{halfDayOriginal}</span>
-                                                        <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{halfDayVIP}</span>
+                                                        <span style={{ color: 'var(--color-secondary)', fontWeight: 600, fontSize: '1.1rem' }}>{halfDayVIP}</span>
                                                     </div>
                                                 </div>
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                     <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Full Day</span>
                                                     <div style={{ textAlign: 'right' }}>
                                                         <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{fullDayOriginal}</span>
-                                                        <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{fullDayVIP}</span>
+                                                        <span style={{ color: 'var(--color-secondary)', fontWeight: 600, fontSize: '1.1rem' }}>{fullDayVIP}</span>
                                                     </div>
                                                 </div>
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                     <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Overnight</span>
                                                     <div style={{ textAlign: 'right' }}>
                                                         <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{overnightOriginal}</span>
-                                                        <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{overnightVIP}</span>
+                                                        <span style={{ color: 'var(--color-secondary)', fontWeight: 600, fontSize: '1.1rem' }}>{overnightVIP}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         );
                                     })()}
 
-                                    <span className="glass-cta">Secure Exclusive Charter</span>
+                                    <span className="glass-cta" style={{ background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 700 }}>Secure Exclusive Charter</span>
                                 </div>
                             </Link>
                         </motion.div>
@@ -208,15 +216,17 @@ const VIPCharterPage = () => {
             {/* Immersive Bespoke Contact Form Banner */}
             <motion.section
                 className="charter-cta-banner"
-                style={{ borderTop: '2px solid var(--color-secondary)' }}
                 initial={{ opacity: 0, y: 80 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
+                style={{ borderTop: '2px solid rgba(224, 178, 83, 0.4)' }}
             >
                 <div className="cta-banner-content">
-                    <Star className="cta-icon" size={32} color="var(--color-secondary)" fill="var(--color-secondary)" />
-                    <h2 style={{ color: 'var(--color-secondary)' }}>Your Dedicated VIP Concierge</h2>
+                    <div style={{ background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '2rem' }}>
+                        <Star size={48} fill="url(#metallic-gold-gradient)" />
+                    </div>
+                    <h2 style={{ background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', fontSize: '3.5rem', marginBottom: '1.5rem' }}>Your Dedicated VIP Concierge</h2>
                     <p>Contact your private charter specialist to orchestrate your bespoke Mediterranean voyage.</p>
 
                     <form className="charter-contact-form" onSubmit={handleSubmit}>
@@ -253,7 +263,7 @@ const VIPCharterPage = () => {
                             rows="4"
                             required
                         ></textarea>
-                        <button type="submit" className="btn-bespoke" style={{ background: 'var(--color-secondary)', color: 'var(--color-primary)' }}>
+                        <button type="submit" className="btn-bespoke">
                             Send Priority Request <Send size={16} style={{ marginLeft: '8px' }} />
                         </button>
                     </form>

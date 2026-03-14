@@ -516,5 +516,42 @@ export const yachts = [
             '/Diamantides/gallery/yacht_2.jpg',
             '/Diamantides/gallery/yacht_3.jpg'
         ]
+    },
+    {
+        id: 18,
+        name: 'Larson 290 Cabrio',
+        type: 'Motor Yacht',
+        length: '28 ft',
+        capacity: '8 Guests',
+        speed: '30 Knots',
+        image: '/Diamantides/gallery/Larson290/DSC_0523.webp',
+        category: 'sales',
+        price: '€75,000',
+        description: 'A popular model for Larson, the 290 Cabrio (2005) is a well-appointed express whose roomy accommodations and affordable price struck a good balance between comfort and value. She was built on what Larson calls a Duo DeltaConic hull, which incorporates a notched bottom design said to improve both lift and top-end performance. Above deck, the cockpit is arranged with a removable L-shaped lounge and a doublewide, back to-back seat at the helm. Additional features include a tilt wheel, serviceable side decks, a power-assist engine hatch, and a walkthrough transom.',
+        specs: {
+            builder: 'Larson',
+            model: '290 Cabrio',
+            year: '2006',
+            length: '8.49m',
+            status: 'Used',
+            cabins: '1',
+            crew: '',
+            beam: ''
+        },
+        features: ['Year: 2005', 'Available for immediate sale.', 'Excellent condition.', 'Duo DeltaConic hull'],
+        gallery: [
+            '/Diamantides/gallery/Larson290/DSC_0518.webp',
+            '/Diamantides/gallery/Larson290/DSC_0519.webp',
+            '/Diamantides/gallery/Larson290/DSC_0520.webp',
+            '/Diamantides/gallery/Larson290/DSC_0521.webp',
+            '/Diamantides/gallery/Larson290/DSC_0522.webp',
+            '/Diamantides/gallery/Larson290/DSC_0523.webp',
+            '/Diamantides/gallery/Larson290/DSC_0524.webp',
+            '/Diamantides/gallery/Larson290/DSC_0525.webp',
+            '/Diamantides/gallery/Larson290/DSC_0526.webp',
+            '/Diamantides/gallery/Larson290/DSC_0527.webp',
+            '/Diamantides/gallery/Larson290/DSC_0528.webp',
+            '/Diamantides/gallery/Larson290/DSC_0517.webp'
+        ]
     }
 ];
