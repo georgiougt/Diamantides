@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Users, Ruler, Gauge, Anchor, Check, Shield, MessageCircle } from 'lucide-react';
 import { yachts } from '../data/yachts';
 import { useEffect, useState } from 'react';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 import '../styles/YachtDetail.css';
 
 const YachtDetail = () => {
@@ -261,27 +263,22 @@ const YachtDetail = () => {
                             <form className="detail-form" onSubmit={(e) => { e.preventDefault(); alert('Enquiry sent!'); }}>
                                 <input type="text" placeholder="Your Name" required />
                                 <input type="email" placeholder="Email Address" required />
-                                <div className="phone-input-wrapper-dark">
-                                    <select className="country-code-select-dark" defaultValue="+357">
-                                        <option value="+357">+357 (CY)</option>
-                                        <option value="+30">+30 (GR)</option>
-                                        <option value="+44">+44 (UK)</option>
-                                        <option value="+1">+1 (US/CA)</option>
-                                        <option value="+971">+971 (UAE)</option>
-                                        <option value="+33">+33 (FR)</option>
-                                        <option value="+39">+39 (IT)</option>
-                                        <option value="+49">+49 (DE)</option>
-                                    </select>
-                                    <input type="tel" placeholder="Phone Number" />
-                                </div>
+                                <PhoneInput
+                                    country={'cy'}
+                                    value={''}
+                                    onChange={(phone) => {}}
+                                    enableSearch={true}
+                                    placeholder="Phone Number"
+                                    containerClass="custom-phone-input"
+                                />
                                 <textarea placeholder="Message" rows="4"></textarea>
                                 <button type="submit" className="btn-submit-detail">Send Enquiry</button>
                             </form>
 
                             <div className="sidebar-contact">
-                                <p>Or call us directly:</p>
+                                <p>Call Directly</p>
                                 <a href="tel:+35725010561" className="phone-link">+357 25 010 561</a>
-                                <p style={{ marginTop: '1.5rem', marginBottom: '0.5rem' }}>Or message us on WhatsApp:</p>
+                                <p style={{ marginTop: '1.5rem', marginBottom: '0.5rem' }}>Whatsapp Text</p>
                                 <a href="https://wa.me/35799123456" target="_blank" rel="noopener noreferrer" className="phone-link" style={{ color: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                                     <MessageCircle size={20} /> +357 99 123 456
                                 </a>

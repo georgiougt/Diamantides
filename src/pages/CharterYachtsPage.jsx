@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Anchor, Users, Ruler, Send } from 'lucide-react';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 import { yachts } from '../data/yachts';
 import '../styles/CharterYachts.css';
 
@@ -180,12 +182,13 @@ const CharterYachtsPage = () => {
                                 required
                             />
                         </div>
-                        <input
-                            type="tel"
-                            name="phone"
+                        <PhoneInput
+                            country={'cy'}
                             value={formData.phone}
-                            onChange={handleChange}
+                            onChange={(phone) => setFormData({ ...formData, phone })}
+                            enableSearch={true}
                             placeholder="Phone Number (Optional)"
+                            containerClass="custom-phone-input"
                         />
                         <textarea
                             name="message"

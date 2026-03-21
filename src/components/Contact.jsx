@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Send, MessageCircle } from 'lucide-react';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 import '../styles/Contact.css';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        countryCode: '+357',
         phone: '',
         message: ''
     });
@@ -15,7 +16,7 @@ const Contact = () => {
         e.preventDefault();
         // In a real app, this would send data to a backend or service like Formspree
         alert('Thank you for your enquiry. We will contact you shortly.');
-        setFormData({ name: '', email: '', countryCode: '+357', phone: '', message: '' });
+        setFormData({ name: '', email: '', phone: '', message: '' });
     };
 
     const handleChange = (e) => {
@@ -44,9 +45,9 @@ const Contact = () => {
                         <div className="contact-item">
                             <div className="contact-icon"><Phone size={24} /></div>
                             <div>
-                                <h3>Call Us</h3>
-                                <p><a href="tel:+35725010561">+357 25 010 561</a></p>
-                                <p><a href="tel:+35799123456">+357 99 123 456</a></p>
+                                <h3>Call Directly</h3>
+                                <a href="tel:+35725010561">+357 25 010 561</a>
+                                <a href="tel:+35799123456">+357 99 123 456</a>
                             </div>
                         </div>
 
@@ -101,34 +102,18 @@ const Contact = () => {
                             />
                         </div>
 
-                        <div className="form-group phone-group">
-                            <label htmlFor="phone">Phone Number</label>
-                            <div className="phone-input-wrapper">
-                                <select
-                                    className="country-code-select"
-                                    name="countryCode"
-                                    value={formData.countryCode}
-                                    onChange={handleChange}
-                                >
-                                    <option value="+357">+357 (CY)</option>
-                                    <option value="+30">+30 (GR)</option>
-                                    <option value="+44">+44 (UK)</option>
-                                    <option value="+1">+1 (US/CA)</option>
-                                    <option value="+971">+971 (UAE)</option>
-                                    <option value="+33">+33 (FR)</option>
-                                    <option value="+39">+39 (IT)</option>
-                                    <option value="+49">+49 (DE)</option>
-                                </select>
-                                <input
-                                    type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    value={formData.phone}
-                                    onChange={handleChange}
-                                    placeholder="Phone Number"
-                                />
-                            </div>
-                        </div>
+                            <PhoneInput
+                                country={'cy'}
+                                value={formData.phone}
+                                onChange={(phone) => setFormData({ ...formData, phone })}
+                                enableSearch={true}
+                                inputProps={{
+                                    name: 'phone',
+                                    required: true,
+                                    id: 'phone'
+                                }}
+                                containerClass="custom-phone-input"
+                            />
 
                         <div className="form-group">
                             <label htmlFor="message">Message</label>
@@ -149,7 +134,7 @@ const Contact = () => {
 
                         <div style={{ marginTop: '1.5rem', textAlign: 'center', fontSize: '0.95rem', color: '#666' }}>
                             <p style={{ margin: 0 }}>
-                                Or message us on <a href="https://wa.me/35799123456" target="_blank" rel="noopener noreferrer" style={{ color: '#25D366', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '5px', verticalAlign: 'middle' }}><MessageCircle size={18} /> +357 99 123 456</a>
+                                Whatsapp Text <a href="https://wa.me/35799123456" target="_blank" rel="noopener noreferrer" style={{ color: '#25D366', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '5px', verticalAlign: 'middle' }}><MessageCircle size={18} /> +357 99 123 456</a>
                             </p>
                         </div>
                     </form>

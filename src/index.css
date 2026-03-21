@@ -68,3 +68,78 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-secondary);
 }
+
+/* Global Phone Input Styling (react-phone-input-2) */
+.custom-phone-input.react-tel-input .form-control {
+  width: 100% !important;
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  color: var(--color-white) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 4px !important;
+  padding: 1rem 1rem 1rem 48px !important;
+  font-family: var(--font-body) !important;
+  font-size: 1rem !important;
+  height: 50.4px !important;
+  transition: all 0.3s ease !important;
+}
+
+.custom-phone-input.react-tel-input .form-control:focus {
+  outline: none !important;
+  border-color: #E0B253 !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 0 0 1px #E0B253 !important;
+}
+
+.custom-phone-input.react-tel-input .flag-dropdown {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-right: none !important;
+  border-radius: 4px 0 0 4px !important;
+  transition: all 0.3s ease !important;
+}
+
+.custom-phone-input.react-tel-input .flag-dropdown.open,
+.custom-phone-input.react-tel-input .flag-dropdown:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.custom-phone-input.react-tel-input .selected-flag {
+  background-color: transparent !important;
+  padding: 0 0 0 12px !important;
+}
+
+.custom-phone-input.react-tel-input .country-list {
+  background-color: #111 !important;
+  color: var(--color-white) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important;
+  border-radius: 4px !important;
+  margin-top: 5px !important;
+}
+
+.custom-phone-input.react-tel-input .country-list .country:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.custom-phone-input.react-tel-input .country-list .country.highlight {
+  background-color: rgba(224, 178, 83, 0.2) !important;
+}
+
+.custom-phone-input.react-tel-input .country-list .search {
+  background-color: #111 !important;
+  padding: 10px !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+}
+
+.custom-phone-input.react-tel-input .country-list .search-box {
+  width: 90% !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: var(--color-white) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 4px !important;
+  padding: 8px !important;
+  margin: 0 auto !important;
+  display: block !important;
+}

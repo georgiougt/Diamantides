@@ -88,8 +88,6 @@
     justify-content: center;
 }
 
-
-
 /* Form Styles */
 .contact-form-container {
     background-color: #111;
@@ -131,49 +129,8 @@
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-background: var(--gradient-metallic-gold);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    border-color: #E0B253;
     background-color: rgba(255, 255, 255, 0.06);
-}
-
-.phone-input-wrapper {
-    display: flex;
-}
-
-.country-code-select {
-    width: auto;
-    padding: 1rem 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-right: none;
-    border-radius: 4px 0 0 4px;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    background-color: rgba(255, 255, 255, 0.03);
-    color: var(--color-white);
-    outline: none;
-    cursor: pointer;
-    transition: border-color var(--transition-fast), background-color var(--transition-fast);
-}
-
-.country-code-select:focus {
-    border-background: var(--gradient-metallic-gold);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-}
-
-.country-code-select option {
-    background-color: #111;
-    color: var(--color-white);
-}
-
-.phone-input-wrapper input {
-    flex-grow: 1;
-    border-radius: 0 4px 4px 0;
 }
 
 .btn-submit {
@@ -197,11 +154,7 @@
 
 .btn-submit:hover {
     background-color: transparent;
-    background: var(--gradient-metallic-gold);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    opacity: 0.9;
 }
 
 @media (max-width: 900px) {
