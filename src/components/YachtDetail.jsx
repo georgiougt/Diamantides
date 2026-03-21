@@ -277,10 +277,22 @@ const YachtDetail = () => {
 
                             <div className="sidebar-contact">
                                 <p>Call Directly</p>
-                                <a href="tel:+35725010561" className="phone-link">+357 25 010 561</a>
+                                <a href={`tel:${yacht.category === 'charter' ? '+35796340400' : '+35725010561'}`} className="phone-link">
+                                    {yacht.category === 'charter' ? '+357 96 340 400' : '+357 25 010 561'}
+                                </a>
+
+                                {yacht.category === 'charter' && (
+                                    <>
+                                        <p style={{ marginTop: '1.5rem', marginBottom: '0.5rem' }}>Email Us</p>
+                                        <a href="mailto:Charters@diamantidesyachting.com" className="phone-link" style={{ fontSize: '0.9rem' }}>
+                                            Charters@diamantidesyachting.com
+                                        </a>
+                                    </>
+                                )}
+
                                 <p style={{ marginTop: '1.5rem', marginBottom: '0.5rem' }}>Whatsapp Text</p>
-                                <a href="https://wa.me/35799123456" target="_blank" rel="noopener noreferrer" className="phone-link" style={{ color: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                                    <MessageCircle size={20} /> +357 99 123 456
+                                <a href={`https://wa.me/${yacht.category === 'charter' ? '35796340400' : '35799123456'}`} target="_blank" rel="noopener noreferrer" className="phone-link" style={{ color: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                    <MessageCircle size={20} /> {yacht.category === 'charter' ? '+357 96 340 400' : '+357 99 123 456'}
                                 </a>
                             </div>
                         </div>
