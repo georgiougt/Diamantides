@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Anchor, Users, Ruler, Send } from 'lucide-react';
+import { Anchor, Users, Ruler, Send, Phone, Mail, MessageCircle } from 'lucide-react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { yachts } from '../data/yachts';
@@ -202,6 +202,27 @@ const CharterYachtsPage = () => {
                             Send Inquiry <Send size={16} style={{ marginLeft: '8px' }} />
                         </button>
                     </form>
+
+                    <div className="charter-contact-info">
+                        <div className="charter-contact-grid">
+                            <div className="charter-info-item">
+                                <h3>Call Directly</h3>
+                                <a href="tel:+35796340400">+357 96 340 400</a>
+                            </div>
+                            <div className="charter-info-item">
+                                <h3>Email Us</h3>
+                                <a href="mailto:Charters@diamantidesyachting.com">Charters@diamantidesyachting.com</a>
+                            </div>
+                        </div>
+
+                        <div className="charter-whatsapp-container">
+                            <MessageCircle size={20} color="#E0B253" />
+                            <span>Whatsapp Text</span>
+                            <a href="https://wa.me/35796340400" target="_blank" rel="noopener noreferrer">
+                                +357 96 340 400
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </motion.section>
         </main>

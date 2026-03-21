@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Anchor, Users, Ruler, Send, Star } from 'lucide-react';
+import { Anchor, Users, Ruler, Send, Star, Phone, Mail, MessageCircle } from 'lucide-react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { yachts } from '../data/yachts';
@@ -270,6 +270,27 @@ const VIPCharterPage = () => {
                             Send Priority Request <Send size={16} style={{ marginLeft: '8px' }} />
                         </button>
                     </form>
+
+                    <div className="charter-contact-info">
+                        <div className="charter-contact-grid">
+                            <div className="charter-info-item">
+                                <h3 style={{ background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Call Directly</h3>
+                                <a href="tel:+35796340400" style={{ fontSize: '1.2rem', fontWeight: 500 }}>+357 96 340 400</a>
+                            </div>
+                            <div className="charter-info-item">
+                                <h3 style={{ background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Email Us</h3>
+                                <a href="mailto:Charters@diamantidesyachting.com" style={{ fontSize: '1.2rem', fontWeight: 500 }}>Charters@diamantidesyachting.com</a>
+                            </div>
+                        </div>
+
+                        <div className="charter-whatsapp-container" style={{ borderColor: 'rgba(224, 178, 83, 0.3)', background: 'rgba(224, 178, 83, 0.03)' }}>
+                            <MessageCircle size={24} color="#E0B253" />
+                            <span style={{ fontSize: '1rem' }}>Whatsapp Text</span>
+                            <a href="https://wa.me/35796340400" target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.2rem' }}>
+                                +357 96 340 400
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </motion.section>
         </main >
