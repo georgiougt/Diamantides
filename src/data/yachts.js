@@ -9,7 +9,7 @@ export const yachts = [
         image: '/Diamantides/gallery/extracted/frame-86.webp',
         category: 'charter',
         price: 'On Request',
-        description: 'The Princess 30M, named Anka, with her distinctive turquoise hull color, perfectly illustrates the feeling of luxury. With breathtaking finishes, a long expansive saloon with stunning neutral interiors and panoramic surround windows on each side, to provide extraordinary sea views, she is at the cutting edge of sophistication. Off the seating area, doors lead onto the deck with a bar and a further flybridge with additional seating areas and sun loungers, which makes this yacht the perfect choice for a sunny destination. Luxuriously catered to ten guests, with three remarkable double and two convertible configured cabins and with an amazing water toy collection, the Princess 30M is suitable for both a relaxing getaway and an adventure-filled holiday.',
+        description: 'Experience the ultimate charter yacht experience in Limassol, Cyprus aboard the Princess 30M. This stunning vessel, named Anka, perfectly illustrates luxury with her turquoise hull. Whether you want to rent a boat for a relaxing getaway or an adventure-filled holiday, her expansive saloon and water toy collection make her one of the finest boats in the Mediterranean.',
         specs: {
             builder: 'Princess Yachts',
             year: '',
@@ -43,7 +43,7 @@ export const yachts = [
         image: '/Diamantides/gallery/extracted/frame-87.webp',
         category: 'charter',
         price: 'On Request',
-        description: 'The Azimut 27 Grande is a luxurious charter yacht that epitomizes elegance, sophistication, and impeccable craftsmanship. Designed to indulge discerning guests in the ultimate yachting experience, this magnificent vessel seamlessly combines cutting-edge technology with timeless Italian style. Measuring 27 meters (88 feet) in length, the Azimut 27 Grande offers ample space and comfort for up to 12 guests, ensuring a memorable journey on the open seas. The yacht’s sleek exterior lines and contemporary design make it a true head-turner, while its spacious decks provide numerous areas for relaxation, sunbathing, and alfresco dining. Accommodation on the Azimut 27 Grande is equally impressive, with five exquisitely appointed cabins that offer a haven of tranquility.',
+        description: 'Discover luxury at its peak with the Azimut 27 Grande, a premier charter yacht available in Limassol. Designed for those who seek to rent a boat that combines Italian style with cutting-edge technology, this 88ft vessel offers five exquisite cabins for up to 12 guests. It is true excellence among luxury boats in Cyprus.',
         specs: {
             builder: 'Azimut',
             year: '',
@@ -75,7 +75,7 @@ export const yachts = [
         image: '/Diamantides/gallery/extracted/frame-88.webp',
         category: 'charter',
         price: '€4,500 / day',
-        description: 'The Princess 88, named Trinity, provides outstanding efficiency and incredibly luxurious style by combining exceptional engineering and craftsmanship. With a drop down balcony, which unfolds over the sea, it provides one of a kind, magnificent sunset views.\n\nHer distinctive deep-V hull design balances incredible fuel efficiency with spectacular performance and agility while meeting the highest industry standards. Featuring a spacious saloon with panoramic views and a formal dining area, it is the ideal yacht to entertain guests, for formal or social occasions.\n\nThe flybridge includes generous seating as well as a dining area, large sun pad, wet bar and sociable helm side with companion seating, making the yacht the perfect fit for large groups during the day and eight guests overnight in four luxuriously furnished cabins.',
+        description: 'Trinity, a Princess 88, offers an exceptional yacht charter in Cyprus. With a drop down balcony and spacious flybridge, she is perfect for those looking to rent a boat for formal or social occasions in Limassol. As one of the most efficient charter yachts, she provides a spectacular performance on the Mediterranean waves.',
         specs: {
             builder: 'Sunseeker',
             year: '2020',
@@ -107,7 +107,7 @@ export const yachts = [
         image: '/Diamantides/gallery/extracted/frame-94.webp',
         category: 'charter',
         price: 'On Request',
-        description: 'Welcome to Falcon 86, a yacht built in 2000 and comprehensively refitted in 2018. The yacht can comfortably accommodate up to 12 guests for a day charter and 8 guests for an overnight stay, in its 4 elegantly appointed cabins. There are 3 double cabins and 1 twin cabin, all with en-suite facilities, ensuring privacy and convenience. The main salon is the heart of the yacht, with an open layout that seamlessly connects it with the formal dining area. The space is bathed in natural light, creating a warm and welcoming ambiance. The salon is equipped with modern amenities, including a large flat-screen TV, DVD player, and stereo system. The flybridge is the perfect spot for outdoor entertainment, offering ample space for sunbathing, al fresco dining, and socializing with guests.',
+        description: 'Welcome to Falcon 86, a beautifully refitted charter yacht ready for your next voyage in Limassol, Cyprus. If you are looking to rent a boat that accommodates up to 12 guests for a day charter, this is the perfect choice. One of the best boats for outdoor entertainment, her flybridge is ideal for al fresco dining in the sun.',
         specs: {
             builder: 'Falcon',
             year: '2000 (Refit 2018)',
@@ -140,7 +140,7 @@ export const yachts = [
         category: 'charter',
         price: 'On Request',
         detailedPricing: { halfDay: '€4,700', fullDay: '€5,200', weekly: 'Upon Request' },
-        description: 'The Ferretti 69, named Caramel, is a vessel that embodies the epitome of luxury and sophistication on the open waters. The Ferretti 69’s sleek and timeless design captivates all who lay eyes upon it. Step aboard, and you will be transported into a world of refined opulence and indulgence. Every corner exudes elegance and comfort, with lavish furnishings, high-end materials, and a harmonious blend of aesthetics and functionality. Accommodating up to twelve guests, the Ferretti 69 features beautifully appointed cabins that provide an oasis of tranquility. Outside, the Ferretti 69 offers an array of alfresco areas to savor the beauty of the outdoors. Powered by cutting-edge technology, the Ferretti 69 delivers exceptional performance and a smooth cruising experience.',
+        description: 'The Ferretti 69, Caramel, is the epitome of a luxury charter yacht in Limassol. For those who want to rent a boat in Cyprus that offers refined opulence, this vessel delivers an oasis of tranquility. Experience the beauty of the Mediterranean on one of the most sophisticated boats available for charter.',
         specs: {
             builder: 'Ferretti',
             year: '',
@@ -172,13 +172,17 @@ export const yachts = [
         category: 'charter',
         price: 'On Request',
         detailedPricing: { halfDay: '€4,900', fullDay: '€5,300', weekly: 'Upon request' },
-        description: 'Welcome to the Azimut 64 – a yacht available for charter that seamlessly combines elegance and comfort. Crafted in the year 2014, it offers three cozy cabins, two bathrooms, and graciously accommodates up to 12 guests for daily charters and up to 6 guests for overnight stays. The expansive flybridge provides panoramic views and boasts sunbeds for your ultimate relaxation. Whether you’re entranced by the horizon from the flybridge, luxuriating in the sun on the comfortable sunbeds, or unwinding in the welcoming cabins, the Azimut 64 promises an unforgettable yachting experience.',
+        description: 'The Azimut 64 is a versatile charter yacht available for your next holiday in Limassol, Cyprus. Perfect for those who want to rent a boat for daily charters with up to 12 guests, she features an expansive flybridge and cozy cabins. An unforgettable journey awaits on one of our most popular boats.',
         specs: {
-            builder: 'Azimut',
-            year: '2014',
+            builder: 'Hylas',
+            year: '2021',
             cabins: '3',
-            crew: '',
-            beam: ''
+            crew: '2',
+            beam: '17.5 ft',
+            subCategory: 'yacht',
+            draft: '8.2 ft',
+            generators: 'Northern Lights 9kW',
+            thrusters: 'Side-Power Bow Thruster'
         },
         features: ['Expansive Flybridge', 'Sunbeds', 'Cozy Cabins'],
         gallery: [
@@ -207,7 +211,7 @@ export const yachts = [
         category: 'charter',
         price: 'On Request',
         detailedPricing: { halfDay: '€3,700', fullDay: '€4,000', weekly: '€27,000*' },
-        description: 'The Ferretti 550, the Italian masterpiece named “LA CALMA” , as its name suggests, guarantees the much needed tranquility a charterer is looking for when on an escape at the foot of the busy and vibrant Limassol city. The Ferretti 550 is an exquisite yacht that redefines luxury on the water, offering an unparalleled yachting experience. With its elegant design, meticulous craftsmanship, and exceptional performance, this vessel is a masterpiece in its own right. Featuring 3 cabins – 1 double and 2 twin, each with their own en-suite facility, it is the perfect family yacht, ideal for 6 guests’ overnight stay. Its spacious flybridge, panoramic views, and inviting outdoor areas provide the perfect backdrop for relaxation and entertainment.',
+        description: 'LA CALMA, a Ferretti 550, is an Italian masterpiece among charter yachts in Limassol. It is the ideal choice to rent a boat in Cyprus for a family escape, offering tranquility at the foot of the vibrant city. Experience luxury on the water with one of the most elegant boats in our fleet.',
         specs: {
             builder: 'Ferretti',
             year: '',
@@ -240,7 +244,7 @@ export const yachts = [
         category: 'charter',
         price: 'On Request',
         detailedPricing: { halfDay: '€2,300', fullDay: '€2,800' },
-        description: 'Welcome aboard the Beneteau Monte Carlo Flybridge 50, a luxurious yacht built in 2010 and available for day charters in Limassol. With a striking red hull, this yacht is sure to turn heads as you cruise along the Mediterranean coastline. Step onto the spacious flybridge and take in the panoramic views from above. Enjoy a refreshing drink and soak up the sun on the comfortable seating area, or relax in the shade of the bimini. Inside, the Monte Carlo’s elegant interior is finished in high-quality materials and designed for comfort. The salon features a comfortable seating area, a dining table, and a fully equipped galley. Below deck, you’ll find three stylish cabins with ensuite bathrooms, providing plenty of space for you and your guests to relax in privacy.',
+        description: 'Cruising the Limassol coastline has never been more stylish than aboard this Beneteau Monte Carlo 50. As a striking charter yacht in Cyprus, her red hull is sure to turn heads. If you want to rent a boat with a spacious flybridge and panoramic views, this is one of the top boats for your Mediterranean adventure.',
         specs: {
             builder: 'Beneteau',
             year: '2010',
@@ -275,7 +279,7 @@ export const yachts = [
         category: 'charter',
         price: 'On Request',
         detailedPricing: { halfDay: '€2,000', fullDay: '€2,400', weekly: 'Upon Request*' },
-        description: 'The Fairline Targa 48V is available for charters and comfortably accommodates up to eight guests! Her beautiful black and grey colored hull is a hint of the luxurious interior, which perfectly blends extravagance and warmth. With a welcoming al-fresco dining area, other main features include a spacious cockpit, sunbathing cushions and bimini awning. Spend your days lounging in the sunshine at the most beautiful beaches of Cyprus or impress your guests with delicious meals prepared in the fully equipped open-pan galley, while you relax in the ample saloon and dining area. In addition to charter services, she is also available for Sea Taxi services.',
+        description: 'The Fairline Targa 48V is a sleek yacht charter option in Cyprus, comfortably accommodating up to eight guests. Whether you want to rent a boat for a day trip to the best beaches in Limassol or need a Sea Taxi service, this vessel is one of the most versatile boats in the region.',
         specs: {
             builder: 'Fairline',
             year: '',
@@ -310,7 +314,7 @@ export const yachts = [
         category: 'charter',
         price: 'On Request',
         detailedPricing: { halfDay: '€2,000', fullDay: '€2,400', weekly: 'Upon Request*' },
-        description: 'The Fairline Targa 48, now available for charter, is the golden gem cruising the crystal blue waters of Cyprus. This luxurious yacht features spacious sunbeds, perfect for sunbathing all day long under the warm Cyprus sun. With a comfortable living room and expansive exterior, it provides ample space for you, your friends, and family to relax and enjoy an unforgettable day on the water. Whether you’re seeking adventure or tranquility, the Fairline Targa 48 offers the ideal setting for your next yachting experience. In addition to charter services, she is also available for Sea Taxi services.',
+        description: 'Known as the golden gem of Cyprus, this Fairline Targa 48 is now available for boat hire in Limassol. With spacious sunbeds and an expansive exterior, it\'s the perfect charter yacht for relaxing under the warm sun. Experience one of the most comfortable boats for your next maritime journey.',
         specs: {
             builder: 'Fairline',
             year: '',
@@ -345,7 +349,7 @@ export const yachts = [
         category: 'charter',
         price: 'On Request',
         detailedPricing: { halfDay: '€2,000', fullDay: '€2,400' },
-        description: 'Get ready for an unforgettable day on the water aboard the stunning Atlantis 47, a yacht that fuses sporty elegance with comfort. With its sleek lines, spacious design, and upscale features, this beauty is built to impress. Inside, you’ll find two stylish double cabins, each with its own private en suite bathroom, perfect for relaxing in total comfort. The hydraulic swim platform makes dipping into the sea effortless, while comfortable sunbeds at the front and back invite you to lounge in the sunshine with a drink in hand. Hosting up to 10 guests for day charters, the Atlantis 47 is ideal for celebrations, escapes, or spontaneous sea adventures. In addition to charter services, she is also available for Sea Taxi services.',
+        description: 'The Azimut Atlantis 47 fuses sporty elegance with comfort, making it a standout charter yacht in Limassol, Cyprus. If you are looking to rent a boat for up to 10 guests, her hydraulic swim platform and sunbeds provide an effortless sea adventure. A top choice among luxury boats.',
         specs: {
             builder: 'Azimut',
             year: '',
@@ -378,7 +382,7 @@ export const yachts = [
         category: 'charter',
         price: 'On Request',
         detailedPricing: { halfDay: '€2,000', fullDay: '€2,400' },
-        description: 'The Beneteau Monte Carlo 42 is a stunning yacht built in 2010 and now available for day charters in Limassol, Cyprus. With two comfortable cabins, this yacht is perfect for a small group up to 8 people looking to explore the beautiful Limassol coastline. The spacious deck provides ample room for soaking up the sun and taking in the stunning scenery. Step aboard and be greeted by luxurious amenities and stylish décor. The fully equipped kitchen allows for easy preparation of snacks and meals, while the on-board sound system will keep the party going all day long. In addition to charter services, she is also available for Sea Taxi services.',
+        description: 'Available for day charters in Limassol, Cyprus, the Beneteau Monte Carlo 42 is perfect for small groups looking to rent a boat. Explore the beautiful coastline on a stunning charter yacht equipped with luxurious amenities. One of the best boats for a personalized Mediterranean experience.',
         specs: {
             builder: 'Beneteau',
             year: '2010',
@@ -412,7 +416,7 @@ export const yachts = [
         image: '/Diamantides/gallery/extracted/frame-103.webp',
         category: 'charter',
         price: 'On Request',
-        description: 'The Amore 110 is our newest addition to the Diamantides Yachting charter fleet. Combining exceptional scale with incredible luxury, it provides a unique maritime experience perfectly suited for the beautiful coastal waters.',
+        description: 'Rent a boat like no other with the Amore 110, the newest addition to our charter yacht fleet in Limassol, Cyprus. Combining exceptional scale with incredible luxury, she provides a unique maritime experience among the largest boats available in the Mediterranean.',
         specs: {
             builder: 'Custom',
             year: '',
@@ -433,7 +437,7 @@ export const yachts = [
         image: '/Diamantides/gallery/extracted/frame-105.webp',
         category: 'charter',
         price: 'On Request',
-        description: 'The Platinum 56 offers beautiful styling, impressive performance, and remarkable comfort. Experience the Mediterranean seas in this perfectly appointed vessel designed for unforgettable journeys.',
+        description: 'The Platinum 56 offers beautiful styling and impressive performance for those looking for a yacht charter in Cyprus. Experience the Mediterranean seas on a perfectly appointed charter yacht in Limassol. One of the most comfortable boats designed for unforgettable journeys.',
         specs: {
             builder: 'Platinum Yachts',
             year: '',
@@ -454,7 +458,7 @@ export const yachts = [
         image: '/Diamantides/gallery/extracted/frame-106.webp',
         category: 'charter',
         price: 'On Request',
-        description: 'The Beneteau Monte Carlo 52 provides a harmonious blend of style, space, and speed. A wonderful choice for a memorable charter, featuring elegant lines and exceptional on-board comfort.',
+        description: 'A harmonious blend of style and space, the Beneteau Monte Carlo 52 is a wonderful choice to rent a boat in Limassol. As an elegant charter yacht in Cyprus, she features exceptional on-board comfort. One of the most refined boats for a memorable Mediterranean charter.',
         specs: {
             builder: 'Beneteau',
             year: '',
@@ -474,14 +478,25 @@ export const yachts = [
         speed: '28 Knots',
         image: '/Diamantides/gallery/yacht_2.jpg',
         category: 'sales',
+        vesselType: 'Yachts',
         price: '€8,500,000',
         description: 'A true queen of the seas, this super yacht combines opulence with performance. Featuring a beach club, cinema room, and expansive sundeck, specifically designed for grand entertaining.',
         specs: {
             builder: 'Benetti',
             year: '2019',
+            refit: '',
+            vatPaid: 'Paid',
             cabins: '6 (1 Owner, 2 VIP, 3 Guest)',
             crew: '7',
-            beam: '24 ft'
+            beam: '24 ft',
+            subCategory: 'yacht',
+            volume: '285 GT',
+            draft: '7.5 ft',
+            engines: '2x MTU 12V 2000 M96L',
+            generators: '2x Kohler 50kW',
+            stabilizers: 'CMC Stabilis Electra (Zero Speed)',
+            thrusters: 'Nayiad Hydraulic',
+            range: '4,000 nm'
         },
         features: ['Beach Club', 'Cinema', 'Gym', 'Stabilizers', 'Helipad Touch-and-Go'],
         gallery: [
@@ -500,14 +515,20 @@ export const yachts = [
         speed: '12 Knots',
         image: '/Diamantides/gallery/yacht_4.jpg',
         category: 'sales',
+        vesselType: 'Yachts',
         price: '€1,200,000',
         description: 'Experience the romance of sailing without compromising luxury. Azure Dream offers a silent, smooth cruise with all the amenities of a motor yacht.',
         specs: {
+            subCategory: 'yacht',
             builder: 'Jeanneau',
             year: '2021',
+            refit: '2023 (New Sails)',
+            vatPaid: 'Ex VAT',
+            engines: 'Yanmar 110HP',
             cabins: '4 + Crew',
             crew: '2',
-            beam: '17 ft'
+            beam: '17 ft',
+            draft: '8.2 ft'
         },
         features: ['Sailing Rig', 'Water Maker', 'Solar Panels', 'Dinghy Garage'],
         gallery: [
@@ -520,25 +541,28 @@ export const yachts = [
     {
         id: 18,
         name: 'Larson 290 Cabrio',
-        type: 'Motor Yacht',
+        type: 'Motor Boat',
         length: '28 ft',
         capacity: '8 Guests',
         speed: '30 Knots',
         image: '/Diamantides/gallery/Larson290/DSC_0523.webp',
         category: 'sales',
+        vesselType: 'Fiberglass',
         price: '€75,000',
-        description: 'A popular model for Larson, the 290 Cabrio (2005) is a well-appointed express whose roomy accommodations and affordable price struck a good balance between comfort and value. She was built on what Larson calls a Duo DeltaConic hull, which incorporates a notched bottom design said to improve both lift and top-end performance. Above deck, the cockpit is arranged with a removable L-shaped lounge and a doublewide, back to-back seat at the helm. Additional features include a tilt wheel, serviceable side decks, a power-assist engine hatch, and a walkthrough transom.',
+        description: 'A popular model for Larson, the 290 Cabrio is a well-appointed express boat. Above deck, the cockpit is arranged with a removable L-shaped lounge and a doublewide, back to-back seat at the helm.',
         specs: {
+            subCategory: 'boat',
             builder: 'Larson',
-            model: '290 Cabrio',
             year: '2006',
-            length: '8.49m',
-            status: 'Used',
-            cabins: '1',
-            crew: '',
-            beam: ''
+            refit: '',
+            vatPaid: 'Paid',
+            engine: 'Volvo Penta 5.7 GXi (320 HP)',
+            engineCondition: 'Serviced 2023',
+            trailer: 'Two-axle trailer included',
+            location: 'Limassol Marina, Cyprus',
+            listingStatus: 'Available'
         },
-        features: ['Year: 2005', 'Available for immediate sale.', 'Excellent condition.', 'Duo DeltaConic hull'],
+        features: ['Duo DeltaConic hull', 'Power-assist engine hatch', 'Walkthrough transom', 'Full service history'],
         gallery: [
             '/Diamantides/gallery/Larson290/DSC_0518.webp',
             '/Diamantides/gallery/Larson290/DSC_0519.webp',
@@ -553,5 +577,94 @@ export const yachts = [
             '/Diamantides/gallery/Larson290/DSC_0528.webp',
             '/Diamantides/gallery/Larson290/DSC_0517.webp'
         ]
+    },
+    {
+        id: 19,
+        name: 'Colbac Shark 720',
+        type: 'RIB / Sport Boat',
+        length: '7.20m',
+        capacity: '12 Guests',
+        speed: '45 Knots',
+        image: '/Diamantides/gallery/extracted/frame-107.webp',
+        category: 'sales',
+        vesselType: 'RIB',
+        price: '€38,500',
+        description: 'The Colbac Shark 720 is a powerful and versatile RIB, perfect for day trips and water sports. Known for its stability and high-speed performance in the Mediterranean.',
+        specs: {
+            subCategory: 'boat',
+            builder: 'Colbac',
+            year: '2007',
+            refit: '',
+            vatPaid: 'Paid',
+            engine: 'Yamaha 250HP Outboard (4-Stroke)',
+            engineCondition: 'Excellent',
+            trailer: 'Trailer Included',
+            location: 'Larnaca, Cyprus',
+            listingStatus: 'Available'
+        },
+        features: ['Hypalon Tubes', 'Hydraulic Steering', 'Stainless Steel Roll Bar', 'GPS/Fishfinder'],
+        gallery: []
+    },
+    {
+        id: 20,
+        name: 'Custom Line Navetta 30',
+        type: 'Tri-Deck Yacht',
+        length: '28.43m',
+        capacity: '10 Guests',
+        speed: '14 Knots',
+        image: '/Diamantides/gallery/yacht_3.jpg',
+        category: 'sales',
+        vesselType: 'Yachts',
+        price: 'On Request',
+        description: 'The Navetta 30 is a masterpiece of design and comfort. This tri-deck yacht offers unparalleled volume for its size, featuring a sophisticated interior by Antonio Citterio Patricia Viel.',
+        specs: {
+            subCategory: 'yacht',
+            builder: 'Ferretti Group',
+            year: '2022',
+            refit: '',
+            engines: '2x MAN V12-1550',
+            cabins: '5 Staterooms',
+            crew: '5 Members',
+            beam: '7.31m',
+            volume: '199 GT',
+            draft: '2.20m',
+            generators: '2x 35kW Kohler',
+            stabilizers: 'Fin Stabilizers (Underway & Zero Speed)',
+            thrusters: 'Hydraulic Bow & Stern Thrusters',
+            range: '1,000 nm at 10 knots'
+        },
+        features: ['Tri-Deck Layout', 'Zero Speed Stabilizers', 'Main Deck Master Suite', 'Panoramic Windows'],
+        gallery: [
+            '/Diamantides/gallery/yacht_3.jpg',
+            '/Diamantides/gallery/yacht_1.jpg',
+            '/Diamantides/gallery/yacht_2.jpg',
+            '/Diamantides/gallery/yacht_4.jpg'
+        ]
+    },
+    {
+        id: 21,
+        name: 'Sea-Doo GTX Limited 300',
+        type: 'Luxury Performance Jet Ski',
+        length: '3.45m',
+        capacity: '3 Persons',
+        speed: '65+ Knots',
+        image: '/Diamantides/gallery/extracted/frame-12.webp',
+        category: 'sales',
+        vesselType: 'jetskis',
+        price: '€24,500',
+        description: 'The standard for luxury performance. The GTX Limited 300 offers an unparalleled experience with a massive swim platform, Ergolock seat, and a powerful 300 HP Rotax engine.',
+        specs: {
+            subCategory: 'boat',
+            builder: 'Sea-Doo',
+            year: '2023',
+            refit: '',
+            vatPaid: 'Paid',
+            engine: 'Rotax 1630 ACE™ - 300 HP',
+            engineCondition: 'Brand New',
+            location: 'Limassol Marina, Cyprus',
+            listingStatus: 'In Stock'
+        },
+        features: ['BRP Audio-Premium System', 'iBR (Intelligent Brake & Reverse)', 'IDF (Intelligent Debris-Free Pump System)', 'Large Swim Platform'],
+        gallery: []
     }
 ];

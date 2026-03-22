@@ -8,8 +8,12 @@ import { yachts } from '../data/yachts';
 import '../styles/SalesYachts.css';
 
 const SalesYachtsPage = () => {
-    // Filter out only yachts meant for sales
-    const salesYachts = yachts.filter(y => y.category === 'sales').sort((a, b) => b.id - a.id);
+    // Filter/Sort State
+    const [searchTerm, setSearchTerm] = useState('');
+    const [typeFilter, setTypeFilter] = useState('All');
+    const [brandFilter, setBrandFilter] = useState('All');
+    const [sortOrder, setSortOrder] = useState('price-desc'); // Highest to Lowest default
+    const [priceRange, setPriceRange] = useState({ min: '', max: '' });
 
     const [formData, setFormData] = useState({
         name: '',
@@ -21,6 +25,42 @@ const SalesYachtsPage = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    // Helper to parse price string to number
+    const parsePrice = (priceStr) => {
+        if (!priceStr || priceStr.toLowerCase().includes('request')) return Infinity;
+        return parseInt(priceStr.replace(/[^0-9]/g, ''));
+    };
+
+    // Brands derived from data
+    const brands = ['All', ...new Set(yachts.filter(y => y.category === 'sales').map(y => y.specs?.builder).filter(Boolean))];
+    const types = ['All', 'Yachts', 'RIB', 'Fiberglass', 'jetskis'];
+
+    // Filtering and Sorting Logic
+    const filteredAndSortedYachts = yachts
+        .filter(y => y.category === 'sales')
+        .filter(y => {
+            const matchesName = y.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                               y.specs?.builder?.toLowerCase().includes(searchTerm.toLowerCase());
+            const matchesType = typeFilter === 'All' || y.vesselType === typeFilter;
+            const matchesBrand = brandFilter === 'All' || y.specs?.builder === brandFilter;
+            
+            const price = parsePrice(y.price);
+            const matchesMinPrice = priceRange.min === '' || price >= parseInt(priceRange.min);
+            const matchesMaxPrice = priceRange.max === '' || price <= parseInt(priceRange.max);
+
+            return matchesName && matchesType && matchesBrand && matchesMinPrice && matchesMaxPrice;
+        })
+        .sort((a, b) => {
+            const priceA = parsePrice(a.price);
+            const priceB = parsePrice(b.price);
+
+            if (sortOrder === 'price-desc') {
+                return priceB - priceA;
+            } else {
+                return priceA - priceB;
+            }
+        });
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -53,15 +93,77 @@ const SalesYachtsPage = () => {
                         Own a piece of the horizon. Our curated selection of pre-owned and new vessels represents the pinnacle of maritime luxury and engineering excellence.
                     </motion.p>
                 </div>
+
+                {/* Filters Bar pinned to bottom of hero */}
+                <div className="hero-filters-container">
+                    <div className="filters-bar-glass">
+                        <div className="filter-group-main">
+                            <div className="search-input-wrapper">
+                                <input 
+                                    type="text" 
+                                    placeholder="Search by name or brand..." 
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    className="filter-search"
+                                />
+                            </div>
+                            
+                            <div className="select-wrapper">
+                                <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}>
+                                    <option value="All">All Types</option>
+                                    {types.filter(t => t !== 'All').map(t => (
+                                        <option key={t} value={t}>{t === 'jetskis' ? 'Jet Skis' : t}</option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            <div className="select-wrapper">
+                                <select value={brandFilter} onChange={(e) => setBrandFilter(e.target.value)}>
+                                    <option value="All">All Brands</option>
+                                    {brands.filter(b => b !== 'All').map(b => (
+                                        <option key={b} value={b}>{b}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div className="filter-group-secondary">
+                            <div className="price-inputs">
+                                <input 
+                                    type="number" 
+                                    placeholder="Min Price" 
+                                    value={priceRange.min}
+                                    onChange={(e) => setPriceRange({...priceRange, min: e.target.value})}
+                                />
+                                <span>-</span>
+                                <input 
+                                    type="number" 
+                                    placeholder="Max Price" 
+                                    value={priceRange.max}
+                                    onChange={(e) => setPriceRange({...priceRange, max: e.target.value})}
+                                />
+                            </div>
+
+                            <div className="sort-toggle">
+                                <button 
+                                    className={`sort-btn ${sortOrder === 'price-desc' ? 'active' : ''}`}
+                                    onClick={() => setSortOrder(sortOrder === 'price-desc' ? 'price-asc' : 'price-desc')}
+                                >
+                                    {sortOrder === 'price-desc' ? 'Price: High to Low' : 'Price: Low to High'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             {/* Asymmetrical Masonry Grid */}
             <section className="sales-fleet-section">
                 <div className="sales-grid">
-                    {salesYachts.map((yacht, index) => (
+                    {filteredAndSortedYachts.map((yacht, index) => (
                         <motion.div
                             key={yacht.id}
-                            className={`sales-card ${index === 0 ? 'large-card' : 'standard-card'}`}
+                            className={`sales-card ${index % 5 === 0 ? 'large-card' : 'standard-card'}`}
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}

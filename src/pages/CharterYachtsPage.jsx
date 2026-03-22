@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Anchor, Users, Ruler, Send, Phone, Mail, MessageCircle } from 'lucide-react';
+import { Anchor, Users, Ruler, Send, Phone, Mail, MessageCircle, Clock, CheckCircle, AlertCircle } from 'lucide-react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailConfig';
 import { yachts } from '../data/yachts';
 import '../styles/CharterYachts.css';
 
@@ -17,14 +19,39 @@ const CharterYachtsPage = () => {
         message: ''
     });
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+    const [sending, setSending] = useState(false);
+    const [sendError, setSendError] = useState(null);
+    const [sendSuccess, setSendSuccess] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert('Thank you for your charter inquiry. Our specialists will contact you shortly.');
-        setFormData({ name: '', email: '', phone: '', message: '' });
+        setSending(true);
+        setSendError(null);
+        setSendSuccess(false);
+
+        const templateParams = {
+            from_name: formData.name,
+            from_email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+            category: 'Charter Inquiry (General)'
+        };
+
+        try {
+            await emailjs.send(
+                EMAILJS_CONFIG.SERVICE_ID,
+                EMAILJS_CONFIG.TEMPLATE_ID,
+                templateParams,
+                EMAILJS_CONFIG.PUBLIC_KEY
+            );
+            setSendSuccess(true);
+            setFormData({ name: '', email: '', phone: '', message: '' });
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            setSendError('Failed to send inquiry. Please try again or call us directly.');
+        } finally {
+            setSending(false);
+        }
     };
 
     const handleChange = (e) => {
@@ -198,9 +225,19 @@ const CharterYachtsPage = () => {
                             rows="4"
                             required
                         ></textarea>
-                        <button type="submit" className="btn-bespoke">
-                            Send Inquiry <Send size={16} style={{ marginLeft: '8px' }} />
+                        <button type="submit" className="btn-bespoke" disabled={sending}>
+                            {sending ? 'Sending...' : 'Send Inquiry'} <Send size={16} style={{ marginLeft: '8px' }} />
                         </button>
+                        {sendSuccess && (
+                            <div className="form-feedback success" style={{ marginTop: '1rem', color: '#E0B253' }}>
+                                <CheckCircle size={16} style={{ marginRight: '8px' }} /> Thank you! Our specialists will contact you shortly.
+                            </div>
+                        )}
+                        {sendError && (
+                            <div className="form-feedback error" style={{ marginTop: '1rem', color: '#ff4444' }}>
+                                <AlertCircle size={16} style={{ marginRight: '8px' }} /> {sendError}
+                            </div>
+                        )}
                     </form>
 
                     <div className="charter-contact-info">

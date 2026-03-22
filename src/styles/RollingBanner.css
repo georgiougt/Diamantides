@@ -40,17 +40,15 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.rolling-logo.logo-lg {
-    height: 90px;
-}
+/* Scale transforms to handle logos with extreme transparent padding without expanding container */
+.rolling-logo.scale-lg { transform: scale(1.5); }
+.rolling-logo.scale-lg:hover { transform: scale(1.6); }
 
-.rolling-logo.logo-xl {
-    height: 120px;
-}
+.rolling-logo.scale-xl { transform: scale(1.8); }
+.rolling-logo.scale-xl:hover { transform: scale(1.9); }
 
-.rolling-logo.logo-xxl {
-    height: 160px;
-}
+.rolling-logo.scale-xxxl { transform: scale(3.2); }
+.rolling-logo.scale-xxxl:hover { transform: scale(3.3); }
 
 .rolling-logo:hover {
     opacity: 1;
@@ -89,6 +87,37 @@
     }
 
     .rolling-banner-container {
-        margin-top: 2rem;
+        margin-top: 1.5rem;
+    }
+}
+
+/* Global Banner for sub-pages */
+.global-banner-wrapper {
+    margin-top: 80px; /* Perfectly flush with fixed navbar */
+    background: #000000;
+    border-bottom: 1px solid rgba(224, 178, 83, 0.1);
+    position: relative;
+    z-index: 5;
+}
+
+.global-banner-wrapper .rolling-banner-container {
+    margin-top: 0;
+    padding: 0.35rem 0; /* Extremely thin profile for sub-pages */
+}
+
+/* Thinner logos for the sub-page brand banner */
+.global-banner-wrapper .rolling-logo {
+    height: 28px;
+    opacity: 0.6;
+}
+
+/* No overrides needed here because transform: scale() handles proportion nicely for both main and global banner sizes */
+
+@media (max-width: 768px) {
+    .global-banner-wrapper {
+        margin-top: 70px;
+    }
+    .global-banner-wrapper .rolling-logo {
+        height: 18px;
     }
 }

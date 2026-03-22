@@ -30,7 +30,7 @@ const Services = () => {
         {
             id: 'training-academy',
             icon: <GraduationCap size={40} />,
-            title: 'Training Academy',
+            title: 'Speed Boat Training',
             description: 'Certified speedboat operator license training and navigation courses for all skill levels.',
             image: 'https://images.unsplash.com/photo-1517400508447-f8dd518b86db?q=80&w=2070&auto=format&fit=crop',
             link: '/training-academy'

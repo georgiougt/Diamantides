@@ -126,11 +126,7 @@
 
 .thumbnail-wrapper.active {
     opacity: 1;
-    border-background: var(--gradient-metallic-gold);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    border: 2px solid var(--color-secondary);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     transform: scale(1.05);
 }
@@ -259,6 +255,88 @@
     display: flex;
     justify-content: center;
     gap: 2rem;
+    width: 100%;
+}
+
+/* Technical Specs Grid for Yachts */
+.technical-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+.spec-group {
+    background: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(197, 160, 89, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.spec-group:hover {
+    transform: translateY(-5px);
+}
+
+.spec-group h3 {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    padding-bottom: 0.4rem;
+}
+
+.spec-item:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.spec-item span:first-child {
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+.spec-item span:last-child {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-align: right;
+}
+
+.price-group {
+    grid-column: span 2;
+    background: var(--gradient-metallic-gold) !important;
+    text-align: center;
+}
+
+.price-group h3 {
+    color: var(--color-primary);
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.price-group .price-value {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+}
+
+/* Boat Specs List Adjustment */
+.boat-specs-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .pricing-column.premium-pricing-card {
@@ -275,7 +353,6 @@
         10px 10px 30px rgba(0, 0, 0, 0.05),
         -10px -10px 30px rgba(255, 255, 255, 0.8),
         inset 0 0 0 1px rgba(197, 160, 89, 0.15);
-    /* Minimal neumorphic drop shadow and inner gold ring */
     transition: transform var(--transition-medium), box-shadow var(--transition-medium);
 }
 
@@ -316,10 +393,6 @@
     font-size: 0.95rem;
 }
 
-.specs-column .info-label {
-    text-transform: uppercase;
-}
-
 .info-value {
     color: var(--color-text-dark);
     font-weight: 400;
@@ -346,7 +419,6 @@
 /* 3 Columns Area / Postcard Style */
 .detail-bottom-columns {
     display: flex;
-    /* Changed from grid to flex for smooth width transitions */
     gap: 1.5rem;
     margin-top: 3rem;
     width: 100%;
@@ -363,14 +435,12 @@
     flex-direction: column;
     cursor: pointer;
     flex: 1;
-    /* Initial equal width */
 }
 
 .postcard:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
     flex: 1.5;
-    /* Expands width on hover */
 }
 
 .postcard-img-wrapper {
@@ -392,7 +462,6 @@
     transform: scale(1.12);
 }
 
-/* 5-Image Mosaic Grid specifically for postcards */
 .multi-image-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -414,32 +483,11 @@
 
 .postcard:hover .multi-image-grid .postcard-img {
     transform: none;
-    /* Prevent internal images from overlapping across gaps */
 }
 
 .multi-image-grid .postcard-img:first-child {
     grid-column: 1 / -1;
     grid-row: span 2;
-}
-
-/* 4-Image Mosaic Grid for All Yachts */
-.yachts-mosaic-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 2px;
-    height: 100%;
-    transition: transform 0.6s ease;
-}
-
-.yachts-mosaic-grid .postcard-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.postcard:hover .yachts-mosaic-grid {
-    transform: scale(1.12);
 }
 
 .postcard-text {
@@ -523,50 +571,12 @@
 .detail-form input:focus,
 .detail-form textarea:focus {
     outline: none;
-    border-background: var(--gradient-metallic-gold);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    border: 1px solid var(--color-secondary);
     background: rgba(255, 255, 255, 0.1);
 }
 
 .phone-input-wrapper-dark {
     display: flex;
-}
-
-.country-code-select-dark {
-    width: auto;
-    padding: 0.8rem 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-right: none;
-    border-radius: 4px 0 0 4px;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.8);
-    outline: none;
-    cursor: pointer;
-    transition: border-color var(--transition-fast), background var(--transition-fast);
-}
-
-.country-code-select-dark option {
-    background: var(--color-primary);
-    color: var(--color-white);
-}
-
-.country-code-select-dark:focus {
-    border-background: var(--gradient-metallic-gold);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.phone-input-wrapper-dark input {
-    flex-grow: 1;
-    border-radius: 0 4px 4px 0 !important;
 }
 
 .btn-submit-detail {
@@ -616,10 +626,18 @@
     }
 
     .detail-bottom-columns {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 
     .enquiry-card {
         position: static;
+    }
+
+    .technical-specs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-group {
+        grid-column: span 1;
     }
 }

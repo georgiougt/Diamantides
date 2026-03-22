@@ -6,7 +6,7 @@ import '../styles/TrainingAcademy.css';
 const TrainingAcademyPage = () => {
     // Basic SEO handling without react-helmet
     useEffect(() => {
-        document.title = "Speedboat Operator License Cyprus | Diamantides Yachting Training Academy";
+        document.title = "Speed Boat Training Cyprus | Diamantides Yachting";
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription) {
             metaDescription.setAttribute('content', 'Obtain your speedboat operator license in Cyprus with Diamantides Yachting. Official training, exam prep, and certification. Start your yachting journey today.');

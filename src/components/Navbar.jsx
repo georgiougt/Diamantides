@@ -21,9 +21,8 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
+        { name: 'Sales & Brokerage', href: '/sales' },
         { name: 'Charter Yachts', href: '/charter' },
-        { name: 'Sales', href: '/sales' },
-        { name: 'Fleet', href: '/fleet' },
     ];
 
     const servicesDropdown = {
@@ -32,7 +31,7 @@ const Navbar = () => {
             { name: 'Sales & Brokerage', href: '/sales' },
             { name: 'Management & Maintenance', href: '/services#management-maintenance' },
             { name: 'Boat Parking & Storage', href: '/services#boat-parking' },
-            { name: 'Training Academy', href: '/training-academy' }
+            { name: 'Speed Boat Training', href: '/training-academy' }
         ]
     };
 

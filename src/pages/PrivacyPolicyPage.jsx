@@ -74,11 +74,11 @@ const PrivacyPolicyPage = () => {
                     <p>You may choose to restrict the collection or use of your personal information in the following ways:</p>
                     <ul>
                         <li>Whenever you are asked to fill in a form on the website, look for the box that you can click to indicate that you do not want the information to be used by anybody for direct marketing purposes</li>
-                        <li>If you have previously agreed to us using your personal information for direct marketing purposes, you may change your mind at any time by sending us an email here <a href="mailto:info@diamantidesyachting.com">info@diamantidesyachting.com</a></li>
+                        <li>If you have previously agreed to us using your personal information for direct marketing purposes, you may change your mind at any time by sending us an email here <a href="mailto:administration@diamantidesyachting.com">administration@diamantidesyachting.com</a></li>
                     </ul>
                     <p>We will not sell, distribute or lease your personal information to third parties unless we have your permission or are required by law to do so. We may use your personal information to send you promotional information about third parties which we think you may find interesting if you tell us that you wish this to happen.</p>
-                    <p>You may request details of personal information which we hold about you under the Person Protection Law 138(Ι)/2001. A small fee will be payable. If you would like a copy of the information held on you please send us an email here <a href="mailto:info@diamantidesyachting.com">info@diamantidesyachting.com</a></p>
-                    <p>If you believe that any information we are holding on you is incorrect or incomplete, please send us an email here <a href="mailto:info@diamantidesyachting.com">info@diamantidesyachting.com</a>. We will promptly correct any information found to be incorrect.</p>
+                    <p>You may request details of personal information which we hold about you under the Person Protection Law 138(Ι)/2001. A small fee will be payable. If you would like a copy of the information held on you please send us an email here <a href="mailto:administration@diamantidesyachting.com">administration@diamantidesyachting.com</a></p>
+                    <p>If you believe that any information we are holding on you is incorrect or incomplete, please send us an email here <a href="mailto:administration@diamantidesyachting.com">administration@diamantidesyachting.com</a>. We will promptly correct any information found to be incorrect.</p>
                 </section>
             </div>
         </div>

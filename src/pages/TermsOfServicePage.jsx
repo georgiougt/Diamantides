@@ -60,7 +60,7 @@ const TermsOfServicePage = () => {
                     <h2>9. Contact Us</h2>
                     <p>If you have any questions about these Terms of Service, please contact us at:</p>
                     <p>
-                        Email: <a href="mailto:info@diamantidesyachting.com">info@diamantidesyachting.com</a><br />
+                        Email: <a href="mailto:administration@diamantidesyachting.com">administration@diamantidesyachting.com</a><br />
                         Phone: +357 25 010 561
                     </p>
                 </section>

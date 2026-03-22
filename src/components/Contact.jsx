@@ -38,7 +38,7 @@ const Contact = () => {
                             <div className="contact-icon"><MapPin size={24} /></div>
                             <div>
                                 <h3>Visit Us</h3>
-                                <p>Limassol Marina, Building D, Office 12<br />Limassol, Cyprus</p>
+                                <p>Limassol Marina, Building D2, Shop 7<br />Limassol, Cyprus</p>
                             </div>
                         </div>
 
@@ -46,8 +46,10 @@ const Contact = () => {
                             <div className="contact-icon"><Phone size={24} /></div>
                             <div>
                                 <h3>Call Directly</h3>
-                                <a href="tel:+35725010561">+357 25 010 561</a>
-                                <a href="tel:+35799123456">+357 99 123 456</a>
+                                <p>
+                                    <a href="tel:+35725010561">+357 25 010 561</a><br />
+                                    <a href="tel:+35799241025">+357 99 241 025</a>
+                                </p>
                             </div>
                         </div>
 
@@ -55,7 +57,7 @@ const Contact = () => {
                             <div className="contact-icon"><Mail size={24} /></div>
                             <div>
                                 <h3>Email Us</h3>
-                                <p><a href="mailto:info@diamantidesyachting.com">info@diamantidesyachting.com</a></p>
+                                <p><a href="mailto:administration@diamantidesyachting.com">administration@diamantidesyachting.com</a></p>
                             </div>
                         </div>
                     </div>
@@ -134,7 +136,7 @@ const Contact = () => {
 
                         <div style={{ marginTop: '1.5rem', textAlign: 'center', fontSize: '0.95rem', color: '#666' }}>
                             <p style={{ margin: 0 }}>
-                                Whatsapp Text <a href="https://wa.me/35799123456" target="_blank" rel="noopener noreferrer" style={{ color: '#25D366', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '5px', verticalAlign: 'middle' }}><MessageCircle size={18} /> +357 99 123 456</a>
+                                Whatsapp Text <a href="https://wa.me/35799241025" target="_blank" rel="noopener noreferrer" style={{ color: '#25D366', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '5px', verticalAlign: 'middle' }}><MessageCircle size={18} /> +357 99 241 025</a>
                             </p>
                         </div>
                     </form>

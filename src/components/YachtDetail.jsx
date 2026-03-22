@@ -1,10 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, Ruler, Gauge, Anchor, Check, Shield, MessageCircle } from 'lucide-react';
+import { ArrowLeft, Users, Ruler, Gauge, Anchor, Check, Shield, MessageCircle, Clock, CheckCircle, AlertCircle } from 'lucide-react';
 import { yachts } from '../data/yachts';
 import { useEffect, useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailConfig';
 import '../styles/YachtDetail.css';
 
 const YachtDetail = () => {
@@ -34,6 +36,45 @@ const YachtDetail = () => {
     const halfDayPrice = `€${(basePrice * 0.9).toLocaleString()}`;
     const fullDayPrice = yacht && yacht.price.includes('€') ? yacht.price.split(' ')[0] : `€${basePrice.toLocaleString()}`;
     const overnightPrice = `€${(basePrice * 1.2).toLocaleString()}`;
+
+    const [sending, setSending] = useState(false);
+    const [sendError, setSendError] = useState(null);
+    const [sendSuccess, setSendSuccess] = useState(false);
+
+    const handleEnquirySubmit = async (e) => {
+        e.preventDefault();
+        setSending(true);
+        setSendError(null);
+        setSendSuccess(false);
+
+        const form = e.target;
+        
+        const templateParams = {
+            from_name: form.name.value,
+            from_email: form.email.value,
+            phone: form.phone_number.value,
+            message: form.message.value,
+            yacht_name: yacht.name,
+            yacht_type: yacht.type,
+            category: yacht.category
+        };
+
+        try {
+            await emailjs.send(
+                EMAILJS_CONFIG.SERVICE_ID,
+                EMAILJS_CONFIG.TEMPLATE_ID,
+                templateParams,
+                EMAILJS_CONFIG.PUBLIC_KEY
+            );
+            setSendSuccess(true);
+            form.reset();
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            setSendError('Failed to send enquiry. Please try again or call us directly.');
+        } finally {
+            setSending(false);
+        }
+    };
 
     if (!yacht) {
         return (
@@ -110,42 +151,108 @@ const YachtDetail = () => {
                                     <Anchor size={24} className="nautical-icon" />
                                     <hr className="gold-line" />
                                 </div>
-                                <h2>{yacht.category === 'sales' ? 'Sale Details' : 'Charter Pricing'}</h2>
+                                <h2>{yacht.category === 'sales' ? 'Listing Details' : 'Charter Pricing'}</h2>
                             </div>
 
                             <div className="info-columns">
-                                {/* Pricing Column */}
-                                <div className="info-column pricing-column premium-pricing-card">
-                                    {yacht.category === 'sales' ? (
-                                        <>
-                                            <div className="info-row">
-                                                <span className="info-label">Brand</span>
-                                                <span className="info-value">{yacht.specs?.builder || 'N/A'}</span>
+                                {yacht.category === 'sales' ? (
+                                    yacht.specs?.subCategory === 'yacht' ? (
+                                        <div className="technical-specs-grid">
+                                            {/* Dimensions */}
+                                            <div className="spec-group">
+                                                <h3>Dimensions</h3>
+                                                <div className="spec-item"><span>LOA (Length Overall)</span><span>{yacht.length}</span></div>
+                                                <div className="spec-item"><span>Beam</span><span>{yacht.specs.beam}</span></div>
+                                                {yacht.specs.draft && <div className="spec-item"><span>Draft</span><span>{yacht.specs.draft}</span></div>}
+                                                {yacht.specs.volume && <div className="spec-item"><span>Volume</span><span>{yacht.specs.volume}</span></div>}
                                             </div>
-                                            <div className="info-row">
-                                                <span className="info-label">Listing Status</span>
-                                                <span className="info-value">{yacht.specs?.status || 'Available'}</span>
+
+                                            {/* Performance */}
+                                            <div className="spec-group">
+                                                <h3>Performance</h3>
+                                                <div className="spec-item"><span>Cruise Speed</span><span>{yacht.speed}</span></div>
+                                                {yacht.specs.maxSpeed && <div className="spec-item"><span>Max Speed</span><span>{yacht.specs.maxSpeed}</span></div>}
+                                                {yacht.specs.range && <div className="spec-item"><span>Range</span><span>{yacht.specs.range}</span></div>}
                                             </div>
-                                            <div className="info-row">
-                                                <span className="info-label">Asking Price</span>
-                                                <span className="info-value" style={{ color: 'var(--color-secondary)', fontWeight: 700, fontSize: '1.5rem' }}>{yacht.price}</span>
+
+                                            {/* Accommodations */}
+                                            <div className="spec-group">
+                                                <h3>Accommodations</h3>
+                                                <div className="spec-item"><span>Guest Cabins</span><span>{yacht.specs.cabins}</span></div>
+                                                {yacht.specs.crew && <div className="spec-item"><span>Crew Cabins</span><span>{yacht.specs.crew}</span></div>}
+                                                <div className="spec-item"><span>Capacity</span><span>{yacht.capacity}</span></div>
                                             </div>
-                                            {yacht.specs?.year && (
-                                                <div className="info-row">
-                                                    <span className="info-label">Year Built</span>
-                                                    <span className="info-value">{yacht.specs.year}</span>
+
+                                            {/* Technical */}
+                                            <div className="spec-group">
+                                                <h3>Technical</h3>
+                                                <div className="spec-item">
+                                                    <span>Year Built / Refit</span>
+                                                    <span>{yacht.specs.year}{yacht.specs.refit ? ` / ${yacht.specs.refit}` : ''}</span>
                                                 </div>
-                                            )}
-                                            {yacht.specs?.model && (
-                                                <div className="info-row">
-                                                    <span className="info-label">Model</span>
-                                                    <span className="info-value">{yacht.specs.model}</span>
-                                                </div>
-                                            )}
-                                        </>
+                                                {yacht.specs.engines && <div className="spec-item"><span>Engines</span><span>{yacht.specs.engines}</span></div>}
+                                                {yacht.specs.generators && <div className="spec-item"><span>Generators</span><span>{yacht.specs.generators}</span></div>}
+                                                {yacht.specs.stabilizers && <div className="spec-item"><span>Stabilizers</span><span>{yacht.specs.stabilizers}</span></div>}
+                                                {yacht.specs.vatPaid && <div className="spec-item"><span>VAT Status</span><span style={{ color: 'var(--color-secondary)' }}>{yacht.specs.vatPaid}</span></div>}
+                                            </div>
+
+                                            {/* Price info for mobile/sidebar alternative */}
+                                            <div className="spec-group price-group">
+                                                <h3>Asking Price</h3>
+                                                <div className="price-value">{yacht.price}</div>
+                                            </div>
+                                        </div>
                                     ) : (
-                                        // Charter Pricing
-                                        yacht.detailedPricing ? (
+                                        // Boat Profile
+                                        <div className="boat-specs-list">
+                                            <div className="info-column pricing-column premium-pricing-card">
+                                                <div className="info-row">
+                                                    <span className="info-label">Brand / Model</span>
+                                                    <span className="info-value">{yacht.specs?.builder} {yacht.name}</span>
+                                                </div>
+                                                <div className="info-row">
+                                                    <span className="info-label">Year Built / Refit</span>
+                                                    <span className="info-value">{yacht.specs?.year}{yacht.specs?.refit ? ` / ${yacht.specs.refit}` : ''}</span>
+                                                </div>
+                                                <div className="info-row">
+                                                    <span className="info-label">LOA (Length Overall)</span>
+                                                    <span className="info-value">{yacht.length}</span>
+                                                </div>
+                                                {(yacht.specs?.engines || yacht.specs?.engine) && (
+                                                    <div className="info-row">
+                                                        <span className="info-label">Engines</span>
+                                                        <span className="info-value">{yacht.specs.engines || yacht.specs.engine}</span>
+                                                    </div>
+                                                )}
+                                                {yacht.specs?.vatPaid && (
+                                                    <div className="info-row">
+                                                        <span className="info-label">VAT Status</span>
+                                                        <span className="info-value" style={{ color: 'var(--color-secondary)' }}>{yacht.specs.vatPaid}</span>
+                                                    </div>
+                                                )}
+                                                {yacht.specs?.trailer && (
+                                                    <div className="info-row">
+                                                        <span className="info-label">Trailer</span>
+                                                        <span className="info-value" style={{ color: 'var(--color-secondary)' }}>{yacht.specs.trailer}</span>
+                                                    </div>
+                                                )}
+                                                {yacht.specs?.location && (
+                                                    <div className="info-row">
+                                                        <span className="info-label">Location</span>
+                                                        <span className="info-value">{yacht.specs.location}</span>
+                                                    </div>
+                                                )}
+                                                <div className="info-row">
+                                                    <span className="info-label">Asking Price</span>
+                                                    <span className="info-value" style={{ color: 'var(--color-secondary)', fontWeight: 700, fontSize: '1.5rem' }}>{yacht.price}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                ) : (
+                                    // Charter Pricing
+                                    <div className="info-column pricing-column premium-pricing-card">
+                                        {yacht.detailedPricing ? (
                                             <>
                                                 {yacht.detailedPricing.halfDay && (
                                                     <div className="info-row">
@@ -196,9 +303,9 @@ const YachtDetail = () => {
                                                     <span className="info-value">Upon Request</span>
                                                 </div>
                                             </>
-                                        )
-                                    )}
-                                </div>
+                                        )}
+                                    </div>
+                                )}
                             </div>
                         </section>
 
@@ -260,9 +367,9 @@ const YachtDetail = () => {
                             <h3>Interested in {yacht.name}?</h3>
                             <p>Contact us to arrange a viewing or booking.</p>
 
-                            <form className="detail-form" onSubmit={(e) => { e.preventDefault(); alert('Enquiry sent!'); }}>
-                                <input type="text" placeholder="Your Name" required />
-                                <input type="email" placeholder="Email Address" required />
+                            <form className="detail-form" onSubmit={handleEnquirySubmit}>
+                                <input type="text" name="name" placeholder="Your Name" required />
+                                <input type="email" name="email" placeholder="Email Address" required />
                                 <PhoneInput
                                     country={'cy'}
                                     value={''}
@@ -270,9 +377,30 @@ const YachtDetail = () => {
                                     enableSearch={true}
                                     placeholder="Phone Number"
                                     containerClass="custom-phone-input"
+                                    inputProps={{
+                                        name: 'phone_number',
+                                        required: true
+                                    }}
                                 />
-                                <textarea placeholder="Message" rows="4"></textarea>
-                                <button type="submit" className="btn-submit-detail">Send Enquiry</button>
+                                <textarea name="message" placeholder="Message" rows="4"></textarea>
+                                <button type="submit" className="btn-submit-detail" disabled={sending}>
+                                    {sending ? (
+                                        <>
+                                            <Clock size={18} className="spin-icon" style={{ marginRight: '8px' }} /> Sending...
+                                        </>
+                                    ) : 'Send Enquiry'}
+                                </button>
+                                
+                                {sendSuccess && (
+                                    <div className="form-feedback success">
+                                        <CheckCircle size={16} /> Thank you! Our specialists will contact you shortly.
+                                    </div>
+                                )}
+                                {sendError && (
+                                    <div className="form-feedback error">
+                                        <AlertCircle size={16} /> {sendError}
+                                    </div>
+                                )}
                             </form>
 
                             <div className="sidebar-contact">
@@ -291,8 +419,8 @@ const YachtDetail = () => {
                                 )}
 
                                 <p style={{ marginTop: '1.5rem', marginBottom: '0.5rem' }}>Whatsapp Text</p>
-                                <a href={`https://wa.me/${yacht.category === 'charter' ? '35796340400' : '35799123456'}`} target="_blank" rel="noopener noreferrer" className="phone-link" style={{ color: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                                    <MessageCircle size={20} /> {yacht.category === 'charter' ? '+357 96 340 400' : '+357 99 123 456'}
+                                <a href={`https://wa.me/${yacht.category === 'charter' ? '35796340400' : '35799241025'}`} target="_blank" rel="noopener noreferrer" className="phone-link" style={{ color: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                    <MessageCircle size={20} /> {yacht.category === 'charter' ? '+357 96 340 400' : '+357 99 241 025'}
                                 </a>
                             </div>
                         </div>
