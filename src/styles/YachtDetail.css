@@ -641,3 +641,215 @@
         grid-column: span 1;
     }
 }
+
+/* --- Sales Details Layout --- */
+.sales-details-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+/* Quick Specs Grid - Unified into one "rectangle" */
+.quick-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Changed from 4 to 2 for more space */
+    gap: 2.5rem 4rem; /* More horizontal gap */
+    margin-bottom: 2.5rem;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.quick-spec-item {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    transition: none;
+}
+
+.quick-spec-item:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.spec-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    background: #f8fafc; 
+    color: var(--color-primary);
+    border: 1px solid rgba(14, 38, 62, 0.08);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.spec-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.spec-label {
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.spec-value {
+    font-size: 0.95rem;
+    color: var(--color-dark-gray);
+    font-weight: 500;
+}
+
+.divider-line {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.08);
+    margin: 2.5rem 0;
+    width: 100%;
+}
+
+/* Boat Details Accordion Card */
+.boat-details-card {
+    background-color: var(--color-white); 
+    border-radius: 12px;
+    padding: 3rem; /* Increased padding for the unified card */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading);
+}
+
+.accordion-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.2s ease;
+}
+
+.accordion-header:hover {
+    color: var(--color-secondary);
+}
+
+.chevron-icon {
+    transition: transform 0.3s ease;
+    color: var(--color-secondary);
+}
+
+.chevron-icon.open {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    padding: 0 0 1.5rem 0;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.accordion-features-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.accordion-features-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-primary);
+}
+
+.feature-check {
+    color: var(--color-secondary);
+    flex-shrink: 0;
+}
+
+.accordion-specs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.accordion-spec-row {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.accordion-spec-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.spec-key {
+    font-weight: 600;
+    color: var(--color-dark-gray);
+    flex: 1;
+}
+
+.accordion-spec-row .spec-value {
+    flex: 2;
+    text-align: right;
+}
+
+@media (max-width: 600px) {
+    .quick-specs-grid {
+        grid-template-columns: 1fr;
+    }
+    .boat-details-card {
+        padding: 1.5rem;
+    }
+    .accordion-features-list {
+        grid-template-columns: 1fr;
+    }
+    .accordion-spec-row {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    .accordion-spec-row .spec-value {
+        text-align: left;
+    }
+}

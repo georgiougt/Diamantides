@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, Ruler, Gauge, Anchor, Check, Shield, MessageCircle, Clock, CheckCircle, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Users, Ruler, Gauge, Anchor, Check, Shield, MessageCircle, Clock, CheckCircle, AlertCircle, Fan, Timer, Calendar, Ship, ChevronDown, ChevronUp } from 'lucide-react';
 import { yachts } from '../data/yachts';
 import { useEffect, useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
@@ -13,6 +13,11 @@ const YachtDetail = () => {
     const { id } = useParams();
     const yacht = yachts.find(y => y.id === parseInt(id));
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [openSection, setOpenSection] = useState('Description');
+
+    const toggleSection = (section) => {
+        setOpenSection(prev => prev === section ? null : section);
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -156,99 +161,208 @@ const YachtDetail = () => {
 
                             <div className="info-columns">
                                 {yacht.category === 'sales' ? (
-                                    yacht.specs?.subCategory === 'yacht' ? (
-                                        <div className="technical-specs-grid">
-                                            {/* Dimensions */}
-                                            <div className="spec-group">
-                                                <h3>Dimensions</h3>
-                                                <div className="spec-item"><span>LOA (Length Overall)</span><span>{yacht.length}</span></div>
-                                                <div className="spec-item"><span>Beam</span><span>{yacht.specs.beam}</span></div>
-                                                {yacht.specs.draft && <div className="spec-item"><span>Draft</span><span>{yacht.specs.draft}</span></div>}
-                                                {yacht.specs.volume && <div className="spec-item"><span>Volume</span><span>{yacht.specs.volume}</span></div>}
-                                            </div>
-
-                                            {/* Performance */}
-                                            <div className="spec-group">
-                                                <h3>Performance</h3>
-                                                <div className="spec-item"><span>Cruise Speed</span><span>{yacht.speed}</span></div>
-                                                {yacht.specs.maxSpeed && <div className="spec-item"><span>Max Speed</span><span>{yacht.specs.maxSpeed}</span></div>}
-                                                {yacht.specs.range && <div className="spec-item"><span>Range</span><span>{yacht.specs.range}</span></div>}
-                                            </div>
-
-                                            {/* Accommodations */}
-                                            <div className="spec-group">
-                                                <h3>Accommodations</h3>
-                                                <div className="spec-item"><span>Guest Cabins</span><span>{yacht.specs.cabins}</span></div>
-                                                {yacht.specs.crew && <div className="spec-item"><span>Crew Cabins</span><span>{yacht.specs.crew}</span></div>}
-                                                <div className="spec-item"><span>Capacity</span><span>{yacht.capacity}</span></div>
-                                            </div>
-
-                                            {/* Technical */}
-                                            <div className="spec-group">
-                                                <h3>Technical</h3>
-                                                <div className="spec-item">
-                                                    <span>Year Built / Refit</span>
-                                                    <span>{yacht.specs.year}{yacht.specs.refit ? ` / ${yacht.specs.refit}` : ''}</span>
+                                    <div className="sales-details-layout">
+                                        <div className="boat-details-card">
+                                            <h3 className="card-title">Listing Details</h3>
+                                            
+                                            {/* Quick Specs Grid */}
+                                            <div className="quick-specs-grid">
+                                                <div className="quick-spec-item">
+                                                    <div className="spec-icon-wrapper"><Gauge size={24} /></div>
+                                                    <div className="spec-content">
+                                                        <span className="spec-label">Engine</span>
+                                                        <span className="spec-value">{yacht.specs?.engines || yacht.specs?.engine || '-'}</span>
+                                                    </div>
                                                 </div>
-                                                {yacht.specs.engines && <div className="spec-item"><span>Engines</span><span>{yacht.specs.engines}</span></div>}
-                                                {yacht.specs.generators && <div className="spec-item"><span>Generators</span><span>{yacht.specs.generators}</span></div>}
-                                                {yacht.specs.stabilizers && <div className="spec-item"><span>Stabilizers</span><span>{yacht.specs.stabilizers}</span></div>}
-                                                {yacht.specs.vatPaid && <div className="spec-item"><span>VAT Status</span><span style={{ color: 'var(--color-secondary)' }}>{yacht.specs.vatPaid}</span></div>}
+                                                <div className="quick-spec-item">
+                                                    <div className="spec-icon-wrapper"><Fan size={24} /></div>
+                                                    <div className="spec-content">
+                                                        <span className="spec-label">Total Power</span>
+                                                        <span className="spec-value">{yacht.specs?.power || '-'}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="quick-spec-item">
+                                                    <div className="spec-icon-wrapper"><Timer size={24} /></div>
+                                                    <div className="spec-content">
+                                                        <span className="spec-label">Engine Hours</span>
+                                                        <span className="spec-value">{yacht.specs?.engineHours || '-'}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="quick-spec-item">
+                                                    <div className="spec-icon-wrapper"><Shield size={24} /></div>
+                                                    <div className="spec-content">
+                                                        <span className="spec-label">Class</span>
+                                                        <span className="spec-value">{yacht.specs?.class || yacht.type || 'Unspecified'}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="quick-spec-item">
+                                                    <div className="spec-icon-wrapper"><Ruler size={24} /></div>
+                                                    <div className="spec-content">
+                                                        <span className="spec-label">Length</span>
+                                                        <span className="spec-value">{yacht.length || '-'}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="quick-spec-item">
+                                                    <div className="spec-icon-wrapper"><Calendar size={24} /></div>
+                                                    <div className="spec-content">
+                                                        <span className="spec-label">Year</span>
+                                                        <span className="spec-value">{yacht.specs?.year || '-'}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="quick-spec-item">
+                                                    <div className="spec-icon-wrapper"><Ship size={24} /></div>
+                                                    <div className="spec-content">
+                                                        <span className="spec-label">Model</span>
+                                                        <span className="spec-value">{yacht.specs?.builder ? `${yacht.specs.builder} ${yacht.name}` : yacht.name}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="quick-spec-item">
+                                                    <div className="spec-icon-wrapper"><Users size={24} /></div>
+                                                    <div className="spec-content">
+                                                        <span className="spec-label">Capacity</span>
+                                                        <span className="spec-value">{yacht.capacity || '-'}</span>
+                                                    </div>
+                                                </div>
                                             </div>
 
-                                            {/* Price info for mobile/sidebar alternative */}
-                                            <div className="spec-group price-group">
-                                                <h3>Asking Price</h3>
-                                                <div className="price-value">{yacht.price}</div>
+                                            <div className="divider-line"></div>
+
+                                            {/* Boat Details Accordion */}
+                                            <div className="accordion-item">
+                                                <button className="accordion-header" onClick={() => toggleSection('Description')}>
+                                                    <span>Description</span>
+                                                    <ChevronDown size={20} className={`chevron-icon ${openSection === 'Description' ? 'open' : ''}`} />
+                                                </button>
+                                                {openSection === 'Description' && (
+                                                    <div className="accordion-content">
+                                                        <p style={{ whiteSpace: 'pre-line' }}>{yacht.description || 'No description available for this model.'}</p>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Contact Information */}
+                                            <div className="accordion-item">
+                                                <button className="accordion-header" onClick={() => toggleSection('Contact Information')}>
+                                                    <span>Contact Information</span>
+                                                    <ChevronDown size={20} className={`chevron-icon ${openSection === 'Contact Information' ? 'open' : ''}`} />
+                                                </button>
+                                                {openSection === 'Contact Information' && (
+                                                    <div className="accordion-content">
+                                                        <p style={{ marginBottom: '8px' }}><strong>Diamantides Yachting</strong></p>
+                                                        <p>Phone: +357 25 010 561</p>
+                                                        <p>Mobile: +357 99 241 025</p>
+                                                        <p>Email: administration@diamantidesyachting.com</p>
+                                                        <p>Location: {yacht.specs?.location || 'Limassol, Cyprus'}</p>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Features */}
+                                            <div className="accordion-item">
+                                                <button className="accordion-header" onClick={() => toggleSection('Features')}>
+                                                    <span>Features</span>
+                                                    <ChevronDown size={20} className={`chevron-icon ${openSection === 'Features' ? 'open' : ''}`} />
+                                                </button>
+                                                {openSection === 'Features' && (
+                                                    <div className="accordion-content">
+                                                        {yacht.features && yacht.features.length > 0 ? (
+                                                            <ul className="accordion-features-list">
+                                                                {yacht.features.map((feature, i) => (
+                                                                    <li key={i}><Check size={16} className="feature-check" /> {feature}</li>
+                                                                ))}
+                                                            </ul>
+                                                        ) : (
+                                                            <p>No extra features listed.</p>
+                                                        )}
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Propulsion */}
+                                            <div className="accordion-item">
+                                                <button className="accordion-header" onClick={() => toggleSection('Propulsion')}>
+                                                    <span>Propulsion</span>
+                                                    <ChevronDown size={20} className={`chevron-icon ${openSection === 'Propulsion' ? 'open' : ''}`} />
+                                                </button>
+                                                {openSection === 'Propulsion' && (
+                                                    <div className="accordion-content">
+                                                        <div className="accordion-specs-list">
+                                                            <div className="accordion-spec-row">
+                                                                <span className="spec-key">Engine Model</span>
+                                                                <span className="spec-value">{yacht.specs?.engines || yacht.specs?.engine || '-'}</span>
+                                                            </div>
+                                                            <div className="accordion-spec-row">
+                                                                <span className="spec-key">Engine Hours</span>
+                                                                <span className="spec-value">{yacht.specs?.engineHours || '-'}</span>
+                                                            </div>
+                                                            <div className="accordion-spec-row">
+                                                                <span className="spec-key">Generator</span>
+                                                                <span className="spec-value">{yacht.specs?.generators || '-'}</span>
+                                                            </div>
+                                                            <div className="accordion-spec-row">
+                                                                <span className="spec-key">Stabilizers</span>
+                                                                <span className="spec-value">{yacht.specs?.stabilizers || '-'}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Specifications */}
+                                            <div className="accordion-item">
+                                                <button className="accordion-header" onClick={() => toggleSection('Specifications')}>
+                                                    <span>Specifications</span>
+                                                    <ChevronDown size={20} className={`chevron-icon ${openSection === 'Specifications' ? 'open' : ''}`} />
+                                                </button>
+                                                {openSection === 'Specifications' && (
+                                                    <div className="accordion-content">
+                                                        <div className="accordion-specs-list">
+                                                            <div className="accordion-spec-row">
+                                                                <span className="spec-key">Builder</span>
+                                                                <span className="spec-value">{yacht.specs?.builder || '-'}</span>
+                                                            </div>
+                                                            <div className="accordion-spec-row">
+                                                                <span className="spec-key">Length Overall</span>
+                                                                <span className="spec-value">{yacht.length || '-'}</span>
+                                                            </div>
+                                                            <div className="accordion-spec-row">
+                                                                <span className="spec-key">Beam</span>
+                                                                <span className="spec-value">{yacht.specs?.beam || '-'}</span>
+                                                            </div>
+                                                            <div className="accordion-spec-row">
+                                                                <span className="spec-key">Draft</span>
+                                                                <span className="spec-value">{yacht.specs?.draft || '-'}</span>
+                                                            </div>
+                                                            <div className="accordion-spec-row">
+                                                                <span className="spec-key">Volume</span>
+                                                                <span className="spec-value">{yacht.specs?.volume || '-'}</span>
+                                                            </div>
+                                                            <div className="accordion-spec-row">
+                                                                <span className="spec-key">Cabins</span>
+                                                                <span className="spec-value">{yacht.specs?.cabins || '-'}</span>
+                                                            </div>
+                                                            <div className="accordion-spec-row">
+                                                                <span className="spec-key">Crew Cabins</span>
+                                                                <span className="spec-value">{yacht.specs?.crew || '-'}</span>
+                                                            </div>
+                                                            <div className="accordion-spec-row">
+                                                                <span className="spec-key">Cruise Speed</span>
+                                                                <span className="spec-value">{yacht.speed || '-'}</span>
+                                                            </div>
+                                                            <div className="accordion-spec-row">
+                                                                <span className="spec-key">Max Speed</span>
+                                                                <span className="spec-value">{yacht.specs?.maxSpeed || '-'}</span>
+                                                            </div>
+                                                            <div className="accordion-spec-row">
+                                                                <span className="spec-key">VAT Status</span>
+                                                                <span className="spec-value" style={{ color: 'var(--color-secondary)' }}>{yacht.specs?.vatPaid || '-'}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
-                                    ) : (
-                                        // Boat Profile
-                                        <div className="boat-specs-list">
-                                            <div className="info-column pricing-column premium-pricing-card">
-                                                <div className="info-row">
-                                                    <span className="info-label">Brand / Model</span>
-                                                    <span className="info-value">{yacht.specs?.builder} {yacht.name}</span>
-                                                </div>
-                                                <div className="info-row">
-                                                    <span className="info-label">Year Built / Refit</span>
-                                                    <span className="info-value">{yacht.specs?.year}{yacht.specs?.refit ? ` / ${yacht.specs.refit}` : ''}</span>
-                                                </div>
-                                                <div className="info-row">
-                                                    <span className="info-label">LOA (Length Overall)</span>
-                                                    <span className="info-value">{yacht.length}</span>
-                                                </div>
-                                                {(yacht.specs?.engines || yacht.specs?.engine) && (
-                                                    <div className="info-row">
-                                                        <span className="info-label">Engines</span>
-                                                        <span className="info-value">{yacht.specs.engines || yacht.specs.engine}</span>
-                                                    </div>
-                                                )}
-                                                {yacht.specs?.vatPaid && (
-                                                    <div className="info-row">
-                                                        <span className="info-label">VAT Status</span>
-                                                        <span className="info-value" style={{ color: 'var(--color-secondary)' }}>{yacht.specs.vatPaid}</span>
-                                                    </div>
-                                                )}
-                                                {yacht.specs?.trailer && (
-                                                    <div className="info-row">
-                                                        <span className="info-label">Trailer</span>
-                                                        <span className="info-value" style={{ color: 'var(--color-secondary)' }}>{yacht.specs.trailer}</span>
-                                                    </div>
-                                                )}
-                                                {yacht.specs?.location && (
-                                                    <div className="info-row">
-                                                        <span className="info-label">Location</span>
-                                                        <span className="info-value">{yacht.specs.location}</span>
-                                                    </div>
-                                                )}
-                                                <div className="info-row">
-                                                    <span className="info-label">Asking Price</span>
-                                                    <span className="info-value" style={{ color: 'var(--color-secondary)', fontWeight: 700, fontSize: '1.5rem' }}>{yacht.price}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
+                                    </div>
                                 ) : (
                                     // Charter Pricing
                                     <div className="info-column pricing-column premium-pricing-card">
