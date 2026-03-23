@@ -429,7 +429,7 @@ export const yachts = [
     },
     {
         id: 14,
-        name: 'Platinum 56',
+        name: 'Sunseeker Manhattan 56',
         type: 'Motor Yacht',
         length: '56 ft',
         capacity: '10 Guests',
@@ -437,9 +437,9 @@ export const yachts = [
         image: '/Diamantides/gallery/extracted/frame-105.webp',
         category: 'charter',
         price: 'On Request',
-        description: 'The Platinum 56 offers beautiful styling and impressive performance for those looking for a yacht charter in Cyprus. Experience the Mediterranean seas on a perfectly appointed charter yacht in Limassol. One of the most comfortable boats designed for unforgettable journeys.',
+        description: 'The Sunseeker Manhattan 56 offers beautiful styling and impressive performance for those looking for a yacht charter in Cyprus. Experience the Mediterranean seas on a perfectly appointed charter yacht in Limassol. One of the most comfortable boats designed for unforgettable journeys.',
         specs: {
-            builder: 'Platinum Yachts',
+            builder: 'Sunseeker',
             year: '',
             cabins: '3',
             crew: '',
