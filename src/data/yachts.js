@@ -408,7 +408,7 @@ export const yachts = [
     },
     {
         id: 13,
-        name: 'Amore 110',
+        name: 'Private Yacht 110ft',
         type: 'Motor Yacht',
         length: '110 ft',
         capacity: '12 Guests',
@@ -416,7 +416,7 @@ export const yachts = [
         image: '/Diamantides/gallery/extracted/frame-103.webp',
         category: 'charter',
         price: 'On Request',
-        description: 'Rent a boat like no other with the Amore 110, the newest addition to our charter yacht fleet in Limassol, Cyprus. Combining exceptional scale with incredible luxury, she provides a unique maritime experience among the largest boats available in the Mediterranean.',
+        description: 'Rent a boat like no other with the Private Yacht 110ft, the newest addition to our charter yacht fleet in Limassol, Cyprus. Combining exceptional scale with incredible luxury, she provides a unique maritime experience among the largest boats available in the Mediterranean.',
         specs: {
             builder: 'Custom',
             year: '',
