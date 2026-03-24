@@ -11,7 +11,11 @@ import '../styles/CharterYachts.css'; // Reusing the high-end styles
 import vipVideo from '../assets/vip_hero.mp4';
 
 const VIPCharterPage = () => {
-    const charterYachts = yachts.filter(y => y.category === 'charter' || !y.category);
+    const charterYachts = yachts.filter(y => 
+        (y.category === 'charter' || !y.category) && 
+        y.name !== 'Private Yacht 110ft' && 
+        y.name !== 'Azimut 27 Grande'
+    );
 
     const [formData, setFormData] = useState({
         name: '',
