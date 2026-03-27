@@ -221,7 +221,7 @@ export const yachts = [
     },
     {
         id: 11,
-        name: 'Azimut Atlantis 47',
+        name: 'Azimut 47',
         type: 'Motor Yacht',
         length: '47 ft',
         capacity: '12 Guests',
@@ -230,7 +230,7 @@ export const yachts = [
         category: 'charter',
         price: '€2,400 / day',
         detailedPricing: { halfDay: '€2,000', fullDay: '€2,400' },
-        description: 'Limassol Day Charter: The Azimut Atlantis 47 brings sleek performance to Cyprus boat rentals. Featuring a hydraulic platform and sun decks, it\'s a prime choice for luxury yacht charters and private sea getaways.',
+        description: 'Limassol Day Charter: The Azimut 47 brings sleek performance to Cyprus boat rentals. Featuring a hydraulic platform and sun decks, it\'s a prime choice for luxury yacht charters and private sea getaways.',
         specs: {
             builder: 'Azimut',
             year: '',

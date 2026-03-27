@@ -25,7 +25,7 @@ const yachtImages = [
     '/Diamantides/gallery/extracted/frame-99.webp',
     // 10. Fairline Targa 48
     '/Diamantides/gallery/extracted/frame-100.webp',
-    // 11. Azimut Atlantis 47
+    // 11. Azimut 47
     '/Diamantides/gallery/extracted/frame-101.webp',
     // 12. Beneteau Monte Carlo 42
     '/Diamantides/gallery/extracted/frame-102.webp',
