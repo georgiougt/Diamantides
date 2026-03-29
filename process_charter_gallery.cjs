@@ -90,7 +90,8 @@ async function processGalleries() {
 
             try {
                 await sharp(path.join(sourcePath, file))
-                    .webp({ quality: 85 })
+                    .resize({ width: 1920, withoutEnlargement: true }) // Ensure max 1920px width
+                    .webp({ quality: 80 })
                     .toFile(outputPath);
                 
                 // Construct the public URL
