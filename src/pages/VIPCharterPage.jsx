@@ -14,7 +14,9 @@ const VIPCharterPage = () => {
     const charterYachts = yachts.filter(y => 
         (y.category === 'charter' || !y.category) && 
         y.name !== 'Private Yacht 110ft' && 
-        y.name !== 'Azimut 27 Grande'
+        y.name !== 'Azimut 27 Grande' &&
+        y.name !== 'Princess 62' &&
+        y.name !== 'Princess 30 M'
     );
 
     const [formData, setFormData] = useState({
@@ -87,22 +89,7 @@ const VIPCharterPage = () => {
                 </video>
                 <div className="charter-hero-overlay" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.3))', zIndex: 1 }}></div>
                 <div className="charter-hero-content" style={{ position: 'relative', zIndex: 2 }}>
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8 }}
-                        style={{ marginBottom: '1.5rem', background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
-                    >
-                        <Star size={48} fill="url(#metallic-gold-gradient)" />
-                        <svg width="0" height="0">
-                            <linearGradient id="metallic-gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stopColor="#E0B253" />
-                                <stop offset="45%" stopColor="#F5E6AD" />
-                                <stop offset="55%" stopColor="#F5E6AD" />
-                                <stop offset="100%" stopColor="#B88A44" />
-                            </linearGradient>
-                        </svg>
-                    </motion.div>
+                    {/* Logo/Header spacing can be adjusted here if needed */}
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -256,9 +243,7 @@ const VIPCharterPage = () => {
                 style={{ borderTop: '2px solid rgba(224, 178, 83, 0.4)' }}
             >
                 <div className="cta-banner-content">
-                    <div style={{ background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '2rem' }}>
-                        <Star size={48} fill="url(#metallic-gold-gradient)" />
-                    </div>
+                    {/* Space for the removed star icon */}
                     <h2 style={{ background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', fontSize: '3.5rem', marginBottom: '1.5rem' }}>Your Dedicated VIP Concierge</h2>
                     <p>Contact your private charter specialist to orchestrate your bespoke Mediterranean voyage.</p>
 

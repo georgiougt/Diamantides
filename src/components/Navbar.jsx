@@ -8,7 +8,7 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
-    const transparentRoutes = ['/', '/members-only'];
+    const transparentRoutes = ['/'];
     const isTransparentStart = transparentRoutes.includes(location.pathname);
 
     useEffect(() => {
