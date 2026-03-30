@@ -109,6 +109,7 @@ const YachtDetail = () => {
             {galleryImages.length > 0 && (
                 <section className="spotlight-gallery">
                     <div className="spotlight-image-container">
+                        <div className="image-price-badge">{yacht.price}</div>
                         <img
                             src={galleryImages[currentImageIndex]}
                             alt={`${yacht.name} spotlight`}
@@ -174,27 +175,27 @@ const YachtDetail = () => {
                                                         <span className="spec-value">{yacht.specs?.engines || yacht.specs?.engine || '-'}</span>
                                                     </div>
                                                 </div>
-                                                <div className="quick-spec-item">
-                                                    <div className="spec-icon-wrapper"><Fan size={24} /></div>
-                                                    <div className="spec-content">
-                                                        <span className="spec-label">Total Power</span>
-                                                        <span className="spec-value">{yacht.specs?.power || '-'}</span>
-                                                    </div>
-                                                </div>
-                                                <div className="quick-spec-item">
-                                                    <div className="spec-icon-wrapper"><Timer size={24} /></div>
-                                                    <div className="spec-content">
-                                                        <span className="spec-label">Engine Hours</span>
-                                                        <span className="spec-value">{yacht.specs?.engineHours || '-'}</span>
-                                                    </div>
-                                                </div>
-                                                <div className="quick-spec-item">
-                                                    <div className="spec-icon-wrapper"><Shield size={24} /></div>
-                                                    <div className="spec-content">
-                                                        <span className="spec-label">Class</span>
-                                                        <span className="spec-value">{yacht.specs?.class || yacht.type || 'Unspecified'}</span>
-                                                    </div>
-                                                </div>
+                                                
+                                                {/* Only show Total Power and Type(Class) for Yachts, not Boats */}
+                                                {yacht.specs?.subCategory !== 'boat' && (
+                                                    <>
+                                                        <div className="quick-spec-item">
+                                                            <div className="spec-icon-wrapper"><Fan size={24} /></div>
+                                                            <div className="spec-content">
+                                                                <span className="spec-label">Total Power</span>
+                                                                <span className="spec-value">{yacht.specs?.power || '-'}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div className="quick-spec-item">
+                                                            <div className="spec-icon-wrapper"><Shield size={24} /></div>
+                                                            <div className="spec-content">
+                                                                <span className="spec-label">Type</span>
+                                                                <span className="spec-value">{yacht.specs?.class || yacht.type || 'Unspecified'}</span>
+                                                            </div>
+                                                        </div>
+                                                    </>
+                                                )}
+
                                                 <div className="quick-spec-item">
                                                     <div className="spec-icon-wrapper"><Ruler size={24} /></div>
                                                     <div className="spec-content">
@@ -205,57 +206,31 @@ const YachtDetail = () => {
                                                 <div className="quick-spec-item">
                                                     <div className="spec-icon-wrapper"><Calendar size={24} /></div>
                                                     <div className="spec-content">
-                                                        <span className="spec-label">Year</span>
+                                                        <span className="spec-label">Year Built/Refit</span>
                                                         <span className="spec-value">{yacht.specs?.year || '-'}</span>
                                                     </div>
                                                 </div>
                                                 <div className="quick-spec-item">
                                                     <div className="spec-icon-wrapper"><Ship size={24} /></div>
                                                     <div className="spec-content">
-                                                        <span className="spec-label">Model</span>
+                                                        <span className="spec-label">Brand/Model</span>
                                                         <span className="spec-value">{yacht.specs?.builder ? `${yacht.specs.builder} ${yacht.name}` : yacht.name}</span>
                                                     </div>
                                                 </div>
-                                                <div className="quick-spec-item">
-                                                    <div className="spec-icon-wrapper"><Users size={24} /></div>
-                                                    <div className="spec-content">
-                                                        <span className="spec-label">Capacity</span>
-                                                        <span className="spec-value">{yacht.capacity || '-'}</span>
+                                                
+                                                {/* Only show Capacity for Yachts, not Boats */}
+                                                {yacht.specs?.subCategory !== 'boat' && (
+                                                    <div className="quick-spec-item">
+                                                        <div className="spec-icon-wrapper"><Users size={24} /></div>
+                                                        <div className="spec-content">
+                                                            <span className="spec-label">Capacity</span>
+                                                            <span className="spec-value">{yacht.capacity || '-'}</span>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                )}
                                             </div>
 
                                             <div className="divider-line"></div>
-
-                                            {/* Boat Details Accordion */}
-                                            <div className="accordion-item">
-                                                <button className="accordion-header" onClick={() => toggleSection('Description')}>
-                                                    <span>Description</span>
-                                                    <ChevronDown size={20} className={`chevron-icon ${openSection === 'Description' ? 'open' : ''}`} />
-                                                </button>
-                                                {openSection === 'Description' && (
-                                                    <div className="accordion-content">
-                                                        <p style={{ whiteSpace: 'pre-line' }}>{yacht.description || 'No description available for this model.'}</p>
-                                                    </div>
-                                                )}
-                                            </div>
-
-                                            {/* Contact Information */}
-                                            <div className="accordion-item">
-                                                <button className="accordion-header" onClick={() => toggleSection('Contact Information')}>
-                                                    <span>Contact Information</span>
-                                                    <ChevronDown size={20} className={`chevron-icon ${openSection === 'Contact Information' ? 'open' : ''}`} />
-                                                </button>
-                                                {openSection === 'Contact Information' && (
-                                                    <div className="accordion-content">
-                                                        <p style={{ marginBottom: '8px' }}><strong>Diamantides Yachting</strong></p>
-                                                        <p>Phone: +357 25 010 561</p>
-                                                        <p>Mobile: +357 99 241 025</p>
-                                                        <p>Email: administration@diamantidesyachting.com</p>
-                                                        <p>Location: {yacht.specs?.location || 'Limassol, Cyprus'}</p>
-                                                    </div>
-                                                )}
-                                            </div>
 
                                             {/* Features */}
                                             <div className="accordion-item">
@@ -441,11 +416,11 @@ const YachtDetail = () => {
                                     <span className="btn-view-all">View Fleet</span>
                                 </div>
                                 <div className="postcard-img-wrapper multi-image-grid">
-                                    <img src="/Diamantides/gallery/yacht_1.jpg" alt="All Yachts 1" className="postcard-img" />
-                                    <img src="/Diamantides/gallery/yacht_2.jpg" alt="All Yachts 2" className="postcard-img" />
-                                    <img src="/Diamantides/gallery/yacht_3.jpg" alt="All Yachts 3" className="postcard-img" />
-                                    <img src="/Diamantides/gallery/yacht_4.jpg" alt="All Yachts 4" className="postcard-img" />
-                                    <img src="/Diamantides/gallery/yacht_1.jpg" alt="All Yachts 5" className="postcard-img" />
+                                    <img src="/Diamantides/assets/charter-optimized/princess-88-23.webp" alt="Princess 88" className="postcard-img" />
+                                    <img src="/Diamantides/assets/charter-optimized/azimut-27-grande.webp" alt="Azimut 27" className="postcard-img" />
+                                    <img src="/Diamantides/assets/charter-optimized/falcon-86.webp" alt="Falcon 86" className="postcard-img" />
+                                    <img src="/Diamantides/assets/charter-optimized/ferretti-69.webp" alt="Ferretti 69" className="postcard-img" />
+                                    <img src="/Diamantides/assets/charter-optimized/princess-62.webp" alt="Princess 62" className="postcard-img" />
                                 </div>
                             </Link>
                             <div className="postcard">
