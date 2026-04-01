@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Anchor, Users, Ruler, Send, Star, Phone, Mail, MessageCircle, Clock, CheckCircle, AlertCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Anchor, Users, Ruler, Send, Star, Phone, Mail, MessageCircle, Clock, CheckCircle, AlertCircle, Volume2, VolumeX, X, FileText } from 'lucide-react';
+import { useRef } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import emailjs from '@emailjs/browser';
@@ -11,13 +12,68 @@ import '../styles/CharterYachts.css'; // Reusing the high-end styles
 import vipVideo from '../assets/vip_hero.mp4';
 
 const VIPCharterPage = () => {
-    const charterYachts = yachts.filter(y => 
-        (y.category === 'charter' || !y.category) && 
-        y.name !== 'Private Yacht 110ft' && 
-        y.name !== 'Azimut 27 Grande' &&
-        y.name !== 'Princess 62' &&
-        y.name !== 'Princess 30 M'
-    );
+    const charterYachts = yachts
+        .filter(y => 
+            (y.category === 'charter' || !y.category) && 
+            y.name !== 'Private Yacht 110ft' && 
+            y.name !== 'Azimut 27 Grande' &&
+            y.name !== 'Princess 62' &&
+            y.name !== 'Princess 30M'
+        )
+        .sort((a, b) => {
+            const order = [3, 14, 6, 4, 9, 12, 7, 5, 15, 10, 8, 23, 24, 11];
+            return order.indexOf(a.id) - order.indexOf(b.id);
+        });
+
+    const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+    const audioRef = useRef(null);
+
+    // High-quality royalty-free seaside ambience (waves and birds)
+    const audioUrl = "https://cdn.pixabay.com/audio/2021/08/03/audio_d9d49e5f71.mp3"; 
+
+    useEffect(() => {
+        // Initialize audio
+        audioRef.current = new Audio(audioUrl);
+        audioRef.current.loop = true;
+        audioRef.current.volume = 0.4;
+
+        // Cleanup
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current = null;
+            }
+        };
+    }, []);
+
+    const toggleAudio = () => {
+        if (!audioRef.current) return;
+        
+        if (isAudioPlaying) {
+            audioRef.current.pause();
+        } else {
+            // Browsers may block this if no user interaction has occurred
+            // but since this is a button click, it will work perfectly.
+            audioRef.current.play().catch(err => console.log("Audio play blocked:", err));
+        }
+        setIsAudioPlaying(!isAudioPlaying);
+    };
+
+    const [isTermsOpen, setIsTermsOpen] = useState(false);
+
+    const termsContent = [
+        "Offer applies to selected fleet only (Scan QR on card) and cannot be combined with any other offer/discount.",
+        "Member Card can be used for any employee/guest of the company on which it was issued.",
+        "Route is standard within Limassol Bay and can be made specific according to weather conditions on charter day.",
+        "Yacht availability is subject to scheduling at the time of booking.",
+        "In the event that a yacht is unavailable (maintenance or sold), booking will be arranged on a similar spec/pricing yacht.",
+        "Weather conditions might affect the booking. Accurate forecasts are provided 72 hours before departure; dates can be rearranged.",
+        "Maximum number of guests must be agreed during booking. Delays at departure cannot exceed 30 minutes.",
+        "Cancellations less than 48 hours before the agreed time have a penalty of 20% (deposit of the charter fee).",
+        "Price includes soft drinks, 2 bottles of local wine, freshly prepared fruit platter, and guest towels.",
+        "Additional services (catering, DJ, decor) are the charterer's choice but require advance approval and yacht viewing.",
+        "Discount applies on the net charter price."
+    ];
 
     const [formData, setFormData] = useState({
         name: '',
@@ -65,13 +121,6 @@ const VIPCharterPage = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    // Helper to calculate 20% off
-    const getDiscountedPrice = (priceString) => {
-        const basePrice = parseInt(priceString.replace(/[^\d]/g, '')) || 0;
-        if (basePrice === 0) return priceString.split('/')[0];
-        const discounted = basePrice * 0.8;
-        return `€${discounted.toLocaleString()}`;
-    };
 
     return (
         <main className="charter-page vip-page">
@@ -105,6 +154,15 @@ const VIPCharterPage = () => {
                     >
                         Welcome to the inner circle. As a valued Exclusive member, enjoy an exclusive 20% privilege reduction on our entire charter fleet.
                     </motion.p>
+                    <motion.button 
+                        className="hero-terms-link"
+                        onClick={() => setIsTermsOpen(true)}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.8, duration: 0.8 }}
+                    >
+                        <FileText size={14} /> VIP TERMS & CONDITIONS
+                    </motion.button>
                 </div>
             </section>
 
@@ -141,31 +199,46 @@ const VIPCharterPage = () => {
                                         if (yacht.detailedPricing) {
                                             return (
                                                 <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.2rem', fontSize: '0.9rem' }}>
+                                                    {yacht.detailedPricing.twoHours && (
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>2 Hours</span>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.twoHours}</span>
+                                                        </div>
+                                                    )}
+                                                    {yacht.detailedPricing.threeHours && (
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>3 Hours</span>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.threeHours}</span>
+                                                        </div>
+                                                    )}
+                                                    {yacht.detailedPricing.fourHours && (
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>4 Hours</span>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.fourHours}</span>
+                                                        </div>
+                                                    )}
                                                     {yacht.detailedPricing.halfDay && (
                                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                             <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Half Day</span>
-                                                            <div style={{ textAlign: 'right' }}>
-                                                                <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{yacht.detailedPricing.halfDay}</span>
-                                                                <span style={{ color: 'var(--color-secondary)', fontWeight: 600, fontSize: '1.1rem' }}>{getDiscountedPrice(yacht.detailedPricing.halfDay.toString())}</span>
-                                                            </div>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.halfDay}</span>
                                                         </div>
                                                     )}
                                                     {yacht.detailedPricing.fullDay && (
                                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                             <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Full Day</span>
-                                                            <div style={{ textAlign: 'right' }}>
-                                                                <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{yacht.detailedPricing.fullDay}</span>
-                                                                <span style={{ color: 'var(--color-secondary)', fontWeight: 600, fontSize: '1.1rem' }}>{getDiscountedPrice(yacht.detailedPricing.fullDay.toString())}</span>
-                                                            </div>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.fullDay}</span>
+                                                        </div>
+                                                    )}
+                                                    {yacht.detailedPricing.overnight && (
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Overnight</span>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.overnight}</span>
                                                         </div>
                                                     )}
                                                     {yacht.detailedPricing.weekly && (
                                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                             <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Weekly</span>
-                                                            <div style={{ textAlign: 'right' }}>
-                                                                <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{yacht.detailedPricing.weekly}</span>
-                                                                <span style={{ color: 'var(--color-secondary)', fontWeight: 600, fontSize: '1.1rem' }}>{getDiscountedPrice(yacht.detailedPricing.weekly.toString())}</span>
-                                                            </div>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.weekly}</span>
                                                         </div>
                                                     )}
                                                 </div>
@@ -181,10 +254,7 @@ const VIPCharterPage = () => {
                                                 <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.2rem', fontSize: '0.9rem' }}>
                                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                         <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Charter Rate</span>
-                                                        <div style={{ textAlign: 'right' }}>
-                                                            <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{yacht.price}</span>
-                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600, fontSize: '1.1rem' }}>{getDiscountedPrice(yacht.price)}</span>
-                                                        </div>
+                                                        <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.price}</span>
                                                     </div>
                                                 </div>
                                             );
@@ -194,32 +264,19 @@ const VIPCharterPage = () => {
                                         const fullDayOriginal = yacht.price.includes('€') ? yacht.price.split(' ')[0] : `€${basePrice.toLocaleString()}`;
                                         const overnightOriginal = `€${(basePrice * 1.2).toLocaleString()}`;
 
-                                        const halfDayVIP = `€${(basePrice * 0.9 * 0.8).toLocaleString()}`;
-                                        const fullDayVIP = `€${(basePrice * 0.8).toLocaleString()}`;
-                                        const overnightVIP = `€${(basePrice * 1.2 * 0.8).toLocaleString()}`;
-
                                         return (
                                             <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.2rem', fontSize: '0.9rem' }}>
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                     <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Half Day</span>
-                                                    <div style={{ textAlign: 'right' }}>
-                                                        <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{halfDayOriginal}</span>
-                                                        <span style={{ color: 'var(--color-secondary)', fontWeight: 600, fontSize: '1.1rem' }}>{halfDayVIP}</span>
-                                                    </div>
+                                                    <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{halfDayOriginal}</span>
                                                 </div>
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                     <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Full Day</span>
-                                                    <div style={{ textAlign: 'right' }}>
-                                                        <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{fullDayOriginal}</span>
-                                                        <span style={{ color: 'var(--color-secondary)', fontWeight: 600, fontSize: '1.1rem' }}>{fullDayVIP}</span>
-                                                    </div>
+                                                    <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{fullDayOriginal}</span>
                                                 </div>
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                     <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Overnight</span>
-                                                    <div style={{ textAlign: 'right' }}>
-                                                        <span style={{ display: 'block', fontSize: '0.75rem', textDecoration: 'line-through', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '2px' }}>{overnightOriginal}</span>
-                                                        <span style={{ color: 'var(--color-secondary)', fontWeight: 600, fontSize: '1.1rem' }}>{overnightVIP}</span>
-                                                    </div>
+                                                    <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{overnightOriginal}</span>
                                                 </div>
                                             </div>
                                         );
@@ -244,7 +301,7 @@ const VIPCharterPage = () => {
             >
                 <div className="cta-banner-content">
                     {/* Space for the removed star icon */}
-                    <h2 style={{ background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', fontSize: '3.5rem', marginBottom: '1.5rem' }}>Your Dedicated VIP Concierge</h2>
+                    <h2 style={{ background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', fontSize: '3.5rem', marginBottom: '1.5rem' }}>Contact Us</h2>
                     <p>Contact your private charter specialist to orchestrate your bespoke Mediterranean voyage.</p>
 
                     <form className="charter-contact-form" onSubmit={handleSubmit}>
@@ -301,7 +358,7 @@ const VIPCharterPage = () => {
                         <div className="charter-contact-grid">
                             <div className="charter-info-item">
                                 <h3 style={{ background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Call Directly</h3>
-                                <a href="tel:+35796340400" style={{ fontSize: '1.2rem', fontWeight: 500 }}>+357 96 340 400</a>
+                                <a href="tel:+35725010561" style={{ fontSize: '1.2rem', fontWeight: 500 }}>+357 25 010 561</a>
                             </div>
                             <div className="charter-info-item">
                                 <h3 style={{ background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Email Us</h3>
@@ -319,6 +376,72 @@ const VIPCharterPage = () => {
                     </div>
                 </div>
             </motion.section>
+            {/* Premium Soundscape Toggle */}
+            <motion.button
+                className={`audio-toggle ${isAudioPlaying ? 'playing' : ''}`}
+                onClick={toggleAudio}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1, duration: 0.8 }}
+                title={isAudioPlaying ? "Mute Ambience" : "Enable Seaside Ambience"}
+            >
+                <div className="audio-icon-wrapper">
+                    {isAudioPlaying ? <Volume2 size={20} /> : <VolumeX size={20} />}
+                </div>
+                <span className="audio-label">{isAudioPlaying ? "AMBIENCE ON" : "AMBIENCE OFF"}</span>
+                {isAudioPlaying && (
+                    <div className="audio-visualizer">
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                    </div>
+                )}
+            </motion.button>
+
+            {/* VIP Terms & Conditions Modal */}
+            <AnimatePresence>
+                {isTermsOpen && (
+                    <div className="terms-modal-overlay">
+                        <motion.div 
+                            className="terms-modal-content"
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                        >
+                            <button className="close-modal" onClick={() => setIsTermsOpen(false)}>
+                                <X size={24} />
+                            </button>
+                            
+                            <div className="modal-header">
+                                <FileText size={32} className="header-icon" />
+                                <h2>VIP Membership Terms</h2>
+                                <div className="header-line"></div>
+                            </div>
+                            
+                            <div className="modal-body">
+                                <ul className="vip-terms-list">
+                                    {termsContent.map((term, index) => (
+                                        <motion.li 
+                                            key={index}
+                                            initial={{ opacity: 0, x: -10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: 0.1 + index * 0.05 }}
+                                        >
+                                            <div className="term-number">{(index + 1).toString().padStart(2, '0')}</div>
+                                            <p>{term}</p>
+                                        </motion.li>
+                                    ))}
+                                </ul>
+                            </div>
+                            
+                            <div className="modal-footer">
+                                <button className="btn-close-footer" onClick={() => setIsTermsOpen(false)}>UNDERSTOOD</button>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
         </main >
     );
 };

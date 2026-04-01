@@ -172,6 +172,7 @@ const SalesYachtsPage = () => {
                             <Link to={`/yacht/${yacht.id}`} className="sales-card-link">
                                 <div className="sales-img-wrapper">
                                     <img src={yacht.image || yacht.gallery?.[0]} alt={yacht.name} />
+                                    {yacht.price && <div className="image-price-badge">{yacht.price}</div>}
                                 </div>
                                 <div className="sales-glass-panel">
                                     <div className="glass-header">

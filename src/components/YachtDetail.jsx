@@ -7,6 +7,7 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../config/emailConfig';
+import PostcardCarousel from './PostcardCarousel';
 import '../styles/YachtDetail.css';
 
 const YachtDetail = () => {
@@ -22,6 +23,32 @@ const YachtDetail = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [id]);
+
+    const postcardImages = {
+        fleet: [
+            { url: '/Diamantides/assets/charter-optimized/princess-88-23.webp', title: 'Princess 88' },
+            { url: '/Diamantides/assets/charter-optimized/azimut-27-grande.webp', title: 'Azimut 27 Grande' },
+            { url: '/Diamantides/assets/charter-optimized/falcon-86.webp', title: 'Falcon 86' },
+            { url: '/Diamantides/assets/charter-optimized/ferretti-69.webp', title: 'Ferretti 69' },
+            { url: '/Diamantides/assets/charter-optimized/princess-62.webp', title: 'Princess 62' }
+        ],
+        cyprus: [
+            { url: '/Diamantides/destinations/dest_1.jpg', title: 'Zapalo Bay' },
+            { url: '/Diamantides/destinations/pissouri.webp', title: 'Pissouri Bay' },
+            { url: '/Diamantides/destinations/latsi.webp', title: 'Latsi & Blue Lagoon' },
+            { url: '/Diamantides/destinations/governors.webp', title: 'Governors Beach' },
+            { url: '/Diamantides/destinations/paphos.webp', title: 'Paphos Harbor' },
+            { url: '/Diamantides/destinations/ayia_napa.webp', title: 'Ayia Napa Blue' },
+            { url: '/Diamantides/destinations/protaras.webp', title: 'Protaras Coast' }
+        ],
+        world: [
+            { url: '/Diamantides/world/santorini.webp', title: 'Santorini, Greece' },
+            { url: '/Diamantides/world/amalfi.webp', title: 'Amalfi Coast, Italy' },
+            { url: '/Diamantides/world/monaco.webp', title: 'Monaco Harbor' },
+            { url: '/Diamantides/world/st_barts.webp', title: 'St. Barts, Caribbean' },
+            { url: '/Diamantides/world/venice.webp', title: 'Venice, Italy' }
+        ]
+    };
 
     const galleryImages = yacht?.gallery?.length > 0 ? yacht.gallery : (yacht?.image ? [yacht.image] : []);
 
@@ -109,7 +136,7 @@ const YachtDetail = () => {
             {galleryImages.length > 0 && (
                 <section className="spotlight-gallery">
                     <div className="spotlight-image-container">
-                        <div className="image-price-badge">{yacht.price}</div>
+                        {yacht.category === 'sales' && <div className="image-price-badge">{yacht.price}</div>}
                         <img
                             src={galleryImages[currentImageIndex]}
                             alt={`${yacht.name} spotlight`}
@@ -171,7 +198,7 @@ const YachtDetail = () => {
                                                 <div className="quick-spec-item">
                                                     <div className="spec-icon-wrapper"><Gauge size={24} /></div>
                                                     <div className="spec-content">
-                                                        <span className="spec-label">Engine</span>
+                                                        <span className="spec-label">Engines</span>
                                                         <span className="spec-value">{yacht.specs?.engines || yacht.specs?.engine || '-'}</span>
                                                     </div>
                                                 </div>
@@ -343,6 +370,24 @@ const YachtDetail = () => {
                                     <div className="info-column pricing-column premium-pricing-card">
                                         {yacht.detailedPricing ? (
                                             <>
+                                                {yacht.detailedPricing.twoHours && (
+                                                    <div className="info-row">
+                                                        <span className="info-label">2 Hours</span>
+                                                        <span className="info-value">{yacht.detailedPricing.twoHours}</span>
+                                                    </div>
+                                                )}
+                                                {yacht.detailedPricing.threeHours && (
+                                                    <div className="info-row">
+                                                        <span className="info-label">3 Hours</span>
+                                                        <span className="info-value">{yacht.detailedPricing.threeHours}</span>
+                                                    </div>
+                                                )}
+                                                {yacht.detailedPricing.fourHours && (
+                                                    <div className="info-row">
+                                                        <span className="info-label">4 Hours</span>
+                                                        <span className="info-value">{yacht.detailedPricing.fourHours}</span>
+                                                    </div>
+                                                )}
                                                 {yacht.detailedPricing.halfDay && (
                                                     <div className="info-row">
                                                         <span className="info-label">Half Day</span>
@@ -393,6 +438,14 @@ const YachtDetail = () => {
                                                 </div>
                                             </>
                                         )}
+                                        
+                                        {yacht.priceNote && (
+                                            <div className="price-note-box" style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+                                                <p className="price-note-text" style={{ fontSize: '0.85rem', color: '#4a5568', fontStyle: 'italic', lineHeight: '1.6', textAlign: 'center' }}>
+                                                    {yacht.priceNote}
+                                                </p>
+                                            </div>
+                                        )}
                                     </div>
                                 )}
                             </div>
@@ -410,43 +463,20 @@ const YachtDetail = () => {
                         */}
 
                         <section className="detail-bottom-columns">
-                            <Link to="/" className="postcard">
-                                <div className="postcard-text">
-                                    <h3>All Yachts</h3>
-                                    <span className="btn-view-all">View Fleet</span>
-                                </div>
-                                <div className="postcard-img-wrapper multi-image-grid">
-                                    <img src="/Diamantides/assets/charter-optimized/princess-88-23.webp" alt="Princess 88" className="postcard-img" />
-                                    <img src="/Diamantides/assets/charter-optimized/azimut-27-grande.webp" alt="Azimut 27" className="postcard-img" />
-                                    <img src="/Diamantides/assets/charter-optimized/falcon-86.webp" alt="Falcon 86" className="postcard-img" />
-                                    <img src="/Diamantides/assets/charter-optimized/ferretti-69.webp" alt="Ferretti 69" className="postcard-img" />
-                                    <img src="/Diamantides/assets/charter-optimized/princess-62.webp" alt="Princess 62" className="postcard-img" />
-                                </div>
-                            </Link>
-                            <div className="postcard">
-                                <div className="postcard-text">
-                                    <h3>Top Cyprus Destinations</h3>
-                                </div>
-                                <div className="postcard-img-wrapper multi-image-grid">
-                                    <img src="/Diamantides/destinations/dest_1.jpg" alt="Cyprus Dest 1" className="postcard-img" />
-                                    <img src="/Diamantides/destinations/dest_2.jpg" alt="Cyprus Dest 2" className="postcard-img" />
-                                    <img src="/Diamantides/destinations/dest_3.jpg" alt="Cyprus Dest 3" className="postcard-img" />
-                                    <img src="/Diamantides/destinations/dest_4.jpg" alt="Cyprus Dest 4" className="postcard-img" />
-                                    <img src="/Diamantides/destinations/dest_5.jpg" alt="Cyprus Dest 5" className="postcard-img" />
-                                </div>
-                            </div>
-                            <div className="postcard">
-                                <div className="postcard-text">
-                                    <h3>The World</h3>
-                                </div>
-                                <div className="postcard-img-wrapper multi-image-grid">
-                                    <img src="/Diamantides/world/world_1.jpg" alt="The World 1" className="postcard-img" />
-                                    <img src="/Diamantides/world/world_2.jpg" alt="The World 2" className="postcard-img" />
-                                    <img src="/Diamantides/world/world_3.jpg" alt="The World 3" className="postcard-img" />
-                                    <img src="/Diamantides/world/world_4.jpg" alt="The World 4" className="postcard-img" />
-                                    <img src="/Diamantides/world/world_5.jpg" alt="The World 5" className="postcard-img" />
-                                </div>
-                            </div>
+                            <PostcardCarousel 
+                                title="All Yachts"
+                                subtitle="View Fleet"
+                                link="/#fleet"
+                                images={postcardImages.fleet}
+                            />
+                            <PostcardCarousel 
+                                title="Top Cyprus Destinations"
+                                images={postcardImages.cyprus}
+                            />
+                            <PostcardCarousel 
+                                title="The World"
+                                images={postcardImages.world}
+                            />
                         </section>
                     </div>
 
@@ -494,8 +524,8 @@ const YachtDetail = () => {
 
                             <div className="sidebar-contact">
                                 <p>Call Directly</p>
-                                <a href={`tel:${yacht.category === 'charter' ? '+35796340400' : '+35725010561'}`} className="phone-link">
-                                    {yacht.category === 'charter' ? '+357 96 340 400' : '+357 25 010 561'}
+                                <a href="tel:+35725010561" className="phone-link">
+                                    +357 25 010 561
                                 </a>
 
                                 {yacht.category === 'charter' && (

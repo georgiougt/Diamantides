@@ -10,6 +10,7 @@ export const yachts = [
         category: 'charter',
         price: '€95,000 / week*',
         detailedPricing: { weekly: '€95,000*', other: 'Upon Request*' },
+        priceNote: '*Plus 35% APA. Fuel for day charters in the same city as the home port is included in the charter price. For fuel prices in other locations, please contact one of our charter experts.',
         description: 'Luxury Yacht Charter Cyprus: Rent the exquisite Princess 30M in Limassol. This premier charter yacht offers panoramic Mediterranean views, a premium flybridge, and ultimate luxury for private boat hire and exclusive weekly getaways.',
         specs: {
             builder: 'Princess Yachts',
@@ -20,9 +21,6 @@ export const yachts = [
         },
         features: ['Water Toy Collection', 'Panoramic Windows', 'Flybridge', 'Zero Speed Stabilizers'],
         gallery: [
-            '/Diamantides/assets/charter-gallery/princess-30m/image-1.webp',
-            '/Diamantides/assets/charter-gallery/princess-30m/image-2.webp',
-            '/Diamantides/assets/charter-gallery/princess-30m/image-3.webp',
             '/Diamantides/assets/charter-gallery/princess-30m/image-4.webp',
             '/Diamantides/assets/charter-gallery/princess-30m/image-5.webp',
             '/Diamantides/assets/charter-gallery/princess-30m/image-6.webp',
@@ -46,30 +44,34 @@ export const yachts = [
             '/Diamantides/assets/charter-gallery/princess-30m/image-24.webp',
             '/Diamantides/assets/charter-gallery/princess-30m/image-25.webp',
             '/Diamantides/assets/charter-gallery/princess-30m/image-26.webp',
-            '/Diamantides/assets/charter-gallery/princess-30m/image-27.webp'
+            '/Diamantides/assets/charter-gallery/princess-30m/image-27.webp',
+            '/Diamantides/assets/charter-gallery/princess-30m/image-1.webp',
+            '/Diamantides/assets/charter-gallery/princess-30m/image-2.webp',
+            '/Diamantides/assets/charter-gallery/princess-30m/image-3.webp'
         ]
     },
     {
         id: 2,
         name: 'Azimut 27 Grande',
         type: 'Motor Yacht',
-        length: '88 ft',
+        length: '27 meters',
         capacity: '12 Guests',
         speed: '28 Knots',
-        image: '/Diamantides/assets/charter-optimized/azimut-27-grande.webp',
+        image: '/Diamantides/assets/charter-gallery/azimut-27-grande/image-16.webp',
         category: 'charter',
         price: '€10,000 / day',
-        detailedPricing: { fullDay: '€10,000', overnight: '€13,500', weekly: '€80,000*' },
+        detailedPricing: { halfDay: 'N/A', fullDay: '€10,000', overnight: '€13,500', weekly: '€80,000*' },
         description: 'Exclusive Boat Rent Cyprus: Experience Italian elegance with the Azimut 27 Grande. Perfect for Limassol boat rentals, this luxury yacht charter features 5 cabins and spacious decks for the ultimate Mediterranean sea adventure.',
         specs: {
             builder: 'Azimut',
             year: '2021',
             cabins: '5 EXQUISITELY APPOINTED',
             crew: '4',
-            beam: '21 ft'
+            beam: '6.6 meters'
         },
         features: ['Alfresco Dining', 'Contemporary Design', 'Wide Decks', 'Jacuzzi'],
         gallery: [
+            '/Diamantides/assets/charter-gallery/azimut-27-grande/image-16.webp',
             '/Diamantides/assets/charter-gallery/azimut-27-grande/image-1.webp',
             '/Diamantides/assets/charter-gallery/azimut-27-grande/image-2.webp',
             '/Diamantides/assets/charter-gallery/azimut-27-grande/image-3.webp',
@@ -84,8 +86,7 @@ export const yachts = [
             '/Diamantides/assets/charter-gallery/azimut-27-grande/image-12.webp',
             '/Diamantides/assets/charter-gallery/azimut-27-grande/image-13.webp',
             '/Diamantides/assets/charter-gallery/azimut-27-grande/image-14.webp',
-            '/Diamantides/assets/charter-gallery/azimut-27-grande/image-15.webp',
-            '/Diamantides/assets/charter-gallery/azimut-27-grande/image-16.webp'
+            '/Diamantides/assets/charter-gallery/azimut-27-grande/image-15.webp'
         ]
     },
     {
@@ -95,7 +96,7 @@ export const yachts = [
         length: '88 ft',
         capacity: '12 Guests',
         speed: '30 Knots',
-        image: '/Diamantides/assets/charter-optimized/princess-88-23.webp',
+        image: '/Diamantides/assets/charter-gallery/princess-88/image-7.webp',
         category: 'charter',
         price: '€8,800 / day',
         detailedPricing: { halfDay: '€8,300', fullDay: '€8,800', overnight: '€10,500', weekly: 'Upon Request' },
@@ -109,13 +110,13 @@ export const yachts = [
         },
         features: ['Expansive Flybridge', 'Large Sunbeds', 'Modern Entertainment System', 'Water Toys'],
         gallery: [
+            '/Diamantides/assets/charter-gallery/princess-88/image-7.webp',
             '/Diamantides/assets/charter-gallery/princess-88/image-1.webp',
             '/Diamantides/assets/charter-gallery/princess-88/image-2.webp',
             '/Diamantides/assets/charter-gallery/princess-88/image-3.webp',
             '/Diamantides/assets/charter-gallery/princess-88/image-4.webp',
             '/Diamantides/assets/charter-gallery/princess-88/image-5.webp',
             '/Diamantides/assets/charter-gallery/princess-88/image-6.webp',
-            '/Diamantides/assets/charter-gallery/princess-88/image-7.webp',
             '/Diamantides/assets/charter-gallery/princess-88/image-8.webp',
             '/Diamantides/assets/charter-gallery/princess-88/image-9.webp',
             '/Diamantides/assets/charter-gallery/princess-88/image-10.webp',
@@ -153,15 +154,14 @@ export const yachts = [
         features: ['Flybridge', 'Entertainment System', 'Al Fresco Dining Area', 'Refitted Interior'],
         gallery: [
             '/Diamantides/assets/charter-gallery/falcon-86/image-1.webp',
+            '/Diamantides/assets/charter-gallery/falcon-86/image-10.webp',
+            '/Diamantides/assets/charter-gallery/falcon-86/image-9.webp',
             '/Diamantides/assets/charter-gallery/falcon-86/image-2.webp',
             '/Diamantides/assets/charter-gallery/falcon-86/image-3.webp',
             '/Diamantides/assets/charter-gallery/falcon-86/image-4.webp',
             '/Diamantides/assets/charter-gallery/falcon-86/image-5.webp',
             '/Diamantides/assets/charter-gallery/falcon-86/image-6.webp',
             '/Diamantides/assets/charter-gallery/falcon-86/image-7.webp',
-            '/Diamantides/assets/charter-gallery/falcon-86/image-8.webp',
-            '/Diamantides/assets/charter-gallery/falcon-86/image-9.webp',
-            '/Diamantides/assets/charter-gallery/falcon-86/image-10.webp',
             '/Diamantides/assets/charter-gallery/falcon-86/image-11.webp',
             '/Diamantides/assets/charter-gallery/falcon-86/image-12.webp',
             '/Diamantides/assets/charter-gallery/falcon-86/image-13.webp'
@@ -188,14 +188,14 @@ export const yachts = [
         },
         features: ['Lavish Furnishings', 'Outdoor Entertaining Area', 'Spacious Interiors'],
         gallery: [
-            '/Diamantides/assets/charter-gallery/ferretti-69/image-1.webp',
-            '/Diamantides/assets/charter-gallery/ferretti-69/image-2.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-69/image-7.webp',
             '/Diamantides/assets/charter-gallery/ferretti-69/image-3.webp',
-            '/Diamantides/assets/charter-gallery/ferretti-69/image-4.webp',
             '/Diamantides/assets/charter-gallery/ferretti-69/image-5.webp',
             '/Diamantides/assets/charter-gallery/ferretti-69/image-6.webp',
-            '/Diamantides/assets/charter-gallery/ferretti-69/image-7.webp',
-            '/Diamantides/assets/charter-gallery/ferretti-69/image-8.webp'
+            '/Diamantides/assets/charter-gallery/ferretti-69/image-8.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-69/image-1.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-69/image-2.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-69/image-4.webp',
         ]
     },
     {
@@ -205,7 +205,7 @@ export const yachts = [
         length: '64 ft',
         capacity: '12 Guests',
         speed: '32 Knots',
-        image: '/Diamantides/assets/charter-optimized/azimut-64.webp',
+        image: '/Diamantides/assets/charter-gallery/azimut-64/image-12.webp',
         category: 'charter',
         price: '€5,300 / day',
         detailedPricing: { halfDay: '€4,900', fullDay: '€5,300', overnight: '€6,000', weekly: 'Upon Request*' },
@@ -219,7 +219,7 @@ export const yachts = [
         },
         features: ['Expansive Flybridge', 'Sunbeds', 'Contemporary Interior'],
         gallery: [
-            '/Diamantides/assets/charter-gallery/azimut-64/image-1.webp',
+            '/Diamantides/assets/charter-gallery/azimut-64/image-12.webp',
             '/Diamantides/assets/charter-gallery/azimut-64/image-2.webp',
             '/Diamantides/assets/charter-gallery/azimut-64/image-3.webp',
             '/Diamantides/assets/charter-gallery/azimut-64/image-4.webp',
@@ -230,7 +230,7 @@ export const yachts = [
             '/Diamantides/assets/charter-gallery/azimut-64/image-9.webp',
             '/Diamantides/assets/charter-gallery/azimut-64/image-10.webp',
             '/Diamantides/assets/charter-gallery/azimut-64/image-11.webp',
-            '/Diamantides/assets/charter-gallery/azimut-64/image-12.webp'
+            '/Diamantides/assets/charter-gallery/azimut-64/image-1.webp'
         ]
     },
     {
@@ -254,14 +254,21 @@ export const yachts = [
         },
         features: ['Panoramic Windows', 'Outdoor Dining Area', 'Premium Sound System'],
         gallery: [
-            '/Diamantides/assets/charter-gallery/ferretti-550/image-1.webp',
-            '/Diamantides/assets/charter-gallery/ferretti-550/image-2.webp',
-            '/Diamantides/assets/charter-gallery/ferretti-550/image-3.webp',
-            '/Diamantides/assets/charter-gallery/ferretti-550/image-4.webp',
-            '/Diamantides/assets/charter-gallery/ferretti-550/image-5.webp',
-            '/Diamantides/assets/charter-gallery/ferretti-550/image-6.webp',
-            '/Diamantides/assets/charter-gallery/ferretti-550/image-7.webp',
-            '/Diamantides/assets/charter-gallery/ferretti-550/image-8.webp'
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-9.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-10.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-11.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-12.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-13.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-14.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-15.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-16.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-17.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-18.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-20.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-21.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-22.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-23.webp',
+            '/Diamantides/assets/charter-gallery/ferretti-550/image-24.webp'
         ]
     },
     {
@@ -285,10 +292,11 @@ export const yachts = [
         },
         features: ['Flybridge with Wetbar', 'Bimini Shade', 'Panoramic Saloon'],
         gallery: [
+            '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-50-fly/image-13.webp',
+            '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-50-fly/image-14.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-50-fly/image-1.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-50-fly/image-2.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-50-fly/image-3.webp',
-            '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-50-fly/image-4.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-50-fly/image-5.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-50-fly/image-6.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-50-fly/image-7.webp',
@@ -297,8 +305,7 @@ export const yachts = [
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-50-fly/image-10.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-50-fly/image-11.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-50-fly/image-12.webp',
-            '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-50-fly/image-13.webp',
-            '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-50-fly/image-14.webp'
+
         ]
     },
     {
@@ -324,14 +331,14 @@ export const yachts = [
         gallery: [
             '/Diamantides/assets/charter-gallery/fairline-targa-48v/image-1.webp',
             '/Diamantides/assets/charter-gallery/fairline-targa-48v/image-2.webp',
-            '/Diamantides/assets/charter-gallery/fairline-targa-48v/image-3.webp',
-            '/Diamantides/assets/charter-gallery/fairline-targa-48v/image-4.webp',
             '/Diamantides/assets/charter-gallery/fairline-targa-48v/image-5.webp',
+            '/Diamantides/assets/charter-gallery/fairline-targa-48v/image-4.webp',
             '/Diamantides/assets/charter-gallery/fairline-targa-48v/image-6.webp',
             '/Diamantides/assets/charter-gallery/fairline-targa-48v/image-7.webp',
             '/Diamantides/assets/charter-gallery/fairline-targa-48v/image-8.webp',
             '/Diamantides/assets/charter-gallery/fairline-targa-48v/image-9.webp',
-            '/Diamantides/assets/charter-gallery/fairline-targa-48v/image-10.webp'
+            '/Diamantides/assets/charter-gallery/fairline-targa-48v/image-10.webp',
+            '/Diamantides/assets/charter-gallery/fairline-targa-48v/image-3.webp'
         ]
     },
     {
@@ -355,14 +362,14 @@ export const yachts = [
         },
         features: ['Sea Taxi', 'Golden Hull', 'Spacious Sunbeds'],
         gallery: [
+            '/Diamantides/assets/charter-gallery/fairline-targa-48/image-8.webp',
             '/Diamantides/assets/charter-gallery/fairline-targa-48/image-1.webp',
             '/Diamantides/assets/charter-gallery/fairline-targa-48/image-2.webp',
             '/Diamantides/assets/charter-gallery/fairline-targa-48/image-3.webp',
             '/Diamantides/assets/charter-gallery/fairline-targa-48/image-4.webp',
             '/Diamantides/assets/charter-gallery/fairline-targa-48/image-5.webp',
             '/Diamantides/assets/charter-gallery/fairline-targa-48/image-6.webp',
-            '/Diamantides/assets/charter-gallery/fairline-targa-48/image-7.webp',
-            '/Diamantides/assets/charter-gallery/fairline-targa-48/image-8.webp'
+            '/Diamantides/assets/charter-gallery/fairline-targa-48/image-7.webp'
         ]
     },
     {
@@ -386,18 +393,20 @@ export const yachts = [
         },
         features: ['Sea Taxi', 'Hydraulic Swim Platform', 'Spacious Sunbeds'],
         gallery: [
-            '/Diamantides/assets/charter-gallery/azimut-47/image-1.webp',
-            '/Diamantides/assets/charter-gallery/azimut-47/image-2.webp',
-            '/Diamantides/assets/charter-gallery/azimut-47/image-3.webp',
-            '/Diamantides/assets/charter-gallery/azimut-47/image-4.webp',
-            '/Diamantides/assets/charter-gallery/azimut-47/image-5.webp',
-            '/Diamantides/assets/charter-gallery/azimut-47/image-6.webp',
-            '/Diamantides/assets/charter-gallery/azimut-47/image-7.webp',
-            '/Diamantides/assets/charter-gallery/azimut-47/image-8.webp',
-            '/Diamantides/assets/charter-gallery/azimut-47/image-9.webp',
-            '/Diamantides/assets/charter-gallery/azimut-47/image-10.webp',
-            '/Diamantides/assets/charter-gallery/azimut-47/image-11.webp',
-            '/Diamantides/assets/charter-gallery/azimut-47/image-12.webp'
+            '/Diamantides/assets/charter-gallery/azimut-47/image-17.webp',
+            '/Diamantides/assets/charter-gallery/azimut-47/image-19.webp',
+            '/Diamantides/assets/charter-gallery/azimut-47/image-16.webp',
+            '/Diamantides/assets/charter-gallery/azimut-47/image-13.webp',
+            '/Diamantides/assets/charter-gallery/azimut-47/image-14.webp',
+            '/Diamantides/assets/charter-gallery/azimut-47/image-15.webp',
+            '/Diamantides/assets/charter-gallery/azimut-47/image-18.webp',
+            '/Diamantides/assets/charter-gallery/azimut-47/image-20.webp',
+            '/Diamantides/assets/charter-gallery/azimut-47/image-21.webp',
+            '/Diamantides/assets/charter-gallery/azimut-47/image-22.webp',
+            '/Diamantides/assets/charter-gallery/azimut-47/image-23.webp',
+            '/Diamantides/assets/charter-gallery/azimut-47/image-24.webp',
+            '/Diamantides/assets/charter-gallery/azimut-47/image-25.webp',
+            '/Diamantides/assets/charter-gallery/azimut-47/image-26.webp'
         ]
     },
     {
@@ -422,12 +431,12 @@ export const yachts = [
         features: ['Sea Taxi', 'Comfortable Cockpit', 'Premium Sound System'],
         gallery: [
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-42/image-1.webp',
+            '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-42/image-6.webp',
+            '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-42/image-7.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-42/image-2.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-42/image-3.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-42/image-4.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-42/image-5.webp',
-            '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-42/image-6.webp',
-            '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-42/image-7.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-42/image-8.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-42/image-9.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-42/image-10.webp'
@@ -481,7 +490,7 @@ export const yachts = [
         image: '/Diamantides/assets/charter-optimized/sunseeker-manhattan-56.webp',
         category: 'charter',
         price: '€31,000 / week*',
-        detailedPricing: { weekly: '€31,000', other: 'Upon Request' },
+        detailedPricing: { halfDay: 'Upon Request *', fullDay: 'Upon Request *', overnight: 'Upon Request *', weekly: '€31,000*', other: 'Upon Request' },
         description: 'Yacht Charter Limassol: Rent the Sunseeker Manhattan 56 for a seamless luxury experience. This modern private boat hire in Cyprus features sleek designs, making it perfect for exclusive weekly charters and coastal cruising.',
         specs: {
             builder: 'Sunseeker',
@@ -492,19 +501,18 @@ export const yachts = [
         },
         features: ['Expansive Flybridge', 'Large Swim Platform', 'Sleek Modern Interior'],
         gallery: [
-            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-1.webp',
-            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-2.webp',
-            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-3.webp',
-            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-4.webp',
-            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-5.webp',
-            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-6.webp',
+            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-13.webp',
             '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-7.webp',
             '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-8.webp',
             '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-9.webp',
             '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-10.webp',
             '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-11.webp',
-            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-12.webp',
-            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-13.webp'
+            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-1.webp',
+            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-2.webp',
+            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-3.webp',
+            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-4.webp',
+            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-5.webp',
+            '/Diamantides/assets/charter-gallery/sunseeker-manhattan-56/image-6.webp'
         ]
     },
     {
@@ -531,11 +539,8 @@ export const yachts = [
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-52/image-1.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-52/image-2.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-52/image-3.webp',
-            '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-52/image-4.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-52/image-5.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-52/image-6.webp',
-            '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-52/image-7.webp',
-            '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-52/image-8.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-52/image-9.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-52/image-10.webp',
             '/Diamantides/assets/charter-gallery/beneteau-monte-carlo-52/image-11.webp',
@@ -563,26 +568,11 @@ export const yachts = [
         },
         features: ['Flybridge Bar', 'Sunbeds', 'Contemporary Interior'],
         gallery: [
-            '/Diamantides/assets/charter-gallery/princess-62/image-1.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-2.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-3.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-4.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-5.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-6.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-7.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-8.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-9.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-10.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-11.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-12.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-13.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-14.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-15.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-16.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-17.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-18.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-19.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-20.webp',
+
+            '/Diamantides/assets/charter-gallery/princess-62/image-48.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-33.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-34.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-32.webp',
             '/Diamantides/assets/charter-gallery/princess-62/image-21.webp',
             '/Diamantides/assets/charter-gallery/princess-62/image-22.webp',
             '/Diamantides/assets/charter-gallery/princess-62/image-23.webp',
@@ -592,12 +582,23 @@ export const yachts = [
             '/Diamantides/assets/charter-gallery/princess-62/image-27.webp',
             '/Diamantides/assets/charter-gallery/princess-62/image-28.webp',
             '/Diamantides/assets/charter-gallery/princess-62/image-29.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-30.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-31.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-32.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-33.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-34.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-35.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-1.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-2.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-3.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-5.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-7.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-8.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-9.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-10.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-11.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-12.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-14.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-15.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-16.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-17.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-18.webp',
+            '/Diamantides/assets/charter-gallery/princess-62/image-19.webp',
+
             '/Diamantides/assets/charter-gallery/princess-62/image-36.webp',
             '/Diamantides/assets/charter-gallery/princess-62/image-37.webp',
             '/Diamantides/assets/charter-gallery/princess-62/image-38.webp',
@@ -610,7 +611,6 @@ export const yachts = [
             '/Diamantides/assets/charter-gallery/princess-62/image-45.webp',
             '/Diamantides/assets/charter-gallery/princess-62/image-46.webp',
             '/Diamantides/assets/charter-gallery/princess-62/image-47.webp',
-            '/Diamantides/assets/charter-gallery/princess-62/image-48.webp',
             '/Diamantides/assets/charter-gallery/princess-62/image-49.webp'
         ]
     },
@@ -658,8 +658,8 @@ export const yachts = [
         speed: '40 Knots',
         image: '/Diamantides/assets/charter-optimized/navan-c30.webp',
         category: 'charter',
-        price: '€500 (2 Hours)',
-        detailedPricing: { twoHours: '€500', threeHours: '€750', fourHours: '€900' },
+        price: '€600 (2 Hours)',
+        detailedPricing: { twoHours: '€600', threeHours: '€800', fourHours: '€900' },
         description: 'Sea Taxi Limassol: Fast and luxurious, the Navan C30 Sea Taxi offers premium private boat transfers in Cyprus. The best choice for quick boat hire, coastal day trips, and speedy yacht rentals in Limassol.',
         specs: {
             builder: 'Navan',

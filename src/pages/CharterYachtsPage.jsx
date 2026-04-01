@@ -10,7 +10,12 @@ import { yachts } from '../data/yachts';
 import '../styles/CharterYachts.css';
 
 const CharterYachtsPage = () => {
-    const charterYachts = yachts.filter(y => y.category === 'charter' || !y.category);
+    const charterYachts = yachts
+        .filter(y => y.category === 'charter' || !y.category)
+        .sort((a, b) => {
+            const order = [1, 2, 13, 3, 6, 22, 4, 5, 23, 14, 15, 8, 7, 9, 11, 10, 12, 24];
+            return order.indexOf(a.id) - order.indexOf(b.id);
+        });
 
     const [formData, setFormData] = useState({
         name: '',
@@ -110,6 +115,24 @@ const CharterYachtsPage = () => {
                                         if (yacht.detailedPricing) {
                                             return (
                                                 <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.2rem', fontSize: '0.9rem' }}>
+                                                    {yacht.detailedPricing.twoHours && (
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>2 Hours</span>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.twoHours}</span>
+                                                        </div>
+                                                    )}
+                                                    {yacht.detailedPricing.threeHours && (
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>3 Hours</span>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.threeHours}</span>
+                                                        </div>
+                                                    )}
+                                                    {yacht.detailedPricing.fourHours && (
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>4 Hours</span>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.fourHours}</span>
+                                                        </div>
+                                                    )}
                                                     {yacht.detailedPricing.halfDay && (
                                                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                                             <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Half Day</span>
@@ -120,6 +143,12 @@ const CharterYachtsPage = () => {
                                                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                                             <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Full Day</span>
                                                             <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.fullDay}</span>
+                                                        </div>
+                                                    )}
+                                                    {yacht.detailedPricing.overnight && (
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Overnight</span>
+                                                            <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.overnight}</span>
                                                         </div>
                                                     )}
                                                     {yacht.detailedPricing.weekly && (
@@ -244,7 +273,7 @@ const CharterYachtsPage = () => {
                         <div className="charter-contact-grid">
                             <div className="charter-info-item">
                                 <h3>Call Directly</h3>
-                                <a href="tel:+35796340400">+357 96 340 400</a>
+                                <a href="tel:+35725010561">+357 25 010 561</a>
                             </div>
                             <div className="charter-info-item">
                                 <h3>Email Us</h3>
