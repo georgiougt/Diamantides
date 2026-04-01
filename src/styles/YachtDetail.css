@@ -450,9 +450,16 @@
 .detail-bottom-columns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
     margin-top: 3rem;
     width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .detail-bottom-columns {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
 }
 
 .postcard {
@@ -524,17 +531,26 @@
 }
 
 .postcard-text {
-    padding: 15px 5px 10px;
-    height: 100px; /* Fixed height for titles and buttons */
+    padding: 20px 15px 15px;
+    min-height: 120px; /* Use min-height instead of fixed height */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* Push title up and button down within the area */
     align-items: center;
     text-align: center;
     position: relative;
     z-index: 2;
     background: var(--color-white);
     flex-shrink: 0;
+}
+
+.postcard-subtitle-wrapper {
+    width: 100%;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 .postcard-text h3 {

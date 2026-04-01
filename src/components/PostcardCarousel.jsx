@@ -59,7 +59,7 @@ const PostcardCarousel = ({ images, title, subtitle, link, isExternal }) => {
         <>
             <div className="postcard-text">
                 <h3>{title}</h3>
-                <div className="postcard-subtitle-wrapper" style={{ minHeight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div className="postcard-subtitle-wrapper">
                     {subtitle ? <span className="btn-view-all">{subtitle}</span> : null}
                 </div>
             </div>
