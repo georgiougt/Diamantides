@@ -34,7 +34,7 @@ const YachtDetail = () => {
             { url: '/Diamantides/assets/charter-optimized/princess-62.webp', title: 'Princess 62' }
         ],
         cyprus: [
-            { url: '/Diamantides/destinations/dest_1.jpg', title: 'Zapalo Bay' },
+            { url: '/Diamantides/destinations/zapalo_v2.jpg', title: 'Zapalo Bay' },
             { url: '/Diamantides/destinations/pissouri.webp', title: 'Pissouri Bay' },
             { url: '/Diamantides/destinations/latsi_v2.jpg', title: 'Latsi & Blue Lagoon' },
             { url: '/Diamantides/destinations/governors.webp', title: 'Governors Beach' },
