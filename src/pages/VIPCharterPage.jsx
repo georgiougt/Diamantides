@@ -25,7 +25,7 @@ const VIPCharterPage = () => {
             return order.indexOf(a.id) - order.indexOf(b.id);
         });
 
-    const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+    const [isAudioPlaying, setIsAudioPlaying] = useState(false); // Start false, update on successful play
     const audioRef = useRef(null);
 
     // High-quality royalty-free seaside ambience (waves and birds)
@@ -36,6 +36,27 @@ const VIPCharterPage = () => {
         audioRef.current = new Audio(audioUrl);
         audioRef.current.loop = true;
         audioRef.current.volume = 0.4;
+
+        // Auto-play attempt
+        const playAudio = () => {
+            if (audioRef.current) {
+                audioRef.current.play()
+                    .then(() => setIsAudioPlaying(true))
+                    .catch(err => {
+                        console.log("Autoplay blocked by browser. Sound will start on first interaction or toggle.", err);
+                        // Optional: listen for first click to start if blocked
+                        const startOnInteraction = () => {
+                            if (audioRef.current && !isAudioPlaying) {
+                                audioRef.current.play().then(() => setIsAudioPlaying(true));
+                            }
+                            window.removeEventListener('click', startOnInteraction);
+                        };
+                        window.addEventListener('click', startOnInteraction);
+                    });
+            }
+        };
+
+        playAudio();
 
         // Cleanup
         return () => {
@@ -161,7 +182,7 @@ const VIPCharterPage = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.8, duration: 0.8 }}
                     >
-                        <FileText size={14} /> VIP TERMS & CONDITIONS
+                        <FileText size={14} /> TERMS & CONDITIONS
                     </motion.button>
                 </div>
             </section>
@@ -362,7 +383,7 @@ const VIPCharterPage = () => {
                             </div>
                             <div className="charter-info-item">
                                 <h3 style={{ background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Email Us</h3>
-                                <a href="mailto:Charters@diamantidesyachting.com" style={{ fontSize: '1.2rem', fontWeight: 500 }}>Charters@diamantidesyachting.com</a>
+                                <a href="mailto:charter@diamantidesyachting.com" style={{ fontSize: '1.2rem', fontWeight: 500 }}>charter@diamantidesyachting.com</a>
                             </div>
                         </div>
 
@@ -415,7 +436,7 @@ const VIPCharterPage = () => {
                             
                             <div className="modal-header">
                                 <FileText size={32} className="header-icon" />
-                                <h2>VIP Membership Terms</h2>
+                                <h2>Membership Terms</h2>
                                 <div className="header-line"></div>
                             </div>
                             
@@ -436,7 +457,7 @@ const VIPCharterPage = () => {
                             </div>
                             
                             <div className="modal-footer">
-                                <button className="btn-close-footer" onClick={() => setIsTermsOpen(false)}>UNDERSTOOD</button>
+                                <button className="btn-close-footer" onClick={() => setIsTermsOpen(false)}>BACK TO PAGE</button>
                             </div>
                         </motion.div>
                     </div>

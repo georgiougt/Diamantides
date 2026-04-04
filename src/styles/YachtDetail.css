@@ -182,6 +182,12 @@
     font-weight: 700;
     margin-bottom: 2rem;
     transition: color var(--transition-fast);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 .btn-back:hover {
@@ -685,6 +691,11 @@
 
     .enquiry-card {
         position: static;
+    }
+
+    .spotlight-image-container {
+        height: auto;
+        aspect-ratio: 3 / 2;
     }
 
     .technical-specs-grid {

@@ -152,7 +152,8 @@
 
     .charter-img-wrapper {
         position: relative !important;
-        height: 280px !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9 !important;
         flex-shrink: 0 !important;
     }
 

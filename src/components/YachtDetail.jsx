@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Users, Ruler, Gauge, Anchor, Check, Shield, MessageCircle, Clock, CheckCircle, AlertCircle, Fan, Timer, Calendar, Ship, ChevronDown, ChevronUp } from 'lucide-react';
 import { yachts } from '../data/yachts';
@@ -12,6 +12,7 @@ import '../styles/YachtDetail.css';
 
 const YachtDetail = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const yacht = yachts.find(y => y.id === parseInt(id));
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [openSection, setOpenSection] = useState('Description');
@@ -35,7 +36,7 @@ const YachtDetail = () => {
         cyprus: [
             { url: '/Diamantides/destinations/dest_1.jpg', title: 'Zapalo Bay' },
             { url: '/Diamantides/destinations/pissouri.webp', title: 'Pissouri Bay' },
-            { url: '/Diamantides/destinations/latsi.webp', title: 'Latsi & Blue Lagoon' },
+            { url: '/Diamantides/destinations/latsi_v2.jpg', title: 'Latsi & Blue Lagoon' },
             { url: '/Diamantides/destinations/governors.webp', title: 'Governors Beach' },
             { url: '/Diamantides/destinations/paphos.webp', title: 'Paphos Harbor' },
             { url: '/Diamantides/destinations/ayia_napa.webp', title: 'Ayia Napa Blue' },
@@ -112,7 +113,7 @@ const YachtDetail = () => {
         return (
             <div className="yacht-not-found">
                 <h2>Yacht not found</h2>
-                <Link to="/" className="btn-back"><ArrowLeft size={16} /> Back to Fleet</Link>
+                <button onClick={() => navigate(-1)} className="btn-back"><ArrowLeft size={16} /> Back to Fleet</button>
             </div>
         );
     }
@@ -167,7 +168,7 @@ const YachtDetail = () => {
             )}
 
             <div className="detail-container">
-                <Link to="/" className="btn-back"><ArrowLeft size={16} /> Back to Fleet</Link>
+                <button onClick={() => navigate(-1)} className="btn-back"><ArrowLeft size={16} /> Back to Fleet</button>
 
                 <div className="detail-grid">
                     {/* Main Content */}
@@ -531,8 +532,8 @@ const YachtDetail = () => {
                                 {yacht.category === 'charter' && (
                                     <>
                                         <p style={{ marginTop: '1.5rem', marginBottom: '0.5rem' }}>Email Us</p>
-                                        <a href="mailto:Charters@diamantidesyachting.com" className="phone-link" style={{ fontSize: '0.9rem' }}>
-                                            Charters@diamantidesyachting.com
+                                        <a href="mailto:charter@diamantidesyachting.com" className="phone-link" style={{ fontSize: '0.9rem' }}>
+                                            charter@diamantidesyachting.com
                                         </a>
                                     </>
                                 )}

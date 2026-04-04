@@ -277,7 +277,7 @@ const CharterYachtsPage = () => {
                             </div>
                             <div className="charter-info-item">
                                 <h3>Email Us</h3>
-                                <a href="mailto:Charters@diamantidesyachting.com">Charters@diamantidesyachting.com</a>
+                                <a href="mailto:charter@diamantidesyachting.com">charter@diamantidesyachting.com</a>
                             </div>
                         </div>
 

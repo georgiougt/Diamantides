@@ -22,6 +22,7 @@ import TrainingAcademyPage from './pages/TrainingAcademyPage';
 import LoadingScreen from './components/LoadingScreen';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
+import CharterTestPage from './pages/CharterTestPage';
 
 // Component for the landing page content
 const LandingPage = () => {
@@ -86,6 +87,7 @@ function App() {
           <Route path="/training-academy" element={<TrainingAcademyPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+          <Route path="/charter-test" element={<CharterTestPage />} />
         </Routes>
         <Footer />
       </div>
