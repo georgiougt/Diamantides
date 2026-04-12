@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Anchor, Ruler, Send } from 'lucide-react';
+import { Anchor, Ruler, Send, ChevronLeft, ChevronRight } from 'lucide-react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { yachts } from '../data/yachts';
@@ -14,6 +14,8 @@ const SalesYachtsPage = () => {
     const [brandFilter, setBrandFilter] = useState('All');
     const [sortOrder, setSortOrder] = useState('price-desc'); // Highest to Lowest default
     const [priceRange, setPriceRange] = useState({ min: '', max: '' });
+    const [currentPage, setCurrentPage] = useState(1);
+    const ITEMS_PER_PAGE = 9;
 
     const [formData, setFormData] = useState({
         name: '',
@@ -26,10 +28,19 @@ const SalesYachtsPage = () => {
         window.scrollTo(0, 0);
     }, []);
 
+    // Reset to page 1 when filters change
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [searchTerm, typeFilter, brandFilter, priceRange, sortOrder]);
+
     // Helper to parse price string to number
     const parsePrice = (priceStr) => {
-        if (!priceStr || priceStr.toLowerCase().includes('request')) return Infinity;
-        return parseInt(priceStr.replace(/[^0-9]/g, ''));
+        if (!priceStr) return 0;
+        const lower = priceStr.toLowerCase();
+        if (lower.includes('request') || lower.includes('poa')) return Infinity;
+        if (lower.includes('sold')) return 0; // Sold items at the bottom
+        const numeric = priceStr.replace(/[^0-9]/g, '');
+        return numeric ? parseInt(numeric) : 0;
     };
 
     // Brands derived from data
@@ -61,6 +72,21 @@ const SalesYachtsPage = () => {
                 return priceA - priceB;
             }
         });
+
+    // Pagination Logic
+    const totalPages = Math.ceil(filteredAndSortedYachts.length / ITEMS_PER_PAGE);
+    const paginatedYachts = filteredAndSortedYachts.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+    );
+
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
+        const fleetSection = document.querySelector('.sales-fleet-section');
+        if (fleetSection) {
+            fleetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -160,18 +186,18 @@ const SalesYachtsPage = () => {
             {/* Asymmetrical Masonry Grid */}
             <section className="sales-fleet-section">
                 <div className="sales-grid">
-                    {filteredAndSortedYachts.map((yacht, index) => (
+                    {paginatedYachts.map((yacht, index) => (
                         <motion.div
                             key={yacht.id}
                             className={`sales-card ${index % 5 === 0 ? 'large-card' : 'standard-card'}`}
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            transition={{ duration: 0.6, delay: (index % ITEMS_PER_PAGE) * 0.1 }}
                         >
                             <Link to={`/yacht/${yacht.id}`} className="sales-card-link">
                                 <div className="sales-img-wrapper">
-                                    <img src={yacht.image || yacht.gallery?.[0]} alt={yacht.name} />
+                                    <img src={yacht.image || yacht.gallery?.[0]} alt={yacht.name} loading="lazy" />
                                     {yacht.price && <div className="image-price-badge">{yacht.price}</div>}
                                 </div>
                                 <div className="sales-glass-panel">
@@ -196,6 +222,55 @@ const SalesYachtsPage = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                {/* Premium Pagination Controls */}
+                {totalPages > 1 && (
+                    <div className="pagination-container">
+                        <button 
+                            className="pagination-arrow"
+                            onClick={() => handlePageChange(currentPage - 1)}
+                            disabled={currentPage === 1}
+                        >
+                            <ChevronLeft size={20} />
+                        </button>
+                        
+                        <div className="pagination-numbers">
+                            {[...Array(totalPages)].map((_, i) => {
+                                const pageNum = i + 1;
+                                // Simple logic to show a few pages around current
+                                if (
+                                    pageNum === 1 || 
+                                    pageNum === totalPages || 
+                                    (pageNum >= currentPage - 1 && pageNum <= currentPage + 1)
+                                ) {
+                                    return (
+                                        <button
+                                            key={pageNum}
+                                            className={`pagination-number ${currentPage === pageNum ? 'active' : ''}`}
+                                            onClick={() => handlePageChange(pageNum)}
+                                        >
+                                            {pageNum}
+                                        </button>
+                                    );
+                                } else if (
+                                    pageNum === currentPage - 2 || 
+                                    pageNum === currentPage + 2
+                                ) {
+                                    return <span key={pageNum} className="pagination-ellipsis">...</span>;
+                                }
+                                return null;
+                            })}
+                        </div>
+
+                        <button 
+                            className="pagination-arrow"
+                            onClick={() => handlePageChange(currentPage + 1)}
+                            disabled={currentPage === totalPages}
+                        >
+                            <ChevronRight size={20} />
+                        </button>
+                    </div>
+                )}
             </section>
 
             {/* Immersive Bespoke Contact Form Banner */}
