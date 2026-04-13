@@ -23,6 +23,8 @@ import LoadingScreen from './components/LoadingScreen';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import CharterTestPage from './pages/CharterTestPage';
+import BrandsPage from './pages/BrandsPage';
+import NauticCleanPage from './pages/NauticCleanPage';
 
 // Component for the landing page content
 const LandingPage = () => {
@@ -81,6 +83,9 @@ function App() {
           <Route path="/fleet" element={<FleetPage />} />
           <Route path="/charter" element={<CharterYachtsPage />} />
           <Route path="/sales" element={<SalesYachtsPage />} />
+          <Route path="/sales/used" element={<SalesYachtsPage />} />
+          <Route path="/sales/brands" element={<BrandsPage />} />
+          <Route path="/sales/nautic-clean" element={<NauticCleanPage />} />
           <Route path="/members-only" element={<VIPCharterPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/yacht/:id" element={<YachtDetail />} />

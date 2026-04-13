@@ -44,12 +44,12 @@ const SalesYachtsPage = () => {
     };
 
     // Brands derived from data
-    const brands = ['All', ...new Set(yachts.filter(y => y.category === 'sales').map(y => y.specs?.builder).filter(Boolean))];
+    const brands = ['All', ...new Set(yachts.filter(y => y.category === 'sales' && y.condition === 'used').map(y => y.specs?.builder).filter(Boolean))];
     const types = ['All', 'Yachts', 'RIB', 'Fiberglass', 'jetskis'];
 
     // Filtering and Sorting Logic
     const filteredAndSortedYachts = yachts
-        .filter(y => y.category === 'sales')
+        .filter(y => y.category === 'sales' && y.condition === 'used')
         .filter(y => {
             const matchesName = y.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
                                y.specs?.builder?.toLowerCase().includes(searchTerm.toLowerCase());
@@ -109,7 +109,7 @@ const SalesYachtsPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        Exclusive Sales Fleet
+                        Used & Brokerage Vessels
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 30 }}

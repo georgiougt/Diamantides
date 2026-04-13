@@ -20,15 +20,22 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const salesDropdown = {
+        name: 'Sales & Brokerage',
+        links: [
+            { name: 'Used Vessels', href: '/sales/used' },
+            { name: 'New Brands', href: '/sales/brands' },
+            { name: 'Nautic Clean', href: '/sales/nautic-clean' }
+        ]
+    };
+
     const navLinks = [
-        { name: 'Sales & Brokerage', href: '/sales' },
         { name: 'Charter Yachts', href: '/charter' },
     ];
 
     const servicesDropdown = {
         name: 'Services',
         links: [
-            { name: 'Sales & Brokerage', href: '/sales' },
             { name: 'Management & Maintenance', href: '/services#management-maintenance' },
             { name: 'Boat Parking & Storage', href: '/services#boat-parking' },
             { name: 'Speed Boat Training', href: '/training-academy' }
@@ -55,6 +62,24 @@ const Navbar = () => {
                 </Link>
 
                 <div className="desktop-menu">
+                    {/* Sales Dropdown */}
+                    <div className="nav-item-dropdown">
+                        <span className="nav-link dropdown-trigger">
+                            {salesDropdown.name}
+                        </span>
+                        <div className="dropdown-menu">
+                            {salesDropdown.links.map((sublink) => (
+                                <Link 
+                                    key={sublink.name} 
+                                    to={sublink.href} 
+                                    className="dropdown-link"
+                                >
+                                    {sublink.name}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+
                     {navLinks.map((link) => (
                         <Link key={link.name} to={link.href} className="nav-link">
                             {link.name}
@@ -114,6 +139,21 @@ const Navbar = () => {
 
             {isMobileMenuOpen && (
                 <div className="mobile-menu">
+                    {/* Mobile Sales Section */}
+                    <div className="mobile-dropdown-section">
+                        <span className="mobile-nav-link mobile-dropdown-title">{salesDropdown.name}</span>
+                        {salesDropdown.links.map((sublink) => (
+                            <Link
+                                key={sublink.name}
+                                to={sublink.href}
+                                className="mobile-nav-link sub-link"
+                                onClick={handleNavClick}
+                            >
+                                {sublink.name}
+                            </Link>
+                        ))}
+                    </div>
+
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
