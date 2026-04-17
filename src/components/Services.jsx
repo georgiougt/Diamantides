@@ -7,22 +7,20 @@ const Services = () => {
     const services = [
         {
             id: 'sales-brokerage',
-            icon: <DollarSign size={40} />,
             title: 'Sales & Brokerage',
             description: 'Expert guidance in buying or selling your vessel, with a wide network of international buyers.',
-            image: 'https://placehold.co/600x400/1a1a1a/e8c27a?text=Sales+%26+Brokerage',
+            image: 'https://images.unsplash.com/photo-1544413647-79f0433d3d62?q=80&w=2070&auto=format&fit=crop',
             link: '/sales'
         },
         {
             id: 'management-maintenance',
-            icon: <Wrench size={40} />,
             title: 'Management & Maintenance',
             description: 'Comprehensive technical support and management services to keep your yacht in pristine condition.',
-            image: 'https://placehold.co/600x400/1a1a1a/e8c27a?text=Management+%26+Maintenance'
+            image: '/Diamantides/assets/services/management-slider-new-5-475x600.jpg',
+            link: '/services/yacht-management'
         },
         {
             id: 'boat-parking',
-            icon: <Warehouse size={40} />,
             title: 'Boat Parking & Storage',
             description: 'Secure and convenient storage solutions for your vessel in premium facilities.',
             image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=2070&auto=format&fit=crop',
@@ -30,7 +28,6 @@ const Services = () => {
         },
         {
             id: 'training-academy',
-            icon: <GraduationCap size={40} />,
             title: 'Speed Boat Training',
             description: 'Certified speedboat operator license training and navigation courses for all skill levels.',
             image: 'https://images.unsplash.com/photo-1517400508447-f8dd518b86db?q=80&w=2070&auto=format&fit=crop',
@@ -59,18 +56,11 @@ const Services = () => {
                         >
                             <div className="service-image-container">
                                 <img src={service.image} alt={service.title} className="service-image" />
-                                <div className="service-icon-overlay">
-                                    {service.icon}
-                                </div>
                             </div>
                             <div className="service-content">
                                 <h3>{service.title}</h3>
                                 <p>{service.description}</p>
-                                {service.link ? (
-                                    <Link to={service.link} className="learn-more">Learn More →</Link>
-                                ) : (
-                                    <a href={`/services#${service.id}`} className="learn-more">Learn More →</a>
-                                )}
+                                <Link to={service.link} className="learn-more">Learn More →</Link>
                             </div>
                         </motion.div>
                     ))}
