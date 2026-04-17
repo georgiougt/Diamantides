@@ -6,12 +6,8 @@ import { yachts } from '../data/yachts';
 import '../styles/BrandsPage.css';
 import '../styles/SalesYachts.css'; 
 import axisLogo from '../assets/logos/2021_Black_Axis.png';
-import galeonLogo from '../assets/logos/galeon_logo (1).png';
 import malibuLogo from '../assets/logos/2021_Color_White_Text.png';
-import marinelloLogo from '../assets/logos/Marinello logo2.png';
 import viperLogo from '../assets/logos/VIPER-LOGO.png';
-import agilisLogo from '../assets/logos/agilis_logo.webp';
-import redsharkLogo from '../assets/logos/redshark-logo-pr.png';
 
 const BrandsPage = () => {
     const [selectedBrand, setSelectedBrand] = useState('All');
@@ -22,12 +18,8 @@ const BrandsPage = () => {
 
     const partners = [
         { id: 'Axis', name: 'Axis', logo: axisLogo },
-        { id: 'Galeon', name: 'Galeon', logo: galeonLogo },
         { id: 'Malibu', name: 'Malibu', logo: malibuLogo },
-        { id: 'Marinello', name: 'Marinello', logo: marinelloLogo },
-        { id: 'Viper', name: 'Viper', logo: viperLogo },
-        { id: 'Agilis', name: 'Agilis', logo: agilisLogo },
-        { id: 'Redshark', name: 'Redshark', logo: redsharkLogo }
+        { id: 'Viper', name: 'Viper', logo: viperLogo }
     ];
 
     const filteredVessels = yachts.filter(y => 
