@@ -36,8 +36,8 @@ const Navbar = () => {
     const servicesDropdown = {
         name: 'Services',
         links: [
-            { name: 'Management & Maintenance', href: '/services#management-maintenance' },
-            { name: 'Boat Parking & Storage', href: '/services#boat-parking' },
+            { name: 'Management & Maintenance', href: '/services/yacht-management' },
+            { name: 'Boat Parking & Storage', href: '/services/boat-parking' },
             { name: 'Speed Boat Training', href: '/training-academy' }
         ]
     };
@@ -69,9 +69,9 @@ const Navbar = () => {
                         </span>
                         <div className="dropdown-menu">
                             {salesDropdown.links.map((sublink) => (
-                                <Link 
-                                    key={sublink.name} 
-                                    to={sublink.href} 
+                                <Link
+                                    key={sublink.name}
+                                    to={sublink.href}
                                     className="dropdown-link"
                                 >
                                     {sublink.name}
@@ -85,7 +85,7 @@ const Navbar = () => {
                             {link.name}
                         </Link>
                     ))}
-                    
+
                     {/* Services Dropdown */}
                     <div className="nav-item-dropdown">
                         <span className="nav-link dropdown-trigger">
@@ -93,9 +93,9 @@ const Navbar = () => {
                         </span>
                         <div className="dropdown-menu">
                             {servicesDropdown.links.map((sublink) => (
-                                <Link 
-                                    key={sublink.name} 
-                                    to={sublink.href} 
+                                <Link
+                                    key={sublink.name}
+                                    to={sublink.href}
                                     className="dropdown-link"
                                 >
                                     {sublink.name}
@@ -111,9 +111,9 @@ const Navbar = () => {
                         </span>
                         <div className="dropdown-menu">
                             {aboutDropdown.links.map((sublink) => (
-                                <Link 
-                                    key={sublink.name} 
-                                    to={sublink.href} 
+                                <Link
+                                    key={sublink.name}
+                                    to={sublink.href}
                                     className="dropdown-link"
                                 >
                                     {sublink.name}

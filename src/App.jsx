@@ -25,6 +25,9 @@ import TermsOfServicePage from './pages/TermsOfServicePage';
 import CharterTestPage from './pages/CharterTestPage';
 import BrandsPage from './pages/BrandsPage';
 import NauticCleanPage from './pages/NauticCleanPage';
+import BoatParkingPage from './pages/BoatParkingPage';
+import YachtManagementPage from './pages/YachtManagementPage';
+
 
 // Component for the landing page content
 const LandingPage = () => {
@@ -43,8 +46,9 @@ const LandingPage = () => {
 // Component to handle the brand banner on all pages except Home
 const GlobalRollingBanner = () => {
   const { pathname } = useLocation();
-  // Don't show on home page or if it's explicitly excluded
-  if (pathname === '/') return null;
+  // Don't show on home page or pages with their own hero banners to avoid "dark band" at the top
+  const heroPages = ['/', '/services/boat-parking', '/services/yacht-management', '/sales/nautic-clean', '/members-only', '/about'];
+  if (heroPages.includes(pathname)) return null;
 
   return (
     <div className="global-banner-wrapper">
@@ -80,6 +84,8 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/boat-parking" element={<BoatParkingPage />} />
+          <Route path="/services/yacht-management" element={<YachtManagementPage />} />
           <Route path="/fleet" element={<FleetPage />} />
           <Route path="/charter" element={<CharterYachtsPage />} />
           <Route path="/sales" element={<SalesYachtsPage />} />

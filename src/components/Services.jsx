@@ -25,7 +25,8 @@ const Services = () => {
             icon: <Warehouse size={40} />,
             title: 'Boat Parking & Storage',
             description: 'Secure and convenient storage solutions for your vessel in premium facilities.',
-            image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=2070&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=2070&auto=format&fit=crop',
+            link: '/services/boat-parking'
         },
         {
             id: 'training-academy',

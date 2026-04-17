@@ -6,13 +6,13 @@
 }
 
 .nc-hero {
-    height: 50vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1621259182978-fbf93132d53d?q=80&w=2000&auto=format&fit=crop');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/Diamantides/assets/charter-optimized/princess-30.webp');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -51,63 +51,249 @@
     line-height: 1.8;
 }
 
-.nc-categories {
+.nc-products {
     padding: 60px 0;
 }
 
-.category-grid {
+.products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
 }
 
-.category-card {
-    background: rgba(255, 255, 255, 0.03);
+.product-card {
+    background: rgba(255, 255, 255, 0.02);
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.category-card:hover {
+.product-card:hover {
     transform: translateY(-5px);
     border-color: #d4af37;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.card-image {
+.product-image-box {
     height: 250px;
     position: relative;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 70%);
 }
 
-.card-image img {
-    width: 100%;
+.product-image-box img {
     height: 100%;
-    object-fit: cover;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
 }
 
-.image-overlay {
-    position: absolute;
+.product-card:hover .product-image-box img {
+    transform: scale(1.08);
+}
+
+.product-info {
+    padding: 25px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.product-info h3 {
+    font-size: 1.25rem;
+    color: #fff;
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.clickable-card {
+    cursor: pointer;
+}
+
+.view-details-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .view-details-btn {
+    opacity: 1;
+    transform: translateY(0);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+/* Modal Styles */
+.nc-modal-overlay {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-.card-info {
-    padding: 30px;
+.nc-modal-content {
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 1000px;
+    max-height: 90vh;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
 }
 
-.card-info h3 {
-    font-size: 1.6rem;
+.nc-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.nc-modal-close:hover {
     color: #d4af37;
-    margin-bottom: 15px;
 }
 
-.card-info p {
-    color: #a0a0a0;
-    line-height: 1.6;
+.nc-modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    overflow-y: auto;
 }
+
+.nc-modal-visuals {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.nc-modal-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.nc-modal-image img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4));
+}
+
+.nc-modal-video iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.nc-modal-details {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nc-modal-title {
+    font-size: 2rem;
+    color: #d4af37;
+    margin-bottom: 30px;
+    padding-right: 30px;
+}
+
+.nc-modal-scrollable-text {
+    flex-grow: 1;
+    color: #ccc;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.modal-description-paragraph {
+    margin-bottom: 20px;
+}
+
+/* Scrollbar for modal text */
+.nc-modal-scrollable-text::-webkit-scrollbar {
+    width: 6px;
+}
+
+.nc-modal-scrollable-text::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.02);
+    border-radius: 3px;
+}
+
+.nc-modal-scrollable-text::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.3);
+    border-radius: 3px;
+}
+
+.nc-modal-scrollable-text::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 0.6);
+}
+
+@media (max-width: 900px) {
+    .nc-modal-grid {
+        grid-template-columns: 1fr;
+        display: block;
+    }
+    
+    .nc-modal-visuals {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 30px;
+    }
+    
+    .nc-modal-details {
+        padding: 30px;
+    }
+}
+
 
 .nc-contact {
     padding: 100px 0;

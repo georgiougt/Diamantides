@@ -1,29 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/NauticClean.css';
 import logo from '../assets/logos/logo-nauticclean.png';
+import { nauticCleanProducts } from '../data/nautic_clean';
 
 const NauticCleanPage = () => {
+    const [selectedProduct, setSelectedProduct] = useState(null);
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-    const categories = [
-        {
-            title: "Care & Protection",
-            description: "Advanced ceramic coatings and protective sealants for gelcoat and stainless steel.",
-            image: "https://images.unsplash.com/photo-1621259182978-fbf93132d53d?q=80&w=1000&auto=format&fit=crop"
-        },
-        {
-            title: "Internal Maintenance",
-            description: "Eco-friendly cleaners for teak, leather, upholstery, and fine wood interiors.",
-            image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000&auto=format&fit=crop"
-        },
-        {
-            title: "Performance Cleaning",
-            description: "High-concentration degreasers and hull cleaners for the toughest marine environments.",
-            image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop"
-        }
-    ];
+    // Helper to format newlines to paragraphs
+    const formatDescription = (text) => {
+        if (!text) return null;
+        return text.split('\n\n').map((paragraph, idx) => (
+            <p key={idx} className="modal-description-paragraph">{paragraph}</p>
+        ));
+    };
 
     return (
         <div className="nautic-clean-page">
@@ -49,18 +42,25 @@ const NauticCleanPage = () => {
                 </div>
             </section>
 
-            <section className="nc-categories">
+            <section className="nc-categories nc-products">
                 <div className="container">
-                    <div className="category-grid">
-                        {categories.map((cat, index) => (
-                            <div key={index} className="category-card">
-                                <div className="card-image">
-                                    <img src={cat.image} alt={cat.title} />
-                                    <div className="image-overlay"></div>
+                    <div className="section-header text-center" style={{ marginBottom: '50px' }}>
+                        <h2 style={{ fontSize: '2.5rem', background: 'var(--gradient-metallic-gold)', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.2))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Nautic Clean Collection</h2>
+                        <p style={{ color: '#aaa' }}>Explore our comprehensive range of professional marine care solutions.</p>
+                    </div>
+                    <div className="products-grid">
+                        {nauticCleanProducts.map((product) => (
+                            <div 
+                                key={product.id} 
+                                className="product-card glass-morphism clickable-card"
+                                onClick={() => setSelectedProduct(product)}
+                            >
+                                <div className="product-image-box">
+                                    <img src={product.image} alt={product.title} />
                                 </div>
-                                <div className="card-info">
-                                    <h3>{cat.title}</h3>
-                                    <p>{cat.description}</p>
+                                <div className="product-info">
+                                    <h3>{product.title}</h3>
+                                    <span className="view-details-btn">View Details</span>
                                 </div>
                             </div>
                         ))}
@@ -68,27 +68,40 @@ const NauticCleanPage = () => {
                 </div>
             </section>
 
-            <section className="nc-contact">
-                <div className="container">
-                    <div className="contact-form-wrapper glass-morphism">
-                        <h2>Inquire About Products</h2>
-                        <form className="nc-form">
-                            <div className="form-row">
-                                <input type="text" placeholder="Full Name" required />
-                                <input type="email" placeholder="Email Address" required />
+            {/* Product Details Modal */}
+            {selectedProduct && (
+                <div className="nc-modal-overlay" onClick={() => setSelectedProduct(null)}>
+                    <div className="nc-modal-content glass-morphism" onClick={e => e.stopPropagation()}>
+                        <button className="nc-modal-close" onClick={() => setSelectedProduct(null)}>×</button>
+                        
+                        <div className="nc-modal-grid">
+                            <div className="nc-modal-visuals">
+                                <div className="nc-modal-image">
+                                    <img src={selectedProduct.image} alt={selectedProduct.title} />
+                                </div>
+                                {selectedProduct.youtube && (
+                                    <div className="nc-modal-video">
+                                        <iframe 
+                                            src={selectedProduct.youtube} 
+                                            title="YouTube video player" 
+                                            frameBorder="0" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                            allowFullScreen
+                                        ></iframe>
+                                    </div>
+                                )}
                             </div>
-                            <select required>
-                                <option value="">Select Category</option>
-                                <option value="exterior">Exterior Care</option>
-                                <option value="interior">Interior Maintenance</option>
-                                <option value="professional">Professional Range</option>
-                            </select>
-                            <textarea placeholder="Tell us about your vessel or specific needs..." rows="4" required></textarea>
-                            <button type="submit" className="submit-btn highlight-btn">Send Inquiry</button>
-                        </form>
+                            
+                            <div className="nc-modal-details">
+                                <h2 className="nc-modal-title">{selectedProduct.title}</h2>
+                                <div className="nc-modal-scrollable-text">
+                                    {formatDescription(selectedProduct.description)}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
+            )}
         </div>
     );
 };
