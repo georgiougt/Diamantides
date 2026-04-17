@@ -54,7 +54,6 @@ const TrainingAcademyPage = () => {
                             Dreaming of piloting a speedboat through the picturesque waters of Cyprus?
                             Obtain your official license, open up a sea of possibilities, and set sail with confidence.
                         </p>
-                        <a href="#enroll" className="academy-cta-button">Enroll Now</a>
                     </motion.div>
                 </div>
             </section>
