@@ -93,7 +93,6 @@ const BrandsPage = () => {
                                     <Link to={`/yacht/${vessel.id}`} className="sales-card-link">
                                         <div className="sales-img-wrapper">
                                             <img src={vessel.image} alt={vessel.name} loading="lazy" />
-                                            <div className="brand-badge">{vessel.specs?.builder}</div>
                                             {vessel.price && <div className="image-price-badge">{vessel.price}</div>}
                                         </div>
                                         <div className="sales-glass-panel">
