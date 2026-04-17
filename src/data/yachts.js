@@ -1602,7 +1602,6 @@ export const yachts = [
         description: "For sale is this fantastic used boat from the reputable brand Viper. The Viper 550, built in 2015, is a versatile and reliable watercraft that promises an enjoyable boating experience. Equipped with a powerful 115HP MERCURY outboard engine, this boat offers an excellent balance of speed, efficiency, and performance on the water.\nThe Viper 550 is known for its sturdy construction and attention to detail, ensuring durability and longevity. Its sleek design and spacious layout make it ideal for various activities, such as fishing, watersports, or leisurely cruising.\nThe 115HP MERCURY outboard engine provides ample power for swift acceleration and smooth handling. Known for its reliability and fuel efficiency, this engine is a popular choice among boating enthusiasts. The combination of the Viper 550 and the 115HP MERCURY engine ensures a pleasurable and hassle-free boating experience.",
         specs: {
             builder: 'Viper',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2356,7 +2355,6 @@ export const yachts = [
         description: "...",
         specs: {
             builder: 'Viper',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2386,7 +2384,6 @@ export const yachts = [
         description: "...",
         specs: {
             builder: 'Viper',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2415,7 +2412,6 @@ export const yachts = [
         description: "The purely legendary family boat company is LEGENT 550. Easy to move, but also the lifting-launching. has a rich equipment and several warehouses. The tourism of nature inspires beautiful and safe excursions.",
         specs: {
             builder: 'Viper',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2450,7 +2446,6 @@ export const yachts = [
         description: "BULLET 650 is a renowned Greek boat in difficult seas. It has extensive standard equipment, while known for its speed, faithfully obeying commands with stability and confidence.",
         specs: {
             builder: 'Viper',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2480,7 +2475,6 @@ export const yachts = [
         description: "...",
         specs: {
             builder: 'Viper',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2512,7 +2506,6 @@ export const yachts = [
         description: "...",
         specs: {
             builder: 'Viper',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2555,7 +2548,6 @@ export const yachts = [
         description: "The totally-new Axis T250 makes history as the longest boat ever produced by Axis. With bold styling, spacious seating, proven technology and signature Axis performance, the T250 is ready for all your friends and family. And thanks to Axis design innovations, the 25-foot T250 is still nimble on the water for quick returns to fallen riders and precise docking. The new lines of the T250 are guaranteed to turn heads whether it’s being towed to the ramp or running down the lake.",
         specs: {
             builder: 'Axis',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2598,7 +2590,6 @@ export const yachts = [
         description: "The all-new 2022 Axis T220 traditional bow replaces the fan-favorite T22. The new name highlights that this all-new model is bigger and better than its predecessor with enhanced on-water performance, signature style, and even more Axis intuitiveness. This mid-size, high-performing wake boat delivers on all fronts and brings some fresh innovations for everything you need to make an all-out, unforgettable summer with all your friends and family.",
         specs: {
             builder: 'Axis',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2641,7 +2632,6 @@ export const yachts = [
         description: "The Axis T23 is a 23.5-foot traditional bow with picture-perfect wakes and waves that are clean no matter the conditions. Your entire 16-person crew rides in style with plenty of speakers, cup holders and storage in the bow and wraparound lounge. The T23’s wake spectating options include the Rear-Facing Sliding Axis Skybox Seat, an innovative convertible bench seat that you’ll wonder how you ever lived without. With all this performance and value, the T23 is the only thing missing from your perfect summer.",
         specs: {
             builder: 'Axis',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2682,7 +2672,6 @@ export const yachts = [
         description: "Great for crews that like to spread out in the boat while watching their friends on world-class wakes and waves, the Axis A24 is pickle-fork bow provides plenty of forward seating, and the all-new dash takes care of all the hard work so you don’t have to. Seating and storage for 18 with innovations like the Rear-Facing Sliding Skybox Seat™ and Chill-Ax rear-facing seating convert the lounge into a wake stadium in seconds. Oh, and did we mention those perfect wakes and waves? It bears repeating on the A24.",
         specs: {
             builder: 'Axis',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2725,7 +2714,6 @@ export const yachts = [
         description: "The MVP for years, the Axis A22 is one of the most popular boats in the Axis line because it takes all the big boat innovations and blends them into an ideal size class for many boaters. In other words, the A22 is large enough to make a perfect wake or wave, but small enough to be maneuverable and fun to drive. The best of all worlds!",
         specs: {
             builder: 'Axis',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2767,7 +2755,6 @@ export const yachts = [
         description: "The A20 does it all from wakeboarding to wakesurfing with wake innovations that make the transition happen at the touch of a few buttons. Still big enough to make a great wake or wave but small enough to fit in standard garages and on size-restricted waterways, you won’t believe what the A20 can do. We dare you to underestimate this compact powerhouse.",
         specs: {
             builder: 'Axis',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2810,7 +2797,6 @@ export const yachts = [
         description: "The most respected ski boat in the world, the Malibu TXi brings three-event waterski performance like nothing else on the water today. Uniquely designed for the TXi, the T-Cut Diamond Hull™ has proved its performance both recreationally with countless personal bests and professionally with 13 world records under its belt. With Malibu innovations like the Advanced Rudder Control, the Response TXi produces the soft, barely-there wakes and rock-solid tracking to give the skier a consistent pull every time. The Malibu Open Edition includes a 7-inch touchscreen, Zero Off GPS speed control, and billet aluminum accents. The equally-capable and luxurious open bow version allows for two extra passengers to join you on the water and witness what only the TXi can do in the course.",
         specs: {
             builder: 'Malibu',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2851,7 +2837,6 @@ export const yachts = [
         description: "All-new for 2022, the Malibu Wakesetter 25 LSV is the new standard for 25-footers. The Malibu 25 LSV is the longest boat in the Luxury Sport V-Drive Series with all the amenities you need for a big crew on a long day. Cut through big-lake chop, double-ups and rolling surf waves with the sleek traditional bow even while fully loaded with an 18-person crew and topped-off ballast. Stretch out and grab some sun in the luxurious wraparound lounge or convert the space into a dining room with the Multi View Wake Bench. In a boat this roomy with all these amenities, the only thing you’ll be leaving behind is the dock.",
         specs: {
             builder: 'Malibu',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2894,7 +2879,6 @@ export const yachts = [
         description: "The Wakesetter 23 MXZ is for the crew that demands pro-level wakes and waves behind the boat and next-level luxury inside. The pickle-fork bow and the ultra-plush cockpit lounge accommodate 16 in style you’ve got to see to believe. With a host of tech-forward and wake-making features, the Malibu 23 MXZ delivers on not only the creature comforts, but also the core Malibu performance. In other words, this future classic is the best of both worlds. You demanded a 23-foot MXZ—Malibu delivered.",
         specs: {
             builder: 'Malibu',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2937,7 +2921,6 @@ export const yachts = [
         description: "The legendary Malibu 23 LSV is the best-selling towboat of all time because it undeniably delivers on everything a family needs for a memory making day on the water in a size class that perfectly balances performance, space and agility—all in a sleek traditional bow form that effortlessly cuts through chop in big water. The iconic 23 LSV is better than ever with new design features like a transom walk-over, completely reconfigured interior, and jaw-dropping wakeboard, wakesurf and water ski performance.",
         specs: {
             builder: 'Malibu',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -2976,7 +2959,6 @@ export const yachts = [
         description: "The Malibu M220 may be just under 23 feet, but it doesn’t sacrifice anything on the luxury, performance and innovative features of its bigger brother, the top-of-the-line M240. One look at the M220 and you’ll instantly recognize its bold M-Series profile, with a high freeboard that allows for more passengers (which means more fun), more ballast, more storage and a larger on-water presence. And because this new M is all Malibu, wakeboard wakes are crisp, clean and perfectly formed and surf waves are better than ever in nearly any condition thanks to the M-Line Hull.",
         specs: {
             builder: 'Malibu',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -3019,7 +3001,6 @@ export const yachts = [
         description: "The  Malibu M240 has solidly planted its flag at the top of the Malibu line. A luxury wake boat like no other, every detail of the M240 has upscale, M-Series style and functionality. The standard features read like a wish list for the perfect towboat: The premium slide-out cooler, powered Gx Tower, Multi View Bench Seat, wireless chargers—we could go on and on. With exclusive features such as ultra-fast-filling Malibu Launch System 6 Ballast™ that fills in under three minutes and Surf Gate® Fusion which is integrated into the M-Line Hull for the greatest and cleanest surf swells in the wake boat industry, the M240 brings you something the water has never seen before. If you are looking for unsurpassed luxury, unyielding performance, and unrivaled innovation, the M240 is for you.",
         specs: {
             builder: 'Malibu',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -3062,7 +3043,6 @@ export const yachts = [
         description: "The most compact of the LSV family, the Malibu 22 LSV shares all the same wake-making potential, comfort amenities and user-centric tech as its bigger brothers, but at just under 22 feet it’s more approachable for smaller families and first-time buyers. And you’ll be shocked at what the 22 can do! Choose between the Wake Plus Hull for surf or wakeboard enthusiast or the Diamond Multi-Sport Hull for all-around performance with slalom wakes you’ll barely notice. Either way, the 22 LSV combines all the best aspects of the bigger LSVs into a more compact package that still packs a big punch.",
         specs: {
             builder: 'Malibu',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -3105,7 +3085,6 @@ export const yachts = [
         description: "The Malibu Wakesetter 21 LX is a brand-new boat for 2022 that pulls from a pedigree of models that preceded it to deliver the performance expected from a true Malibu Wakesetter. One of the most unique characteristics of this new boat is the newly designed Hybrid Bow which incorporates the sharp lines of the 21 VLX’s traditional bow to cut smoothly through the water with the space of the 21 MLX’s picklefork bow. Versatility, comfort and ultimate convenience are the hallmarks of this 2022 brand-new Malibu 21 LX—making it the perfect entry point for Malibu’s Wakesetter line-up.",
         specs: {
             builder: 'Malibu',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
@@ -3148,7 +3127,6 @@ export const yachts = [
         description: "The 20 VTX is Malibu’s ultimate triple threat. VTX stands for versatility and it truly is the boat that makes everyone happy whether you want to ski, wakesurf, or wakeboard. Its unique Malibu Cut Diamond Hull™ is tournament approved so you get pro-level slalom wakes—or you can fill the ballast, drop the Power Wedge III and deploy Surf Gate for a wave you’re not going to believe came off a 20-foot boat. Fun to drive, easy to store and simple to trailer, the Malibu 20 VTX is just what your multisport family has been looking for.",
         specs: {
             builder: 'Malibu',
-            "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
             "engines": "N/A",
