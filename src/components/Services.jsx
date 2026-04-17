@@ -1,10 +1,6 @@
 import { motion } from 'framer-motion';
 import { DollarSign, Wrench, Warehouse, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import salesImg from '../assets/services/sales-brokerage.png';
-import managementImg from '../assets/services/management-maintenance.png';
-import parkingImg from '../assets/services/boat-parking.png';
-import trainingImg from '../assets/services/training-academy.png';
 import '../styles/Services.css';
 
 const Services = () => {
@@ -13,28 +9,28 @@ const Services = () => {
             id: 'sales-brokerage',
             title: 'Sales & Brokerage',
             description: 'Expert guidance in buying or selling your vessel, with a wide network of international buyers.',
-            image: salesImg,
+            image: '/Diamantides/assets/services/sales-brokerage.png',
             link: '/sales'
         },
         {
             id: 'management-maintenance',
             title: 'Management & Maintenance',
             description: 'Comprehensive technical support and management services to keep your yacht in pristine condition.',
-            image: managementImg,
+            image: '/Diamantides/assets/services/management-maintenance.png',
             link: '/services/yacht-management'
         },
         {
             id: 'boat-parking',
             title: 'Boat Parking & Storage',
             description: 'Secure and convenient storage solutions for your vessel in premium facilities.',
-            image: parkingImg,
+            image: '/Diamantides/assets/services/parking-hangar.png',
             link: '/services/boat-parking'
         },
         {
             id: 'training-academy',
             title: 'Speed Boat Training',
             description: 'Certified speedboat operator license training and navigation courses for all skill levels.',
-            image: trainingImg,
+            image: '/Diamantides/assets/services/training-academy.png',
             link: '/training-academy'
         }
     ];

@@ -13,19 +13,19 @@ const BoatParkingPage = () => {
             title: "Covered Hangars",
             description: "Maximum protection from UV rays, salt, and temperature fluctuations. Ideal for long-term preservation of your vessel's exterior and interior.",
             icon: <Warehouse size={32} />,
-            image: "https://diamantidesyachting.com/wp-content/webp-express/webp-images/uploads/2023/10/COVER-SOLUTION-DEMO-13-600x450.jpg.webp"
+            image: "/Diamantides/assets/services/parking-hangar.png"
         },
         {
             title: "Open-Air Guarded Storage",
             description: "Economical and secure solution in specially equipped zones. Features 24/7 video surveillance and protection from heavy winds.",
             icon: <Shield size={32} />,
-            image: "https://diamantidesyachting.com/wp-content/webp-express/webp-images/uploads/2022/04/boat-parking-diam-4-600x450.jpg.webp"
+            image: "/Diamantides/assets/services/parking-open-air.png"
         },
         {
             title: "Maintenance & Monitoring",
             description: "Regular technical inspections, hull washing, battery charging, and engine maintenance during the storage period.",
             icon: <Clock size={32} />,
-            image: "https://diamantidesyachting.com/wp-content/webp-express/webp-images/uploads/2023/10/DSCF4588-600x450.jpg.webp"
+            image: "/Diamantides/assets/services/parking-maintenance.png"
         }
     ];
 
@@ -161,7 +161,7 @@ const BoatParkingPage = () => {
                             </div>
                         </div>
                         <div className="included-visual">
-                            <img src="https://diamantidesyachting.com/wp-content/webp-express/webp-images/uploads/2023/10/IMG_1736-600x450.jpg.webp" alt="Boat Maintenance" />
+                            <img src="/Diamantides/assets/services/parking-maintenance.png" alt="Boat Maintenance" />
                             <div className="visual-badge">
                                 <Anchor size={30} />
                                 <span>Expert Care</span>
