@@ -83,6 +83,9 @@ const AboutPage = () => {
                         </h1>
                     </motion.div>
                 </div>
+                <div className="scroll-indicator">
+                    <div className="mouse"></div>
+                </div>
             </section>
 
             {/* History Section */}

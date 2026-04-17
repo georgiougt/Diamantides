@@ -14,15 +14,59 @@
 
 /* Hero Section */
 .about-hero {
-    height: 70vh;
-    min-height: 500px;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                url('https://images.unsplash.com/photo-1569263979104-865ab7dd8d36?q=80&w=2070&auto=format&fit=crop');
+    height: 100vh;
+    min-height: 600px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), 
+                url('/Diamantides/assets/images/about-hero.webp');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     position: relative;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.mouse {
+    width: 26px;
+    height: 42px;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    position: relative;
+    opacity: 0.7;
+}
+
+.mouse::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: var(--gradient-metallic-gold);
+    border-radius: 50%;
+    animation: aboutScroll 2s infinite;
+}
+
+@keyframes aboutScroll {
+    0% {
+        opacity: 1;
+        top: 8px;
+    }
+    100% {
+        opacity: 0;
+        top: 24px;
+    }
 }
 
 .hero-content {
