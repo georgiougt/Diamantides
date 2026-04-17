@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion';
 import { DollarSign, Wrench, Warehouse, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import salesImg from '../assets/services/sales-brokerage.png';
+import managementImg from '../assets/services/management-maintenance.png';
+import parkingImg from '../assets/services/boat-parking.png';
+import trainingImg from '../assets/services/training-academy.png';
 import '../styles/Services.css';
 
 const Services = () => {
@@ -9,28 +13,28 @@ const Services = () => {
             id: 'sales-brokerage',
             title: 'Sales & Brokerage',
             description: 'Expert guidance in buying or selling your vessel, with a wide network of international buyers.',
-            image: 'https://images.unsplash.com/photo-1544413647-79f0433d3d62?q=80&w=2070&auto=format&fit=crop',
+            image: salesImg,
             link: '/sales'
         },
         {
             id: 'management-maintenance',
             title: 'Management & Maintenance',
             description: 'Comprehensive technical support and management services to keep your yacht in pristine condition.',
-            image: '/Diamantides/assets/services/management-slider-new-5-475x600.jpg',
+            image: managementImg,
             link: '/services/yacht-management'
         },
         {
             id: 'boat-parking',
             title: 'Boat Parking & Storage',
             description: 'Secure and convenient storage solutions for your vessel in premium facilities.',
-            image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=2070&auto=format&fit=crop',
+            image: parkingImg,
             link: '/services/boat-parking'
         },
         {
             id: 'training-academy',
             title: 'Speed Boat Training',
             description: 'Certified speedboat operator license training and navigation courses for all skill levels.',
-            image: 'https://images.unsplash.com/photo-1517400508447-f8dd518b86db?q=80&w=2070&auto=format&fit=crop',
+            image: trainingImg,
             link: '/training-academy'
         }
     ];
