@@ -113,7 +113,8 @@
 .brand-badge {
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 20px !important;
+    right: auto !important;
     background: rgba(212, 175, 55, 0.9);
     color: #000;
     padding: 5px 15px;

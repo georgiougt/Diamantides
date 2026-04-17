@@ -229,8 +229,9 @@
 .image-price-badge {
     position: absolute;
     top: 25px;
-    right: 25px;
-    z-index: 20;
+    right: 25px !important;
+    left: auto !important;
+    z-index: 30;
     padding: 0.6rem 1.4rem;
     background: var(--gradient-metallic-gold);
     border-radius: 4px;
@@ -247,7 +248,8 @@
 
 .large-card .image-price-badge {
     top: 35px;
-    right: 35px;
+    right: 35px !important;
+    left: auto !important;
     padding: 0.8rem 1.8rem;
     font-size: 1.5rem;
 }
