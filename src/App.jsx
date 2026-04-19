@@ -57,6 +57,26 @@ const GlobalRollingBanner = () => {
   );
 };
 
+// Component to handle scrolling to hash anchors
+const ScrollToHash = () => {
+    const { hash } = useLocation();
+
+    useEffect(() => {
+        if (hash) {
+            const id = hash.replace('#', '');
+            const element = document.getElementById(id);
+            if (element) {
+                // Timeout to ensure the page has rendered
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+    }, [hash]);
+
+    return null;
+};
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [showLoader, setShowLoader] = useState(true);
@@ -80,6 +100,7 @@ function App() {
         )}
         <Navbar />
         <GlobalRollingBanner />
+        <ScrollToHash />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />

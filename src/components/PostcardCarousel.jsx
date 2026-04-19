@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const PostcardCarousel = ({ images, title, subtitle, link, isExternal }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -167,9 +168,9 @@ const PostcardCarousel = ({ images, title, subtitle, link, isExternal }) => {
         }
         return (
             <motion.div whileHover={{ y: -8 }} className="postcard-link-wrapper">
-                <a href={link} className="postcard">
+                <Link to={link} className="postcard">
                     {content}
-                </a>
+                </Link>
             </motion.div>
         );
     }
