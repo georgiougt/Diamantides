@@ -37,7 +37,7 @@ const Navbar = () => {
         name: 'Services',
         links: [
             { name: 'Management & Maintenance', href: '/services/yacht-management' },
-            { name: 'Boat Parking & Storage', href: '/services/boat-parking' },
+            { name: 'Boat Parking', href: '/services/boat-parking' },
             { name: 'Speed Boat Training', href: '/training-academy' }
         ]
     };

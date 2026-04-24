@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url('../assets/services/management-slider-new-1-475x600.jpg');
+    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url('/Diamantides/assets/images/management_hero.webp');
     background-size: cover;
     background-position: center;
     position: relative;

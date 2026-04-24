@@ -68,8 +68,7 @@ const BoatParkingPage = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <h1>
-                            Boat Parking & Secure <br />
-                            Yacht Storage in Cyprus
+                            Boat Parking
                         </h1>
                         <p className="hero-subtitle">
                             Protect your investment with professional mooring and maintenance services 

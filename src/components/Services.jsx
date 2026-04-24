@@ -21,7 +21,7 @@ const Services = () => {
         },
         {
             id: 'boat-parking',
-            title: 'Boat Parking & Storage',
+            title: 'Boat Parking',
             description: 'Secure and convenient storage solutions for your vessel in premium facilities.',
             image: '/Diamantides/assets/services/parking-hangar.png',
             link: '/services/boat-parking'
