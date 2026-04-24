@@ -712,7 +712,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/28881/profile.webp",
         category: 'sales',
         condition: 'used',
-        vesselType: "Fiberglass",
+        vesselType: "RIB",
         price: "Upon Request",
         description: "SOLEMAR OCEANIC 33 — style, comfort, and pure enjoymentSOLEMAR OCEANIC 33 is the perfect combination of Italian design, power, and functionality. This spacious and elegant 10-meter (33-foot) boat is designed for those who appreciate comfort, safety, and the pleasure of being on the water.",
         specs: {
@@ -746,7 +746,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/27917/profile.webp",
         category: 'sales',
         condition: 'used',
-        vesselType: "Yachts",
+        vesselType: "RIB",
         price: "Upon Request",
         description: "Experience the perfect blend of Italian elegance and exhilarating performance aboard the Sacs Strider 18, now available for sale. Built in 2017 and immaculately maintained, this 18-metre luxury boat cruises effortlessly at 35 knots and reaches an impressive top speed of 47 knots. Her sleek, sporty profile and expansive deck space provide the ideal setting for sunbathing, entertaining, or simply enjoying the open sea in total comfort.\nBelow deck, the Strider 18 offers a beautifully designed interior featuring a double cabin for a luxurious master retreat and a twin cabin for guests or family, ensuring both comfort and privacy on every voyage.\nLocated in Limassol, Cyprus, and available for immediate viewings, the Strider 18 promises unforgettable adventures from the moment you step aboard. Ready to cruise and maintained in pristine condition, she is the perfect choice for those seeking both speed and sophistication on the water.",
         specs: {
@@ -830,7 +830,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/27484/profile.webp",
         category: 'sales',
         condition: 'used',
-        vesselType: "Fiberglass",
+        vesselType: "RIB",
         price: "SOLD",
         description: "Built in 2010, the Stingher 800 offers the perfect blend of sleek Italian design and everyday usability. This beautifully balanced RIB features plush seating, LED-lit storage, carbon-style accents, and premium materials throughout—delivering both style and substance in every detail. Powered by twin 250 HP Evinrude engines, it provides confident, high-performance cruising, whether you’re planning a relaxed family outing or an exhilarating coastal adventure. The spacious, ergonomic layout ensures all-day comfort, while the included trailer makes transport and storage simple. Contact us for viewings and more information.",
         specs: {
@@ -861,7 +861,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/27459/profile.webp",
         category: 'sales',
         condition: 'used',
-        vesselType: "Fiberglass",
+        vesselType: "RIB",
         price: "Upon Request",
         description: "This Colbac Shark 720 RIB is now available for sale. Built in 2007 and powered by twin Suzuki engines, each delivering 103 kW, this boat has been well maintained and is ready for new adventures at sea. A two-axle trailer is included.\nContact us for viewings and more information.",
         specs: {
@@ -1111,7 +1111,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/15246/profile.webp",
         category: 'sales',
         condition: 'used',
-        vesselType: "Fiberglass",
+        vesselType: "RIB",
         price: "SOLD",
         description: "Introducing the Skipper 95 Sport Cabin, now available for sale. This dynamic 8.12-meter boat, built in 2009, is equipped with twin Mercury 300HP engines, offering a thrilling combination of power and performance. Located in Limassol, this boat has been expertly maintained, ensuring it remains in excellent condition. The Sport Cabin design provides ample space and comfort, making it ideal for both short getaways and longer adventures. With its sleek lines and thoughtful layout, the Skipper 95 delivers a perfect balance of style and functionality. Don’t miss the chance to own this exceptional boat, ready to offer endless hours of enjoyment on the water.",
         specs: {
@@ -1535,7 +1535,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/13709/profile.webp",
         category: 'sales',
         condition: 'used',
-        vesselType: "Fiberglass",
+        vesselType: "RIB",
         price: "SOLD",
         description: "Introducing the BAT 680 boat, a classic model from 2000 that has received total refit in 2021. The total refit includes new balloons, stylish upholstery, and practical tents, providing a refreshed and modern appearance.\nThe 250 engine has recently undergone a full service, guaranteeing reliable and smooth performance on all your water adventures.\nWith a price of 35,000 euros, this boat offers excellent value and it’s a fantastic opportunity to own a versatile and well-maintained watercraft, perfect for creating unforgettable memories on the water. Don’t miss out on making this BAT 680 uniquely yours!",
         specs: {
@@ -1564,7 +1564,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/13697/profile.webp",
         category: 'sales',
         condition: 'used',
-        vesselType: "Fiberglass",
+        vesselType: "RIB",
         price: "SOLD",
         description: "Introducing the BSC 570, a cutting-edge boat priced at 36,000 euros,  launched in 2022 and  powered by a robust Honda 100HP  engine. Additionally, it comes equipped with a brand-new 6-horsepower auxiliary engine, enhancing its performance and efficiency. Whether you need it for professional or pleasure purposes, the BSC 570 is designed to meet your demands and exceed expectations. Don’t miss the chance to experience the power and reliability of this remarkable boat!",
         specs: {
@@ -1597,7 +1597,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/13675/profile.webp",
         category: 'sales',
         condition: 'new',
-        vesselType: "Fiberglass",
+        vesselType: "RIB",
         price: "Upon Request",
         description: "For sale is this fantastic used boat from the reputable brand Viper. The Viper 550, built in 2015, is a versatile and reliable watercraft that promises an enjoyable boating experience. Equipped with a powerful 115HP MERCURY outboard engine, this boat offers an excellent balance of speed, efficiency, and performance on the water.\nThe Viper 550 is known for its sturdy construction and attention to detail, ensuring durability and longevity. Its sleek design and spacious layout make it ideal for various activities, such as fishing, watersports, or leisurely cruising.\nThe 115HP MERCURY outboard engine provides ample power for swift acceleration and smooth handling. Known for its reliability and fuel efficiency, this engine is a popular choice among boating enthusiasts. The combination of the Viper 550 and the 115HP MERCURY engine ensures a pleasurable and hassle-free boating experience.",
         specs: {
@@ -1878,7 +1878,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/10895/profile.webp",
         category: 'sales',
         condition: 'used',
-        vesselType: "Fiberglass",
+        vesselType: "jetskis",
         price: "SOLD",
         description: "Used Jet Ski SEADOO SUPERCHARGED (2016) available for sale in Limassol, Cyprus. Yellow color, only 60 engine hours.",
         specs: {
@@ -1993,7 +1993,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/10890/profile.webp",
         category: 'sales',
         condition: 'used',
-        vesselType: "Fiberglass",
+        vesselType: "RIB",
         price: "SOLD",
         description: "Technorib Pirelli 770 (2007) available for sale in Limassol, Cyprus. The PIRELLI 770 has been designed in every detail to ensure a comfortable and relaxed life on board. The wide aft sunbathing area offers comfort and safety for those who want to enjoy the sea in its entirety, while the cockpit and the bow allows to accommodate many guests in complete comfort. The boat has been designed around her stern, an equipment room that remains low and invisible. Something that has never been done on any other RIB of this size. The stern gives a strong indication of her overall shape, designed to be functional in use. She has a large sun deck, a diving board with wooden grating and two convenient side gangways which make this area extremely usable.",
         specs: {
@@ -2060,7 +2060,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/10870/profile.webp",
         category: 'sales',
         condition: 'used',
-        vesselType: "Fiberglass",
+        vesselType: "RIB",
         price: "SOLD",
         description: "Williams Turbojet 325 available for sale in Limassol, Cyprus. Standard White Vinyl upholstery, BRP Rotax ACE 903 – 90HP engines. Perfect as a tender for yachts 16–21m.",
         specs: {
@@ -2127,7 +2127,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/10862/profile.webp",
         category: 'sales',
         condition: 'used',
-        vesselType: "Fiberglass",
+        vesselType: "jetskis",
         price: "SOLD",
         description: "Used Jet Ski SEADOO GTR 215 SUPERCHARGED (2016) available for sale in Limassol, Cyprus. Beautiful yellow and black color.",
         specs: {
@@ -2151,7 +2151,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/10833/profile.webp",
         category: 'sales',
         condition: 'used',
-        vesselType: "Fiberglass",
+        vesselType: "RIB",
         price: "SOLD",
         description: "6m Brig Rib Boat (2015) available for viewing at our boat parking in Limassol. Powered by a 150 ETEC outboard engine.",
         specs: {
@@ -2214,7 +2214,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/10777/profile.webp",
         category: 'sales',
         condition: 'used',
-        vesselType: "Fiberglass",
+        vesselType: "RIB",
         price: "Upon Request",
         description: "Used Alson Rib boat available for viewing at our boat parking. She has a Honda 90hp engine and a trailer.",
         specs: {
@@ -2240,7 +2240,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/10749/profile.webp",
         category: 'sales',
         condition: 'used',
-        vesselType: "Fiberglass",
+        vesselType: "RIB",
         price: "SOLD",
         description: "Used BSC 61 RIB boat available for viewing at our boat parking in Limassol. Powered by a Honda 130hp outboard engine. Sold with trailer.",
         specs: {
@@ -2350,7 +2350,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/10279/profile.webp",
         category: 'sales',
         condition: 'new',
-        vesselType: "Yachts",
+        vesselType: "RIB",
         price: "Upon Request",
         description: "...",
         specs: {
@@ -2379,7 +2379,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/10272/profile.webp",
         category: 'sales',
         condition: 'new',
-        vesselType: "Yachts",
+        vesselType: "RIB",
         price: "Upon Request",
         description: "...",
         specs: {
@@ -2407,7 +2407,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/10259/profile.webp",
         category: 'sales',
         condition: 'new',
-        vesselType: "Yachts",
+        vesselType: "RIB",
         price: "Upon Request",
         description: "The purely legendary family boat company is LEGENT 550. Easy to move, but also the lifting-launching. has a rich equipment and several warehouses. The tourism of nature inspires beautiful and safe excursions.",
         specs: {
@@ -2441,7 +2441,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/10251/profile.webp",
         category: 'sales',
         condition: 'new',
-        vesselType: "Yachts",
+        vesselType: "RIB",
         price: "Upon Request",
         description: "BULLET 650 is a renowned Greek boat in difficult seas. It has extensive standard equipment, while known for its speed, faithfully obeying commands with stability and confidence.",
         specs: {
@@ -2470,7 +2470,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/10241/profile.webp",
         category: 'sales',
         condition: 'new',
-        vesselType: "Yachts",
+        vesselType: "RIB",
         price: "Upon Request",
         description: "...",
         specs: {
@@ -2501,7 +2501,7 @@ export const yachts = [
         image: "/Diamantides/assets/sales/10206/profile.webp",
         category: 'sales',
         condition: 'new',
-        vesselType: "Yachts",
+        vesselType: "RIB",
         price: "Upon Request",
         description: "...",
         specs: {
