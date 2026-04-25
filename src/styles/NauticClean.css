@@ -1,8 +1,18 @@
 .nautic-clean-page {
-    padding-top: 80px;
     background: #050505;
     color: white;
     min-height: 100vh;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-family: var(--font-heading);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .nc-hero {

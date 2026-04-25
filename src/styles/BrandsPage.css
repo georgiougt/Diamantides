@@ -1,8 +1,18 @@
 .brands-page {
-    padding-top: 80px;
     background: #000;
     color: white;
     min-height: 100vh;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-family: var(--font-heading);
+    background: var(--gradient-metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
 }
 
 .brands-hero {
