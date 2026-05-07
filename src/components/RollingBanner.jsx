@@ -5,7 +5,7 @@ import logo1 from '../assets/logos/2021_Black_Axis.png';
 import logo2 from '../assets/logos/2021_Color_White_Text.png';
 import logo4 from '../assets/logos/Marinello logo2.png';
 import logo5 from '../assets/logos/VIPER-LOGO.png';
-import logo7 from '../assets/logos/galeon_logo (1).png';
+import logo7 from '../assets/logos/galeon_logo.png';
 import logo8 from '../assets/logos/logo-nauticclean.png';
 import logo9 from '../assets/logos/redshark-logo-pr.png';
 import logo11 from '../assets/logos/agilis_logo.webp';

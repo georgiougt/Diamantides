@@ -47,7 +47,7 @@ const LandingPage = () => {
 const GlobalRollingBanner = () => {
   const { pathname } = useLocation();
   // Don't show on home page or pages with their own hero banners to avoid "dark band" at the top
-  const heroPages = ['/', '/services/boat-parking', '/services/yacht-management', '/members-only', '/about'];
+  const heroPages = ['/'];
   if (heroPages.includes(pathname)) return null;
 
   return (

@@ -58,7 +58,10 @@ const Navbar = () => {
         <header className={`navbar ${isScrolled || !isTransparentStart ? 'scrolled' : ''}`}>
             <div className="navbar-container">
                 <Link to="/" className="logo">
-                    <img src={horizontalLogo} alt="Diamantides Yachting" className="logo-img" />
+                    <div className="logo-wrapper">
+                        <img src={horizontalLogo} alt="Diamantides Yachting" className="logo-img" />
+                        <span className="logo-motto">All About Yachting</span>
+                    </div>
                 </Link>
 
                 <div className="desktop-menu">

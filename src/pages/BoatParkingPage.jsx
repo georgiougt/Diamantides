@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, MapPin, UserCheck, Clock, CheckCircle, ArrowRight, Anchor, Camera, Warehouse } from 'lucide-react';
 import '../styles/BoatParking.css';
+import inclusiveCareImg from '../assets/services/parking_care_hd.webp';
+import hangarImg from '../assets/services/parking_hangar_exact.webp';
+import monitoringImg from '../assets/services/parking_monitoring_exact.webp';
 
 const BoatParkingPage = () => {
     useEffect(() => {
@@ -13,19 +16,13 @@ const BoatParkingPage = () => {
             title: "Covered Hangars",
             description: "Maximum protection from UV rays, salt, and temperature fluctuations. Ideal for long-term preservation of your vessel's exterior and interior.",
             icon: <Warehouse size={32} />,
-            image: "/Diamantides/assets/services/parking-hangar.png"
-        },
-        {
-            title: "Open-Air Guarded Storage",
-            description: "Economical and secure solution in specially equipped zones. Features 24/7 video surveillance and protection from heavy winds.",
-            icon: <Shield size={32} />,
-            image: "/Diamantides/assets/services/parking-open-air.png"
+            image: hangarImg
         },
         {
             title: "Maintenance & Monitoring",
             description: "Regular technical inspections, hull washing, battery charging, and engine maintenance during the storage period.",
             icon: <Clock size={32} />,
-            image: "/Diamantides/assets/services/parking-maintenance.png"
+            image: monitoringImg
         }
     ];
 
@@ -53,7 +50,8 @@ const BoatParkingPage = () => {
         "Continuous condition monitoring",
         "Optional engine winterization",
         "Available electricity & water supply",
-        "Regular ventilation of interiors"
+        "Regular ventilation of interiors",
+        "Transportation and rinse after each use"
     ];
 
     return (
@@ -71,7 +69,7 @@ const BoatParkingPage = () => {
                             Boat Parking
                         </h1>
                         <p className="hero-subtitle">
-                            Protect your investment with professional mooring and maintenance services 
+                            Protect your investment with professional mooring and maintenance services
                             designed for the elite yachting community of Cyprus.
                         </p>
                     </motion.div>
@@ -88,8 +86,8 @@ const BoatParkingPage = () => {
                     </div>
                     <div className="benefits-grid">
                         {benefits.map((benefit, index) => (
-                            <motion.div 
-                                key={index} 
+                            <motion.div
+                                key={index}
                                 className="benefit-card glass-morphism"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -116,8 +114,8 @@ const BoatParkingPage = () => {
                     </div>
                     <div className="services-detailed-grid">
                         {services.map((service, index) => (
-                            <motion.div 
-                                key={index} 
+                            <motion.div
+                                key={index}
                                 className="service-detail-card"
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
@@ -127,7 +125,6 @@ const BoatParkingPage = () => {
                                 <div className="card-image-box">
                                     <img src={service.image} alt={service.title} />
                                     <div className="image-overlay-gradient"></div>
-                                    <div className="service-tag-icon">{service.icon}</div>
                                 </div>
                                 <div className="card-content-box">
                                     <h3>{service.title}</h3>
@@ -149,7 +146,7 @@ const BoatParkingPage = () => {
                     <div className="included-inner glass-morphism">
                         <div className="included-text">
                             <h2>All-Inclusive Care</h2>
-                            <p>Our commitment to your vessel's longevity goes beyond just parking. We provide comprehensive care during the entire storage period.</p>
+                            <p>Our commitment to your vessel's longevity goes beyond just parking. Opt for our comprehensive care packages.</p>
                             <div className="included-grid">
                                 {includedServices.map((item, index) => (
                                     <div key={index} className="included-item">
@@ -160,7 +157,7 @@ const BoatParkingPage = () => {
                             </div>
                         </div>
                         <div className="included-visual">
-                            <img src="/Diamantides/assets/services/parking-maintenance.png" alt="Boat Maintenance" />
+                            <img src={inclusiveCareImg} alt="Boat Maintenance" />
                             <div className="visual-badge">
                                 <Anchor size={30} />
                                 <span>Expert Care</span>
@@ -180,11 +177,11 @@ const BoatParkingPage = () => {
                             <div className="contact-quick">
                                 <div className="quick-item">
                                     <Clock size={24} />
-                                    <span>Response within 24 hours</span>
+                                    <span>24/7 Customer Access</span>
                                 </div>
                                 <div className="quick-item">
                                     <Camera size={24} />
-                                    <span>Live Monitoring Access</span>
+                                    <span>24/7 Monitoring</span>
                                 </div>
                             </div>
                         </div>
@@ -196,7 +193,7 @@ const BoatParkingPage = () => {
                                 </div>
                                 <div className="form-group">
                                     <label>Vessel Type & Dimensions</label>
-                                    <input type="text" placeholder="e.g. Azimut 60' / 18m" required />
+                                    <input type="text" placeholder="e.g. Motorboat / 15m" required />
                                 </div>
                                 <div className="form-row">
                                     <div className="form-group">

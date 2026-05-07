@@ -1,5 +1,4 @@
 .yacht-management-page {
-    padding-top: 80px;
     background: #050505;
     color: white;
     min-height: 100vh;
@@ -82,38 +81,75 @@
     margin: 0;
 }
 
-/* Pillars Container */
-.ym-pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.ym-pillar-card {
-    padding: 40px 30px;
-    border-radius: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Pillars Accordion */
+.ym-accordion-list {
+    max-width: 900px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
-.ym-pillar-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
-    background: rgba(255, 255, 255, 0.05); /* Slight brighten on hover */
+.ym-accordion-item {
+    padding: 0;
+    border-radius: 15px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.ym-pillar-card h3 {
+.ym-accordion-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.ym-accordion-item.expanded {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: #d4af37;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.ym-accordion-header {
+    padding: 25px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ym-accordion-header h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin: 0;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.ym-accordion-item.expanded h3 {
     color: #d4af37;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    font-weight: 400;
 }
 
-.ym-pillar-card p {
+.ym-accordion-icon {
+    color: #d4af37;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.ym-accordion-icon svg.rotate {
+    transform: rotate(180deg);
+}
+
+.ym-accordion-content {
+    padding: 0 30px 30px;
+    overflow: hidden;
+}
+
+.ym-accordion-content p {
     color: #bbb;
-    line-height: 1.6;
-    flex-grow: 1;
+    line-height: 1.8;
+    margin: 0;
+    font-size: 1.05rem;
 }
 
 /* Specific styling for the 'Who is this for' and 'Why choose us' */

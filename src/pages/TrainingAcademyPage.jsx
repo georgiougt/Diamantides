@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Compass, Ship, FileCheck, CheckCircle, MapPin, GraduationCap } from 'lucide-react';
+import { Compass, Ship, FileCheck, CheckCircle, MapPin, GraduationCap, BookAIcon, Book } from 'lucide-react';
 import '../styles/TrainingAcademy.css';
 
 const TrainingAcademyPage = () => {
@@ -87,9 +87,9 @@ const TrainingAcademyPage = () => {
                             <h3>What can you do with this license?</h3>
                             <ul className="academy-list">
                                 <li><CheckCircle size={20} className="icon-gold" /> Rent a boat and explore the coastline of Cyprus on your own.</li>
-                                <li><CheckCircle size={20} className="icon-gold" /> Own a vessel and operate it in international waters.</li>
+                                {/* <li><CheckCircle size={20} className="icon-gold" /> Own a vessel and operate it in local waters.</li> */}
                                 <li><CheckCircle size={20} className="icon-gold" /> Ensure the safety of passengers during leisure trips.</li>
-                                <li><CheckCircle size={20} className="icon-gold" /> Work in the yachting industry or start a water tour service.</li>
+                                {/* <li><CheckCircle size={20} className="icon-gold" /> Work in the yachting industry or start a water tour service.</li> */}
                             </ul>
                         </motion.div>
 
@@ -102,10 +102,10 @@ const TrainingAcademyPage = () => {
                         >
                             <h3>Who Is This License For?</h3>
                             <ul className="academy-list">
-                                <li><Compass size={20} className="icon-gold" /> <strong>Cyprus residents</strong> wishing to use boats for personal or commercial purposes.</li>
-                                <li><Compass size={20} className="icon-gold" /> <strong>Tourists</strong> renting boats during their vacation.</li>
-                                <li><Compass size={20} className="icon-gold" /> <strong>Motorboat owners</strong> planning independent operation.</li>
-                                <li><Compass size={20} className="icon-gold" /> <strong>Yacht charter clients</strong> needing legal and practical training.</li>
+                                <li><Compass size={20} className="icon-gold" /> <strong>Cyprus Residents / Internationals</strong> Wishing To Use Boats For Personal Purposes.</li>
+                                {/* <li><Compass size={20} className="icon-gold" /> <strong>Tourists & Visitors</strong> Renting Boats/Jetskis During Their Vacation.</li> */}
+                                <li><Compass size={20} className="icon-gold" /> <strong>Motorboat Owners</strong> Planning Independent Operation.</li>
+                                {/* <li><Compass size={20} className="icon-gold" /> <strong>Yacht Charter Clients</strong> Needing Legal And Practical Training.</li> */}
                             </ul>
                         </motion.div>
                     </div>
@@ -130,7 +130,7 @@ const TrainingAcademyPage = () => {
                         >
                             <div className="step-number">1</div>
                             <div className="step-content">
-                                <h3>Theoretical Lessons: Knowledge & Safety</h3>
+                                <h3>Theoretical Exam Components : Knowledge & Safety</h3>
                                 <p>Learn marine terminology, international signals, map symbols, GPS navigation, maritime law, and emergency response. Our comfortable environment offers materials in English, Greek, and Russian.</p>
                             </div>
                         </motion.div>
@@ -144,7 +144,7 @@ const TrainingAcademyPage = () => {
                         >
                             <div className="step-number">2</div>
                             <div className="step-content">
-                                <h3>On-Water Practice: Confidence at the Helm</h3>
+                                <h3>Practical Lessons: Confidence at the Helm</h3>
                                 <p>Move to an actual boat to learn starting procedures, harbor maneuvering, safe docking, navigation via visual markers, and evaluating real-time weather conditions alongside expert instructors.</p>
                             </div>
                         </motion.div>
@@ -182,8 +182,9 @@ const TrainingAcademyPage = () => {
                             <p>We handle the registration, documentation, and license issuance. You just need to provide:</p>
                             <ul className="docs-list">
                                 <li><FileCheck size={24} /> A passport or ID (must be at least 18 years old)</li>
-                                <li><FileCheck size={24} /> Two passport-size photographs</li>
-                                <li><FileCheck size={24} /> A medical certificate (if required)</li>
+                                <li><FileCheck size={24} /> One passport-size photographs</li>
+                                <li><FileCheck size={24} /> Residence Permit</li>
+                                <li><FileCheck size={24} /> Certificate of physical ability</li>
                                 <li><FileCheck size={24} /> A completed course application form</li>
                             </ul>
                         </motion.div>
@@ -212,6 +213,13 @@ const TrainingAcademyPage = () => {
                                         <p>Training from our Limassol base is beautiful and inspiring.</p>
                                     </div>
                                 </motion.div>
+                                <motion.div className="benefit-item" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} viewport={{ once: true }}>
+                                    <Book className="icon-gold" size={32} />
+                                    <div>
+                                        <h4>Experienced Instructors</h4>
+                                        <p>With decades of combined experience, our instructors bring real-world knowledge and a proven track record in maritime training.</p>
+                                    </div>
+                                </motion.div>
                             </div>
                         </div>
 
@@ -231,7 +239,7 @@ const TrainingAcademyPage = () => {
                         <h2>Ready to Get Your License?</h2>
                         <p className="cta-subtitle">
                             Take the first step today. Discover Cyprus from a new perspective — at the helm of your own boat.
-                            We offer flexible scheduling, including weekend classes.
+                            We offer flexible scheduling
                         </p>
 
                         <div className="cta-contact-box">

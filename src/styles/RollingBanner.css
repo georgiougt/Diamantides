@@ -41,14 +41,29 @@
 }
 
 /* Scale transforms to handle logos with extreme transparent padding without expanding container */
-.rolling-logo.scale-lg { transform: scale(1.5); }
-.rolling-logo.scale-lg:hover { transform: scale(1.6); }
+.rolling-logo.scale-lg {
+    transform: scale(1.5);
+}
 
-.rolling-logo.scale-xl { transform: scale(1.8); }
-.rolling-logo.scale-xl:hover { transform: scale(1.9); }
+.rolling-logo.scale-lg:hover {
+    transform: scale(1.6);
+}
 
-.rolling-logo.scale-xxxl { transform: scale(3.2); }
-.rolling-logo.scale-xxxl:hover { transform: scale(3.3); }
+.rolling-logo.scale-xl {
+    transform: scale(1.8);
+}
+
+.rolling-logo.scale-xl:hover {
+    transform: scale(1.9);
+}
+
+.rolling-logo.scale-xxxl {
+    transform: scale(3.2);
+}
+
+.rolling-logo.scale-xxxl:hover {
+    transform: scale(3.3);
+}
 
 .rolling-logo:hover {
     opacity: 1;
@@ -67,7 +82,8 @@
 
 @media (max-width: 768px) {
     .rolling-logo {
-        height: 50px; /* Matched to desktop for better absolute visibility */
+        height: 50px;
+        /* Matched to desktop for better absolute visibility */
     }
 
     .rolling-logo-wrapper {
@@ -76,14 +92,16 @@
 
     .rolling-banner-container {
         margin-top: 2rem;
-        min-height: 80px; /* Ensure containment of scaled logos */
+        min-height: 80px;
+        /* Ensure containment of scaled logos */
         padding: 1rem 0;
     }
 }
 
 /* Global Banner for sub-pages */
 .global-banner-wrapper {
-    margin-top: 80px; /* Perfectly flush or slightly overlapping to avoid sub-pixel gaps */
+    padding-top: 101px;
+    /* Uses padding instead of margin to ensure black background covers the area behind the navbar */
     background: #000000;
     border-bottom: 1px solid rgba(224, 178, 83, 0.1);
     position: relative;
@@ -92,7 +110,8 @@
 
 .global-banner-wrapper .rolling-banner-container {
     margin-top: 0;
-    padding: 0.5rem 0; /* Increased slightly from 0.35rem for better balance */
+    padding: 0.5rem 0;
+    /* Increased slightly from 0.35rem for better balance */
 }
 
 /* Thinner logos for the sub-page brand banner */
@@ -105,13 +124,17 @@
 
 @media (max-width: 768px) {
     .global-banner-wrapper {
-        margin-top: 90px; /* Slightly overlaps the 91px mobile navbar to eliminate the white gap */
+        padding-top: 96px;
+        /* Adjusted for mobile */
     }
+
     .global-banner-wrapper .rolling-logo {
         height: 32px;
     }
+
     .global-banner-wrapper .rolling-banner-container {
         padding: 0.8rem 0;
-        min-height: 60px; /* Safe bounds for scaled versions like Galeon */
+        min-height: 60px;
+        /* Safe bounds for scaled versions like Galeon */
     }
 }

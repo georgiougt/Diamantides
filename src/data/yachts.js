@@ -685,7 +685,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Fiberglass",
-        price: "Upon Request",
+        price: "€55,000",
         description: "Doral 265 Elite Cuddy (2007) — a comfortable sports boat with a powerful Volvo Penta 8.1L GXi engine. Ideal for dynamic cruising and short trips. Equipped with a cabin, bathroom, and comes with a trailer.",
         specs: {
             "builder": "N/A",
@@ -713,7 +713,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "RIB",
-        price: "Upon Request",
+        price: "€125,000",
         description: "SOLEMAR OCEANIC 33 — style, comfort, and pure enjoymentSOLEMAR OCEANIC 33 is the perfect combination of Italian design, power, and functionality. This spacious and elegant 10-meter (33-foot) boat is designed for those who appreciate comfort, safety, and the pleasure of being on the water.",
         specs: {
             "builder": "N/A",
@@ -747,7 +747,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "RIB",
-        price: "Upon Request",
+        price: "€650,000",
         description: "Experience the perfect blend of Italian elegance and exhilarating performance aboard the Sacs Strider 18, now available for sale. Built in 2017 and immaculately maintained, this 18-metre luxury boat cruises effortlessly at 35 knots and reaches an impressive top speed of 47 knots. Her sleek, sporty profile and expansive deck space provide the ideal setting for sunbathing, entertaining, or simply enjoying the open sea in total comfort.\nBelow deck, the Strider 18 offers a beautifully designed interior featuring a double cabin for a luxurious master retreat and a twin cabin for guests or family, ensuring both comfort and privacy on every voyage.\nLocated in Limassol, Cyprus, and available for immediate viewings, the Strider 18 promises unforgettable adventures from the moment you step aboard. Ready to cruise and maintained in pristine condition, she is the perfect choice for those seeking both speed and sophistication on the water.",
         specs: {
             "builder": "N/A",
@@ -789,7 +789,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Yachts",
-        price: "Upon Request",
+        price: "€9,000,000",
         description: "The Custom Line Navetta 30 is a standout in the 30-meter class, offering the rare combination of tri-deck architecture, 199 GT of volume, and wide-body design. With an overall length of 28.43 meters, she delivers the comfort and elegance of a much larger yacht, while remaining easy to manage and economical to operate.\nShe accommodates up to 11 guests across five beautifully appointed en-suite staterooms, including a spacious main-deck master suite. Crew quarters for five ensure full service and privacy. The interior, crafted with custom natural leather and fine wood detailing, is flooded with natural light and offers over two meters of headroom throughout, creating a true sense of openness. Large panoramic windows, expansive outdoor lounges, and a seamless indoor-outdoor flow enhance the onboard experience.\nStability and comfort are at the forefront, with standard zero-speed fins and the option for Seakeeper gyroscopic stabilization. Powered by twin 1000 hp MAN engines, the Navetta 30 cruises comfortably at 13 knots and offers an impressive range of 2,000 nautical miles at 10 knots — perfect for extended cruising.\nAdditional highlights include a private beach club, hydraulic swim platform, spacious bow lounge, and a tender/toy garage. CE Category A rated, this yacht delivers exceptional safety, efficiency, and all the refinement expected from the Custom Line pedigree.",
         specs: {
             "builder": "N/A",
@@ -862,7 +862,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "RIB",
-        price: "Upon Request",
+        price: "€42,000",
         description: "This Colbac Shark 720 RIB is now available for sale. Built in 2007 and powered by twin Suzuki engines, each delivering 103 kW, this boat has been well maintained and is ready for new adventures at sea. A two-axle trailer is included.\nContact us for viewings and more information.",
         specs: {
             "builder": "N/A",
@@ -896,7 +896,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Yachts",
-        price: "Upon Request",
+        price: "€1,290,000",
         description: "Experience the perfect combination of luxury and performance aboard this 2014 Azimut 64 motoryacht, currently located in Limassol, Cyprus. Measuring 20.2 meters in length with a beam of 5.1 meters, this impressive yacht features 3 guest cabins plus a crew cabin, along with well-appointed head compartments. It is powered by twin CAT C18 engines, each delivering 1150 horsepower, ensuring exceptional performance on the water.\nEnhanced with joystick control, bow and stern thrusters, and a full air conditioning system, this yacht offers smooth handling and optimal comfort. The interior is designed for elegance and convenience, showcasing a spacious saloon with wooden flooring, spring mattresses in every cabin, and high-end Miele appliances.\nOn the exterior, you’ll find teak decking throughout, a sleek hardtop, underwater lighting, and a telescopic gangway for easy boarding. Entertainment is well catered for with a hi-lo TV system, iBoat sound systems in the saloon and cabins, a USB player on the flybridge, and upgraded loudspeakers throughout.\nAdditional premium features include electric mooring winches, scenic windows in the VIP cabin, and chain counter controls at the helm. The yacht’s main engines and systems underwent full servicing in March 2023.\nThis Azimut 64 is a standout in its class — combining Italian craftsmanship with powerful performance and stylish design. An ideal choice for those seeking adventure with sophistication. Get in touch with us today to learn more.",
         specs: {
             "builder": "N/A",
@@ -937,7 +937,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Fiberglass",
-        price: "Upon Request",
+        price: "€150,000",
         description: "Located in Limassol, this stylish 2017 Rio Espera 34 offers comfort, performance, and elegance on the water. Well-maintained and ready to sail. Contact us to book a viewing!",
         specs: {
             "builder": "N/A",
@@ -963,7 +963,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Yachts",
-        price: "Upon Request",
+        price: "€1,200,000",
         description: "The Riva Rivamare is the perfect blend of luxury, performance, and iconic Italian design. This 2023 demo boat is in excellent condition, offering a unique opportunity to own one of Riva’s most stylish and sought-after models.\nWith its sleek metallic Argento exterior, the Rivamare turns heads wherever it goes, while the elegant glossy mahogany interior reflects Riva’s timeless craftsmanship. Designed for smooth and powerful cruising, this boat delivers an unforgettable experience on the water.\nDon’t miss your chance to own this stunning Rivamare.",
         specs: {
             "builder": "N/A",
@@ -1001,7 +1001,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Yachts",
-        price: "Upon Request",
+        price: "€4,490,000",
         description: "The brand-new 2024 Ferretti 780 is an exceptional flybridge yacht that embodies luxury and performance. Powered by MAN 1550 hp engines, this vessel provides an exhilarating and smooth cruising experience, enhanced by advanced stabilization systems featuring both fins and a gyro stabilizer. Inside, the yacht features a stylish interior with high-quality finishes and a thoughtfully designed layout, ensuring comfort and elegance. The galley includes modern amenities for practicality, while the main salon is perfect for relaxation and entertaining. Equipped with a 19 kW Nanni generator for reliable power, the Ferretti 780 offers a remarkable yachting lifestyle. With its superior design and performance, this yacht is the ideal choice for those seeking the finest in luxury on the water.",
         specs: {
             "builder": "N/A",
@@ -1041,7 +1041,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Yachts",
-        price: "Upon Request",
+        price: "€1,100,000",
         description: "Discover the brand-new 2024 Ferretti 500, a luxurious flybridge yacht designed for the discerning owner. With a three-cabin layout and natural interior colors, this yacht offers a perfect blend of elegance and comfort. Equipped with twin Cummins QSB 6.7 550HP engines, the Ferretti 500 ensures impressive performance. The flybridge features a cooking top and refrigerator, making it ideal for entertaining. With modern amenities and essential navigation equipment, the Ferretti 500 is your gateway to unforgettable yachting adventures.",
         specs: {
             "builder": "N/A",
@@ -1168,7 +1168,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Yachts",
-        price: "Upon Request",
+        price: "€469,000",
         description: "Introducing the 2004 Princess 61, an exceptional opportunity to own a beautifully refitted luxury yacht. Powered by reliable Volvo Penta D12 715 engines, this vessel underwent a comprehensive refit in 2022, ensuring modern comforts and top-notch performance. Key upgrades include new Raymarine radar with dual monitors, an updated Navionics plotter, and both bow and stern thrusters for easy maneuvering.\nThe interior boasts elegant updates like new Alcantara leather, carpets, and Samsung TVs, creating a refined and comfortable living space. With essential systems such as water pumps, chargers, and refrigeration units all replaced, this Princess 61 is fully equipped for any adventure. Whether for cruising or extended stays, it offers unmatched value and is ready to deliver an extraordinary yachting experience. Don’t miss out on this fantastic opportunity!",
         specs: {
             "builder": "N/A",
@@ -1210,7 +1210,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Yachts",
-        price: "Upon Request",
+        price: "€2,000,000",
         description: "The Princess 68 is a breathtakingly beautiful craft. Her spacious flybridge includes a large sunpad, twin helm and a wetbar for on hand refreshment. On deck she provides ample entertaining space with both cockpit and foredeck seating and an inviting sunbathing area. Out at sea, her exhilarating performance feels light and responsive all the way up to speeds in excess of 30 knots. Inside, her appeal becomes all the more alluring. An aft-galley layout is perfectly placed to serve the cockpit, with triple sliding doors and an electrically opening aft window. Expansive areas of glass allow light to pour into the saloon, with the helm enjoying raised L-shaped seating to port for a more social journey. The master stateroom has a private stairwell and lobby, whilst guests enjoy a separate stairwell and three class-leading cabins.",
         specs: {
             "builder": "N/A",
@@ -1310,7 +1310,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Fiberglass",
-        price: "Upon Request",
+        price: "€18,600",
         description: "The -Brand New- Marinello boat Fisherman 17 is the epitome of excellence within the Fisherman-series. This remarkable boat boasts a centrally designed deck, complete with a spacious bow sundeck, setting it apart as the flagship model of its series. What truly distinguishes the Fisherman 17 is its exceptional planing capabilities, which rank among the best in its category. It’s no surprise that this vessel has garnered an enthusiastic following among both rental operators and harbor boating enthusiasts of various backgrounds. With its winning combination of design, performance, and versatility, the Fisherman 17 by Marinello Boats stands out as a coveted choice for those seeking an unforgettable on-water experience.\nThe optional equipment is not included.",
         specs: {
             "builder": "N/A",
@@ -1333,7 +1333,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Fiberglass",
-        price: "Upon Request",
+        price: "€19,100",
         description: "The -Brand New- Marinello Boat Fisherman 19 is a versatile and well-designed boat that combines classic fishing features with modern amenities. It’s an extended version of the Fisherman 17, catering to those who need more space. This 19-foot boat offers a spacious deck for fishing and leisure activities, smart storage solutions, and comfortable seating. Crafted with quality materials and attention to detail, the Fisherman 19 is a reliable and aesthetically pleasing choice for both fishing enthusiasts and those looking for a leisurely boating experience.\nAll optional equipment is not included.",
         specs: {
             "builder": "N/A",
@@ -1356,7 +1356,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Fiberglass",
-        price: "Upon Request",
+        price: "€17,800",
         description: "The -Brand New- Marinello Boat Eden 18 is an innovative boat model designed in 2002 by Tindaro Stroscio and his brothers. It features a unique and practical design, offering excellent performance even when fully loaded, when is also an ideal choice for renting. With its compactness, practicality, and comfortable side steering, the Eden 18 is a popular choice for boaters across Europe, delivering a convenient and enjoyable boating experience.\nThe optional equipment is not included.",
         specs: {
             "builder": "N/A",
@@ -1436,7 +1436,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Fiberglass",
-        price: "Upon Request",
+        price: "€24,100",
         description: "The -Brand New- Marinello Boat Fisherman 19 is a versatile and well-designed boat that combines classic fishing features with modern amenities. It’s an extended version of the Fisherman 17, catering to those who need more space. This 19-foot boat offers a spacious deck for fishing and leisure activities, smart storage solutions, and comfortable seating. Crafted with quality materials and attention to detail, the Fisherman 19 is a reliable and aesthetically pleasing choice for both fishing enthusiasts and those looking for a leisurely boating experience.\nAll optional equipment is included:\n\nPlastic Fuel tank lt 91\nDeckfill for fuel\nFuel gauge with level sender\nAlluminium tend 3 arches\nCarbon dashboard\nShower\nTable\nBilge pump\nTrailer included\nEngine: Honda 100HP",
         specs: {
             "builder": "N/A",
@@ -1463,7 +1463,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Fiberglass",
-        price: "Upon Request",
+        price: "€22,500",
         description: "The -Brand New- Marinello boat Fisherman 17 is the epitome of excellence within the Fisherman-series. This remarkable boat boasts a centrally designed deck, complete with a spacious bow sundeck, setting it apart as the flagship model of its series. What truly distinguishes the Fisherman 17 is its exceptional planing capabilities, which rank among the best in its category. It’s no surprise that this vessel has garnered an enthusiastic following among both rental operators and harbor boating enthusiasts of various backgrounds. With its winning combination of design, performance, and versatility, the Fisherman 17 by Marinello Boats stands out as a coveted choice for those seeking an unforgettable on-water experience.\nAll optional equipment is included:\n\nPlastic Fuel tank lt 91\nDeckfill for fuel\nFuel gauge with level sender\nAlluminium tend 3 arches\nCarbon dashboard\nShower\nTable\nBilge pump",
         specs: {
             "builder": "N/A",
@@ -1494,7 +1494,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "Yachts",
-        price: "Upon Request",
+        price: "€1,200,000",
         description: "Built in 2000 and comprehensively refitted in 2018, the Falcon 86 “Relaxius” is now available for purchase. This yacht boasts four spacious cabins, each featuring its own en-suite bathroom, and includes two crew cabins with two additional crew washrooms for added convenience.\nPowered by Twin Caterpillar engines, each generating 1420 HP, this yacht delivers impressive performance. It cruises at a comfortable speed of 18-19 knots and can reach a maximum speed of 24 knots. It is also equipped with two generators, guaranteeing a reliable power supply even in remote locations.\n“Relaxius” represents more than just a yacht; it is a meticulously designed masterpiece of maritime engineering, offering both luxury and adventure on the water. Contact us today to explore this unique offering in more detail.",
         specs: {
             "builder": "N/A",
@@ -2215,7 +2215,7 @@ export const yachts = [
         category: 'sales',
         condition: 'used',
         vesselType: "RIB",
-        price: "Upon Request",
+        price: "€14,500",
         description: "Used Alson Rib boat available for viewing at our boat parking. She has a Honda 90hp engine and a trailer.",
         specs: {
             "builder": "N/A",

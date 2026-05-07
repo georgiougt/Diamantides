@@ -531,14 +531,14 @@ const YachtDetail = () => {
 
                                 {yacht.category === 'charter' && (
                                     <>
-                                        <p style={{ marginTop: '1.5rem', marginBottom: '0.5rem' }}>Email Us</p>
+                                        <p>Email Us</p>
                                         <a href="mailto:charter@diamantidesyachting.com" className="phone-link" style={{ fontSize: '0.9rem' }}>
                                             charter@diamantidesyachting.com
                                         </a>
                                     </>
                                 )}
 
-                                <p style={{ marginTop: '1.5rem', marginBottom: '0.5rem' }}>Whatsapp Text</p>
+                                <p>Whatsapp Text</p>
                                 <a href={`https://wa.me/${yacht.category === 'charter' ? '35796340400' : '35799241025'}`} target="_blank" rel="noopener noreferrer" className="phone-link" style={{ color: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                                     <MessageCircle size={20} /> {yacht.category === 'charter' ? '+357 96 340 400' : '+357 99 241 025'}
                                 </a>

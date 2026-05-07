@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 import '../styles/YachtManagement.css';
 
 // Import local images scraped from legacy site
@@ -40,6 +42,12 @@ const galleryImages = [
 ];
 
 const YachtManagementPage = () => {
+    const [expandedPillar, setExpandedPillar] = useState(null);
+
+    const togglePillar = (index) => {
+        setExpandedPillar(expandedPillar === index ? null : index);
+    };
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -73,11 +81,32 @@ const YachtManagementPage = () => {
                         <p>The Diamantides Yachting team takes an individual approach to each project, taking into account the type of vessel, usage patterns, and client preferences.</p>
                     </div>
                     
-                    <div className="ym-pillars-grid">
+                    <div className="ym-accordion-list">
                         {pillars.map((pillar, index) => (
-                            <div key={index} className="ym-pillar-card glass-morphism">
-                                <h3>{pillar.title}</h3>
-                                <p>{pillar.description}</p>
+                            <div 
+                                key={index} 
+                                className={`ym-accordion-item glass-morphism ${expandedPillar === index ? 'expanded' : ''}`}
+                                onClick={() => togglePillar(index)}
+                            >
+                                <div className="ym-accordion-header">
+                                    <h3>{pillar.title}</h3>
+                                    <div className="ym-accordion-icon">
+                                        <ChevronDown size={24} className={expandedPillar === index ? 'rotate' : ''} />
+                                    </div>
+                                </div>
+                                <AnimatePresence>
+                                    {expandedPillar === index && (
+                                        <motion.div 
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: 'auto', opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.3 }}
+                                            className="ym-accordion-content"
+                                        >
+                                            <p>{pillar.description}</p>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
                         ))}
                     </div>
@@ -163,18 +192,6 @@ const YachtManagementPage = () => {
                         <h2>Getting Started</h2>
                         <p>Arranging yacht management services is simple. We will provide a free consultation and help you choose the best service package.</p>
                     </div>
-                    <div className="glass-morphism" style={{ padding: '40px', borderRadius: '20px', maxWidth: '800px', margin: '0 auto' }}>
-                        <h4 style={{ color: '#d4af37', marginBottom: '15px', fontSize: '1.2rem' }}>Required Documentation:</h4>
-                        <ul style={{ color: '#ccc', lineHeight: '1.8', marginLeft: '20px', marginBottom: '20px' }}>
-                            <li>A valid passport or ID of the charterer</li>
-                            <li>Skipper’s license (if you intend to operate the yacht personally)</li>
-                            <li>Crew information (if already selected)</li>
-                            <li>Financial data for budget planning (optional)</li>
-                        </ul>
-                        <p style={{ color: '#aaa', fontStyle: 'italic' }}>
-                            If you don’t intend to manage the yacht personally, our specialists will take full control. We also offer online consultations via video call for international clients.
-                        </p>
-                    </div>
                 </div>
             </section>
 
@@ -182,7 +199,7 @@ const YachtManagementPage = () => {
             <section className="ym-cta-section">
                 <div className="container ym-cta-content">
                     <h2>Ready to elevate your yachting experience?</h2>
-                    <p>Contact us today to discuss the management of your yacht in Cyprus. The Diamantides Yachting team is always here to make your yachting experience comfortable, secure, and financially rewarding.</p>
+                    <p>Contact us today to discuss the management of your yacht in Cyprus and Worldwide. The Diamantides Yachting team is always here to make your yachting experience comfortable, secure, and financially rewarding.</p>
                     <Link to="/contact" className="ym-cta-button">Contact Our Experts</Link>
                 </div>
             </section>

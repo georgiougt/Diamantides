@@ -116,6 +116,15 @@
     transform: scale(1.1);
 }
 
+/* Brand specific scaling for logos with different aspect ratios */
+.galeon-logo {
+    transform: scale(5) !important;
+}
+
+.brand-filter-item.active .galeon-logo {
+    transform: scale(3.8) !important;
+}
+
 .brands-fleet-section {
     padding: 80px 0;
 }

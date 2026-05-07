@@ -22,7 +22,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/Diamantides/assets/charter-optimized/princess-30.webp');
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('/Diamantides/assets/nautic-clean/hero-aerial.webp');
     background-size: cover;
     background-position: center;
     position: relative;

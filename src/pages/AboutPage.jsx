@@ -11,23 +11,44 @@ const AboutPage = () => {
     const milestones = [
         {
             year: "2002",
-            title: "Founding",
-            content: "Antonis and Marios Diamantides founded the company with a focus on quality management and premium marine services in Cyprus."
+            title: "Pioneering Services",
+            content: "Introduced the first one-stop comprehensive yacht and boat service with a privately operated yard in Cyprus."
         },
         {
-            year: "2009",
+            year: "2008",
             title: "Global Expansion",
-            content: "The company expanded its reach into global yacht brokerage, establishing partnerships across 6+ international markets."
+            content: "Expanded our operations globally, bringing the Diamantides standard of excellence to international markets."
         },
         {
-            year: "2015",
-            title: "New Generation",
-            content: "Demetris Diamantides joined the leadership, bringing a fresh outlook and introducing theoretical and practical operator's license lessons."
+            year: "2017",
+            title: "Viper RIB Dealership",
+            content: "Acquired the exclusive dealership for Viper RIB boats, marking a significant milestone in our brand portfolio."
+        },
+        {
+            year: "2018",
+            title: "Nautic Clean Partnership",
+            content: "Became the exclusive dealer for Nautic Clean products, elevating our yacht care and maintenance standards."
+        },
+        {
+            year: "2020",
+            title: "Limassol Expansion",
+            content: "Successfully expanded to 3 key locations across Limassol to provide unparalleled service to our local clients."
+        },
+        {
+            year: "2021",
+            title: "Malibu & Axis Growth",
+            content: "Became authorized resellers of world-leading Malibu and Axis boats, strengthening our market position."
+        },
+
+        {
+            year: "2025",
+            title: "Future Horizons",
+            content: "Official dealers of Galeon Yachts and exclusive dealers of Agilis Jet Tenders & Redshark Bikes. Introducing the first luxury sea taxi service in Limassol."
         },
         {
             year: "Today",
-            title: "Leading the Industry",
-            content: "Operating from 3 major locations in Limassol with a massive 17,000 sq/m boatyard, serving 250+ elite clients."
+            title: "Continuous Presence",
+            content: "Maintaining a continuous presence in all major yachting events worldwide, staying at the forefront of the industry."
         }
     ];
 
@@ -184,38 +205,6 @@ const AboutPage = () => {
                 </div>
             </section>
 
-            {/* Team Section */}
-            <section className="about-team">
-                <div className="container">
-                    <div className="section-header">
-                        <h2>Leadership Team</h2>
-                    </div>
-                    <div className="team-grid">
-                        <div className="team-card">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop" alt="Antonis Diamantides" />
-                            <div className="team-info">
-                                <h3>Antonis Diamantides</h3>
-                                <span>Co-Founder</span>
-                            </div>
-                        </div>
-                        <div className="team-card">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop" alt="Marios Diamantides" />
-                            <div className="team-info">
-                                <h3>Marios Diamantides</h3>
-                                <span>Co-Founder & Captain</span>
-                            </div>
-                        </div>
-                        <div className="team-card">
-                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop" alt="Demetris Diamantides" />
-                            <div className="team-info">
-                                <h3>Demetris Diamantides</h3>
-                                <span>Marketing & Sales Director</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             {/* Partners Section */}
             <section className="about-partners">
                 <div className="container">
@@ -226,6 +215,8 @@ const AboutPage = () => {
                         {/* Placeholder logos - would normally use actual brand SVGs */}
                         <div className="partner-item">Malibu Boats</div>
                         <div className="partner-item">Viper RIBs</div>
+                        <div className="partner-item">Galeon Yachts</div>
+                        <div className="partner-item">Agilis Jet Tenders</div>
                         <div className="partner-item">Nautic Clean</div>
                         <div className="partner-item">Mercury Marine</div>
                     </div>

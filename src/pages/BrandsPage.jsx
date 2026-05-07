@@ -8,6 +8,8 @@ import '../styles/SalesYachts.css';
 import axisLogo from '../assets/logos/2021_Black_Axis.png';
 import malibuLogo from '../assets/logos/2021_Color_White_Text.png';
 import viperLogo from '../assets/logos/VIPER-LOGO.png';
+import galeonLogo from '../assets/logos/galeon_logo.png';
+import agilisLogo from '../assets/logos/agilis_logo.webp';
 
 const BrandsPage = () => {
     const [selectedBrand, setSelectedBrand] = useState('All');
@@ -19,7 +21,9 @@ const BrandsPage = () => {
     const partners = [
         { id: 'Axis', name: 'Axis', logo: axisLogo },
         { id: 'Malibu', name: 'Malibu', logo: malibuLogo },
-        { id: 'Viper', name: 'Viper', logo: viperLogo }
+        { id: 'Viper', name: 'Viper', logo: viperLogo },
+        { id: 'Galeon', name: 'Galeon', logo: galeonLogo },
+        { id: 'Agilis', name: 'Agilis', logo: agilisLogo }
     ];
 
     const filteredVessels = yachts.filter(y => 
@@ -68,7 +72,7 @@ const BrandsPage = () => {
                                 className={`brand-filter-item ${selectedBrand === brand.id ? 'active' : ''}`}
                                 onClick={() => setSelectedBrand(brand.id)}
                             >
-                                <img src={brand.logo} alt={brand.name} className="filter-logo" />
+                                <img src={brand.logo} alt={brand.name} className={`filter-logo ${brand.id.toLowerCase()}-logo`} />
                             </button>
                         ))}
                     </div>
