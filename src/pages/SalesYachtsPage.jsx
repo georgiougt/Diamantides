@@ -63,6 +63,12 @@ const SalesYachtsPage = () => {
             return matchesName && matchesType && matchesBrand && matchesMinPrice && matchesMaxPrice;
         })
         .sort((a, b) => {
+            const isSoldA = a.price && a.price.toLowerCase().includes('sold');
+            const isSoldB = b.price && b.price.toLowerCase().includes('sold');
+
+            if (isSoldA && !isSoldB) return 1;
+            if (!isSoldA && isSoldB) return -1;
+
             const priceA = parsePrice(a.price);
             const priceB = parsePrice(b.price);
 

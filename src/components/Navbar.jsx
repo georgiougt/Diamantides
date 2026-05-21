@@ -60,7 +60,7 @@ const Navbar = () => {
                 <Link to="/" className="logo">
                     <div className="logo-wrapper">
                         <img src={horizontalLogo} alt="Diamantides Yachting" className="logo-img" />
-                        <span className="logo-motto">All About Yachting</span>
+                        <span className="logo-motto">All about Yachting</span>
                     </div>
                 </Link>
 

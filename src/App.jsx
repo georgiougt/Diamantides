@@ -7,7 +7,7 @@ import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import FleetPage from './pages/FleetPage';
 import ContactPage from './pages/ContactPage';
-import CharterYachtsPage from './pages/CharterYachtsPage';
+
 import VIPCharterPage from './pages/VIPCharterPage';
 import SalesYachtsPage from './pages/SalesYachtsPage';
 // Ensure the root-level components remain if used by LandingPage
@@ -108,7 +108,7 @@ function App() {
           <Route path="/services/boat-parking" element={<BoatParkingPage />} />
           <Route path="/services/yacht-management" element={<YachtManagementPage />} />
           <Route path="/fleet" element={<FleetPage />} />
-          <Route path="/charter" element={<CharterYachtsPage />} />
+          <Route path="/charter" element={<CharterTestPage />} />
           <Route path="/sales" element={<SalesYachtsPage />} />
           <Route path="/sales/used" element={<SalesYachtsPage />} />
           <Route path="/sales/brands" element={<BrandsPage />} />
@@ -119,7 +119,6 @@ function App() {
           <Route path="/training-academy" element={<TrainingAcademyPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-          <Route path="/charter-test" element={<CharterTestPage />} />
         </Routes>
         <Footer />
       </div>

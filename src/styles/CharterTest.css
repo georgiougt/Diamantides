@@ -155,12 +155,14 @@
     font-family: 'Cinzel', serif;
     font-size: 2.2rem;
     font-weight: 400;
+    color: white;
     margin-bottom: 15px;
     letter-spacing: 0.05em;
 }
 
 .vessel-specs-test {
     display: flex;
+    flex-wrap: wrap;
     gap: 30px;
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.5);
@@ -280,6 +282,52 @@
     padding: 18px 25px 18px 50px !important;
 }
 
+/* Fix react-phone-input-2 default light theme */
+.premium-phone-container .flag-dropdown {
+    background: transparent !important;
+    border: 1px solid rgba(212, 175, 55, 0.2) !important;
+    border-right: none !important;
+}
+
+.premium-phone-container .selected-flag:hover,
+.premium-phone-container .selected-flag:focus {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.premium-phone-container .country-list {
+    background: var(--obsidian) !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    color: white !important;
+}
+
+.premium-phone-container .country-list .country {
+    background: transparent !important;
+    padding: 10px 15px !important;
+}
+
+.premium-phone-container .country-list .country:hover,
+.premium-phone-container .country-list .country.highlight {
+    background: rgba(212, 175, 55, 0.15) !important;
+}
+
+.premium-phone-container .country-list .dial-code {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.premium-phone-container .search {
+    background: var(--obsidian) !important;
+    padding: 10px !important;
+}
+
+.premium-phone-container .search-box {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(212, 175, 55, 0.2) !important;
+    color: white !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 8px 10px 8px 30px !important;
+}
+
 .btn-premium-send {
     background: var(--liquid-gold);
     color: var(--obsidian);
@@ -368,6 +416,12 @@
     color: rgba(255, 255, 255, 0.4);
     font-size: 0.75rem;
     letter-spacing: 0.2em;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.premium-whatsapp:hover {
+    color: var(--highlight-gold);
 }
 
 /* Scroll reveal animation */
@@ -380,11 +434,71 @@
     animation: revealUp 1.2s var(--transition-fluid) both;
 }
 
+/* Typography & Utility classes added from jsx */
+.header-subtitle-container {
+    text-align: right;
+}
+
+.header-subtitle-text {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--muted-gold);
+}
+
 @media (max-width: 900px) {
-    .vessel-card-test, .vessel-card-test:nth-child(3n) {
-        grid-column: span 12;
-        margin-top: 40px !important;
+    .charter-test-container {
+        padding: 120px 20px 60px 20px;
     }
-    .brand-title-gold { font-size: 2rem; }
-    .premium-form-row { grid-template-columns: 1fr; }
+
+    .charter-test-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 60px;
+    }
+
+    .header-subtitle-container {
+        text-align: left;
+    }
+
+    .vessel-grid-test {
+        grid-template-columns: 1fr;
+        gap: 80px;
+    }
+
+    .vessel-card-test, .vessel-card-test:nth-child(3n) {
+        grid-column: span 1;
+        margin-top: 0 !important;
+    }
+    
+    .brand-title-gold { 
+        font-size: 2.2rem; 
+    }
+    
+    .vessel-name-cinzel { 
+        font-size: 1.8rem; 
+    }
+    
+    .premium-form-row { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .charter-cta-premium {
+        padding: 60px 20px;
+        margin-top: 100px;
+    }
+    
+    .premium-form-title { 
+        font-size: 1.8rem; 
+    }
+    
+    .direct-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .premium-divider {
+        display: none;
+    }
 }

@@ -126,7 +126,7 @@ const AboutPage = () => {
                             <p>
                                 What began as a passionate family endeavor in 2002 has evolved into
                                 one of the Mediterranean's most respected yachting organizations.
-                                Founded by Antonis and Marios Diamantides, our company was built
+                                Founded by Antonis and Marios Diamantides and later joined by Demetris Diamantides , our company was built
                                 on the belief that luxury seafaring should be a seamless,
                                 personalized experience.
                             </p>
@@ -213,12 +213,13 @@ const AboutPage = () => {
                     </div>
                     <div className="partners-logos">
                         {/* Placeholder logos - would normally use actual brand SVGs */}
-                        <div className="partner-item">Malibu Boats</div>
+                        <div className="partner-item">Malibu/Axis Boats</div>
                         <div className="partner-item">Viper RIBs</div>
                         <div className="partner-item">Galeon Yachts</div>
                         <div className="partner-item">Agilis Jet Tenders</div>
                         <div className="partner-item">Nautic Clean</div>
-                        <div className="partner-item">Mercury Marine</div>
+                        <div className="partner-item">RedShark Bikes</div>
+
                     </div>
                 </div>
             </section>

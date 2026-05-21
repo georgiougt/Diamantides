@@ -111,8 +111,8 @@ const CharterTestPage = () => {
                         <span className="inventory-count-mono">COLLECTION // 2026</span>
                         <h1 className="brand-title-gold">Diamantides</h1>
                     </div>
-                    <div style={{ textAlign: 'right' }}>
-                        <p style={{ fontFamily: 'Space Mono', fontSize: '0.7rem', letterSpacing: '2px', color: 'var(--muted-gold)' }}>CURATED MARITIME ASSETS</p>
+                    <div className="header-subtitle-container">
+                        <p className="header-subtitle-text">CURATED MARITIME ASSETS</p>
                     </div>
                 </header>
 
@@ -138,11 +138,36 @@ const CharterTestPage = () => {
                                     {yacht.specs?.builder || 'Luxury Charter'} // {yacht.type}
                                 </div>
                                 <h2 className="vessel-name-cinzel">{yacht.name}</h2>
-                                <div className="vessel-specs-test">
-                                    <div className="spec-item-test"><b>{yacht.length}</b>Length</div>
-                                    <div className="spec-item-test"><b>{yacht.speed}</b>Max Speed</div>
-                                    <div className="spec-item-test"><b>{yacht.capacity ? yacht.capacity.split(' ')[0] : 'N/A'}</b>Guests</div>
-                                </div>
+                                {(() => {
+                                    let prices = [];
+                                    if (yacht.detailedPricing) {
+                                        if (yacht.detailedPricing.twoHours) prices.push({ label: '2 Hours', value: yacht.detailedPricing.twoHours });
+                                        if (yacht.detailedPricing.threeHours) prices.push({ label: '3 Hours', value: yacht.detailedPricing.threeHours });
+                                        if (yacht.detailedPricing.fourHours) prices.push({ label: '4 Hours', value: yacht.detailedPricing.fourHours });
+                                        if (yacht.detailedPricing.halfDay) prices.push({ label: 'Half Day', value: yacht.detailedPricing.halfDay });
+                                        if (yacht.detailedPricing.fullDay) prices.push({ label: 'Full Day', value: yacht.detailedPricing.fullDay });
+                                        if (yacht.detailedPricing.overnight) prices.push({ label: 'Overnight', value: yacht.detailedPricing.overnight });
+                                        if (yacht.detailedPricing.weekly) prices.push({ label: 'Weekly', value: yacht.detailedPricing.weekly });
+                                    } else if (yacht.price) {
+                                        const basePrice = parseInt(yacht.price.replace(/[^\d]/g, '')) || 0;
+                                        if (basePrice === 0 || yacht.price.toLowerCase().includes('request')) {
+                                            prices.push({ label: 'Rate', value: yacht.price });
+                                        } else {
+                                            prices.push({ label: 'Half Day', value: `€${(basePrice * 0.9).toLocaleString()}` });
+                                            prices.push({ label: 'Full Day', value: yacht.price.includes('€') ? yacht.price.split(' ')[0] : `€${basePrice.toLocaleString()}` });
+                                            prices.push({ label: 'Overnight', value: `€${(basePrice * 1.2).toLocaleString()}` });
+                                        }
+                                    }
+
+                                    return (
+                                        <div className="vessel-specs-test">
+                                            <div className="spec-item-test"><b>{yacht.length}</b>Length</div>
+                                            {prices.map((p, i) => (
+                                                <div key={i} className="spec-item-test"><b>{p.value}</b>{p.label}</div>
+                                            ))}
+                                        </div>
+                                    );
+                                })()}
                             </div>
                         </Link>
                     ))}
@@ -213,10 +238,10 @@ const CharterTestPage = () => {
                                 <span className="premium-divider"></span>
                                 <a href="mailto:charter@diamantidesyachting.com" className="premium-link-item">EMAIL SPECIALIST</a>
                             </div>
-                            <div className="premium-whatsapp">
+                            <a href="https://wa.me/35796340400" target="_blank" rel="noopener noreferrer" className="premium-whatsapp">
                                 <MessageCircle size={16} />
                                 <span>WHATSAPP // +357 96 340 400</span>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </section>

@@ -86,7 +86,7 @@ const TrainingAcademyPage = () => {
                         >
                             <h3>What can you do with this license?</h3>
                             <ul className="academy-list">
-                                <li><CheckCircle size={20} className="icon-gold" /> Rent a boat and explore the coastline of Cyprus on your own.</li>
+                                <li><CheckCircle size={20} className="icon-gold" /> Buy or Rent a boat and explore the coastline of Cyprus on your own.</li>
                                 {/* <li><CheckCircle size={20} className="icon-gold" /> Own a vessel and operate it in local waters.</li> */}
                                 <li><CheckCircle size={20} className="icon-gold" /> Ensure the safety of passengers during leisure trips.</li>
                                 {/* <li><CheckCircle size={20} className="icon-gold" /> Work in the yachting industry or start a water tour service.</li> */}
@@ -102,9 +102,9 @@ const TrainingAcademyPage = () => {
                         >
                             <h3>Who Is This License For?</h3>
                             <ul className="academy-list">
-                                <li><Compass size={20} className="icon-gold" /> <strong>Cyprus Residents / Internationals</strong> Wishing To Use Boats For Personal Purposes.</li>
+                                <li><Compass size={20} className="icon-gold" /> <strong>Cyprus Residents / Nationals</strong> Wishing To Use Boats For Private Use.</li>
                                 {/* <li><Compass size={20} className="icon-gold" /> <strong>Tourists & Visitors</strong> Renting Boats/Jetskis During Their Vacation.</li> */}
-                                <li><Compass size={20} className="icon-gold" /> <strong>Motorboat Owners</strong> Planning Independent Operation.</li>
+                                <li><Compass size={20} className="icon-gold" /> <strong>Motorboat Owners </strong> Planning Independent Operation.</li>
                                 {/* <li><Compass size={20} className="icon-gold" /> <strong>Yacht Charter Clients</strong> Needing Legal And Practical Training.</li> */}
                             </ul>
                         </motion.div>
@@ -182,24 +182,16 @@ const TrainingAcademyPage = () => {
                             <p>We handle the registration, documentation, and license issuance. You just need to provide:</p>
                             <ul className="docs-list">
                                 <li><FileCheck size={24} /> A passport or ID (must be at least 18 years old)</li>
-                                <li><FileCheck size={24} /> One passport-size photographs</li>
-                                <li><FileCheck size={24} /> Residence Permit</li>
-                                <li><FileCheck size={24} /> Certificate of physical ability</li>
-                                <li><FileCheck size={24} /> A completed course application form</li>
+                                <li><FileCheck size={24} /> One passport-size photograph</li>
+                                <li><FileCheck size={24} /> Residency Permit</li>
+                                <li><FileCheck size={24} /> Certificate of Physical Ability</li>
                             </ul>
                         </motion.div>
 
                         <div className="benefits-wrapper">
                             <h3 className="mb-2">Why Choose Diamantides Yachting?</h3>
                             <div className="benefits-list">
-                                <motion.div className="benefit-item" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                                    <GraduationCap className="icon-gold" size={32} />
-                                    <div>
-                                        <h4>Licensed Instructors</h4>
-                                        <p>Seasoned marine professionals offering real-world insights.</p>
-                                    </div>
-                                </motion.div>
-                                <motion.div className="benefit-item" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }} viewport={{ once: true }}>
+                                    <motion.div className="benefit-item" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }} viewport={{ once: true }}>
                                     <Ship className="icon-gold" size={32} />
                                     <div>
                                         <h4>Modern Speedboats</h4>
