@@ -1,0 +1,190 @@
+:root {
+    --rs-obsidian: #050505;
+    --rs-liquid-gold: #d4af37;
+    --rs-muted-gold: #8e6d13;
+    --rs-glass: rgba(255, 255, 255, 0.03);
+    --rs-glass-border: rgba(212, 175, 55, 0.15);
+}
+
+.redshark-page {
+    background-color: var(--rs-obsidian);
+    min-height: 100vh;
+    padding: 160px 40px 120px 40px;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    background-image: 
+        radial-gradient(circle at 50% -20%, #1a1a10 0%, transparent 50%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-blend-mode: overlay;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.rs-topo-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.15;
+    pointer-events: none;
+    stroke: var(--rs-liquid-gold);
+    stroke-width: 0.5;
+    fill: none;
+}
+
+.redshark-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.redshark-header {
+    text-align: center;
+    margin-bottom: 80px;
+    border-bottom: 1px solid var(--rs-glass-border);
+    padding-bottom: 40px;
+}
+
+.redshark-title {
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #fcf1d1, var(--rs-muted-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.redshark-subtitle {
+    color: #999;
+    letter-spacing: 0.3em;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.redshark-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.redshark-card {
+    background: var(--rs-glass);
+    border: 1px solid var(--rs-glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    opacity: 0;
+    animation: slideUpFadeIn 0.8s ease forwards;
+}
+
+@keyframes slideUpFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.redshark-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.redshark-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.redshark-card:hover::before {
+    opacity: 1;
+}
+
+.redshark-video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    background-color: #000;
+    z-index: 1;
+    border-bottom: 1px solid var(--rs-glass-border);
+}
+
+.redshark-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.redshark-info {
+    padding: 35px 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 140px;
+    z-index: 1;
+}
+
+.redshark-prefix {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--rs-liquid-gold);
+    letter-spacing: 0.15em;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+}
+
+.redshark-model-name {
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    color: white;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .redshark-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .redshark-page {
+        padding: 120px 20px 60px 20px;
+    }
+    
+    .redshark-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .redshark-title {
+        font-size: 2.5rem;
+    }
+}

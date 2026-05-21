@@ -26,6 +26,7 @@ import CharterTestPage from './pages/CharterTestPage';
 import BrandsPage from './pages/BrandsPage';
 import NauticCleanPage from './pages/NauticCleanPage';
 import BoatParkingPage from './pages/BoatParkingPage';
+import RedsharkBikesPage from './pages/RedsharkBikesPage';
 import YachtManagementPage from './pages/YachtManagementPage';
 
 
@@ -113,6 +114,7 @@ function App() {
           <Route path="/sales/used" element={<SalesYachtsPage />} />
           <Route path="/sales/brands" element={<BrandsPage />} />
           <Route path="/sales/nautic-clean" element={<NauticCleanPage />} />
+          <Route path="/sales/redshark-bikes" element={<RedsharkBikesPage />} />
           <Route path="/members-only" element={<VIPCharterPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/yacht/:id" element={<YachtDetail />} />

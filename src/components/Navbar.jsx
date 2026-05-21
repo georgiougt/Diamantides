@@ -25,7 +25,8 @@ const Navbar = () => {
         links: [
             { name: 'Used Vessels', href: '/sales/used' },
             { name: 'New Brands', href: '/sales/brands' },
-            { name: 'Nautic Clean', href: '/sales/nautic-clean' }
+            { name: 'Nautic Clean', href: '/sales/nautic-clean' },
+            { name: 'Redshark Bikes', href: '/sales/redshark-bikes' }
         ]
     };
 
