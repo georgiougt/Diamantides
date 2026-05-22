@@ -23,7 +23,7 @@ const Navbar = () => {
     const salesDropdown = {
         name: 'Sales & Brokerage',
         links: [
-            { name: 'Used Vessels', href: '/sales/used' },
+            { name: 'Sales Fleet', href: '/sales/fleet' },
             { name: 'New Brands', href: '/sales/brands' },
             { name: 'Nautic Clean', href: '/sales/nautic-clean' },
             { name: 'Redshark Bikes', href: '/sales/redshark-bikes' }

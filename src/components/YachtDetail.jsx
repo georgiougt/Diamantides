@@ -242,7 +242,11 @@ const YachtDetail = () => {
                                                     <div className="spec-icon-wrapper"><Ship size={24} /></div>
                                                     <div className="spec-content">
                                                         <span className="spec-label">Brand/Model</span>
-                                                        <span className="spec-value">{yacht.specs?.builder ? `${yacht.specs.builder} ${yacht.name}` : yacht.name}</span>
+                                                        <span className="spec-value">
+                                                            {yacht.specs?.builder && !yacht.name.toLowerCase().startsWith(yacht.specs.builder.toLowerCase()) 
+                                                                ? `${yacht.specs.builder} ${yacht.name}` 
+                                                                : yacht.name}
+                                                        </span>
                                                     </div>
                                                 </div>
                                                 

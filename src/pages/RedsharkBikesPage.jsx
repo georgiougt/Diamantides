@@ -1,8 +1,48 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailConfig';
 import '../styles/RedsharkBikes.css';
 
 const RedsharkBikesPage = () => {
     const topoRef = useRef(null);
+    const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+    const [sending, setSending] = useState(false);
+    const [sendError, setSendError] = useState(null);
+    const [sendSuccess, setSendSuccess] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setSending(true);
+        setSendError(null);
+        setSendSuccess(false);
+
+        const templateParams = {
+            from_name: formData.name,
+            from_email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+            category: 'Redshark Bikes Inquiry'
+        };
+
+        try {
+            await emailjs.send(
+                EMAILJS_CONFIG.SERVICE_ID,
+                EMAILJS_CONFIG.TEMPLATE_ID,
+                templateParams,
+                EMAILJS_CONFIG.PUBLIC_KEY
+            );
+            setSendSuccess(true);
+            setFormData({ name: '', email: '', phone: '', message: '' });
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            setSendError('Failed to send inquiry. Please try again or call us directly.');
+        } finally {
+            setSending(false);
+        }
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -85,6 +125,66 @@ const RedsharkBikesPage = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                <div className="redshark-contact-section">
+                    <div className="redshark-contact-header">
+                        <h2>INQUIRE NOW</h2>
+                        <p>Speak with our specialists to configure your Redshark Bike.</p>
+                    </div>
+                    
+                    <form className="redshark-contact-form" onSubmit={handleSubmit}>
+                        <div className="redshark-form-row">
+                            <input
+                                type="text"
+                                name="name"
+                                value={formData.name}
+                                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                                placeholder="Full Name"
+                                required
+                            />
+                            <input
+                                type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                                placeholder="Email Address"
+                                required
+                            />
+                        </div>
+                        <div className="redshark-form-row">
+                            <PhoneInput
+                                country={'cy'}
+                                value={formData.phone}
+                                onChange={(phone) => setFormData({ ...formData, phone })}
+                                enableSearch={true}
+                                placeholder="Phone Number"
+                                containerClass="redshark-phone-container"
+                                inputClass="redshark-phone-input"
+                            />
+                        </div>
+                        <textarea
+                            name="message"
+                            value={formData.message}
+                            onChange={(e) => setFormData({...formData, message: e.target.value})}
+                            placeholder="Please provide any details or ask questions about specific models..."
+                            rows="4"
+                            required
+                        ></textarea>
+                        <button type="submit" className="redshark-submit-btn" disabled={sending}>
+                            {sending ? 'SENDING...' : 'DISPATCH INQUIRY'} <Send size={16} />
+                        </button>
+                        {sendSuccess && (
+                            <div className="redshark-feedback success">
+                                <CheckCircle size={16} /> Our specialists will contact you shortly.
+                            </div>
+                        )}
+                        {sendError && (
+                            <div className="redshark-feedback error">
+                                <AlertCircle size={16} /> {sendError}
+                            </div>
+                        )}
+                    </form>
                 </div>
             </div>
         </div>

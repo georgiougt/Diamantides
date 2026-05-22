@@ -29,7 +29,9 @@ const BrandsPage = () => {
     const filteredVessels = yachts.filter(y => 
         y.category === 'sales' && 
         y.condition === 'new' && 
-        (selectedBrand === 'All' || y.specs?.builder?.toLowerCase() === selectedBrand.toLowerCase())
+        (selectedBrand === 'All' 
+            ? partners.some(p => p.id.toLowerCase() === y.specs?.builder?.toLowerCase())
+            : y.specs?.builder?.toLowerCase() === selectedBrand.toLowerCase())
     );
 
     return (

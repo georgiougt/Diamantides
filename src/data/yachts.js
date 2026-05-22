@@ -804,13 +804,24 @@ export const yachts = [
             "year": "2022",
             "length": "28.43m",
             "engines": "2x 1000 Hp MAN Diesel",
-            "cabins": "5 en-suite staterooms",
-            "crew": "5",
+            "generators": "2x 35 kW Kohler",
+            "cabins": "5 Guest Cabins, 3 Crew Cabins",
             "location": "Cyprus",
-            "stabilizers": "Zero-speed fins + Seakeeper",
-            "volume": "199 GT"
-},
-        features: ["Tri-deck architecture", "2000 nm range", "Beach club", "Hydraulic swim platform"],
+            "stabilizers": "Gyro Stabilizers"
+        },
+        features: [
+            "Price: €9,000,000",
+            "Length: 28.43m",
+            "Engines: 2x 1000 Hp MAN Diesel",
+            "Generators: 2x 35 kW Kohler",
+            "Hydraulic Bow & Stern Thurster",
+            "Cabins: 5 Guest Cabins, 3 Crew Cabins",
+            "Gyro Stabilizers",
+            "Hydraulic Swim Platform",
+            "Bow deck lounging area",
+            "Garage for Tender and Toys",
+            "A lot of extras!"
+        ],
         gallery: [
             "/Diamantides/assets/sales/27765/gallery_19.webp",
             "/Diamantides/assets/sales/27765/gallery_18.webp",
@@ -917,10 +928,24 @@ export const yachts = [
             "length": "20.2m",
             "beam": "5.1m",
             "engines": "2x Caterpillar C18 - 1150HP",
-            "cabins": "3 guest cabins + 1 crew cabin",
-            "location": "Cyprus"
-},
-        features: ["Joystick control", "Bow/Stern thrusters", "A/C", "Miele appliances", "Underwater lights"],
+            "generators": "Generator",
+            "cabins": "3 Guest Cabins, 1 Crew Cabin",
+            "location": "Limassol, Cyprus"
+        },
+        features: [
+            "Flybridge",
+            "Generator",
+            "Hydraulic Gangway",
+            "Bow Thruster",
+            "Stern Thruster",
+            "Joystick control",
+            "Autopilot",
+            "Underwater lights",
+            "Air Conditioning",
+            "Miele appliances",
+            "Bottle rack/refrigerator",
+            "A lot of extras!"
+        ],
         gallery: [
             "/Diamantides/assets/sales/27404/gallery_18.webp",
             "/Diamantides/assets/sales/27404/gallery_17.webp",
@@ -947,7 +972,7 @@ export const yachts = [
         id: 26903,
         name: "Rio Espera 34 (2017)",
         type: "Motor Yacht",
-        length: "N/A",
+        length: "9.99m",
         image: "/Diamantides/assets/sales/26903/profile.webp",
         category: 'sales',
         condition: 'used',
@@ -955,19 +980,29 @@ export const yachts = [
         price: "€150,000",
         description: "Located in Limassol, this stylish 2017 Rio Espera 34 offers comfort, performance, and elegance on the water. Well-maintained and ready to sail. Contact us to book a viewing!",
         specs: {
-            "builder": "N/A",
-            "year": "N/A",
-            "length": "N/A",
-            "engines": "N/A",
-            "location": "Cyprus"
-},
-        features: [],
+            "builder": "Rio",
+            "year": "2017",
+            "length": "9.99m / 34'",
+            "engines": "Twin Engines",
+            "cabins": "1 Cabin",
+            "location": "Limassol, Cyprus"
+        },
+        features: [
+            "Great condition!",
+            "Located in Limassol, Cyprus",
+            "Sleek and sporty design",
+            "Spacious cockpit with teak details",
+            "Comfortable sunbeds forward and aft",
+            "Swim platform with boarding ladder",
+            "Bimini top for shade",
+            "Well-maintained and ready to sail"
+        ],
         gallery: [
             "/Diamantides/assets/sales/26903/gallery_4.webp",
             "/Diamantides/assets/sales/26903/gallery_2.webp",
             "/Diamantides/assets/sales/26903/gallery_1.webp",
             "/Diamantides/assets/sales/26903/gallery_0.webp"
-]
+        ]
     },
     {
         id: 26583,
@@ -983,12 +1018,22 @@ export const yachts = [
         specs: {
             "builder": "Riva",
             "year": "2023",
-            "length": "11.88m",
+            "length": "11.88 m",
             "engines": "2x Volvo Penta D6 400",
+            "generators": "Onan 6 KW",
             "cabins": "1 Cabin",
-            "location": "Cyprus"
-},
-        features: ["Argento exterior", "Glossy mahogany interior", "Generator Onan 6 KW", "Bow Thruster"],
+            "location": "Limassol, Cyprus"
+        },
+        features: [
+            "Metallic Argento exterior",
+            "Glossy mahogany interior",
+            "Generator Onan 6 KW",
+            "Bow Thruster",
+            "Underwater lights",
+            "Autopilot",
+            "Bottle rack/refrigerator",
+            "A lot of extras!"
+        ],
         gallery: [
             "/Diamantides/assets/sales/26583/gallery_15.webp",
             "/Diamantides/assets/sales/26583/gallery_14.webp",
@@ -1012,23 +1057,37 @@ export const yachts = [
         id: 15374,
         name: "Ferretti 780 (2024)",
         type: "Motor Yacht",
-        length: "23.67m",
+        length: "24.01m",
         image: "/Diamantides/assets/sales/15374/profile.webp",
         category: 'sales',
-        condition: 'used',
+        condition: 'new',
         vesselType: "Yachts",
         price: "€4,490,000",
         description: "The brand-new 2024 Ferretti 780 is an exceptional flybridge yacht that embodies luxury and performance. Powered by MAN 1550 hp engines, this vessel provides an exhilarating and smooth cruising experience, enhanced by advanced stabilization systems featuring both fins and a gyro stabilizer. Inside, the yacht features a stylish interior with high-quality finishes and a thoughtfully designed layout, ensuring comfort and elegance. The galley includes modern amenities for practicality, while the main salon is perfect for relaxation and entertaining. Equipped with a 19 kW Nanni generator for reliable power, the Ferretti 780 offers a remarkable yachting lifestyle. With its superior design and performance, this yacht is the ideal choice for those seeking the finest in luxury on the water.",
         specs: {
             "builder": "Ferretti",
             "year": "2024",
-            "length": "23.67m",
-            "engines": "MAN 1550 hp",
+            "length": "24.01m",
+            "engines": "2x MAN V12 1550HP",
             "location": "Cyprus",
-            "stabilizers": "Fins + Gyro stabilizer",
-            "generators": "19 kW Nanni generator"
-},
-        features: ["Stabilization systems", "Modern amenities", "Flybridge"],
+            "stabilizers": "Gyro & Fins Stabilizer",
+            "generators": "NANNI 19KW",
+            "cabins": "4 Cabins Layout / 4 Bathrooms"
+        },
+        features: [
+            "Brand New",
+            "Length: 24.01m",
+            "Engines: 2x MAN V12 1550HP",
+            "Generator: NANNI 19KW",
+            "SIMRAD Navigation System",
+            "SIMRAD Autopilot",
+            "Gyro & Fins Stabilizer",
+            "Stern Thruster",
+            "Hard Top with glass roof top",
+            "Watermaker",
+            "4 Cabins Layout / 4 Bathrooms",
+            "A lot of extras!"
+        ],
         gallery: [
             "/Diamantides/assets/sales/15374/gallery_17.webp",
             "/Diamantides/assets/sales/15374/gallery_16.webp",
@@ -1054,22 +1113,33 @@ export const yachts = [
         id: 15354,
         name: "Ferretti 500 (2024)",
         type: "Motor Yacht",
-        length: "15.33m",
+        length: "15.34m",
         image: "/Diamantides/assets/sales/15354/profile.webp",
         category: 'sales',
-        condition: 'used',
+        condition: 'new',
         vesselType: "Yachts",
         price: "€1,100,000",
         description: "Discover the brand-new 2024 Ferretti 500, a luxurious flybridge yacht designed for the discerning owner. With a three-cabin layout and natural interior colors, this yacht offers a perfect blend of elegance and comfort. Equipped with twin Cummins QSB 6.7 550HP engines, the Ferretti 500 ensures impressive performance. The flybridge features a cooking top and refrigerator, making it ideal for entertaining. With modern amenities and essential navigation equipment, the Ferretti 500 is your gateway to unforgettable yachting adventures.",
         specs: {
             "builder": "Ferretti",
             "year": "2024",
-            "length": "15.33m",
-            "engines": "Twin Cummins QSB 6.7 550HP",
-            "cabins": "3 Cabin layout",
+            "length": "15.34m",
+            "engines": "2x Cummins QSB 6.7 550HP",
+            "generators": "Mase 15kW",
+            "cabins": "3 Cabins Layout & 1 crew",
             "location": "Cyprus"
-},
-        features: ["Flybridge cooking top", "Natural interior colors", "Modern amenities"],
+        },
+        features: [
+            "Flybridge",
+            "Generator Mase 15kW",
+            "Grey Water System",
+            "SIMRAD Autopilot",
+            "Bow Thruster",
+            "Lifting Platform",
+            "Bimini Top",
+            "3 Cabins Layout & 1 crew",
+            "A lot of extras!"
+        ],
         gallery: [
             "/Diamantides/assets/sales/15354/gallery_19.webp",
             "/Diamantides/assets/sales/15354/gallery_18.webp",
@@ -1182,7 +1252,7 @@ export const yachts = [
         id: 15187,
         name: "Princess 61 (2004)",
         type: "Motor Yacht",
-        length: "N/A",
+        length: "18.77m",
         image: "/Diamantides/assets/sales/15187/profile.webp",
         category: 'sales',
         condition: 'used',
@@ -1190,13 +1260,27 @@ export const yachts = [
         price: "€469,000",
         description: "Introducing the 2004 Princess 61, an exceptional opportunity to own a beautifully refitted luxury yacht. Powered by reliable Volvo Penta D12 715 engines, this vessel underwent a comprehensive refit in 2022, ensuring modern comforts and top-notch performance. Key upgrades include new Raymarine radar with dual monitors, an updated Navionics plotter, and both bow and stern thrusters for easy maneuvering.\nThe interior boasts elegant updates like new Alcantara leather, carpets, and Samsung TVs, creating a refined and comfortable living space. With essential systems such as water pumps, chargers, and refrigeration units all replaced, this Princess 61 is fully equipped for any adventure. Whether for cruising or extended stays, it offers unmatched value and is ready to deliver an extraordinary yachting experience. Don’t miss out on this fantastic opportunity!",
         specs: {
-            "builder": "N/A",
-            "year": "N/A",
-            "length": "N/A",
-            "engines": "N/A",
-            "location": "Cyprus"
-},
-        features: [],
+            "builder": "Princess",
+            "year": "2004 - Total Refit: 2022",
+            "length": "18.77m / 61'6\"",
+            "engines": "2x Volvo Penta D12 715HP",
+            "cabins": "3 Guest Cabins, 1 Crew Cabin",
+            "location": "Ayia Napa, Cyprus"
+        },
+        features: [
+            "Flybridge",
+            "KNX Home automation",
+            "Fully equipped kitchen",
+            "Raymarine Radar tow monitors",
+            "Autopilot",
+            "Bow thrust & Stern thrust",
+            "Total Refit in 2022",
+            "New Alcantara leather & premium carpets",
+            "Samsung TVs in living spaces",
+            "Updated Navionics plotter",
+            "New water pumps, chargers, & refrigeration units",
+            "A lot of extras!"
+        ],
         gallery: [
             "/Diamantides/assets/sales/15187/gallery_19.webp",
             "/Diamantides/assets/sales/15187/gallery_18.webp",
@@ -1224,7 +1308,7 @@ export const yachts = [
         id: 15160,
         name: "Princess 68 Flybridge (2017)",
         type: "Motor Yacht",
-        length: "N/A",
+        length: "21.25m",
         image: "/Diamantides/assets/sales/15160/profile.webp",
         category: 'sales',
         condition: 'used',
@@ -1232,13 +1316,24 @@ export const yachts = [
         price: "€2,000,000",
         description: "The Princess 68 is a breathtakingly beautiful craft. Her spacious flybridge includes a large sunpad, twin helm and a wetbar for on hand refreshment. On deck she provides ample entertaining space with both cockpit and foredeck seating and an inviting sunbathing area. Out at sea, her exhilarating performance feels light and responsive all the way up to speeds in excess of 30 knots. Inside, her appeal becomes all the more alluring. An aft-galley layout is perfectly placed to serve the cockpit, with triple sliding doors and an electrically opening aft window. Expansive areas of glass allow light to pour into the saloon, with the helm enjoying raised L-shaped seating to port for a more social journey. The master stateroom has a private stairwell and lobby, whilst guests enjoy a separate stairwell and three class-leading cabins.",
         specs: {
-            "builder": "N/A",
-            "year": "N/A",
-            "length": "N/A",
-            "engines": "N/A",
-            "location": "Cyprus"
-},
-        features: [],
+            "builder": "Princess",
+            "year": "2017",
+            "length": "21.25m / 69'9\"",
+            "engines": "2x MTU 8V 2000 M94 1268 HP",
+            "location": "Limassol Marina, Cyprus",
+            "generators": "ONAN 19 KW",
+            "cabins": "4 Cabins",
+            "vatPaid": "Paid"
+        },
+        features: [
+            "Flybridge",
+            "Swimming ladder",
+            "Fully equipped kitchen",
+            "Navigation Center / GPS / RADAR / VHF",
+            "Autopilot",
+            "Liferaft",
+            "VAT- Paid"
+        ],
         gallery: [
             "/Diamantides/assets/sales/15160/gallery_18.webp",
             "/Diamantides/assets/sales/15160/gallery_17.webp",
@@ -1327,7 +1422,7 @@ export const yachts = [
         length: "N/A",
         image: "/Diamantides/assets/sales/14643/profile.webp",
         category: 'sales',
-        condition: 'used',
+        condition: 'new',
         vesselType: "Fiberglass",
         price: "€18,600",
         description: "The -Brand New- Marinello boat Fisherman 17 is the epitome of excellence within the Fisherman-series. This remarkable boat boasts a centrally designed deck, complete with a spacious bow sundeck, setting it apart as the flagship model of its series. What truly distinguishes the Fisherman 17 is its exceptional planing capabilities, which rank among the best in its category. It’s no surprise that this vessel has garnered an enthusiastic following among both rental operators and harbor boating enthusiasts of various backgrounds. With its winning combination of design, performance, and versatility, the Fisherman 17 by Marinello Boats stands out as a coveted choice for those seeking an unforgettable on-water experience.\nThe optional equipment is not included.",
@@ -1338,7 +1433,24 @@ export const yachts = [
             "engines": "N/A",
             "location": "Cyprus"
 },
-        features: [],
+        features: [
+            "BRAND NEW",
+            "Extra equipment- Excluded",
+            "Handrail (bow and stern)",
+            "Dashboard",
+            "Cushions",
+            "Eyebolts",
+            "Steering cable",
+            "Street lights",
+            "Windscreen",
+            "Fender",
+            "Cable entry",
+            "3 steps Ladder",
+            "Small door",
+            "Steering wheel",
+            "Bollars",
+            "Exhaust bushes"
+        ],
         gallery: [
             "/Diamantides/assets/sales/14643/gallery_0.webp"
 ]
@@ -1350,7 +1462,7 @@ export const yachts = [
         length: "N/A",
         image: "/Diamantides/assets/sales/14642/profile.webp",
         category: 'sales',
-        condition: 'used',
+        condition: 'new',
         vesselType: "Fiberglass",
         price: "€19,100",
         description: "The -Brand New- Marinello Boat Fisherman 19 is a versatile and well-designed boat that combines classic fishing features with modern amenities. It’s an extended version of the Fisherman 17, catering to those who need more space. This 19-foot boat offers a spacious deck for fishing and leisure activities, smart storage solutions, and comfortable seating. Crafted with quality materials and attention to detail, the Fisherman 19 is a reliable and aesthetically pleasing choice for both fishing enthusiasts and those looking for a leisurely boating experience.\nAll optional equipment is not included.",
@@ -1361,7 +1473,25 @@ export const yachts = [
             "engines": "N/A",
             "location": "Cyprus"
 },
-        features: [],
+        features: [
+            "BRAND NEW",
+            "All optional equipment- Not Included",
+            "Handrail (bow and stern)",
+            "Dashboard",
+            "Cushions",
+            "Eyebolts",
+            "Steering cable",
+            "Street lights",
+            "Windscreen",
+            "Fender",
+            "Cable entry",
+            "Steering wheel",
+            "Front sundeck",
+            "Front office",
+            "Ladder",
+            "Bollars",
+            "Exhaust bushes"
+        ],
         gallery: [
             "/Diamantides/assets/sales/14642/gallery_0.webp"
 ]
@@ -1373,7 +1503,7 @@ export const yachts = [
         length: "N/A",
         image: "/Diamantides/assets/sales/14641/profile.webp",
         category: 'sales',
-        condition: 'used',
+        condition: 'new',
         vesselType: "Fiberglass",
         price: "€17,800",
         description: "The -Brand New- Marinello Boat Eden 18 is an innovative boat model designed in 2002 by Tindaro Stroscio and his brothers. It features a unique and practical design, offering excellent performance even when fully loaded, when is also an ideal choice for renting. With its compactness, practicality, and comfortable side steering, the Eden 18 is a popular choice for boaters across Europe, delivering a convenient and enjoyable boating experience.\nThe optional equipment is not included.",
@@ -1384,7 +1514,24 @@ export const yachts = [
             "engines": "N/A",
             "location": "Cyprus"
 },
-        features: [],
+        features: [
+            "BRAND NEW",
+            "Optional equipment- not included",
+            "Handrail (bow and stern)",
+            "Instrument panel",
+            "Cushions",
+            "Eyebolts",
+            "Monocable",
+            "Street lights",
+            "Windscreen",
+            "Fender",
+            "Strain relief",
+            "3 steps boarding Ladder",
+            "Small door",
+            "Steering wheel",
+            "Bollars",
+            "Exhaust bushes"
+        ],
         gallery: [
             "/Diamantides/assets/sales/14641/gallery_0.webp"
 ]
@@ -1422,7 +1569,7 @@ export const yachts = [
         length: "N/A",
         image: "/Diamantides/assets/sales/14450/profile.webp",
         category: 'sales',
-        condition: 'used',
+        condition: 'new',
         vesselType: "Fiberglass",
         price: "SOLD",
         description: "The Brand New Marinello Boat Eden 18 is an innovative model originally designed in 2002 by Tindaro Stroscio and his brothers. It features a unique and practical layout that ensures excellent performance, even when fully loaded—making it an ideal choice for rentals. Powered by a brand new 100 HP Honda engine, the Eden 18 delivers smooth, reliable performance on the water. With its compact size, practicality, and comfortable side steering, it remains a popular choice among boaters across Europe, offering a convenient and enjoyable boating experience.\nAll optional equipment is included:\n\nPlastic Fuel tank lt 91\nDeckfill for fuel\nFuel gauge with level sender\nAlluminium tend 3 arches\nCarbon dashboard\nShower\nTable\nBilge pump",
@@ -1453,7 +1600,7 @@ export const yachts = [
         length: "N/A",
         image: "/Diamantides/assets/sales/14444/profile.webp",
         category: 'sales',
-        condition: 'used',
+        condition: 'new',
         vesselType: "Fiberglass",
         price: "€24,100",
         description: "The -Brand New- Marinello Boat Fisherman 19 is a versatile and well-designed boat that combines classic fishing features with modern amenities. It’s an extended version of the Fisherman 17, catering to those who need more space. This 19-foot boat offers a spacious deck for fishing and leisure activities, smart storage solutions, and comfortable seating. Crafted with quality materials and attention to detail, the Fisherman 19 is a reliable and aesthetically pleasing choice for both fishing enthusiasts and those looking for a leisurely boating experience.\nAll optional equipment is included:\n\nPlastic Fuel tank lt 91\nDeckfill for fuel\nFuel gauge with level sender\nAlluminium tend 3 arches\nCarbon dashboard\nShower\nTable\nBilge pump\nTrailer included\nEngine: Honda 100HP",
@@ -1461,10 +1608,29 @@ export const yachts = [
             "builder": "N/A",
             "year": "N/A",
             "length": "N/A",
-            "engines": "N/A",
+            "engines": "Honda 100HP",
             "location": "Cyprus"
-},
-        features: [],
+        },
+        features: [
+            "Engine: Honda 100HP",
+            "BRAND NEW",
+            "All optional equipment- Included",
+            "Handrail (bow and stern)",
+            "Dashboard",
+            "Cushions",
+            "Eyebolts",
+            "Steering cable",
+            "Street lights",
+            "Windscreen",
+            "Fender",
+            "Cable entry",
+            "Steering wheel",
+            "Front sundeck",
+            "Front office",
+            "Ladder",
+            "Bollars",
+            "Exhaust bushes"
+        ],
         gallery: [
             "/Diamantides/assets/sales/14444/gallery_4.webp",
             "/Diamantides/assets/sales/14444/gallery_3.webp",
@@ -1480,7 +1646,7 @@ export const yachts = [
         length: "N/A",
         image: "/Diamantides/assets/sales/14432/profile.webp",
         category: 'sales',
-        condition: 'used',
+        condition: 'new',
         vesselType: "Fiberglass",
         price: "€22,500",
         description: "The -Brand New- Marinello boat Fisherman 17 is the epitome of excellence within the Fisherman-series. This remarkable boat boasts a centrally designed deck, complete with a spacious bow sundeck, setting it apart as the flagship model of its series. What truly distinguishes the Fisherman 17 is its exceptional planing capabilities, which rank among the best in its category. It’s no surprise that this vessel has garnered an enthusiastic following among both rental operators and harbor boating enthusiasts of various backgrounds. With its winning combination of design, performance, and versatility, the Fisherman 17 by Marinello Boats stands out as a coveted choice for those seeking an unforgettable on-water experience.\nAll optional equipment is included:\n\nPlastic Fuel tank lt 91\nDeckfill for fuel\nFuel gauge with level sender\nAlluminium tend 3 arches\nCarbon dashboard\nShower\nTable\nBilge pump",
@@ -1508,7 +1674,7 @@ export const yachts = [
         id: 14408,
         name: "Falcon 86 (2000)",
         type: "Motor Yacht",
-        length: "26.12m",
+        length: "26.21m",
         image: "/Diamantides/assets/sales/14408/profile.webp",
         category: 'sales',
         condition: 'used',
@@ -1517,15 +1683,26 @@ export const yachts = [
         description: "Built in 2000 and comprehensively refitted in 2018, the Falcon 86 “Relaxius” is now available for purchase. This yacht boasts four spacious cabins, each featuring its own en-suite bathroom, and includes two crew cabins with two additional crew washrooms for added convenience.\nPowered by Twin Caterpillar engines, each generating 1420 HP, this yacht delivers impressive performance. It cruises at a comfortable speed of 18-19 knots and can reach a maximum speed of 24 knots. It is also equipped with two generators, guaranteeing a reliable power supply even in remote locations.\n“Relaxius” represents more than just a yacht; it is a meticulously designed masterpiece of maritime engineering, offering both luxury and adventure on the water. Contact us today to explore this unique offering in more detail.",
         specs: {
             "builder": "Falcon",
-            "year": "2000 (Refit 2018)",
-            "length": "26.12m",
-            "engines": "Twin Caterpillar (1420 HP each)",
-            "cabins": "4 En-suite cabins",
-            "crew": "2 cabins",
-            "location": "Cyprus",
+            "year": "2000 - Full Refit: 2018",
+            "length": "26.21m",
+            "beam": "6.40m",
+            "engines": "Twin CATERPILLAR 1420 HP",
+            "generators": "2 x 22.5kw",
+            "cabins": "4 Cabins",
+            "crew": "2 Crew Cabins",
+            "vatPaid": "Paid",
+            "location": "Limassol Marina, Cyprus",
             "maxSpeed": "24 knots"
-},
-        features: ["Comprehensive refit 2018", "Two generators", "18-19 knots cruise speed"],
+        },
+        features: [
+            "Flybridge",
+            "Generators: 2 x 22.5kw",
+            "Hydraulic Bow thruster",
+            "Autopilot Simrad AP20",
+            "Tecnicomar water maker",
+            "VAT Paid",
+            "A lot of extras"
+        ],
         gallery: [
             "/Diamantides/assets/sales/14408/gallery_19.webp",
             "/Diamantides/assets/sales/14408/gallery_18.webp",
@@ -1615,26 +1792,35 @@ export const yachts = [
         id: 13675,
         name: "Viper 550",
         type: "Motor Yacht",
-        length: "N/A",
+        length: "5.50 m",
         image: "/Diamantides/assets/sales/13675/profile.webp",
         category: 'sales',
-        condition: 'new',
+        condition: 'used',
         vesselType: "RIB",
-        price: "Upon Request",
+        price: "€19,000",
         description: "For sale is this fantastic used boat from the reputable brand Viper. The Viper 550, built in 2015, is a versatile and reliable watercraft that promises an enjoyable boating experience. Equipped with a powerful 115HP MERCURY outboard engine, this boat offers an excellent balance of speed, efficiency, and performance on the water.\nThe Viper 550 is known for its sturdy construction and attention to detail, ensuring durability and longevity. Its sleek design and spacious layout make it ideal for various activities, such as fishing, watersports, or leisurely cruising.\nThe 115HP MERCURY outboard engine provides ample power for swift acceleration and smooth handling. Known for its reliability and fuel efficiency, this engine is a popular choice among boating enthusiasts. The combination of the Viper 550 and the 115HP MERCURY engine ensures a pleasurable and hassle-free boating experience.",
         specs: {
             builder: 'Viper',
-            "year": "N/A",
-            "length": "N/A",
-            "engines": "N/A",
+            "year": "2015",
+            "length": "5.50 m",
+            "engines": "115HP MERCURY (outboard)",
             "location": "Cyprus"
-},
-        features: [],
+        },
+        features: [
+            "Viper 550",
+            "Year: 2015",
+            "Engine: 115HP MERCURY (outboard)",
+            "Length: 5,50",
+            "Beam: 2,43",
+            "Trailer: Included",
+            "Available for immediate sale.",
+            "Excellent condition."
+        ],
         gallery: [
             "/Diamantides/assets/sales/13675/gallery_2.webp",
             "/Diamantides/assets/sales/13675/gallery_1.webp",
             "/Diamantides/assets/sales/13675/gallery_0.webp"
-]
+        ]
     },
     {
         id: 13647,
@@ -1709,7 +1895,7 @@ export const yachts = [
         id: 13120,
         name: "Beneteau Monte Carlo 42",
         type: "Motor Yacht",
-        length: "N/A",
+        length: "13.70m",
         image: "/Diamantides/assets/sales/13120/profile.webp",
         category: 'sales',
         condition: 'used',
@@ -1717,16 +1903,27 @@ export const yachts = [
         price: "€260,000",
         description: "The Beneteau Monte Carlo 42, a 2010 model, is a remarkable yacht that exudes elegance and performance. With its sleek lines and luxurious design, it is sure to turn heads on the water. Whether you’re looking for a comfortable cruising experience or an exhilarating ride, this yacht delivers both. Its spacious interior offers a refined living space with modern amenities, making it ideal for extended trips or entertaining guests. The Monte Carlo 42’s powerful engines ensure smooth sailing, while its advanced navigation and control systems make it a pleasure to maneuver. This yacht truly embodies the perfect blend of style and functionality.",
         specs: {
-            "builder": "N/A",
-            "year": "N/A",
-            "length": "N/A",
-            "engines": "N/A",
-            "location": "Cyprus"
-},
-        features: [],
+            "builder": "Beneteau",
+            "year": "2010",
+            "length": "13.70m / 45'",
+            "engines": "2x 400hp Volvo Penta",
+            "generators": "Onan 7KW",
+            "cabins": "2 Cabins",
+            "location": "Limassol, Cyprus"
+        },
+        features: [
+            "2x 400hp Volvo Penta",
+            "Onan 7KW Generator",
+            "Air Conditioning (A/C)",
+            "Radar / Autopilot",
+            "2 Cabins",
+            "Excellent condition",
+            "Hardtop with electric opening sunroof",
+            "Teak laid cockpit"
+        ],
         gallery: [
             "/Diamantides/assets/sales/13120/gallery_0.webp"
-]
+        ]
     },
     {
         id: 13118,
@@ -1755,21 +1952,34 @@ export const yachts = [
         id: 12723,
         name: "Princess 30M",
         type: "Motor Yacht",
-        length: "N/A",
+        length: "30.55m",
         image: "/Diamantides/assets/sales/12723/profile.webp",
         category: 'sales',
         condition: 'used',
         vesselType: "Yachts",
-        price: "€7,900,000",
+        price: "€7,900,000 VAT Paid",
         description: "Looking for a luxurious yacht that offers comfort, style, and top-notch performance? Look no further than this stunning Princess 30m yacht, built in 2019 and now available for sale in Limassol, Cyprus. This immaculate yacht has been well-maintained and cared for by Diamantides Yachting and had one owner, who has never chartered it. As a result, it is in pristine condition, with all the latest features and amenities you would expect from a top-of-the-line yacht.\nWith a length of 30 meters, this yacht offers plenty of space for relaxing, entertaining, and enjoying the open sea. It features five spacious cabins, each with its own en-suite bathroom, providing ample space for up to ten guests. The cabins are beautifully designed and decorated, with high-quality finishes and luxurious touches throughout.\nFor those who enjoy outdoor living, the yacht’s flybridge is the perfect place to relax and take in the views. It features a comfortable seating area, sun loungers, a bar, a barbecue grill, and even a jacuzzi, making it ideal for entertaining and enjoying the open air.\nOther unique features of this exceptional yacht include a Port Forward Cabin configured as an office with one office desk and one single berth, as well as a Starboard Forward Cabin with two single electrically powered sliding berths that can be configured to create a double berth, and an additional bunk berth.\nHighlights:\n\n5 Cabin Layout\nJacuzzi at the flybridge\nFin stabilisation system underway and at rest\nBacklighted Hermes feature fabric panel in dining area\nPrice €7,900,000 VAT Paid",
         specs: {
-            "builder": "N/A",
-            "year": "N/A",
-            "length": "N/A",
-            "engines": "N/A",
-            "location": "Cyprus"
-},
-        features: [],
+            "builder": "Princess",
+            "year": "2019",
+            "length": "30.55m",
+            "engines": "MTU 12V 2000 M96L (2 x 1432kW/1920bhp)",
+            "location": "Cyprus",
+            "flag": "Cayman Islands",
+            "engineHours": "1520hrs/1510hrs"
+        },
+        features: [
+            "Price: €7,900,000.00 VAT Paid",
+            "Flag: Cayman Islands",
+            "Length: 30.55m",
+            "Engines: MTU 12V 2000 M96L (2 x 1432kW/1920bhp)",
+            "Engine Hours: 1520hrs/1510hrs",
+            "Fin stabilisation system underway and at rest",
+            "Jacuzzi on flybridge",
+            "5 Cabin Layout",
+            "MCA Build",
+            "Flybridge GRP hardtop with electrically operated centre section in white fabric"
+        ],
         gallery: [
             "/Diamantides/assets/sales/12723/gallery_19.webp",
             "/Diamantides/assets/sales/12723/gallery_18.webp",
@@ -2240,13 +2450,18 @@ export const yachts = [
         price: "€14,500",
         description: "Used Alson Rib boat available for viewing at our boat parking. She has a Honda 90hp engine and a trailer.",
         specs: {
-            "builder": "N/A",
+            "builder": "Alson",
             "year": "N/A",
             "length": "N/A",
-            "engines": "N/A",
+            "engines": "Honda 90HP",
             "location": "Cyprus"
-},
-        features: [],
+        },
+        features: [
+            "Engine: Honda 90HP",
+            "Trailer included",
+            "Available for immediate sale.",
+            "Excellent condition"
+        ],
         gallery: [
             "/Diamantides/assets/sales/10777/gallery_3.webp",
             "/Diamantides/assets/sales/10777/gallery_2.webp",
@@ -3331,7 +3546,7 @@ export const yachts = [
         id: 8278,
         name: "Princess 62 (2008)",
         type: "Motor Yacht",
-        length: "N/A",
+        length: "19.30m",
         image: "/Diamantides/assets/sales/8278/profile.webp",
         category: 'sales',
         condition: 'used',
@@ -3339,13 +3554,27 @@ export const yachts = [
         price: "€800,000",
         description: "Princess 62 (2008) available for sale in Limassol, Cyprus. She is powered by twin Caterpillar C15 engines that have 1093 and 1094 operational hours accordingly. She combines high performance with spacious accommodation and dynamic good looks. This deep V hull has been developed with a generous beam so as to allow a good-sized galley to be located on the main deck in conjunction with a separate dining area and a large and comfortable aft saloon with its own entertainment center. This allows the lower deck accommodation to be designed on the same principles as much larger boats with a full beam owner’s cabin, a VIP suite forward, and two further guest cabins as well as a laundry center. There is also an aft crew cabin and her flybridge has a hard top.",
         specs: {
-            "builder": "N/A",
-            "year": "N/A",
-            "length": "N/A",
-            "engines": "N/A",
-            "location": "Cyprus"
-},
-        features: [],
+            "builder": "Princess",
+            "year": "2008",
+            "length": "19.30m / 62'",
+            "engines": "2x Caterpillar C15",
+            "engineHours": "1093hrs & 1094hrs",
+            "cabins": "4 Guest Cabins",
+            "crew": "1 Crew Cabin (Aft)",
+            "location": "Limassol, Cyprus"
+        },
+        features: [
+            "Flybridge with hard top",
+            "Engine hours: 1093hrs & 1094hrs",
+            "Full-beam owner's cabin",
+            "VIP suite forward + 2 guest cabins",
+            "Aft crew cabin",
+            "Main deck galley & separate dining area",
+            "Large aft saloon with entertainment center",
+            "Laundry center",
+            "Pristine Condition",
+            "Available for immediate sale."
+        ],
         gallery: [
             "/Diamantides/assets/sales/8278/gallery_14.webp",
             "/Diamantides/assets/sales/8278/gallery_13.webp",
@@ -3441,7 +3670,7 @@ export const yachts = [
         id: 8273,
         name: "Princess 50 (2007)",
         type: "Motor Yacht",
-        length: "N/A",
+        length: "15.37m",
         image: "/Diamantides/assets/sales/8273/profile.webp",
         category: 'sales',
         condition: 'used',
@@ -3449,13 +3678,24 @@ export const yachts = [
         price: "€390,000",
         description: "Princess 50 (2007) available for sale in Limassol, Cyprus. Refitted in 2020. Powered by Twin VOLVO D12-675 (2 x 675hp) with a speed range of 30-32 knots. Whether you’re looking for speed or comfort, the Princess 50 performs impeccably and this superb flybridge motor yacht has a contemporary edge to her elegant timeless lines. In the stylish and airy saloon, expansive windows give panoramic views whilst the fully equipped sunken galley and raised helm position are triumphs of modern design and ergonomics.",
         specs: {
-            "builder": "N/A",
-            "year": "N/A",
-            "length": "N/A",
-            "engines": "N/A",
-            "location": "Cyprus"
-},
-        features: [],
+            "builder": "Princess",
+            "year": "2007 - Refitted: 2020",
+            "length": "15.37m / 50'5\"",
+            "engines": "Twin VOLVO D12-675 (2 x 675hp)",
+            "speed": "30-32 knots",
+            "location": "Limassol, Cyprus"
+        },
+        features: [
+            "Flybridge Motor Yacht",
+            "Twin VOLVO D12-675",
+            "Fully equipped sunken galley",
+            "Stylish and airy saloon with panoramic windows",
+            "Raised helm position",
+            "Refitted in 2020",
+            "Speed range: 30-32 knots",
+            "Excellent condition.",
+            "Available for immediate sale."
+        ],
         gallery: [
             "/Diamantides/assets/sales/8273/gallery_1.webp",
             "/Diamantides/assets/sales/8273/gallery_0.webp"

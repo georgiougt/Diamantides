@@ -112,6 +112,7 @@ function App() {
           <Route path="/charter" element={<CharterTestPage />} />
           <Route path="/sales" element={<SalesYachtsPage />} />
           <Route path="/sales/used" element={<SalesYachtsPage />} />
+          <Route path="/sales/fleet" element={<SalesYachtsPage />} />
           <Route path="/sales/brands" element={<BrandsPage />} />
           <Route path="/sales/nautic-clean" element={<NauticCleanPage />} />
           <Route path="/sales/redshark-bikes" element={<RedsharkBikesPage />} />

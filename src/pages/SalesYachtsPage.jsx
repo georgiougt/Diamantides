@@ -37,19 +37,19 @@ const SalesYachtsPage = () => {
     const parsePrice = (priceStr) => {
         if (!priceStr) return 0;
         const lower = priceStr.toLowerCase();
-        if (lower.includes('request') || lower.includes('poa')) return Infinity;
+        if (lower.includes('request') || lower.includes('poa')) return 0;
         if (lower.includes('sold')) return 0; // Sold items at the bottom
         const numeric = priceStr.replace(/[^0-9]/g, '');
         return numeric ? parseInt(numeric) : 0;
     };
 
     // Brands derived from data
-    const brands = ['All', ...new Set(yachts.filter(y => y.category === 'sales' && y.condition === 'used').map(y => y.specs?.builder).filter(Boolean))];
+    const brands = ['All', ...new Set(yachts.filter(y => y.category === 'sales').map(y => y.specs?.builder).filter(Boolean))];
     const types = ['All', 'Yachts', 'RIB', 'Fiberglass', 'jetskis'];
 
     // Filtering and Sorting Logic
     const filteredAndSortedYachts = yachts
-        .filter(y => y.category === 'sales' && y.condition === 'used')
+        .filter(y => y.category === 'sales')
         .filter(y => {
             const matchesName = y.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
                                y.specs?.builder?.toLowerCase().includes(searchTerm.toLowerCase());
@@ -115,7 +115,7 @@ const SalesYachtsPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        Used & Brokerage Vessels
+                        Luxury Sales & Brokerage
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 30 }}
@@ -202,8 +202,27 @@ const SalesYachtsPage = () => {
                             transition={{ duration: 0.6, delay: (index % ITEMS_PER_PAGE) * 0.1 }}
                         >
                             <Link to={`/yacht/${yacht.id}`} className="sales-card-link">
-                                <div className="sales-img-wrapper">
+                                <div className="sales-img-wrapper" style={{ position: 'relative' }}>
                                     <img src={yacht.image || yacht.gallery?.[0]} alt={yacht.name} loading="lazy" />
+                                    {yacht.condition === 'new' && (
+                                        <div className="new-condition-badge" style={{
+                                            position: 'absolute',
+                                            top: '1rem',
+                                            left: '1rem',
+                                            background: 'var(--gradient-metallic-gold)',
+                                            color: '#0a1118',
+                                            padding: '5px 14px',
+                                            borderRadius: '30px',
+                                            fontSize: '0.75rem',
+                                            fontWeight: 'bold',
+                                            textTransform: 'uppercase',
+                                            letterSpacing: '1px',
+                                            boxShadow: '0 4px 15px rgba(212,175,55,0.4)',
+                                            zIndex: 10
+                                        }}>
+                                            Brand New
+                                        </div>
+                                    )}
                                     {yacht.price && <div className="image-price-badge">{yacht.price}</div>}
                                 </div>
                                 <div className="sales-glass-panel">
