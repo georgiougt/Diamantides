@@ -2,13 +2,17 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import horizontalLogo from '../assets/diamantides-logo-white-wide.png';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
-    const transparentRoutes = ['/'];
+    const { currentLang, t, localizePath, changeLanguage } = useLanguage();
+    
+    // Transparent check needs to support both / and /ru routes
+    const transparentRoutes = ['/', '/ru', '/ru/'];
     const isTransparentStart = transparentRoutes.includes(location.pathname);
 
     useEffect(() => {
@@ -21,33 +25,34 @@ const Navbar = () => {
     }, []);
 
     const salesDropdown = {
-        name: 'Sales & Brokerage',
+        name: t('nav.sales'),
         links: [
-            { name: 'Sales Fleet', href: '/sales/fleet' },
-            { name: 'New Brands', href: '/sales/brands' },
-            { name: 'Nautic Clean', href: '/sales/nautic-clean' },
-            { name: 'Redshark Bikes', href: '/sales/redshark-bikes' }
+            { name: t('nav.salesFleet'), href: '/sales/' },
+            { name: t('nav.newBrands'), href: '/sales/brands/' },
+            { name: t('nav.nauticClean'), href: '/sales/nautic-clean/' },
+            { name: t('nav.redsharkBikes'), href: '/sales/redshark-bikes/' }
         ]
     };
 
     const navLinks = [
-        { name: 'Charter Yachts', href: '/charter' },
+        { name: t('nav.charter'), href: '/charter-yacht/limassol/' },
     ];
 
     const servicesDropdown = {
-        name: 'Services',
+        name: t('nav.services'),
         links: [
-            { name: 'Management & Maintenance', href: '/services/yacht-management' },
-            { name: 'Boat Parking', href: '/services/boat-parking' },
-            { name: 'Speed Boat Training', href: '/training-academy' }
+            { name: t('nav.management'), href: '/services/yacht-management/' },
+            { name: t('nav.parking'), href: '/services/boat-parking/' },
+            { name: t('nav.training'), href: '/training-academy/' }
         ]
     };
 
     const aboutDropdown = {
-        name: 'About',
+        name: t('nav.about'),
         links: [
-            { name: 'About Us', href: '/about' },
-            { name: 'Contact Us', href: '/contact' }
+            { name: t('nav.aboutUs'), href: '/about/' },
+            { name: t('nav.blog'), href: '/blog' },
+            { name: t('nav.contactUs'), href: '/contact/' }
         ]
     };
 
@@ -58,10 +63,10 @@ const Navbar = () => {
     return (
         <header className={`navbar ${isScrolled || !isTransparentStart ? 'scrolled' : ''}`}>
             <div className="navbar-container">
-                <Link to="/" className="logo">
+                <Link to={localizePath('/')} className="logo">
                     <div className="logo-wrapper">
-                        <img src={horizontalLogo} alt="Diamantides Yachting" className="logo-img" />
-                        <span className="logo-motto">All about Yachting</span>
+                        <img src={horizontalLogo} alt="Diamantides Yachting - Luxury Yacht Charters & Sales Cyprus" className="logo-img" />
+                        <span className="logo-motto">{t('nav.motto')}</span>
                     </div>
                 </Link>
 
@@ -75,7 +80,7 @@ const Navbar = () => {
                             {salesDropdown.links.map((sublink) => (
                                 <Link
                                     key={sublink.name}
-                                    to={sublink.href}
+                                    to={localizePath(sublink.href)}
                                     className="dropdown-link"
                                 >
                                     {sublink.name}
@@ -85,7 +90,7 @@ const Navbar = () => {
                     </div>
 
                     {navLinks.map((link) => (
-                        <Link key={link.name} to={link.href} className="nav-link">
+                        <Link key={link.name} to={localizePath(link.href)} className="nav-link">
                             {link.name}
                         </Link>
                     ))}
@@ -99,7 +104,7 @@ const Navbar = () => {
                             {servicesDropdown.links.map((sublink) => (
                                 <Link
                                     key={sublink.name}
-                                    to={sublink.href}
+                                    to={localizePath(sublink.href)}
                                     className="dropdown-link"
                                 >
                                     {sublink.name}
@@ -117,7 +122,7 @@ const Navbar = () => {
                             {aboutDropdown.links.map((sublink) => (
                                 <Link
                                     key={sublink.name}
-                                    to={sublink.href}
+                                    to={localizePath(sublink.href)}
                                     className="dropdown-link"
                                 >
                                     {sublink.name}
@@ -130,6 +135,22 @@ const Navbar = () => {
                         <Phone size={18} />
                         <span>+357 25 010 561</span>
                     </a>
+
+                    <div className="lang-switcher">
+                        <button 
+                            className={`lang-btn ${currentLang === 'en' ? 'active' : ''}`}
+                            onClick={() => changeLanguage('en')}
+                        >
+                            EN
+                        </button>
+                        <span className="lang-divider">|</span>
+                        <button 
+                            className={`lang-btn ${currentLang === 'ru' ? 'active' : ''}`}
+                            onClick={() => changeLanguage('ru')}
+                        >
+                            RU
+                        </button>
+                    </div>
                 </div>
 
                 <button
@@ -149,7 +170,7 @@ const Navbar = () => {
                         {salesDropdown.links.map((sublink) => (
                             <Link
                                 key={sublink.name}
-                                to={sublink.href}
+                                to={localizePath(sublink.href)}
                                 className="mobile-nav-link sub-link"
                                 onClick={handleNavClick}
                             >
@@ -161,7 +182,7 @@ const Navbar = () => {
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
-                            to={link.href}
+                            to={localizePath(link.href)}
                             className="mobile-nav-link"
                             onClick={handleNavClick}
                         >
@@ -174,7 +195,7 @@ const Navbar = () => {
                         {servicesDropdown.links.map((sublink) => (
                             <Link
                                 key={sublink.name}
-                                to={sublink.href}
+                                to={localizePath(sublink.href)}
                                 className="mobile-nav-link sub-link"
                                 onClick={handleNavClick}
                             >
@@ -189,13 +210,30 @@ const Navbar = () => {
                         {aboutDropdown.links.map((sublink) => (
                             <Link
                                 key={sublink.name}
-                                to={sublink.href}
+                                to={localizePath(sublink.href)}
                                 className="mobile-nav-link sub-link"
                                 onClick={handleNavClick}
                             >
                                 {sublink.name}
                             </Link>
                         ))}
+                    </div>
+
+                    {/* Mobile Language Switcher */}
+                    <div className="mobile-lang-switcher">
+                        <button 
+                            className={`lang-btn ${currentLang === 'en' ? 'active' : ''}`}
+                            onClick={() => { changeLanguage('en'); handleNavClick(); }}
+                        >
+                            EN
+                        </button>
+                        <span className="lang-divider">|</span>
+                        <button 
+                            className={`lang-btn ${currentLang === 'ru' ? 'active' : ''}`}
+                            onClick={() => { changeLanguage('ru'); handleNavClick(); }}
+                        >
+                            RU
+                        </button>
                     </div>
                 </div>
             )}

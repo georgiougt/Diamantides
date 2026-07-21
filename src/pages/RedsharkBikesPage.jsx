@@ -1,12 +1,16 @@
+import { updateSEO } from '../utils/seo';
 import { useState, useEffect, useRef } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../config/emailConfig';
+import redsharkLogo from '../assets/logos/redshark-logo-pr.png';
+import { useLanguage } from '../context/LanguageContext';
 import '../styles/RedsharkBikes.css';
 
 const RedsharkBikesPage = () => {
+    const { t, currentLang } = useLanguage();
     const topoRef = useRef(null);
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
     const [sending, setSending] = useState(false);
@@ -20,6 +24,9 @@ const RedsharkBikesPage = () => {
         setSendSuccess(false);
 
         const templateParams = {
+            yacht_name: '',
+            yacht_type: '',
+            to_email: 'administration@diamantidesyachting.com',
             from_name: formData.name,
             from_email: formData.email,
             phone: formData.phone,
@@ -32,19 +39,24 @@ const RedsharkBikesPage = () => {
                 EMAILJS_CONFIG.SERVICE_ID,
                 EMAILJS_CONFIG.TEMPLATE_ID,
                 templateParams,
-                EMAILJS_CONFIG.PUBLIC_KEY
+                { publicKey: EMAILJS_CONFIG.PUBLIC_KEY }
             );
             setSendSuccess(true);
             setFormData({ name: '', email: '', phone: '', message: '' });
         } catch (error) {
             console.error('EmailJS Error:', error);
-            setSendError('Failed to send inquiry. Please try again or call us directly.');
+            setSendError(t('redshark.errorMsg'));
         } finally {
             setSending(false);
         }
     };
 
     useEffect(() => {
+        if (currentLang === 'ru') {
+            updateSEO('Аренда Водных Велосипедов Redshark на Кипре | Diamantides Yachting', 'Откройте будущее водного фитнеса. Премиальные тримараны — водные велосипеды Redshark для аренды и покупки в Лимассоле, Кипр.');
+        } else {
+            updateSEO('Redshark Water Bikes Rentals Cyprus | Diamantides Yachting', 'Experience the future of water fitness. Premium Redshark trimaran water bikes available for rental and purchase in Limassol, Cyprus.');
+        }
         window.scrollTo(0, 0);
 
         const handleMouseMove = (e) => {
@@ -97,8 +109,8 @@ const RedsharkBikesPage = () => {
 
             <div className="redshark-container">
                 <header className="redshark-header">
-                    <span className="redshark-subtitle">WATER BIKES COLLECTION</span>
-                    <h1 className="redshark-title">Redshark</h1>
+                    <span className="redshark-subtitle">{t('redshark.collection')}</span>
+                    <img src={redsharkLogo} alt="Redshark Logo" className="redshark-header-logo" />
                 </header>
 
                 <div className="redshark-grid">
@@ -129,8 +141,8 @@ const RedsharkBikesPage = () => {
 
                 <div className="redshark-contact-section">
                     <div className="redshark-contact-header">
-                        <h2>INQUIRE NOW</h2>
-                        <p>Speak with our specialists to configure your Redshark Bike.</p>
+                        <h2>{t('redshark.inquireTitle')}</h2>
+                        <p>{t('redshark.inquireSubtitle')}</p>
                     </div>
                     
                     <form className="redshark-contact-form" onSubmit={handleSubmit}>
@@ -140,7 +152,7 @@ const RedsharkBikesPage = () => {
                                 name="name"
                                 value={formData.name}
                                 onChange={(e) => setFormData({...formData, name: e.target.value})}
-                                placeholder="Full Name"
+                                placeholder={t('redshark.placeholderName')}
                                 required
                             />
                             <input
@@ -148,7 +160,7 @@ const RedsharkBikesPage = () => {
                                 name="email"
                                 value={formData.email}
                                 onChange={(e) => setFormData({...formData, email: e.target.value})}
-                                placeholder="Email Address"
+                                placeholder={t('redshark.placeholderEmail')}
                                 required
                             />
                         </div>
@@ -158,7 +170,7 @@ const RedsharkBikesPage = () => {
                                 value={formData.phone}
                                 onChange={(phone) => setFormData({ ...formData, phone })}
                                 enableSearch={true}
-                                placeholder="Phone Number"
+                                placeholder={t('redshark.placeholderPhone')}
                                 containerClass="redshark-phone-container"
                                 inputClass="redshark-phone-input"
                             />
@@ -167,16 +179,16 @@ const RedsharkBikesPage = () => {
                             name="message"
                             value={formData.message}
                             onChange={(e) => setFormData({...formData, message: e.target.value})}
-                            placeholder="Please provide any details or ask questions about specific models..."
+                            placeholder={t('redshark.placeholderMessage')}
                             rows="4"
                             required
                         ></textarea>
                         <button type="submit" className="redshark-submit-btn" disabled={sending}>
-                            {sending ? 'SENDING...' : 'DISPATCH INQUIRY'} <Send size={16} />
+                            {sending ? t('redshark.sendingBtn') : t('redshark.submitBtn')} <Send size={16} />
                         </button>
                         {sendSuccess && (
                             <div className="redshark-feedback success">
-                                <CheckCircle size={16} /> Our specialists will contact you shortly.
+                                <CheckCircle size={16} /> {t('redshark.successMsg')}
                             </div>
                         )}
                         {sendError && (

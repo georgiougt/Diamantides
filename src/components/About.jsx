@@ -1,14 +1,29 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import CountUp from 'react-countup';
+import { useLanguage } from '../context/LanguageContext';
 import '../styles/About.css';
 import companyLogo from '../assets/company-logo.png';
 
 const About = () => {
+    const { t } = useLanguage();
+    const [CountUpComponent, setCountUpComponent] = useState(null);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+        // Dynamically import react-countup on the client side only after mount
+        import('react-countup')
+            .then((module) => {
+                setCountUpComponent(() => module.default);
+            })
+            .catch((err) => console.error('Failed to load react-countup:', err));
+    }, []);
+
     const stats = [
-        { value: 6, suffix: '+', label: 'international markets' },
-        { value: 250, suffix: '+', label: 'active clients' },
-        { value: 15, suffix: '+', label: 'specialists' },
-        { value: 20, suffix: '+', label: 'years of experience' },
+        { value: 6, suffix: '+', label: t('aboutSection.markets') },
+        { value: 250, suffix: '+', label: t('aboutSection.clients') },
+        { value: 15, suffix: '+', label: t('aboutSection.specialists') },
+        { value: 20, suffix: '+', label: t('aboutSection.experience') },
     ];
 
     return (
@@ -21,8 +36,8 @@ const About = () => {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    <img src={companyLogo} alt="Diamantides Yachting" className="about-company-logo" />
-                    <p className="company-motto">All about Yachting</p>
+                    <img src={companyLogo} alt="Diamantides Yachting Logo - Professional Marine Services Cyprus" className="about-company-logo" />
+                    <p className="company-motto">{t('nav.motto')}</p>
                 </motion.div>
 
                 <div className="stats-divider"></div>
@@ -39,13 +54,17 @@ const About = () => {
                             >
                                 <p className="stat-label-new">{stat.label}</p>
                                 <h3 className="stat-value-new">
-                                    <CountUp
-                                        end={stat.value}
-                                        duration={3}
-                                        suffix={stat.suffix}
-                                        enableScrollSpy={true}
-                                        scrollSpyOnce={true}
-                                    />
+                                    {mounted && CountUpComponent ? (
+                                        <CountUpComponent
+                                            end={stat.value}
+                                            duration={3}
+                                            suffix={stat.suffix}
+                                            enableScrollSpy={true}
+                                            scrollSpyOnce={true}
+                                        />
+                                    ) : (
+                                        <span>{stat.value}{stat.suffix}</span>
+                                    )}
                                 </h3>
                             </motion.div>
                             {/* Add a vertical divider except for the last item */}

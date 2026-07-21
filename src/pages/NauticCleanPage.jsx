@@ -1,14 +1,22 @@
+import { updateSEO } from '../utils/seo';
 import React, { useEffect, useState } from 'react';
 import '../styles/NauticClean.css';
 import logo from '../assets/logos/logo-nauticclean.png';
 import { nauticCleanProducts } from '../data/nautic_clean';
+import { useLanguage } from '../context/LanguageContext';
 
 const NauticCleanPage = () => {
+    const { t, currentLang } = useLanguage();
     const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => {
+        if (currentLang === 'ru') {
+            updateSEO('Средства по Уходу за Судном Nautic Clean | Diamantides Yachting', 'Официальный дистрибьютор средств Nautic Clean для чистки и обслуживания судов на Кипре. Премиальные формулы для ухода за тиком, гелькоутом и сталью.');
+        } else {
+            updateSEO('Nautic Clean Marine Care Products | Diamantides Yachting', 'Official distributor of Nautic Clean marine cleaning and maintenance products in Cyprus. Premium formulas for teak, gelcoat, and steel care.');
+        }
         window.scrollTo(0, 0);
-    }, []);
+    }, [currentLang]);
 
     // Helper to format newlines to paragraphs
     const formatDescription = (text) => {
@@ -23,20 +31,17 @@ const NauticCleanPage = () => {
             <section className="nc-hero">
                 <div className="container">
                     <img src={logo} alt="Nautic Clean" className="nc-hero-logo" />
-                    <h1 className="hero-title">Professional Marine Care</h1>
-                    <p className="hero-subtitle">The European leader in high-performance nautical cleaning and maintenance products.</p>
+                    <h1 className="hero-title">{t('nauticClean.heroTitle')}</h1>
+                    <p className="hero-subtitle">{t('nauticClean.heroSubtitle')}</p>
                 </div>
             </section>
 
             <section className="nc-intro">
                 <div className="container">
                     <div className="intro-content glass-morphism">
-                        <h2>Why Nautic Clean?</h2>
+                        <h2>{t('nauticClean.whyTitle')}</h2>
                         <p>
-                            Born from a passion for yachting and precision engineering, Nautic Clean offers 
-                            environmentally conscious solutions that deliver showroom results. As their 
-                            exclusive partner, Diamantides Yachting provides professional-grade 
-                            supplies for owners who demand nothing but perfection.
+                            {t('nauticClean.whyText')}
                         </p>
                     </div>
                 </div>
@@ -45,8 +50,8 @@ const NauticCleanPage = () => {
             <section className="nc-categories nc-products">
                 <div className="container">
                     <div className="section-header text-center" style={{ marginBottom: '50px' }}>
-                        <h2 style={{ fontSize: '2.5rem', background: 'var(--gradient-metallic-gold)', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.2))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Nautic Clean Collection</h2>
-                        <p style={{ color: '#aaa' }}>Explore our comprehensive range of professional marine care solutions.</p>
+                        <h2 style={{ fontSize: '2.5rem', background: 'var(--gradient-metallic-gold)', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.2))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{t('nauticClean.collectionTitle')}</h2>
+                        <p style={{ color: '#aaa' }}>{t('nauticClean.collectionSubtitle')}</p>
                     </div>
                     <div className="products-grid">
                         {nauticCleanProducts.map((product) => (
@@ -60,7 +65,7 @@ const NauticCleanPage = () => {
                                 </div>
                                 <div className="product-info">
                                     <h3>{product.title}</h3>
-                                    <span className="view-details-btn">View Details</span>
+                                    <span className="view-details-btn">{t('nauticClean.viewDetails')}</span>
                                 </div>
                             </div>
                         ))}

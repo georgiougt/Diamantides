@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Force HTTPS and non-www (redirects HTTP and www. requests to https://diamantidesyachting.com)
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^(.*)$ https://diamantidesyachting.com%{REQUEST_URI} [R=301,L]
+
+  # Redirect duplicate legacy sales list pages to the canonical /sales/ page
+  RewriteRule ^sales/(fleet|used)/?$ https://diamantidesyachting.com/sales/ [R=301,L]
+
+  # Redirect legacy /charter page to /charter-yacht/limassol
+  RewriteRule ^charter/?$ https://diamantidesyachting.com/charter-yacht/limassol [R=301,L]
+
+  # Redirect legacy individual charter yacht pages to /charter-yacht/limassol/yacht/...
+  RewriteRule ^charter/yacht/(.*)$ https://diamantidesyachting.com/charter-yacht/limassol/yacht/$1 [R=301,L]
+
+  # Custom 404 Page (returns real 404 status with pre-rendered page)
+  ErrorDocument 404 /404/index.html
+</IfModule>

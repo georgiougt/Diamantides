@@ -1,8 +1,11 @@
+import { updateSEO } from '../utils/seo';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Ruler, ChevronRight } from 'lucide-react';
 import { yachts } from '../data/yachts';
+import { getYachtPath } from '../utils/navigation';
+import { useLanguage } from '../context/LanguageContext';
 import '../styles/BrandsPage.css';
 import '../styles/SalesYachts.css'; 
 import axisLogo from '../assets/logos/2021_Black_Axis.png';
@@ -12,11 +15,17 @@ import galeonLogo from '../assets/logos/galeon_logo.png';
 import agilisLogo from '../assets/logos/agilis_logo.webp';
 
 const BrandsPage = () => {
+    const { t, localizePath, currentLang } = useLanguage();
     const [selectedBrand, setSelectedBrand] = useState('All');
     
     useEffect(() => {
+        if (currentLang === 'ru') {
+            updateSEO('Официальный Дилер Яхтенных Брендов на Кипре | Diamantides Yachting', 'Откройте наши эксклюзивные бренды-партнёры. Официальный дилер на Кипре премиальных производителей яхт, включая Viper, Axis, Marinello и Galeon.');
+        } else {
+            updateSEO('Official Yacht Brands Dealer Cyprus | Diamantides Yachting', 'Discover our exclusive partner brands. Official dealer in Cyprus for premium yacht builders including Viper, Axis, Marinello, and Galeon.');
+        }
         window.scrollTo(0, 0);
-    }, []);
+    }, [currentLang]);
 
     const partners = [
         { id: 'Axis', name: 'Axis', logo: axisLogo },
@@ -45,7 +54,7 @@ const BrandsPage = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                     >
-                        Exclusive New Brands
+                        {t('brandsPage.title')}
                     </motion.h1>
                     <motion.p 
                         className="hero-subtitle"
@@ -53,7 +62,7 @@ const BrandsPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                     >
-                        Discover the latest marine engineering excellence from the world's leading manufacturers.
+                        {t('brandsPage.subtitle')}
                     </motion.p>
                 </div>
             </section>
@@ -66,7 +75,7 @@ const BrandsPage = () => {
                             className={`brand-filter-item ${selectedBrand === 'All' ? 'active' : ''}`}
                             onClick={() => setSelectedBrand('All')}
                         >
-                            <span>All Brands</span>
+                            <span>{t('brandsPage.allBrands')}</span>
                         </button>
                         {partners.map((brand) => (
                             <button 
@@ -96,7 +105,7 @@ const BrandsPage = () => {
                                     transition={{ duration: 0.4 }}
                                     className="sales-card standard-card"
                                 >
-                                    <Link to={`/yacht/${vessel.id}`} className="sales-card-link">
+                                    <Link to={localizePath(getYachtPath(vessel))} className="sales-card-link">
                                         <div className="sales-img-wrapper">
                                             <img src={vessel.image} alt={vessel.name} loading="lazy" />
                                             {vessel.price && <div className="image-price-badge">{vessel.price}</div>}
@@ -104,12 +113,12 @@ const BrandsPage = () => {
                                         <div className="sales-glass-panel">
                                             <div className="glass-header">
                                                 <h2>{vessel.name}</h2>
-                                                <p className="fleet-type">{vessel.type || 'Luxury Brand'}</p>
+                                                <p className="fleet-type">{vessel.type || t('brandsPage.luxuryBrand')}</p>
                                             </div>
                                             <div className="glass-specs">
                                                 <span className="spec-item"><Ruler size={14} /> {vessel.length || 'N/A'}</span>
                                             </div>
-                                            <span className="glass-cta">Explore Brand New <ChevronRight size={16} /></span>
+                                            <span className="glass-cta">{t('brandsPage.exploreCta')} <ChevronRight size={16} /></span>
                                         </div>
                                     </Link>
                                 </motion.div>
@@ -118,7 +127,7 @@ const BrandsPage = () => {
                     </div>
                     {filteredVessels.length === 0 && (
                         <div className="no-results">
-                            <p>No new vessels currently available for this brand. Please contact us for custom orders.</p>
+                            <p>{t('brandsPage.noResults')}</p>
                         </div>
                     )}
                 </div>

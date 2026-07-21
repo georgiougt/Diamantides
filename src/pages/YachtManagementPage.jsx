@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { updateSEO } from '../utils/seo';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import '../styles/YachtManagement.css';
 
 // Import local images scraped from legacy site
@@ -14,62 +16,47 @@ import slider6 from '../assets/services/management-slider-new-6-475x600.jpg';
 import slider7 from '../assets/services/management-slider-new-7-475x600.jpg';
 import slider8 from '../assets/services/management-slider-new-8-475x600.jpg';
 
-const pillars = [
-    {
-        title: "Technical Maintenance and Inspections",
-        description: "Regular technical servicing is the foundation of safe and uninterrupted yacht operation. We organize scheduled and unscheduled inspections, routine and major repairs, and maintenance of onboard systems, engines, navigation equipment, and electronics. Our specialists work exclusively with certified contractors and trusted suppliers."
-    },
-    {
-        title: "Crew Recruitment and Management",
-        description: "A professional crew is key to onboard comfort. We recruit captains, deckhands, stewards, and chefs who meet the standards of premium yacht service. Crew management covers recruitment, contract administration, payroll, training coordination, and performance monitoring."
-    },
-    {
-        title: "Financial Planning and Budgeting",
-        description: "Diamantides Yachting helps yacht owners manage their budgets wisely by providing transparent reports on income and expenses. We account for fuel costs, technical work, crew salaries, insurance, mooring, taxes, and other expenditures. This is especially important for owners who charter their yachts."
-    },
-    {
-        title: "Yacht Safety and Insurance",
-        description: "We select the most suitable insurance programs for each vessel — from standard to premium policies that comprehensively cover potential risks. Our team also ensures compliance with international safety standards and conducts regular checks to confirm operational adherence."
-    },
-    {
-        title: "Legal and Administrative Support",
-        description: "Yacht owners face numerous legal and bureaucratic tasks: vessel registration, flag selection, license acquisition, and customs procedures. We handle all necessary documentation to ensure full compliance with international and Cypriot maritime regulations."
-    }
-];
-
 const galleryImages = [
     slider1, slider2, slider3, slider4, slider5, slider6, slider7, slider8
 ];
 
 const YachtManagementPage = () => {
+    const { t, localizePath, currentLang } = useLanguage();
     const [expandedPillar, setExpandedPillar] = useState(null);
 
     const togglePillar = (index) => {
         setExpandedPillar(expandedPillar === index ? null : index);
     };
 
+    const pillars = [
+        { title: t('yachtMgmt.pillar1Title'), description: t('yachtMgmt.pillar1Desc') },
+        { title: t('yachtMgmt.pillar2Title'), description: t('yachtMgmt.pillar2Desc') },
+        { title: t('yachtMgmt.pillar3Title'), description: t('yachtMgmt.pillar3Desc') },
+        { title: t('yachtMgmt.pillar4Title'), description: t('yachtMgmt.pillar4Desc') },
+        { title: t('yachtMgmt.pillar5Title'), description: t('yachtMgmt.pillar5Desc') }
+    ];
+
     useEffect(() => {
+        if (currentLang === 'ru') {
+            updateSEO('Управление Яхтами на Кипре | Diamantides Yachting', 'Комплексное управление яхтами, техническое обслуживание, подбор экипажа и административная поддержка для владельцев яхт на Кипре.');
+        } else {
+            updateSEO('Exclusive Yacht Management Cyprus | Diamantides Yachting', 'Bespoke yacht management, standard maintenance, professional crewing, technical servicing, and administrative support for yacht owners in Cyprus.');
+        }
         window.scrollTo(0, 0);
-    }, []);
+    }, [currentLang]);
 
     return (
         <div className="yacht-management-page">
             {/* Hero Section */}
             <section className="ym-hero">
-                <h1>Yacht Management</h1>
-                <p>Ensure smooth and hassle-free yacht operations with our expert support.</p>
+                <h1>{t('yachtMgmt.heroTitle')}</h1>
+                <p>{t('yachtMgmt.heroSubtitle')}</p>
             </section>
 
             {/* Introduction Container */}
             <div className="container">
                 <div className="ym-intro-content glass-morphism">
-                    <p>
-                        Owning a yacht is not only a matter of pleasure and prestige — it also involves a complex range 
-                        of responsibilities related to maintenance, operation, and legal compliance. To ensure your yacht 
-                        delivers only positive experiences, it’s essential to entrust it to professionals. 
-                        <strong> Diamantides Yachting</strong> offers a full range of yacht management services in Cyprus, 
-                        handling all technical, administrative, and financial matters on behalf of yacht owners.
-                    </p>
+                    <p dangerouslySetInnerHTML={{ __html: t('yachtMgmt.introText') }} />
                 </div>
             </div>
 
@@ -77,8 +64,8 @@ const YachtManagementPage = () => {
             <section className="ym-section">
                 <div className="container">
                     <div className="ym-section-header">
-                        <h2>Our Management Pillars</h2>
-                        <p>The Diamantides Yachting team takes an individual approach to each project, taking into account the type of vessel, usage patterns, and client preferences.</p>
+                        <h2>{t('yachtMgmt.pillarsTitle')}</h2>
+                        <p>{t('yachtMgmt.pillarsSubtitle')}</p>
                     </div>
                     
                     <div className="ym-accordion-list">
@@ -119,44 +106,44 @@ const YachtManagementPage = () => {
                     <div className="ym-info-grid">
                         {/* Who is this for */}
                         <div className="ym-list-block glass-morphism">
-                            <h3>Who Is This Service For?</h3>
-                            <p style={{ color: '#aaa', marginBottom: '20px' }}>Engaging our yacht management services is more than a convenience — it’s a strategic partnership ideal for:</p>
+                            <h3>{t('yachtMgmt.whoTitle')}</h3>
+                            <p style={{ color: '#aaa', marginBottom: '20px' }}>{t('yachtMgmt.whoSubtitle')}</p>
                             <ul className="ym-styled-list">
                                 <li>
-                                    <span>Private Yacht Owners</span>
-                                    Who want to enjoy the sea without being distracted by logistics and planning.
+                                    <span>{t('yachtMgmt.whoPrivate')}</span>
+                                    {t('yachtMgmt.whoPrivateDesc')}
                                 </li>
                                 <li>
-                                    <span>Investors</span>
-                                    Chartering out their yachts, who want to maintain the vessel in perfect condition and ensure steady income.
+                                    <span>{t('yachtMgmt.whoInvestors')}</span>
+                                    {t('yachtMgmt.whoInvestorsDesc')}
                                 </li>
                                 <li>
-                                    <span>Charter Business Owners</span>
-                                    Who need professional fleet and client management.
+                                    <span>{t('yachtMgmt.whoCharter')}</span>
+                                    {t('yachtMgmt.whoCharterDesc')}
                                 </li>
                             </ul>
                         </div>
 
                         {/* Why Choose Us */}
                         <div className="ym-list-block glass-morphism">
-                            <h3>Why Choose Diamantides?</h3>
-                            <p style={{ color: '#aaa', marginBottom: '20px' }}>Our clients trust us with their most valuable assets — their yachts. Here’s why they choose us:</p>
+                            <h3>{t('yachtMgmt.whyTitle')}</h3>
+                            <p style={{ color: '#aaa', marginBottom: '20px' }}>{t('yachtMgmt.whySubtitle')}</p>
                             <ul className="ym-styled-list">
                                 <li>
-                                    <span>Over 15 Years of Experience</span>
-                                    In-depth knowledge of the region’s yachting industry and established relationships with top suppliers.
+                                    <span>{t('yachtMgmt.why1Title')}</span>
+                                    {t('yachtMgmt.why1Desc')}
                                 </li>
                                 <li>
-                                    <span>Personal Manager Available 24/7</span>
-                                    Your yacht remains under constant supervision by a dedicated manager to handle any issue.
+                                    <span>{t('yachtMgmt.why2Title')}</span>
+                                    {t('yachtMgmt.why2Desc')}
                                 </li>
                                 <li>
-                                    <span>Transparent Reporting</span>
-                                    Every client has access to clear financial data — monthly/annual reports and forecasts.
+                                    <span>{t('yachtMgmt.why3Title')}</span>
+                                    {t('yachtMgmt.why3Desc')}
                                 </li>
                                 <li>
-                                    <span>Verified Crew Members</span>
-                                    We work only with experienced professionals who hold international certifications.
+                                    <span>{t('yachtMgmt.why4Title')}</span>
+                                    {t('yachtMgmt.why4Desc')}
                                 </li>
                             </ul>
                         </div>
@@ -168,8 +155,8 @@ const YachtManagementPage = () => {
             <section className="ym-section">
                 <div className="container">
                     <div className="ym-section-header">
-                        <h2>Immaculate Fleet Standards</h2>
-                        <p>A glimpse into the vessels maintained under our premium management services.</p>
+                        <h2>{t('yachtMgmt.galleryTitle')}</h2>
+                        <p>{t('yachtMgmt.gallerySubtitle')}</p>
                     </div>
                     
                     <div className="ym-gallery-grid">
@@ -189,8 +176,8 @@ const YachtManagementPage = () => {
             <section className="ym-section" style={{ background: 'rgba(255, 255, 255, 0.02)' }}>
                 <div className="container">
                     <div className="ym-section-header">
-                        <h2>Getting Started</h2>
-                        <p>Arranging yacht management services is simple. We will provide a free consultation and help you choose the best service package.</p>
+                        <h2>{t('yachtMgmt.startTitle')}</h2>
+                        <p>{t('yachtMgmt.startSubtitle')}</p>
                     </div>
                 </div>
             </section>
@@ -198,9 +185,9 @@ const YachtManagementPage = () => {
             {/* CTA Section */}
             <section className="ym-cta-section">
                 <div className="container ym-cta-content">
-                    <h2>Ready to elevate your yachting experience?</h2>
-                    <p>Contact us today to discuss the management of your yacht in Cyprus and Worldwide. The Diamantides Yachting team is always here to make your yachting experience comfortable, secure, and financially rewarding.</p>
-                    <Link to="/contact" className="ym-cta-button">Contact Our Experts</Link>
+                    <h2>{t('yachtMgmt.ctaTitle')}</h2>
+                    <p>{t('yachtMgmt.ctaDesc')}</p>
+                    <Link to={localizePath('/contact')} className="ym-cta-button">{t('yachtMgmt.ctaBtn')}</Link>
                 </div>
             </section>
 

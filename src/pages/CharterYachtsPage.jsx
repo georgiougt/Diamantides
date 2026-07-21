@@ -7,6 +7,7 @@ import 'react-phone-input-2/lib/style.css';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../config/emailConfig';
 import { yachts } from '../data/yachts';
+import { getYachtPath } from '../utils/navigation';
 import '../styles/CharterYachts.css';
 
 const CharterYachtsPage = () => {
@@ -35,6 +36,9 @@ const CharterYachtsPage = () => {
         setSendSuccess(false);
 
         const templateParams = {
+            yacht_name: '',
+            yacht_type: '',
+            to_email: 'charter@diamantidesyachting.com',
             from_name: formData.name,
             from_email: formData.email,
             phone: formData.phone,
@@ -47,7 +51,7 @@ const CharterYachtsPage = () => {
                 EMAILJS_CONFIG.SERVICE_ID,
                 EMAILJS_CONFIG.TEMPLATE_ID,
                 templateParams,
-                EMAILJS_CONFIG.PUBLIC_KEY
+                { publicKey: EMAILJS_CONFIG.PUBLIC_KEY }
             );
             setSendSuccess(true);
             setFormData({ name: '', email: '', phone: '', message: '' });
@@ -98,7 +102,7 @@ const CharterYachtsPage = () => {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                         >
-                            <Link to={`/yacht/${yacht.id}`} className="charter-card-link">
+                            <Link to={getYachtPath(yacht)} className="charter-card-link">
                                 <div className="charter-img-wrapper">
                                     <img src={yacht.image || yacht.gallery?.[0]} alt={yacht.name} />
                                 </div>

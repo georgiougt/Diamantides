@@ -1,23 +1,25 @@
 import { motion } from 'framer-motion';
 import { Star, Shield, Heart, Map } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import '../styles/WhyCharter.css';
 
 const WhyCharter = () => {
+    const { t } = useLanguage();
     const benefits = [
         {
             icon: <Shield size={32} />,
-            title: 'Safety First',
-            description: 'Your safety is our priority. All our vessels are maintained to the highest standards and operated by certified crew.'
+            title: t('whyCharter.benefit1Title'),
+            description: t('whyCharter.benefit1Desc')
         },
         {
             icon: <Heart size={32} />,
-            title: 'Personalized Service',
-            description: 'We tailor every aspect of your journey to your preferences, ensuring a truly bespoke experience.'
+            title: t('whyCharter.benefit2Title'),
+            description: t('whyCharter.benefit2Desc')
         },
         {
             icon: <Map size={32} />,
-            title: 'Exclusive Routes',
-            description: 'Access hidden gems and secluded bays around Cyprus that only the locals know about.'
+            title: t('whyCharter.benefit3Title'),
+            description: t('whyCharter.benefit3Desc')
         }
     ];
 
@@ -25,8 +27,8 @@ const WhyCharter = () => {
         <section className="why-charter-section">
             <div className="container">
                 <div className="section-header text-center">
-                    <h2 className="section-title">Why Choose Diamantides</h2>
-                    <p className="section-subtitle">More than just a boat rental, we offer an unforgettable lifestyle experience.</p>
+                    <h2 className="section-title">{t('whyCharter.title')}</h2>
+                    <p className="section-subtitle">{t('whyCharter.subtitle')}</p>
                 </div>
 
                 <div className="benefits-grid">
@@ -52,9 +54,9 @@ const WhyCharter = () => {
                             {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#d4af37" color="#d4af37" />)}
                         </div>
                         <p className="testimonial-text">
-                            "An absolutely magical experience. The crew was professional, the yacht was stunning, and the sunset cruise was the highlight of our vacation in Cyprus."
+                            {t('whyCharter.testimonialText')}
                         </p>
-                        <p className="testimonial-author">- Elena & Marc, Switzerland</p>
+                        <p className="testimonial-author">{t('whyCharter.testimonialAuthor')}</p>
                     </div>
                 </div>
             </div>

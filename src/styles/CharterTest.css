@@ -502,3 +502,402 @@
         display: none;
     }
 }
+
+/* Breadcrumbs Styling */
+.breadcrumb-nav {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 25px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.breadcrumb-nav a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.3s var(--transition-fluid);
+}
+
+.breadcrumb-nav a:hover {
+    color: var(--liquid-gold);
+}
+
+.breadcrumb-separator {
+    margin: 0 10px;
+    color: rgba(212, 175, 55, 0.3);
+}
+
+.breadcrumb-active {
+    color: var(--liquid-gold);
+}
+
+/* Charter H1 SEO Styling */
+.charter-h1-seo {
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    color: var(--liquid-gold);
+    letter-spacing: 0.15em;
+    margin-top: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* Intro Section */
+.charter-intro-section {
+    max-width: 900px;
+    margin: -40px auto 80px 0;
+}
+
+.charter-intro-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+}
+
+.charter-intro-text strong {
+    color: var(--liquid-gold);
+    font-weight: 500;
+}
+
+/* Content Details Section */
+.charter-details-content {
+    margin-top: 150px;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    padding-top: 100px;
+}
+
+/* Info Grid (Included/Excluded) */
+.charter-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    margin-bottom: 100px;
+}
+
+.charter-info-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    padding: 40px;
+    position: relative;
+    transition: transform 0.4s var(--transition-fluid), border-color 0.4s var(--transition-fluid);
+}
+
+.charter-info-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.section-subtitle-mono {
+    font-family: 'Space Mono', monospace;
+    color: var(--liquid-gold);
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding-bottom: 15px;
+}
+
+.details-bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.details-bullet-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 300;
+}
+
+.details-bullet-list li::before {
+    content: '•';
+    color: var(--liquid-gold);
+    font-size: 1.2rem;
+}
+
+/* Routes Section */
+.charter-routes-section {
+    margin-bottom: 100px;
+}
+
+.section-title-cinzel {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    background: linear-gradient(to bottom, var(--highlight-gold), var(--muted-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+.section-intro-text {
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 50px;
+    max-width: 800px;
+}
+
+.routes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.route-card {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    position: relative;
+    transition: all 0.4s var(--transition-fluid);
+}
+
+.route-card:hover {
+    background: rgba(212, 175, 55, 0.02);
+    border-color: var(--liquid-gold);
+    transform: translateY(-5px);
+}
+
+.route-duration-badge {
+    font-family: 'Space Mono', monospace;
+    color: var(--liquid-gold);
+    font-size: 0.7rem;
+    border: 1px solid var(--liquid-gold);
+    padding: 4px 10px;
+    display: inline-block;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+.route-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.route-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
+}
+
+/* Pricing Section */
+.charter-pricing-section {
+    margin-bottom: 100px;
+}
+
+.pricing-grid-seo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.pricing-seo-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    text-align: center;
+    transition: all 0.4s var(--transition-fluid);
+}
+
+.pricing-seo-card:hover {
+    border-color: var(--liquid-gold);
+    background: rgba(212, 175, 55, 0.03);
+    transform: translateY(-5px);
+}
+
+.vessel-class-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.pricing-start-at {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--liquid-gold);
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+}
+
+.pricing-start-at b {
+    font-size: 1.8rem;
+    color: white;
+    margin: 0 4px;
+}
+
+.pricing-class-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 300;
+}
+
+/* FAQ Section */
+.charter-faq-section {
+    margin-bottom: 100px;
+    max-width: 900px;
+}
+
+.faq-accordion-seo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item-seo {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.faq-question-seo {
+    width: 100%;
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    padding: 20px 0;
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.faq-question-seo:hover {
+    color: var(--liquid-gold);
+}
+
+.faq-toggle-icon {
+    font-family: 'Space Mono', monospace;
+    color: var(--liquid-gold);
+    font-size: 1.2rem;
+}
+
+.faq-answer-seo {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--transition-fluid), padding 0.4s var(--transition-fluid);
+}
+
+.faq-answer-seo.open {
+    max-height: 500px;
+    padding-bottom: 25px;
+}
+
+.faq-answer-seo p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+}
+
+/* Crosslinks Section */
+.charter-crosslinks-section {
+    margin-bottom: 50px;
+}
+
+.crosslinks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.crosslink-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    padding: 35px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s var(--transition-fluid);
+}
+
+.crosslink-card:hover {
+    border-color: var(--liquid-gold);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.05);
+}
+
+.crosslink-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.crosslink-card:hover .crosslink-title {
+    color: var(--liquid-gold);
+}
+
+.crosslink-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 25px;
+    font-weight: 300;
+    flex-grow: 1;
+}
+
+.crosslink-cta {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--liquid-gold);
+    letter-spacing: 0.1em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .charter-intro-section {
+        margin: -20px 0 60px 0;
+    }
+    
+    .charter-info-grid,
+    .routes-grid,
+    .pricing-grid-seo,
+    .crosslinks-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .charter-details-content {
+        margin-top: 100px;
+        padding-top: 60px;
+    }
+    
+    .section-title-cinzel {
+        font-size: 1.7rem;
+    }
+    
+    .charter-info-card,
+    .pricing-seo-card,
+    .crosslink-card {
+        padding: 30px;
+    }
+}

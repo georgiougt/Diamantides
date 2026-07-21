@@ -3,10 +3,17 @@ import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getAssetPath } from '../utils/navigation';
+
 
 const PostcardCarousel = ({ images, title, subtitle, link, isExternal }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const handleNext = useCallback((e) => {
         if (e) e.stopPropagation();
@@ -53,7 +60,7 @@ const PostcardCarousel = ({ images, title, subtitle, link, isExternal }) => {
     }, [images.length, isLightboxOpen]);
 
     const activeImage = images[currentIndex];
-    const imageUrl = typeof activeImage === 'string' ? activeImage : activeImage.url;
+    const imageUrl = getAssetPath(typeof activeImage === 'string' ? activeImage : activeImage.url);
     const imageTitle = typeof activeImage === 'string' ? '' : activeImage.title;
 
     const content = (
@@ -178,7 +185,7 @@ const PostcardCarousel = ({ images, title, subtitle, link, isExternal }) => {
     return (
         <div className="postcard">
             {content}
-            {createPortal(lightbox, document.body)}
+            {mounted && createPortal(lightbox, document.body)}
         </div>
     );
 };

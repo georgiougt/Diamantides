@@ -1,15 +1,11 @@
-import { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { updateSEO } from './utils/seo';
+import React, { useState, useEffect, Suspense } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useLanguage } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import RollingBanner from './components/RollingBanner';
 import Hero from './components/Hero';
-import AboutPage from './pages/AboutPage';
-import ServicesPage from './pages/ServicesPage';
-import FleetPage from './pages/FleetPage';
-import ContactPage from './pages/ContactPage';
 
-import VIPCharterPage from './pages/VIPCharterPage';
-import SalesYachtsPage from './pages/SalesYachtsPage';
 // Ensure the root-level components remain if used by LandingPage
 import About from './components/About';
 import Services from './components/Services';
@@ -17,21 +13,48 @@ import Fleet from './components/Fleet';
 import WhyCharter from './components/WhyCharter';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import YachtDetail from './components/YachtDetail';
-import TrainingAcademyPage from './pages/TrainingAcademyPage';
 import LoadingScreen from './components/LoadingScreen';
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
-import TermsOfServicePage from './pages/TermsOfServicePage';
-import CharterTestPage from './pages/CharterTestPage';
-import BrandsPage from './pages/BrandsPage';
-import NauticCleanPage from './pages/NauticCleanPage';
-import BoatParkingPage from './pages/BoatParkingPage';
-import RedsharkBikesPage from './pages/RedsharkBikesPage';
-import YachtManagementPage from './pages/YachtManagementPage';
+
+// Lazy load page-level routes to enable client-side code-splitting
+const LazyAboutPage = React.lazy(() => import('./pages/AboutPage'));
+const LazyServicesPage = React.lazy(() => import('./pages/ServicesPage'));
+const LazyFleetPage = React.lazy(() => import('./pages/FleetPage'));
+const LazyContactPage = React.lazy(() => import('./pages/ContactPage'));
+const LazyVIPCharterPage = React.lazy(() => import('./pages/VIPCharterPage'));
+const LazySalesYachtsPage = React.lazy(() => import('./pages/SalesYachtsPage'));
+const LazyYachtDetail = React.lazy(() => import('./components/YachtDetail'));
+const LazyTrainingAcademyPage = React.lazy(() => import('./pages/TrainingAcademyPage'));
+const LazyPrivacyPolicyPage = React.lazy(() => import('./pages/PrivacyPolicyPage'));
+const LazyTermsOfServicePage = React.lazy(() => import('./pages/TermsOfServicePage'));
+const LazyCharterTestPage = React.lazy(() => import('./pages/CharterTestPage'));
+const LazyBrandsPage = React.lazy(() => import('./pages/BrandsPage'));
+const LazyNauticCleanPage = React.lazy(() => import('./pages/NauticCleanPage'));
+const LazyBoatParkingPage = React.lazy(() => import('./pages/BoatParkingPage'));
+const LazyRedsharkBikesPage = React.lazy(() => import('./pages/RedsharkBikesPage'));
+const LazyYachtManagementPage = React.lazy(() => import('./pages/YachtManagementPage'));
+const LazyFAQPage = React.lazy(() => import('./pages/FAQPage'));
+const LazyBlogPage = React.lazy(() => import('./pages/BlogPage'));
+const LazyBlogDetailPage = React.lazy(() => import('./pages/BlogDetailPage'));
+const LazyNotFoundPage = React.lazy(() => import('./pages/NotFoundPage'));
 
 
 // Component for the landing page content
 const LandingPage = () => {
+  const { currentLang } = useLanguage();
+  useEffect(() => {
+    if (currentLang === 'ru') {
+      updateSEO(
+        'Diamantides Yachting | Аренда и Продажа Люксовых Яхт на Кипре',
+        'Непревзойдённая средиземноморская роскошь. Индивидуальная аренда яхт, продажа премиальных яхт, парковка катеров, управление яхтами и обучение судовождению в Лимассоле, Кипр.'
+      );
+    } else {
+      updateSEO(
+        'Diamantides Yachting | Luxury Yacht Charters & Sales Cyprus',
+        'Experience the ultimate in Mediterranean luxury. Bespoke yacht charters, premium yacht sales, boat parking, yacht management, and speedboat training in Limassol, Cyprus.'
+      );
+    }
+    window.scrollTo(0, 0);
+  }, [currentLang]);
   return (
     <main>
       <Hero />
@@ -78,7 +101,43 @@ const ScrollToHash = () => {
     return null;
 };
 
-function App() {
+// Component to track Google Ads Pageviews on Route changes in React Router SPA
+const GoogleAdsTracker = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        if (window.gtag) {
+            window.gtag('config', 'AW-11054121004', {
+                page_path: pathname,
+            });
+        }
+    }, [pathname]);
+
+    return null;
+};
+
+function App({ components = {} }) {
+  const AboutPage = components.AboutPage || LazyAboutPage;
+  const ServicesPage = components.ServicesPage || LazyServicesPage;
+  const BoatParkingPage = components.BoatParkingPage || LazyBoatParkingPage;
+  const YachtManagementPage = components.YachtManagementPage || LazyYachtManagementPage;
+  const FleetPage = components.FleetPage || LazyFleetPage;
+  const CharterTestPage = components.CharterTestPage || LazyCharterTestPage;
+  const SalesYachtsPage = components.SalesYachtsPage || LazySalesYachtsPage;
+  const BrandsPage = components.BrandsPage || LazyBrandsPage;
+  const NauticCleanPage = components.NauticCleanPage || LazyNauticCleanPage;
+  const RedsharkBikesPage = components.RedsharkBikesPage || LazyRedsharkBikesPage;
+  const VIPCharterPage = components.VIPCharterPage || LazyVIPCharterPage;
+  const ContactPage = components.ContactPage || LazyContactPage;
+  const YachtDetail = components.YachtDetail || LazyYachtDetail;
+  const TrainingAcademyPage = components.TrainingAcademyPage || LazyTrainingAcademyPage;
+  const PrivacyPolicyPage = components.PrivacyPolicyPage || LazyPrivacyPolicyPage;
+  const TermsOfServicePage = components.TermsOfServicePage || LazyTermsOfServicePage;
+  const FAQPage = components.FAQPage || LazyFAQPage;
+  const BlogPage = components.BlogPage || LazyBlogPage;
+  const BlogDetailPage = components.BlogDetailPage || LazyBlogDetailPage;
+  const NotFoundPage = components.NotFoundPage || LazyNotFoundPage;
+
   const [isLoading, setIsLoading] = useState(true);
   const [showLoader, setShowLoader] = useState(true);
 
@@ -94,39 +153,52 @@ function App() {
   };
 
   return (
-    <Router>
-      <div className="app-container">
-        {showLoader && (
-          <LoadingScreen isVisible={isLoading} onFinished={handleLoaderFinished} />
-        )}
-        <Navbar />
-        <GlobalRollingBanner />
-        <ScrollToHash />
+    <div className="app-container">
+      <GoogleAdsTracker />
+      {showLoader && (
+        <LoadingScreen isVisible={isLoading} onFinished={handleLoaderFinished} />
+      )}
+      <Navbar />
+      <GlobalRollingBanner />
+      <ScrollToHash />
+      <Suspense fallback={null}>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/services/boat-parking" element={<BoatParkingPage />} />
-          <Route path="/services/yacht-management" element={<YachtManagementPage />} />
-          <Route path="/fleet" element={<FleetPage />} />
-          <Route path="/charter" element={<CharterTestPage />} />
-          <Route path="/sales" element={<SalesYachtsPage />} />
-          <Route path="/sales/used" element={<SalesYachtsPage />} />
-          <Route path="/sales/fleet" element={<SalesYachtsPage />} />
-          <Route path="/sales/brands" element={<BrandsPage />} />
-          <Route path="/sales/nautic-clean" element={<NauticCleanPage />} />
-          <Route path="/sales/redshark-bikes" element={<RedsharkBikesPage />} />
-          <Route path="/members-only" element={<VIPCharterPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/yacht/:id" element={<YachtDetail />} />
-          <Route path="/training-academy" element={<TrainingAcademyPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+          {['', '/ru'].map(prefix => (
+            <React.Fragment key={prefix}>
+              <Route path={prefix || "/"} element={<LandingPage />} />
+              <Route path={`${prefix}/about`} element={<AboutPage />} />
+              <Route path={`${prefix}/services`} element={<ServicesPage />} />
+              <Route path={`${prefix}/services/boat-parking`} element={<BoatParkingPage />} />
+              <Route path={`${prefix}/services/yacht-management`} element={<YachtManagementPage />} />
+              <Route path={`${prefix}/fleet`} element={<FleetPage />} />
+              <Route path={`${prefix}/charter`} element={<CharterTestPage />} />
+              <Route path={`${prefix}/charter-yacht/limassol`} element={<CharterTestPage />} />
+              <Route path={`${prefix}/sales`} element={<SalesYachtsPage />} />
+              <Route path={`${prefix}/sales/used`} element={<SalesYachtsPage />} />
+              <Route path={`${prefix}/sales/fleet`} element={<SalesYachtsPage />} />
+              <Route path={`${prefix}/sales/brands`} element={<BrandsPage />} />
+              <Route path={`${prefix}/sales/nautic-clean`} element={<NauticCleanPage />} />
+              <Route path={`${prefix}/sales/redshark-bikes`} element={<RedsharkBikesPage />} />
+              <Route path={`${prefix}/members-only`} element={<VIPCharterPage />} />
+              <Route path={`${prefix}/contact`} element={<ContactPage />} />
+              <Route path={`${prefix}/charter-yacht/limassol/yacht/:slug`} element={<YachtDetail />} />
+              <Route path={`${prefix}/sales/fleet/yacht/:slug`} element={<YachtDetail />} />
+              <Route path={`${prefix}/sales/fleet/boat/:slug`} element={<YachtDetail />} />
+              <Route path={`${prefix}/yacht/:id`} element={<YachtDetail />} />
+              <Route path={`${prefix}/training-academy`} element={<TrainingAcademyPage />} />
+              <Route path={`${prefix}/privacy-policy`} element={<PrivacyPolicyPage />} />
+              <Route path={`${prefix}/terms-of-service`} element={<TermsOfServicePage />} />
+              <Route path={`${prefix}/faq`} element={<FAQPage />} />
+              <Route path={`${prefix}/blog`} element={<BlogPage />} />
+              <Route path={`${prefix}/blog/:slug`} element={<BlogDetailPage />} />
+            </React.Fragment>
+          ))}
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        <Footer />
-      </div>
-    </Router>
+      </Suspense>
+      <Footer />
+    </div>
   )
 }
 
-export default App
+export default App;

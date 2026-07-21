@@ -6,9 +6,13 @@ import 'react-phone-input-2/lib/style.css';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../config/emailConfig';
 import { yachts } from '../data/yachts';
+import { updateSEO } from '../utils/seo';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import '../styles/CharterTest.css';
 
 const CharterTestPage = () => {
+    const { currentLang, localizePath } = useLanguage();
+    const isRu = currentLang === 'ru';
     const topoRef = useRef(null);
     const charterYachts = yachts
         .filter(y => y.category === 'charter' || !y.category)
@@ -64,6 +68,12 @@ const CharterTestPage = () => {
     };
 
     useEffect(() => {
+        if (isRu) {
+            updateSEO('Аренда роскошных яхт в Лимассоле | Diamantides Yachting', 'Забронируйте частную аренду люкс яхты на Кипре. Индивидуальный маршрут, кейтеринг, профессиональный экипаж.');
+        } else {
+            updateSEO('Luxury Yacht Charter Limassol | Diamantides Yachting', 'Book a bespoke luxury yacht charter in Cyprus. Custom itineraries, gourmet catering, professional crew, and ultimate Mediterranean voyages.');
+        }
+
         const handleMouseMove = (e) => {
             if (topoRef.current) {
                 const x = (e.clientX / window.innerWidth) * 20;
@@ -94,7 +104,7 @@ const CharterTestPage = () => {
             window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [isRu]);
 
     return (
         <div className="charter-test-body">
@@ -106,13 +116,27 @@ const CharterTestPage = () => {
             </svg>
 
             <div className="charter-test-container">
+                <div className="breadcrumb-nav">
+                    <Link to={localizePath('/')}>{isRu ? "ГЛАВНАЯ" : "HOME"}</Link>
+                    <span className="breadcrumb-separator">/</span>
+                    <Link to={localizePath('/fleet')}>{isRu ? "ФЛОТ" : "FLEET"}</Link>
+                    <span className="breadcrumb-separator">/</span>
+                    <span className="breadcrumb-active">{isRu ? "АРЕНДА ЯХТ ЛИМАЙСОЛ" : "YACHT CHARTER LIMASSOL"}</span>
+                </div>
+
                 <header className="charter-test-header">
                     <div>
-                        <span className="inventory-count-mono">COLLECTION // 2026</span>
-                        <h1 className="brand-title-gold">Diamantides</h1>
+                        <span className="inventory-count-mono">{isRu ? "КОЛЛЕКЦИЯ // 2026" : "COLLECTION // 2026"}</span>
+                        <h1 className="brand-title-gold" style={{ margin: 0 }}>Diamantides</h1>
+                        <h2 className="charter-h1-seo" style={{ margin: '15px 0 0 0' }}>
+                            {isRu 
+                                ? "Аренда Яхт Лимассол – Эксклюзивный Флот Diamantides" 
+                                : "Yacht Charter Limassol – Diamantides Premium Fleet"
+                            }
+                        </h2>
                     </div>
                     <div className="header-subtitle-container">
-                        <p className="header-subtitle-text">CURATED MARITIME ASSETS</p>
+                        <p className="header-subtitle-text">{isRu ? "ЭКСКЛЮЗИВНЫЙ ФЛОТ" : "CURATED MARITIME ASSETS"}</p>
                     </div>
                 </header>
 
@@ -120,7 +144,7 @@ const CharterTestPage = () => {
                     {charterYachts.map((yacht, index) => (
                         <Link 
                             key={yacht.id} 
-                            to={`/yacht/${yacht.id}`}
+                            to={localizePath(`/yacht/${yacht.id}`)}
                             className="vessel-card-test"
                             style={{ animationDelay: `${0.1 + (index % 3) * 0.2}s` }}
                         >
@@ -135,33 +159,33 @@ const CharterTestPage = () => {
                             </div>
                             <div className="vessel-info-test">
                                 <div className="vessel-meta-mono">
-                                    {yacht.specs?.builder || 'Luxury Charter'} // {yacht.type}
+                                    {yacht.specs?.builder || (isRu ? 'Люкс Чартер' : 'Luxury Charter')} // {yacht.type}
                                 </div>
                                 <h2 className="vessel-name-cinzel">{yacht.name}</h2>
                                 {(() => {
                                     let prices = [];
                                     if (yacht.detailedPricing) {
-                                        if (yacht.detailedPricing.twoHours) prices.push({ label: '2 Hours', value: yacht.detailedPricing.twoHours });
-                                        if (yacht.detailedPricing.threeHours) prices.push({ label: '3 Hours', value: yacht.detailedPricing.threeHours });
-                                        if (yacht.detailedPricing.fourHours) prices.push({ label: '4 Hours', value: yacht.detailedPricing.fourHours });
-                                        if (yacht.detailedPricing.halfDay) prices.push({ label: 'Half Day', value: yacht.detailedPricing.halfDay });
-                                        if (yacht.detailedPricing.fullDay) prices.push({ label: 'Full Day', value: yacht.detailedPricing.fullDay });
-                                        if (yacht.detailedPricing.overnight) prices.push({ label: 'Overnight', value: yacht.detailedPricing.overnight });
-                                        if (yacht.detailedPricing.weekly) prices.push({ label: 'Weekly', value: yacht.detailedPricing.weekly });
+                                        if (yacht.detailedPricing.twoHours) prices.push({ label: isRu ? '2 часа' : '2 Hours', value: yacht.detailedPricing.twoHours });
+                                        if (yacht.detailedPricing.threeHours) prices.push({ label: isRu ? '3 часа' : '3 Hours', value: yacht.detailedPricing.threeHours });
+                                        if (yacht.detailedPricing.fourHours) prices.push({ label: isRu ? '4 часа' : '4 Hours', value: yacht.detailedPricing.fourHours });
+                                        if (yacht.detailedPricing.halfDay) prices.push({ label: isRu ? 'Полдня' : 'Half Day', value: yacht.detailedPricing.halfDay });
+                                        if (yacht.detailedPricing.fullDay) prices.push({ label: isRu ? 'Весь день' : 'Full Day', value: yacht.detailedPricing.fullDay });
+                                        if (yacht.detailedPricing.overnight) prices.push({ label: isRu ? 'Сутки' : 'Overnight', value: yacht.detailedPricing.overnight });
+                                        if (yacht.detailedPricing.weekly) prices.push({ label: isRu ? 'Неделя' : 'Weekly', value: yacht.detailedPricing.weekly });
                                     } else if (yacht.price) {
                                         const basePrice = parseInt(yacht.price.replace(/[^\d]/g, '')) || 0;
                                         if (basePrice === 0 || yacht.price.toLowerCase().includes('request')) {
-                                            prices.push({ label: 'Rate', value: yacht.price });
+                                            prices.push({ label: isRu ? 'Тариф' : 'Rate', value: isRu ? 'По запросу' : yacht.price });
                                         } else {
-                                            prices.push({ label: 'Half Day', value: `€${(basePrice * 0.9).toLocaleString()}` });
-                                            prices.push({ label: 'Full Day', value: yacht.price.includes('€') ? yacht.price.split(' ')[0] : `€${basePrice.toLocaleString()}` });
-                                            prices.push({ label: 'Overnight', value: `€${(basePrice * 1.2).toLocaleString()}` });
+                                            prices.push({ label: isRu ? 'Полдня' : 'Half Day', value: `€${(basePrice * 0.9).toLocaleString()}` });
+                                            prices.push({ label: isRu ? 'Весь день' : 'Full Day', value: yacht.price.includes('€') ? yacht.price.split(' ')[0] : `€${basePrice.toLocaleString()}` });
+                                            prices.push({ label: isRu ? 'Сутки' : 'Overnight', value: `€${(basePrice * 1.2).toLocaleString()}` });
                                         }
                                     }
 
                                     return (
                                         <div className="vessel-specs-test">
-                                            <div className="spec-item-test"><b>{yacht.length}</b>Length</div>
+                                            <div className="spec-item-test"><b>{yacht.length}</b>{isRu ? 'Длина' : 'Length'}</div>
                                             {prices.map((p, i) => (
                                                 <div key={i} className="spec-item-test"><b>{p.value}</b>{p.label}</div>
                                             ))}
@@ -176,8 +200,13 @@ const CharterTestPage = () => {
                 <section className="charter-cta-premium">
                     <div className="cta-premium-content">
                         <Anchor className="cta-premium-icon" size={32} />
-                        <h2 className="premium-form-title">CURATE YOUR NEXT VOYAGE</h2>
-                        <p className="premium-form-subtitle">Consult with our maritime experts for bespoke itineraries across the Mediterranean.</p>
+                        <h2 className="premium-form-title">{isRu ? "ПЛАНИРУЙТЕ СЛЕДУЮЩЕЕ ПУТЕШЕСТВИЕ" : "CURATE YOUR NEXT VOYAGE"}</h2>
+                        <p className="premium-form-subtitle">
+                            {isRu 
+                                ? "Проконсультируйтесь с нашими экспертами для создания индивидуального маршрута по Средиземному морю."
+                                : "Consult with our maritime experts for bespoke itineraries across the Mediterranean."
+                            }
+                        </p>
 
                         <form className="charter-premium-form" onSubmit={handleSubmit}>
                             <div className="premium-form-row">
@@ -186,7 +215,7 @@ const CharterTestPage = () => {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    placeholder="Your Name"
+                                    placeholder={isRu ? "Ваше Имя" : "Your Name"}
                                     required
                                 />
                                 <input
@@ -194,7 +223,7 @@ const CharterTestPage = () => {
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    placeholder="Email Address"
+                                    placeholder={isRu ? "Электронная почта" : "Email Address"}
                                     required
                                 />
                             </div>
@@ -204,7 +233,7 @@ const CharterTestPage = () => {
                                     value={formData.phone}
                                     onChange={(phone) => setFormData({ ...formData, phone })}
                                     enableSearch={true}
-                                    placeholder="Phone Number"
+                                    placeholder={isRu ? "Номер телефона" : "Phone Number"}
                                     containerClass="premium-phone-container"
                                     inputClass="premium-phone-input"
                                 />
@@ -213,16 +242,19 @@ const CharterTestPage = () => {
                                 name="message"
                                 value={formData.message}
                                 onChange={handleChange}
-                                placeholder="Describe your ideal charter experience..."
+                                placeholder={isRu ? "Опишите ваше идеальное путешествие..." : "Describe your ideal charter experience..."}
                                 rows="4"
                                 required
                             ></textarea>
                             <button type="submit" className="btn-premium-send" disabled={sending}>
-                                {sending ? 'SENDING...' : 'DISPATCH INQUIRY'} <Send size={16} />
+                                {sending 
+                                    ? (isRu ? 'ОТПРАВКА...' : 'SENDING...') 
+                                    : (isRu ? 'ОТПРАВИТЬ ЗАПРОС' : 'DISPATCH INQUIRY')
+                                } <Send size={16} />
                             </button>
                             {sendSuccess && (
                                 <div className="premium-feedback success">
-                                    <CheckCircle size={16} /> Our specialists will contact you shortly.
+                                    <CheckCircle size={16} /> {isRu ? "Наши специалисты свяжутся с вами в ближайшее время." : "Our specialists will contact you shortly."}
                                 </div>
                             )}
                             {sendError && (
@@ -234,13 +266,13 @@ const CharterTestPage = () => {
 
                         <div className="premium-contact-footer">
                             <div className="direct-links">
-                                <a href="tel:+35725010561" className="premium-link-item">CALL DIRECTLY</a>
+                                <a href="tel:+35725010561" className="premium-link-item">{isRu ? "ПОЗВОНИТЬ" : "CALL DIRECTLY"}</a>
                                 <span className="premium-divider"></span>
-                                <a href="mailto:charter@diamantidesyachting.com" className="premium-link-item">EMAIL SPECIALIST</a>
+                                <a href="mailto:charter@diamantidesyachting.com" className="premium-link-item">{isRu ? "НАПИСАТЬ" : "EMAIL SPECIALIST"}</a>
                             </div>
                             <a href="https://wa.me/35796340400" target="_blank" rel="noopener noreferrer" className="premium-whatsapp">
                                 <MessageCircle size={16} />
-                                <span>WHATSAPP // +357 96 340 400</span>
+                                <span>{isRu ? "WHATSAPP // +357 96 340 400" : "WHATSAPP // +357 96 340 400"}</span>
                             </a>
                         </div>
                     </div>

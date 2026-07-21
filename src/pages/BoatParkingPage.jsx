@@ -1,26 +1,89 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, MapPin, UserCheck, Clock, CheckCircle, ArrowRight, Anchor, Camera, Warehouse } from 'lucide-react';
+import { Shield, MapPin, UserCheck, Clock, CheckCircle, ArrowRight, Anchor, Camera, Warehouse, AlertCircle } from 'lucide-react';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailConfig';
+import { updateSEO } from '../utils/seo';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import '../styles/BoatParking.css';
 import inclusiveCareImg from '../assets/services/parking_care_hd.webp';
 import hangarImg from '../assets/services/parking_hangar_exact.webp';
 import monitoringImg from '../assets/services/parking_monitoring_exact.webp';
 
 const BoatParkingPage = () => {
+    const { t, currentLang } = useLanguage();
+
     useEffect(() => {
+        if (currentLang === 'ru') {
+            updateSEO('Парковка и Хранение Катеров Лимассол | Diamantides Yachting', 'Крытое хранение катеров, профессиональная стоянка яхт, круглосуточная охрана и видеонаблюдение, комплексное обслуживание в Лимассоле, Кипр.');
+        } else {
+            updateSEO('Premium Boat Parking & Storage Limassol | Diamantides Yachting', 'Secure covered hangar boat storage, professional yacht mooring, 24/7 CCTV security, and all-inclusive maintenance services in Limassol, Cyprus.');
+        }
         window.scrollTo(0, 0);
-    }, []);
+    }, [currentLang]);
+
+    const [formData, setFormData] = useState({
+        name: '',
+        vessel: '',
+        email: '',
+        phone: '',
+        message: ''
+    });
+
+    const [sending, setSending] = useState(false);
+    const [sendError, setSendError] = useState(null);
+    const [sendSuccess, setSendSuccess] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setSending(true);
+        setSendError(null);
+        setSendSuccess(false);
+
+        const templateParams = {
+            yacht_name: '',
+            yacht_type: '',
+            to_email: 'administration@diamantidesyachting.com',
+            from_name: formData.name,
+            from_email: formData.email,
+            phone: formData.phone,
+            message: `Vessel Type & Dimensions: ${formData.vessel}\n\nRequirements: ${formData.message}`,
+            category: 'Boat Parking Request'
+        };
+
+        try {
+            await emailjs.send(
+                EMAILJS_CONFIG.SERVICE_ID,
+                EMAILJS_CONFIG.TEMPLATE_ID,
+                templateParams,
+                { publicKey: EMAILJS_CONFIG.PUBLIC_KEY }
+            );
+            setSendSuccess(true);
+            setFormData({ name: '', vessel: '', email: '', phone: '', message: '' });
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            setSendError(t('boatParking.errorMsg'));
+        } finally {
+            setSending(false);
+        }
+    };
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
     const services = [
         {
-            title: "Covered Hangars",
-            description: "Maximum protection from UV rays, salt, and temperature fluctuations. Ideal for long-term preservation of your vessel's exterior and interior.",
+            title: t('boatParking.coveredTitle'),
+            description: t('boatParking.coveredDesc'),
             icon: <Warehouse size={32} />,
             image: hangarImg
         },
         {
-            title: "Maintenance & Monitoring",
-            description: "Regular technical inspections, hull washing, battery charging, and engine maintenance during the storage period.",
+            title: t('boatParking.maintenanceTitle'),
+            description: t('boatParking.maintenanceDesc'),
             icon: <Clock size={32} />,
             image: monitoringImg
         }
@@ -28,23 +91,24 @@ const BoatParkingPage = () => {
 
     const benefits = [
         {
-            title: "Secured Facility",
-            text: "24/7 physical security and high-definition video surveillance for total peace of mind.",
+            title: t('boatParking.securedTitle'),
+            text: t('boatParking.securedText'),
             icon: <Shield className="benefit-icon" />
         },
         {
-            title: "Personal Manager",
-            text: "A dedicated manager assigned to oversee your vessel's storage and maintenance routine.",
+            title: t('boatParking.managerTitle'),
+            text: t('boatParking.managerText'),
             icon: <UserCheck className="benefit-icon" />
         },
         {
-            title: "Prime Location",
-            text: "Strategically located near Cyprus's major marinas for quick launching and easy access.",
+            title: t('boatParking.locationTitle'),
+            text: t('boatParking.locationText'),
             icon: <MapPin className="benefit-icon" />
         }
     ];
 
-    const includedServices = [
+    const careItems = t('boatParking.careItems');
+    const includedServices = Array.isArray(careItems) ? careItems : [
         "Specialized lifting & placement equipment",
         "Hull & bottom deformation protection",
         "Continuous condition monitoring",
@@ -65,23 +129,17 @@ const BoatParkingPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1>
-                            Boat Parking
-                        </h1>
-                        <p className="hero-subtitle">
-                            Protect your investment with professional mooring and maintenance services
-                            designed for the elite yachting community of Cyprus.
-                        </p>
+                        <h1>{t('boatParking.heroTitle')}</h1>
+                        <p className="hero-subtitle">{t('boatParking.heroSubtitle')}</p>
                     </motion.div>
                 </div>
             </section>
-
 
             {/* Why Choose Us Section */}
             <section className="bp-benefits">
                 <div className="container">
                     <div className="section-header">
-                        <h2>Why Boat Owners Trust <br />Diamantides Yachting</h2>
+                        <h2>{t('boatParking.whyTitle')} <br />{t('boatParking.whyTitleBr')}</h2>
                         <div className="title-underline"></div>
                     </div>
                     <div className="benefits-grid">
@@ -109,8 +167,8 @@ const BoatParkingPage = () => {
             <section className="bp-services">
                 <div className="container">
                     <div className="section-header text-center">
-                        <h2>Professional Storage Options</h2>
-                        <p>Flexible terms including daily, monthly, and seasonal packages.</p>
+                        <h2>{t('boatParking.storageTitle')}</h2>
+                        <p>{t('boatParking.storageSubtitle')}</p>
                     </div>
                     <div className="services-detailed-grid">
                         {services.map((service, index) => (
@@ -130,8 +188,8 @@ const BoatParkingPage = () => {
                                     <h3>{service.title}</h3>
                                     <p>{service.description}</p>
                                     <ul className="include-list">
-                                        <li><CheckCircle size={16} /> Fully Insured Facility</li>
-                                        <li><CheckCircle size={16} /> Technical Support Available</li>
+                                        <li><CheckCircle size={16} /> {t('boatParking.fullyInsured')}</li>
+                                        <li><CheckCircle size={16} /> {t('boatParking.techSupport')}</li>
                                     </ul>
                                 </div>
                             </motion.div>
@@ -145,8 +203,8 @@ const BoatParkingPage = () => {
                 <div className="container">
                     <div className="included-inner glass-morphism">
                         <div className="included-text">
-                            <h2>All-Inclusive Care</h2>
-                            <p>Our commitment to your vessel's longevity goes beyond just parking. Opt for our comprehensive care packages.</p>
+                            <h2>{t('boatParking.careTitle')}</h2>
+                            <p>{t('boatParking.careDesc')}</p>
                             <div className="included-grid">
                                 {includedServices.map((item, index) => (
                                     <div key={index} className="included-item">
@@ -160,7 +218,7 @@ const BoatParkingPage = () => {
                             <img src={inclusiveCareImg} alt="Boat Maintenance" />
                             <div className="visual-badge">
                                 <Anchor size={30} />
-                                <span>Expert Care</span>
+                                <span>{t('boatParking.expertCare')}</span>
                             </div>
                         </div>
                     </div>
@@ -172,46 +230,90 @@ const BoatParkingPage = () => {
                 <div className="container">
                     <div className="booking-wrapper">
                         <div className="booking-info">
-                            <h2>Ready to Book?</h2>
-                            <p>Contact us today for a personalized quote based on your vessel's dimensions and specific requirements.</p>
+                            <h2>{t('boatParking.bookTitle')}</h2>
+                            <p>{t('boatParking.bookDesc')}</p>
                             <div className="contact-quick">
                                 <div className="quick-item">
                                     <Clock size={24} />
-                                    <span>24/7 Customer Access</span>
+                                    <span>{t('boatParking.access247')}</span>
                                 </div>
                                 <div className="quick-item">
                                     <Camera size={24} />
-                                    <span>24/7 Monitoring</span>
+                                    <span>{t('boatParking.monitoring247')}</span>
                                 </div>
                             </div>
                         </div>
                         <div className="booking-form-box glass-morphism">
-                            <form className="bp-form">
+                            <form className="bp-form" onSubmit={handleSubmit}>
                                 <div className="form-group">
-                                    <label>Full Name</label>
-                                    <input type="text" placeholder="John Doe" required />
+                                    <label>{t('boatParking.labelName')}</label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        placeholder={t('boatParking.placeholderName')}
+                                        required
+                                    />
                                 </div>
                                 <div className="form-group">
-                                    <label>Vessel Type & Dimensions</label>
-                                    <input type="text" placeholder="e.g. Motorboat / 15m" required />
+                                    <label>{t('boatParking.labelVessel')}</label>
+                                    <input
+                                        type="text"
+                                        name="vessel"
+                                        value={formData.vessel}
+                                        onChange={handleChange}
+                                        placeholder={t('boatParking.placeholderVessel')}
+                                        required
+                                    />
                                 </div>
                                 <div className="form-row">
                                     <div className="form-group">
-                                        <label>Email Address</label>
-                                        <input type="email" placeholder="john@example.com" required />
+                                        <label>{t('boatParking.labelEmail')}</label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            placeholder={t('boatParking.placeholderEmail')}
+                                            required
+                                        />
                                     </div>
                                     <div className="form-group">
-                                        <label>Phone Number</label>
-                                        <input type="tel" placeholder="+357 00 000 000" required />
+                                        <label>{t('boatParking.labelPhone')}</label>
+                                        <PhoneInput
+                                            country={'cy'}
+                                            value={formData.phone}
+                                            onChange={(phone) => setFormData({ ...formData, phone })}
+                                            enableSearch={true}
+                                            placeholder={t('boatParking.placeholderPhone')}
+                                            containerClass="custom-phone-input"
+                                        />
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <label>Duration & Requirements</label>
-                                    <textarea rows="4" placeholder="How long do you need storage for? (Daily/Seasonal)"></textarea>
+                                    <label>{t('boatParking.labelDuration')}</label>
+                                    <textarea
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        rows="4"
+                                        placeholder={t('boatParking.placeholderDuration')}
+                                    ></textarea>
                                 </div>
-                                <button type="submit" className="submit-btn highlight-btn">
-                                    Request Personalized Quote <ArrowRight size={18} />
+                                <button type="submit" className="submit-btn highlight-btn" disabled={sending}>
+                                    {sending ? t('boatParking.sendingBtn') : t('boatParking.submitBtn')} <ArrowRight size={18} />
                                 </button>
+                                {sendSuccess && (
+                                    <div className="form-feedback success" style={{ marginTop: '1rem', color: '#E0B253', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <CheckCircle size={16} /> {t('boatParking.successMsg')}
+                                    </div>
+                                )}
+                                {sendError && (
+                                    <div className="form-feedback error" style={{ marginTop: '1rem', color: '#ff4444', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <AlertCircle size={16} /> {sendError}
+                                    </div>
+                                )}
                             </form>
                         </div>
                     </div>

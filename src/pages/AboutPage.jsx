@@ -1,14 +1,24 @@
+import { updateSEO } from '../utils/seo';
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Target, TrendingUp, Users, Heart } from 'lucide-react';
+import { Shield, Target, TrendingUp, Users, Handshake } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import '../styles/About.css';
 
 const AboutPage = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+    const { currentLang } = useLanguage();
+    const isRu = currentLang === 'ru';
 
-    const milestones = [
+    useEffect(() => {
+        if (isRu) {
+            updateSEO('О нас | Diamantides Yachting', 'Узнайте о ведущей яхтенной компании на Кипре. Наше стремление к совершенству, флот люксовых яхт и персонализированные морские услуги в Лимассоле.');
+        } else {
+            updateSEO('About Us | Diamantides Yachting', 'Learn about the premier yachting company in Cyprus. Discover our commitment to excellence, luxury yachts fleet, and bespoke marine services in Limassol.');
+        }
+        window.scrollTo(0, 0);
+    }, [isRu]);
+
+    const milestones_en = [
         {
             year: "2002",
             title: "Pioneering Services",
@@ -39,7 +49,6 @@ const AboutPage = () => {
             title: "Malibu & Axis Growth",
             content: "Became authorized resellers of world-leading Malibu and Axis boats, strengthening our market position."
         },
-
         {
             year: "2025",
             title: "Future Horizons",
@@ -52,7 +61,52 @@ const AboutPage = () => {
         }
     ];
 
-    const values = [
+    const milestones_ru = [
+        {
+            year: "2002",
+            title: "Первоклассный сервис",
+            content: "Представили первую комплексную систему обслуживания яхт и катеров с частным сухим доком на Кипре."
+        },
+        {
+            year: "2008",
+            title: "Международный рост",
+            content: "Расширили деятельность на глобальном уровне, принеся стандарты превосходства Diamantides на международные рынки."
+        },
+        {
+            year: "2017",
+            title: "Дилерство Viper RIB",
+            content: "Получили эксклюзивное право дилерства катеров Viper RIB, что стало важной вехой в портфолио наших брендов."
+        },
+        {
+            year: "2018",
+            title: "Партнерство с Nautic Clean",
+            content: "Стали эксклюзивным дилером премиальной линейки Nautic Clean, подняв стандарты ухода за яхтами на новый уровень."
+        },
+        {
+            year: "2020",
+            title: "Расширение в Лимассоле",
+            content: "Успешно расширили присутствие до 3 ключевых офисов в Лимассоле для обеспечения непревзойденного сервиса."
+        },
+        {
+            year: "2021",
+            title: "Дилерство Malibu и Axis",
+            content: "Стали официальным дилером мировых лидеров по производству катеров-буксиров Malibu и Axis."
+        },
+        {
+            year: "2025",
+            title: "Будущие горизонты",
+            content: "Стали официальными дилерами Galeon Yachts, Agilis Jet Tenders и Redshark Bikes. Запустили первую службу люксового водного такси в Лимассоле."
+        },
+        {
+            year: "Сегодня",
+            title: "Мировое присутствие",
+            content: "Поддерживаем постоянное участие во всех крупнейших мировых яхтенных выставках, оставаясь в авангарде индустрии."
+        }
+    ];
+
+    const milestones = isRu ? milestones_ru : milestones_en;
+
+    const values_en = [
         {
             icon: <Shield size={32} />,
             title: "Integrity",
@@ -69,7 +123,7 @@ const AboutPage = () => {
             desc: "Continuously learning and evolving with the yachting industry."
         },
         {
-            icon: <Heart size={32} />,
+            icon: <Handshake size={32} />,
             title: "Respect",
             desc: "Building lasting relationships through mutual respect and support."
         },
@@ -80,12 +134,51 @@ const AboutPage = () => {
         }
     ];
 
-    const stats = [
+    const values_ru = [
+        {
+            icon: <Shield size={32} />,
+            title: "Честность",
+            desc: "Неукоснительное соблюдение моральных принципов и профессиональных стандартов."
+        },
+        {
+            icon: <Target size={32} />,
+            title: "Ответственность",
+            desc: "Мы полностью отвечаем за свои действия и выполняем каждое данное обещание."
+        },
+        {
+            icon: <TrendingUp size={32} />,
+            title: "Развитие",
+            desc: "Постоянное обучение и движение вперед вместе с мировой яхтенной индустрией."
+        },
+        {
+            icon: <Handshake size={32} />,
+            title: "Уважение",
+            desc: "Строим прочные отношения на основе взаимного уважения и всесторонней поддержки."
+        },
+        {
+            icon: <Users size={32} />,
+            title: "Прозрачность",
+            desc: "Обеспечиваем полную открытость и честность в каждом взаимодействии с клиентами."
+        }
+    ];
+
+    const values = isRu ? values_ru : values_en;
+
+    const stats_en = [
         { label: "Years Experience", value: "22+" },
         { label: "Global Markets", value: "6+" },
         { label: "Elite Clients", value: "250+" },
         { label: "Vessel Specialists", value: "15+" }
     ];
+
+    const stats_ru = [
+        { label: "Лет Опыта", value: "22+" },
+        { label: "Мировых Рынков", value: "6+" },
+        { label: "VIP Клиентов", value: "250+" },
+        { label: "Тех. Специалистов", value: "15+" }
+    ];
+
+    const stats = isRu ? stats_ru : stats_en;
 
     return (
         <div className="about-page">
@@ -98,9 +191,11 @@ const AboutPage = () => {
                         transition={{ duration: 0.8 }}
                         className="hero-content"
                     >
-                        <span className="hero-tag">Since 2002</span>
+                        <span className="hero-tag">{isRu ? "С 2002 года" : "Since 2002"}</span>
                         <h1>
-                            <span className="text-highlight">Crafting Unforgettable Journeys at Sea.</span>
+                            <span className="text-highlight">
+                                {isRu ? "Создаем незабываемые путешествия в море." : "Crafting Unforgettable Journeys at Sea."}
+                            </span>
                         </h1>
                     </motion.div>
                 </div>
@@ -122,18 +217,18 @@ const AboutPage = () => {
                             <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=2070&auto=format&fit=crop" alt="Founders Story" />
                         </motion.div>
                         <div className="history-text">
-                            <h2>Our Story</h2>
+                            <h2>{isRu ? "Наша история" : "Our Story"}</h2>
                             <p>
-                                What began as a passionate family endeavor in 2002 has evolved into
-                                one of the Mediterranean's most respected yachting organizations.
-                                Founded by Antonis and Marios Diamantides and later joined by Demetris Diamantides , our company was built
-                                on the belief that luxury seafaring should be a seamless,
-                                personalized experience.
+                                {isRu 
+                                    ? "То, что началось как увлеченное семейное дело в 2002 году, превратилось в одну из самых уважаемых яхтенных организаций в Средиземноморье. Основанная Антонисом и Мариосом Диамантидес, к которым позже присоединился Димитрис Диамантидес, наша компания строилась на вере в то, что роскошные морские путешествия должны быть легкими и персонализированными."
+                                    : "What began as a passionate family endeavor in 2002 has evolved into one of the Mediterranean's most respected yachting organizations. Founded by Antonis and Marios Diamantides and later joined by Demetris Diamantides, our company was built on the belief that luxury seafaring should be a seamless, personalized experience."
+                                }
                             </p>
                             <p>
-                                For over two decades, we have balanced tradition with innovation,
-                                treating every vessel under our care with the same precision and
-                                respect as if it were our own.
+                                {isRu
+                                    ? "Более двух десятилетий мы сочетаем традиции с инновациями, относясь к каждому судну, находящемуся под нашей опекой, с той же точностью и уважением, как если бы оно было нашим собственным."
+                                    : "For over two decades, we have balanced tradition with innovation, treating every vessel under our care with the same precision and respect as if it were our own."
+                                }
                             </p>
 
                             <div className="timeline-section">
@@ -183,8 +278,10 @@ const AboutPage = () => {
             <section className="about-values">
                 <div className="container">
                     <div className="section-header text-center">
-                        <h2>Mission & Core Values</h2>
-                        <p className="subtitle">Driven by Passion, Guided by Principles.</p>
+                        <h2>{isRu ? "Миссия и Ключевые Ценности" : "Mission & Core Values"}</h2>
+                        <p className="subtitle">
+                            {isRu ? "Движимые страстью, ведомые принципами." : "Driven by Passion, Guided by Principles."}
+                        </p>
                     </div>
                     <div className="values-grid">
                         {values.map((v, idx) => (
@@ -209,17 +306,15 @@ const AboutPage = () => {
             <section className="about-partners">
                 <div className="container">
                     <div className="section-header text-center">
-                        <h2>Strategic Partners</h2>
+                        <h2>{isRu ? "Стратегические Партнеры" : "Strategic Partners"}</h2>
                     </div>
                     <div className="partners-logos">
-                        {/* Placeholder logos - would normally use actual brand SVGs */}
                         <div className="partner-item">Malibu/Axis Boats</div>
                         <div className="partner-item">Viper RIBs</div>
                         <div className="partner-item">Galeon Yachts</div>
                         <div className="partner-item">Agilis Jet Tenders</div>
                         <div className="partner-item">Nautic Clean</div>
                         <div className="partner-item">RedShark Bikes</div>
-
                     </div>
                 </div>
             </section>

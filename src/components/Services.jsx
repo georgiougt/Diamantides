@@ -1,36 +1,38 @@
 import { motion } from 'framer-motion';
-import { DollarSign, Wrench, Warehouse, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import '../styles/Services.css';
 
 const Services = () => {
+    const { t, localizePath } = useLanguage();
+
     const services = [
         {
             id: 'sales-brokerage',
-            title: 'Sales & Brokerage',
-            description: 'Expert guidance in buying or selling your vessel, with a wide network of international buyers.',
-            image: '/Diamantides/assets/services/sales-brokerage.png',
+            title: t('nav.sales'),
+            description: t('servicesSection.salesDesc'),
+            image: '/assets/services/sales-brokerage.png',
             link: '/sales'
         },
         {
             id: 'management-maintenance',
-            title: 'Management & Maintenance',
-            description: 'Comprehensive technical support and management services to keep your yacht in pristine condition.',
-            image: '/Diamantides/assets/services/management-maintenance.png',
+            title: t('nav.management'),
+            description: t('servicesSection.mgmtDesc'),
+            image: '/assets/services/management-maintenance.png',
             link: '/services/yacht-management'
         },
         {
             id: 'boat-parking',
-            title: 'Boat Parking',
-            description: 'Secure and convenient storage solutions for your vessel in premium facilities.',
-            image: '/Diamantides/assets/services/parking-hangar.png',
+            title: t('nav.parking'),
+            description: t('servicesSection.parkingDesc'),
+            image: '/assets/services/parking-hangar.png',
             link: '/services/boat-parking'
         },
         {
             id: 'training-academy',
-            title: 'Speed Boat Training',
-            description: 'Certified speedboat operator license training and navigation courses for all skill levels.',
-            image: '/Diamantides/assets/services/training-academy.png',
+            title: t('nav.training'),
+            description: t('servicesSection.trainingDesc'),
+            image: '/assets/services/training-academy.png',
             link: '/training-academy'
         }
     ];
@@ -39,8 +41,8 @@ const Services = () => {
         <section id="services" className="services-section">
             <div className="container">
                 <div className="section-header text-center">
-                    <h2 className="section-title">Our Expertise</h2>
-                    <p className="section-subtitle">Comprehensive solutions for every aspect of yachting life.</p>
+                    <h2 className="section-title">{t('servicesSection.title')}</h2>
+                    <p className="section-subtitle">{t('servicesSection.subtitle')}</p>
                 </div>
 
                 <div className="services-grid">
@@ -60,7 +62,7 @@ const Services = () => {
                             <div className="service-content">
                                 <h3>{service.title}</h3>
                                 <p>{service.description}</p>
-                                <Link to={service.link} className="learn-more">Learn More →</Link>
+                                <Link to={localizePath(service.link)} className="learn-more">{t('common.learnMore')} →</Link>
                             </div>
                         </motion.div>
                     ))}

@@ -9,7 +9,7 @@
 .redshark-page {
     background-color: var(--rs-obsidian);
     min-height: 100vh;
-    padding: 160px 40px 120px 40px;
+    padding: 60px 40px 120px 40px;
     font-family: 'Inter', sans-serif;
     color: white;
     background-image: 
@@ -43,9 +43,27 @@
 
 .redshark-header {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 10px;
     border-bottom: 1px solid var(--rs-glass-border);
-    padding-bottom: 40px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.redshark-header-logo {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    margin-top: -65px;
+    margin-bottom: -55px;
+    filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.25));
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.redshark-header-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 35px rgba(212, 175, 55, 0.4));
 }
 
 .redshark-title {
@@ -65,7 +83,7 @@
     color: #999;
     letter-spacing: 0.3em;
     font-size: 0.9rem;
-    margin-bottom: 15px;
+    margin-bottom: 0;
     display: block;
 }
 
@@ -94,6 +112,7 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -103,7 +122,10 @@
 .redshark-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.1), transparent 70%);
     opacity: 0;
     transition: opacity 0.5s ease;
@@ -123,7 +145,8 @@
 
 .redshark-video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
     height: 0;
     background-color: #000;
     z-index: 1;
@@ -300,11 +323,11 @@
     .redshark-page {
         padding: 120px 20px 60px 20px;
     }
-    
+
     .redshark-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .redshark-title {
         font-size: 2.5rem;
     }

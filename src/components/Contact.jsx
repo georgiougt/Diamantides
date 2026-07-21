@@ -2,9 +2,13 @@ import { useState } from 'react';
 import { Phone, Mail, MapPin, Send, MessageCircle } from 'lucide-react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailConfig';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import '../styles/Contact.css';
 
 const Contact = () => {
+    const { t } = useLanguage();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -12,11 +16,37 @@ const Contact = () => {
         message: ''
     });
 
-    const handleSubmit = (e) => {
+    const [sending, setSending] = useState(false);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // In a real app, this would send data to a backend or service like Formspree
-        alert('Thank you for your enquiry. We will contact you shortly.');
-        setFormData({ name: '', email: '', phone: '', message: '' });
+        setSending(true);
+        const templateParams = {
+            yacht_name: '',
+            yacht_type: '',
+            to_email: 'administration@diamantidesyachting.com',
+            from_name: formData.name,
+            from_email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+            category: 'General Contact Form'
+        };
+
+        try {
+            await emailjs.send(
+                EMAILJS_CONFIG.SERVICE_ID,
+                EMAILJS_CONFIG.TEMPLATE_ID,
+                templateParams,
+                { publicKey: EMAILJS_CONFIG.PUBLIC_KEY }
+            );
+            alert(t('contactPage.successAlert'));
+            setFormData({ name: '', email: '', phone: '', message: '' });
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            alert(t('contactPage.errorAlert'));
+        } finally {
+            setSending(false);
+        }
     };
 
     const handleChange = (e) => {
@@ -28,24 +58,24 @@ const Contact = () => {
             <div className="contact-container">
 
                 <div className="contact-info">
-                    <h2 className="contact-title">Get in Touch</h2>
+                    <h2 className="contact-title">{t('contactPage.getInTouch')}</h2>
                     <p className="contact-subtitle">
-                        Ready to start your yachting journey? Contact our team for personalized assistance.
+                        {t('contactPage.ready')}
                     </p>
 
                     <div className="contact-details">
                         <div className="contact-item">
                             <div className="contact-icon"><MapPin size={24} /></div>
                             <div>
-                                <h3>Visit Us</h3>
-                                <p>Limassol Marina, Building D2, Shop 7<br />Limassol, Cyprus</p>
+                                <h3>{t('contactPage.visitUs')}</h3>
+                                <p>{t('contactPage.visitAddr')}<br />{t('contactPage.visitCity')}</p>
                             </div>
                         </div>
 
                         <div className="contact-item">
                             <div className="contact-icon"><Phone size={24} /></div>
                             <div>
-                                <h3>Call Directly</h3>
+                                <h3>{t('contactPage.callDirectly')}</h3>
                                 <p>
                                     <a href="tel:+35725010561">+357 25 010 561</a>
                                 </p>
@@ -55,7 +85,7 @@ const Contact = () => {
                         <div className="contact-item">
                             <div className="contact-icon"><Mail size={24} /></div>
                             <div>
-                                <h3>Email Us</h3>
+                                <h3>{t('contactPage.emailUs')}</h3>
                                 <p><a href="mailto:administration@diamantidesyachting.com">administration@diamantidesyachting.com</a></p>
                             </div>
                         </div>
@@ -78,7 +108,7 @@ const Contact = () => {
                 <div className="contact-form-container">
                     <form className="contact-form" onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <label htmlFor="name">Full Name</label>
+                            <label htmlFor="name">{t('contactPage.labelName')}</label>
                             <input
                                 type="text"
                                 id="name"
@@ -86,12 +116,12 @@ const Contact = () => {
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
-                                placeholder="John Doe"
+                                placeholder={t('contactPage.placeholderName')}
                             />
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="email">Email Address</label>
+                            <label htmlFor="email">{t('contactPage.labelEmail')}</label>
                             <input
                                 type="email"
                                 id="email"
@@ -99,7 +129,7 @@ const Contact = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
-                                placeholder="john@example.com"
+                                placeholder={t('contactPage.placeholderEmail')}
                             />
                         </div>
 
@@ -117,20 +147,20 @@ const Contact = () => {
                             />
 
                         <div className="form-group">
-                            <label htmlFor="message">Message</label>
+                            <label htmlFor="message">{t('contactPage.labelMessage')}</label>
                             <textarea
                                 id="message"
                                 name="message"
                                 value={formData.message}
                                 onChange={handleChange}
                                 required
-                                placeholder="Tell us about your yachting needs..."
+                                placeholder={t('contactPage.placeholderMsg')}
                                 rows="5"
                             ></textarea>
                         </div>
 
-                        <button type="submit" className="btn-submit">
-                            Send Message <Send size={18} />
+                        <button type="submit" className="btn-submit" disabled={sending}>
+                            {sending ? t('contactPage.sendingBtn') : t('contactPage.sendBtn')} <Send size={18} />
                         </button>
 
 

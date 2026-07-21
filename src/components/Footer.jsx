@@ -1,19 +1,21 @@
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Linkedin } from 'lucide-react';
 import horizontalLogo from '../assets/diamantides-logo-white-wide.png';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import '../styles/Footer.css';
 
 const Footer = () => {
+    const { t, localizePath } = useLanguage();
+
     return (
         <footer className="footer-section">
             <div className="footer-container">
                 <div className="footer-brand">
-                    <Link to="/" className="footer-logo">
-                        <img src={horizontalLogo} alt="Diamantides Yachting" className="footer-logo-img" />
+                    <Link to={localizePath('/')} className="footer-logo">
+                        <img src={horizontalLogo} alt="Diamantides Yachting - Yacht Sales & Charter Limassol Marina" className="footer-logo-img" />
                     </Link>
                     <p className="footer-desc">
-                        Your premier partner for luxury yachting experiences in Cyprus.
-                        Charter, sales, and management services of the highest caliber.
+                        {t('footer.desc')}
                     </p>
                     <div className="social-links">
                         <a href="#" aria-label="Instagram"><Instagram size={24} /></a>
@@ -23,32 +25,32 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-links">
-                    <h3>Quick Links</h3>
+                    <h3>{t('footer.company')}</h3>
                     <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/about">About</Link></li>
-                        <li><Link to="/services">Services</Link></li>
-                        <li><Link to="/fleet">Fleet</Link></li>
-                        <li><Link to="/contact">Contact</Link></li>
+                        <li><Link to={localizePath('/')}>{t('common.home')}</Link></li>
+                        <li><Link to={localizePath('/about')}>{t('nav.aboutUs')}</Link></li>
+                        <li><Link to={localizePath('/services')}>{t('nav.services')}</Link></li>
+                        <li><Link to={localizePath('/blog')}>{t('nav.blog')}</Link></li>
+                        <li><Link to={localizePath('/contact')}>{t('nav.contactUs')}</Link></li>
                     </ul>
                 </div>
 
                 <div className="footer-links">
-                    <h3>Services</h3>
+                    <h3>{t('footer.services')}</h3>
                     <ul>
-                        <li><Link to="/charter">Yacht Charter</Link></li>
-                        <li><Link to="/sales">Yacht Sales</Link></li>
-                        <li><Link to="/services/yacht-management">Management</Link></li>
-                        <li><Link to="/training-academy">Training</Link></li>
+                        <li><Link to={localizePath('/charter-yacht/limassol')}>{t('nav.charter')}</Link></li>
+                        <li><Link to={localizePath('/sales')}>{t('nav.sales')}</Link></li>
+                        <li><Link to={localizePath('/services/yacht-management')}>{t('nav.management')}</Link></li>
+                        <li><Link to={localizePath('/training-academy')}>{t('nav.training')}</Link></li>
                     </ul>
                 </div>
             </div>
 
             <div className="footer-bottom">
-                <p>&copy; {new Date().getFullYear()} Diamantides Yachting. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Diamantides Yachting. {t('footer.rights')}</p>
                 <div className="footer-legal">
-                    <Link to="/privacy-policy">Privacy Policy</Link>
-                    <Link to="/terms-of-service">Terms of Service</Link>
+                    <Link to={localizePath('/privacy-policy')}>{t('footer.privacyPolicy')}</Link>
+                    <Link to={localizePath('/terms-of-service')}>{t('footer.termsOfService')}</Link>
                 </div>
             </div>
         </footer>

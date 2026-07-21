@@ -3,9 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Users, Ruler, Gauge, ArrowRight } from 'lucide-react';
 import { yachts } from '../data/yachts';
+import { getYachtPath } from '../utils/navigation';
+import { useLanguage } from '../context/LanguageContext';
 import '../styles/Fleet.css';
 
 const Fleet = () => {
+    const { t, localizePath } = useLanguage();
     const INITIAL_VISIBLE_COUNT = 8;
     const [activeFilter, setActiveFilter] = useState('all');
     const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
@@ -36,8 +39,8 @@ const Fleet = () => {
         <section id="fleet" className="fleet-section">
             <div className="container">
                 <div className="section-header text-center">
-                    <h2 className="section-title">Our Premium Fleet</h2>
-                    <p className="section-subtitle">Discover our exclusive selection of yachts available for charter and sale.</p>
+                    <h2 className="section-title">{t('fleetSection.title')}</h2>
+                    <p className="section-subtitle">{t('fleetSection.subtitle')}</p>
                 </div>
 
                 <div className="fleet-filters">
@@ -45,19 +48,19 @@ const Fleet = () => {
                         className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
                         onClick={() => setActiveFilter('all')}
                     >
-                        All Yachts
+                        {t('fleetSection.all')}
                     </button>
                     <button
                         className={`filter-btn ${activeFilter === 'charter' ? 'active' : ''}`}
                         onClick={() => setActiveFilter('charter')}
                     >
-                        For Charter
+                        {t('fleetSection.charter')}
                     </button>
                     <button
                         className={`filter-btn ${activeFilter === 'sales' ? 'active' : ''}`}
                         onClick={() => setActiveFilter('sales')}
                     >
-                        For Sale
+                        {t('fleetSection.sales')}
                     </button>
                 </div>
 
@@ -73,13 +76,13 @@ const Fleet = () => {
                                 transition={{ duration: 0.4 }}
                                 layout
                             >
-                                <Link to={`/yacht/${yacht.id}`} className="fleet-card-link">
+                                <Link to={localizePath(getYachtPath(yacht))} className="fleet-card-link">
                                     <div className="fleet-img-wrapper">
                                         <img src={yacht.image || yacht.gallery?.[0]} alt={yacht.name} />
-                                        <span className="fleet-tag">{yacht.category === 'charter' ? 'For Charter' : 'For Sale'}</span>
+                                        <span className="fleet-tag">{yacht.category === 'charter' ? t('fleetSection.charter') : t('fleetSection.sales')}</span>
                                         {yacht.price?.toLowerCase().includes('sold') && (
                                             <div className="sold-overlay">
-                                                <span>SOLD</span>
+                                                <span>{t('fleetSection.sold')}</span>
                                             </div>
                                         )}
                                     </div>
@@ -101,19 +104,19 @@ const Fleet = () => {
                                                     <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', marginBottom: '1rem', fontSize: '0.9rem' }}>
                                                         {yacht.detailedPricing.halfDay && (
                                                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                                                <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Half Day</span>
+                                                                <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>{t('fleetSection.halfDay')}</span>
                                                                 <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.halfDay}</span>
                                                             </div>
                                                         )}
                                                         {yacht.detailedPricing.fullDay && (
                                                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                                                <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Full Day</span>
+                                                                <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>{t('fleetSection.fullDay')}</span>
                                                                 <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.fullDay}</span>
                                                             </div>
                                                         )}
                                                         {yacht.detailedPricing.weekly && (
                                                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                                                <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Weekly</span>
+                                                                <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>{t('fleetSection.weekly')}</span>
                                                                 <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.detailedPricing.weekly}</span>
                                                             </div>
                                                         )}
@@ -129,7 +132,7 @@ const Fleet = () => {
                                                 return (
                                                     <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', marginBottom: '1rem', fontSize: '0.9rem' }}>
                                                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Charter Rate</span>
+                                                            <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>{t('fleetSection.charterRate')}</span>
                                                             <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.price}</span>
                                                         </div>
                                                     </div>
@@ -143,15 +146,15 @@ const Fleet = () => {
                                             return (
                                                 <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', marginBottom: '1rem', fontSize: '0.9rem' }}>
                                                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                                        <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Half Day</span>
+                                                        <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>{t('fleetSection.halfDay')}</span>
                                                         <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{halfDayPrice}</span>
                                                     </div>
                                                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                                        <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Full Day</span>
+                                                        <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>{t('fleetSection.fullDay')}</span>
                                                         <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{fullDayPrice}</span>
                                                     </div>
                                                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                                        <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Overnight</span>
+                                                        <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>{t('fleetSection.overnight')}</span>
                                                         <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{overnightPrice}</span>
                                                     </div>
                                                 </div>
@@ -161,13 +164,13 @@ const Fleet = () => {
                                         {yacht.price && yacht.category === 'sales' && (
                                             <div className="fleet-pricing-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', marginBottom: '1rem', fontSize: '0.9rem' }}>
                                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                                    <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Sale Price</span>
+                                                    <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>{t('fleetSection.salePrice')}</span>
                                                     <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>{yacht.price}</span>
                                                 </div>
                                             </div>
                                         )}
 
-                                        <span className="glass-cta">View Details</span>
+                                        <span className="glass-cta">{t('fleetSection.viewDetails')}</span>
                                     </div>
                                 </Link>
                             </motion.div>
@@ -183,7 +186,7 @@ const Fleet = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            Load More Vessels
+                            {t('fleetSection.loadMore')}
                         </motion.button>
                     </div>
                 )}

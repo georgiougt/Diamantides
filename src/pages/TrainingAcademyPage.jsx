@@ -1,23 +1,33 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Compass, Ship, FileCheck, CheckCircle, MapPin, GraduationCap, BookAIcon, Book } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import '../styles/TrainingAcademy.css';
 
 const TrainingAcademyPage = () => {
-    // Basic SEO handling without react-helmet
+    const { t, currentLang } = useLanguage();
+
     useEffect(() => {
-        document.title = "Speed Boat Training Cyprus | Diamantides Yachting";
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-            metaDescription.setAttribute('content', 'Obtain your speedboat operator license in Cyprus with Diamantides Yachting. Official training, exam prep, and certification. Start your yachting journey today.');
+        if (currentLang === 'ru') {
+            document.title = "Обучение Судовождению Кипр | Diamantides Yachting";
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription) {
+                metaDescription.setAttribute('content', 'Получите права на управление скоростным катером на Кипре с Diamantides Yachting. Официальное обучение, подготовка к экзамену и сертификация.');
+            }
         } else {
-            const meta = document.createElement('meta');
-            meta.name = "description";
-            meta.content = "Obtain your speedboat operator license in Cyprus with Diamantides Yachting. Official training, exam prep, and certification. Start your yachting journey today.";
-            document.head.appendChild(meta);
+            document.title = "Speed Boat Training Cyprus | Diamantides Yachting";
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription) {
+                metaDescription.setAttribute('content', 'Obtain your speedboat operator license in Cyprus with Diamantides Yachting. Official training, exam prep, and certification. Start your yachting journey today.');
+            } else {
+                const meta = document.createElement('meta');
+                meta.name = "description";
+                meta.content = "Obtain your speedboat operator license in Cyprus with Diamantides Yachting. Official training, exam prep, and certification. Start your yachting journey today.";
+                document.head.appendChild(meta);
+            }
         }
-        window.scrollTo(0, 0); // Scroll to top on load
-    }, []);
+        window.scrollTo(0, 0);
+    }, [currentLang]);
 
     // SEO structured data
     const structuredData = {
@@ -28,7 +38,27 @@ const TrainingAcademyPage = () => {
         "provider": {
             "@type": "Organization",
             "name": "Diamantides Yachting",
-            "sameAs": "https://www.diamantidesyachting.com"
+            "sameAs": "https://diamantidesyachting.com"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "350",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://diamantidesyachting.com/training-academy/"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "InPerson",
+            "courseLocation": {
+                "@type": "Place",
+                "name": "Limassol Marina Base",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Limassol",
+                    "addressCountry": "CY"
+                }
+            }
         }
     };
 
@@ -48,12 +78,9 @@ const TrainingAcademyPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <span className="academy-badge">Official Certification</span>
-                        <h1 className="academy-title">Speedboat Operator's License</h1>
-                        <p className="academy-subtitle">
-                            Dreaming of piloting a speedboat through the picturesque waters of Cyprus?
-                            Obtain your official license, open up a sea of possibilities, and set sail with confidence.
-                        </p>
+                        <span className="academy-badge">{t('training.badge')}</span>
+                        <h1 className="academy-title">{t('training.heroTitle')}</h1>
+                        <p className="academy-subtitle">{t('training.heroSubtitle')}</p>
                     </motion.div>
                 </div>
             </section>
@@ -68,11 +95,8 @@ const TrainingAcademyPage = () => {
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
                     >
-                        <h2>A Step Toward Freedom on the Water</h2>
-                        <p>
-                            Want to feel confident at the helm, knowing you’re fully licensed and legally allowed to operate a vessel?
-                            At Diamantides Yachting, you can not only complete the required training but also take the exam and be ready to set sail the very next day.
-                        </p>
+                        <h2>{t('training.introTitle')}</h2>
+                        <p>{t('training.introDesc')}</p>
                     </motion.div>
 
                     {/* Who Is This For - Grid */}
@@ -84,12 +108,10 @@ const TrainingAcademyPage = () => {
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
                         >
-                            <h3>What can you do with this license?</h3>
+                            <h3>{t('training.whatCanTitle')}</h3>
                             <ul className="academy-list">
-                                <li><CheckCircle size={20} className="icon-gold" /> Buy or Rent a boat and explore the coastline of Cyprus on your own.</li>
-                                {/* <li><CheckCircle size={20} className="icon-gold" /> Own a vessel and operate it in local waters.</li> */}
-                                <li><CheckCircle size={20} className="icon-gold" /> Ensure the safety of passengers during leisure trips.</li>
-                                {/* <li><CheckCircle size={20} className="icon-gold" /> Work in the yachting industry or start a water tour service.</li> */}
+                                <li><CheckCircle size={20} className="icon-gold" /> {t('training.whatCan1')}</li>
+                                <li><CheckCircle size={20} className="icon-gold" /> {t('training.whatCan2')}</li>
                             </ul>
                         </motion.div>
 
@@ -100,12 +122,10 @@ const TrainingAcademyPage = () => {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             viewport={{ once: true }}
                         >
-                            <h3>Who Is This License For?</h3>
+                            <h3>{t('training.whoTitle')}</h3>
                             <ul className="academy-list">
-                                <li><Compass size={20} className="icon-gold" /> <strong>Cyprus Residents / Nationals</strong> Wishing To Use Boats For Private Use.</li>
-                                {/* <li><Compass size={20} className="icon-gold" /> <strong>Tourists & Visitors</strong> Renting Boats/Jetskis During Their Vacation.</li> */}
-                                <li><Compass size={20} className="icon-gold" /> <strong>Motorboat Owners </strong> Planning Independent Operation.</li>
-                                {/* <li><Compass size={20} className="icon-gold" /> <strong>Yacht Charter Clients</strong> Needing Legal And Practical Training.</li> */}
+                                <li><Compass size={20} className="icon-gold" /> <strong>{t('training.who1Label')}</strong> {t('training.who1Desc')}</li>
+                                <li><Compass size={20} className="icon-gold" /> <strong>{t('training.who2Label')} </strong> {t('training.who2Desc')}</li>
                             </ul>
                         </motion.div>
                     </div>
@@ -116,8 +136,8 @@ const TrainingAcademyPage = () => {
             <section className="academy-process">
                 <div className="academy-container">
                     <div className="section-header text-center">
-                        <h2>How Does the Training Work?</h2>
-                        <p className="section-subtitle">A convenient and transparent process from basic theory to your official license.</p>
+                        <h2>{t('training.processTitle')}</h2>
+                        <p className="section-subtitle">{t('training.processSubtitle')}</p>
                     </div>
 
                     <div className="process-timeline">
@@ -130,8 +150,8 @@ const TrainingAcademyPage = () => {
                         >
                             <div className="step-number">1</div>
                             <div className="step-content">
-                                <h3>Theoretical Exam Components : Knowledge & Safety</h3>
-                                <p>Learn marine terminology, international signals, map symbols, GPS navigation, maritime law, and emergency response. Our comfortable environment offers materials in English, Greek, and Russian.</p>
+                                <h3>{t('training.step1Title')}</h3>
+                                <p>{t('training.step1Desc')}</p>
                             </div>
                         </motion.div>
 
@@ -144,8 +164,8 @@ const TrainingAcademyPage = () => {
                         >
                             <div className="step-number">2</div>
                             <div className="step-content">
-                                <h3>Practical Lessons: Confidence at the Helm</h3>
-                                <p>Move to an actual boat to learn starting procedures, harbor maneuvering, safe docking, navigation via visual markers, and evaluating real-time weather conditions alongside expert instructors.</p>
+                                <h3>{t('training.step2Title')}</h3>
+                                <p>{t('training.step2Desc')}</p>
                             </div>
                         </motion.div>
 
@@ -158,8 +178,8 @@ const TrainingAcademyPage = () => {
                         >
                             <div className="step-number">3</div>
                             <div className="step-content">
-                                <h3>The Exam: Proving Your Skills</h3>
-                                <p>Administered by officially accredited examiners. Features a written test on rules and signals, and a practical water test. Pass to receive your license covering Cyprus and recognized in EU countries.</p>
+                                <h3>{t('training.step3Title')}</h3>
+                                <p>{t('training.step3Desc')}</p>
                             </div>
                         </motion.div>
                     </div>
@@ -178,38 +198,38 @@ const TrainingAcademyPage = () => {
                             transition={{ duration: 0.5 }}
                             viewport={{ once: true }}
                         >
-                            <h3>Required Documents</h3>
-                            <p>We handle the registration, documentation, and license issuance. You just need to provide:</p>
+                            <h3>{t('training.docsTitle')}</h3>
+                            <p>{t('training.docsSubtitle')}</p>
                             <ul className="docs-list">
-                                <li><FileCheck size={24} /> A passport or ID (must be at least 18 years old)</li>
-                                <li><FileCheck size={24} /> One passport-size photograph</li>
-                                <li><FileCheck size={24} /> Residency Permit</li>
-                                <li><FileCheck size={24} /> Certificate of Physical Ability</li>
+                                <li><FileCheck size={24} /> {t('training.doc1')}</li>
+                                <li><FileCheck size={24} /> {t('training.doc2')}</li>
+                                <li><FileCheck size={24} /> {t('training.doc3')}</li>
+                                <li><FileCheck size={24} /> {t('training.doc4')}</li>
                             </ul>
                         </motion.div>
 
                         <div className="benefits-wrapper">
-                            <h3 className="mb-2">Why Choose Diamantides Yachting?</h3>
+                            <h3 className="mb-2">{t('training.whyChooseTitle')}</h3>
                             <div className="benefits-list">
                                     <motion.div className="benefit-item" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }} viewport={{ once: true }}>
                                     <Ship className="icon-gold" size={32} />
                                     <div>
-                                        <h4>Modern Speedboats</h4>
-                                        <p>Train on safe, up-to-date speedboats exactly like what you'll operate.</p>
+                                        <h4>{t('training.benefit1Title')}</h4>
+                                        <p>{t('training.benefit1Desc')}</p>
                                     </div>
                                 </motion.div>
                                 <motion.div className="benefit-item" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} viewport={{ once: true }}>
                                     <MapPin className="icon-gold" size={32} />
                                     <div>
-                                        <h4>Scenic Coastal Location</h4>
-                                        <p>Training from our Limassol base is beautiful and inspiring.</p>
+                                        <h4>{t('training.benefit2Title')}</h4>
+                                        <p>{t('training.benefit2Desc')}</p>
                                     </div>
                                 </motion.div>
                                 <motion.div className="benefit-item" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} viewport={{ once: true }}>
                                     <Book className="icon-gold" size={32} />
                                     <div>
-                                        <h4>Experienced Instructors</h4>
-                                        <p>With decades of combined experience, our instructors bring real-world knowledge and a proven track record in maritime training.</p>
+                                        <h4>{t('training.benefit3Title')}</h4>
+                                        <p>{t('training.benefit3Desc')}</p>
                                     </div>
                                 </motion.div>
                             </div>
@@ -228,14 +248,11 @@ const TrainingAcademyPage = () => {
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <h2>Ready to Get Your License?</h2>
-                        <p className="cta-subtitle">
-                            Take the first step today. Discover Cyprus from a new perspective — at the helm of your own boat.
-                            We offer flexible scheduling
-                        </p>
+                        <h2>{t('training.ctaTitle')}</h2>
+                        <p className="cta-subtitle">{t('training.ctaSubtitle')}</p>
 
                         <div className="cta-contact-box">
-                            <p>For further information, pricing, and available course dates, please contact us:</p>
+                            <p>{t('training.ctaContact')}</p>
                             <a href="mailto:administration@diamantidesyachting.com" className="email-link">administration@diamantidesyachting.com</a>
                         </div>
                     </motion.div>

@@ -5,9 +5,13 @@ import { Anchor, Ruler, Send, ChevronLeft, ChevronRight } from 'lucide-react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { yachts } from '../data/yachts';
+import { updateSEO } from '../utils/seo';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import '../styles/SalesYachts.css';
 
 const SalesYachtsPage = () => {
+    const { currentLang, localizePath } = useLanguage();
+    const isRu = currentLang === 'ru';
     // Filter/Sort State
     const [searchTerm, setSearchTerm] = useState('');
     const [typeFilter, setTypeFilter] = useState('All');
@@ -25,8 +29,13 @@ const SalesYachtsPage = () => {
     });
 
     useEffect(() => {
+        if (isRu) {
+            updateSEO('Купить яхту на Кипре | Diamantides Yachting', 'Продажа роскошных моторных яхт и катеров в Лимассоле, Кипр. Официальный дилер Viper, Marinello, Axis и Galeon.');
+        } else {
+            updateSEO('Premium Yachts for Sale Cyprus | Diamantides Yachting', 'Browse luxury motor yachts and speedboats for sale in Limassol, Cyprus. Authorized dealer for Viper, Marinello, Axis, and Galeon yachts.');
+        }
         window.scrollTo(0, 0);
-    }, []);
+    }, [isRu]);
 
     // Reset to page 1 when filters change
     useEffect(() => {
@@ -115,14 +124,17 @@ const SalesYachtsPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        Luxury Sales & Brokerage
+                        {isRu ? "Продажа и Брокераж Яхт" : "Luxury Sales & Brokerage"}
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                     >
-                        Own a piece of the horizon. Our curated selection of pre-owned and new vessels represents the pinnacle of maritime luxury and engineering excellence.
+                        {isRu 
+                            ? "Обретите собственную часть горизонта. Наш тщательно отобранный флот новых и бывших в эксплуатации судов олицетворяет вершину морской роскоши и инженерного мастерства."
+                            : "Own a piece of the horizon. Our curated selection of pre-owned and new vessels represents the pinnacle of maritime luxury and engineering excellence."
+                        }
                     </motion.p>
                 </div>
 
@@ -133,7 +145,7 @@ const SalesYachtsPage = () => {
                             <div className="search-input-wrapper">
                                 <input 
                                     type="text" 
-                                    placeholder="Search by name or brand..." 
+                                    placeholder={isRu ? "Поиск по названию или бренду..." : "Search by name or brand..."} 
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
                                     className="filter-search"
@@ -142,16 +154,21 @@ const SalesYachtsPage = () => {
                             
                             <div className="select-wrapper">
                                 <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}>
-                                    <option value="All">All Types</option>
+                                    <option value="All">{isRu ? "Все типы" : "All Types"}</option>
                                     {types.filter(t => t !== 'All').map(t => (
-                                        <option key={t} value={t}>{t === 'jetskis' ? 'Jet Skis' : t}</option>
+                                        <option key={t} value={t}>
+                                            {t === 'jetskis' ? (isRu ? 'Гидроциклы' : 'Jet Skis') :
+                                             t === 'Yachts' ? (isRu ? 'Яхты' : 'Yachts') :
+                                             t === 'RIB' ? (isRu ? 'Лодки RIB' : 'RIB') :
+                                             t === 'Fiberglass' ? (isRu ? 'Стеклопластик' : 'Fiberglass') : t}
+                                        </option>
                                     ))}
                                 </select>
                             </div>
 
                             <div className="select-wrapper">
                                 <select value={brandFilter} onChange={(e) => setBrandFilter(e.target.value)}>
-                                    <option value="All">All Brands</option>
+                                    <option value="All">{isRu ? "Все бренды" : "All Brands"}</option>
                                     {brands.filter(b => b !== 'All').map(b => (
                                         <option key={b} value={b}>{b}</option>
                                     ))}
@@ -163,14 +180,14 @@ const SalesYachtsPage = () => {
                             <div className="price-inputs">
                                 <input 
                                     type="number" 
-                                    placeholder="Min Price" 
+                                    placeholder={isRu ? "Мин. цена" : "Min Price"} 
                                     value={priceRange.min}
                                     onChange={(e) => setPriceRange({...priceRange, min: e.target.value})}
                                 />
                                 <span>-</span>
                                 <input 
                                     type="number" 
-                                    placeholder="Max Price" 
+                                    placeholder={isRu ? "Макс. цена" : "Max Price"} 
                                     value={priceRange.max}
                                     onChange={(e) => setPriceRange({...priceRange, max: e.target.value})}
                                 />
@@ -181,7 +198,10 @@ const SalesYachtsPage = () => {
                                     className={`sort-btn ${sortOrder === 'price-desc' ? 'active' : ''}`}
                                     onClick={() => setSortOrder(sortOrder === 'price-desc' ? 'price-asc' : 'price-desc')}
                                 >
-                                    {sortOrder === 'price-desc' ? 'Price: High to Low' : 'Price: Low to High'}
+                                    {sortOrder === 'price-desc' 
+                                        ? (isRu ? 'Цена: По убыванию' : 'Price: High to Low') 
+                                        : (isRu ? 'Цена: По возрастанию' : 'Price: Low to High')
+                                    }
                                 </button>
                             </div>
                         </div>
@@ -201,7 +221,7 @@ const SalesYachtsPage = () => {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: (index % ITEMS_PER_PAGE) * 0.1 }}
                         >
-                            <Link to={`/yacht/${yacht.id}`} className="sales-card-link">
+                            <Link to={localizePath(`/yacht/${yacht.id}`)} className="sales-card-link">
                                 <div className="sales-img-wrapper" style={{ position: 'relative' }}>
                                     <img src={yacht.image || yacht.gallery?.[0]} alt={yacht.name} loading="lazy" />
                                     {yacht.condition === 'new' && (
@@ -220,7 +240,7 @@ const SalesYachtsPage = () => {
                                             boxShadow: '0 4px 15px rgba(212,175,55,0.4)',
                                             zIndex: 10
                                         }}>
-                                            Brand New
+                                            {isRu ? "Новая" : "Brand New"}
                                         </div>
                                     )}
                                     {yacht.price && <div className="image-price-badge">{yacht.price}</div>}
@@ -228,20 +248,20 @@ const SalesYachtsPage = () => {
                                 <div className="sales-glass-panel">
                                     <div className="glass-header">
                                         <h2>{yacht.name}</h2>
-                                        <p className="fleet-type" style={{ margin: 0, fontSize: '1rem', fontFamily: 'var(--font-body)', fontWeight: 500, background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{yacht.type || 'Luxury Yacht'}</p>
+                                        <p className="fleet-type" style={{ margin: 0, fontSize: '1rem', fontFamily: 'var(--font-body)', fontWeight: 500, background: 'var(--gradient-metallic-gold)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{yacht.type || (isRu ? 'Люкс Яхта' : 'Luxury Yacht')}</p>
                                     </div>
                                     <div className="glass-specs">
-                                        <span className="spec-item"><Ruler size={14} /> {yacht.length || 'N/A'}</span>
+                                        <span className="spec-item"><Ruler size={14} /> {yacht.length || (isRu ? 'Н/Д' : 'N/A')}</span>
                                     </div>
 
                                     {yacht.price && (
                                         <div className="sales-pricing-row">
-                                            <span className="asking-label">Asking Price</span>
+                                            <span className="asking-label">{isRu ? "Запрашиваемая цена" : "Asking Price"}</span>
                                             <span className="asking-price">{yacht.price}</span>
                                         </div>
                                     )}
 
-                                    <span className="glass-cta">View Details</span>
+                                    <span className="glass-cta">{isRu ? "Подробнее" : "View Details"}</span>
                                 </div>
                             </Link>
                         </motion.div>
@@ -308,8 +328,13 @@ const SalesYachtsPage = () => {
             >
                 <div className="cta-banner-content">
                     <Anchor className="cta-icon" size={32} />
-                    <h2>Ready to Take the Helm?</h2>
-                    <p>Contact our brokerage specialists to schedule a viewing or request exclusive details on our vessels for sale.</p>
+                    <h2>{isRu ? "Готовы встать у штурвала?" : "Ready to Take the Helm?"}</h2>
+                    <p>
+                        {isRu
+                            ? "Свяжитесь с нашими специалистами для организации просмотра или получения подробной информации о наших яхтах в продаже."
+                            : "Contact our brokerage specialists to schedule a viewing or request exclusive details on our vessels for sale."
+                        }
+                    </p>
 
                     <form className="sales-contact-form" onSubmit={handleSubmit}>
                         <div className="form-row">
@@ -318,7 +343,7 @@ const SalesYachtsPage = () => {
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                placeholder="Your Name"
+                                placeholder={isRu ? "Ваше Имя" : "Your Name"}
                                 required
                             />
                             <input
@@ -326,7 +351,7 @@ const SalesYachtsPage = () => {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                placeholder="Email Address"
+                                placeholder={isRu ? "Электронная почта" : "Email Address"}
                                 required
                             />
                         </div>
@@ -335,19 +360,19 @@ const SalesYachtsPage = () => {
                             value={formData.phone}
                             onChange={(phone) => setFormData({ ...formData, phone })}
                             enableSearch={true}
-                            placeholder="Phone Number (Optional)"
+                            placeholder={isRu ? "Номер телефона (необязательно)" : "Phone Number (Optional)"}
                             containerClass="custom-phone-input"
                         />
                         <textarea
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
-                            placeholder="Tell us about the yacht you're interested in..."
+                            placeholder={isRu ? "Опишите яхту, которая вас интересует..." : "Tell us about the yacht you're interested in..."}
                             rows="4"
                             required
                         ></textarea>
                         <button type="submit" className="btn-bespoke">
-                            Send Inquiry <Send size={16} style={{ marginLeft: '8px' }} />
+                            {isRu ? "Отправить запрос" : "Send Inquiry"} <Send size={16} style={{ marginLeft: '8px' }} />
                         </button>
                     </form>
                 </div>
