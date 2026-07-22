@@ -27,6 +27,7 @@ dist-ssr
 tmp/
 .gemini/
 scratch/
+Mistral 33 hardtop/
 *.json
 !src/data/*.json
 !package.json

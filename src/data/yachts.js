@@ -3997,6 +3997,47 @@ const yachtsRaw = [
             "/assets/sales/29036/gallery_19.webp"
         ],
         location: "Limassol, Cyprus"
+    },
+    {
+        id: 29037,
+        name: "Windy Mistral 33 Hardtop (1997)",
+        type: "Motor Yacht",
+        length: "10m",
+        image: "/assets/sales/29037/profile.webp",
+        category: 'sales',
+        condition: 'used',
+        vesselType: "Yachts",
+        price: "€110,000",
+        description: "Windy Mistral 33 Hardtop (1997) — an exceptional Scandinavian motor yacht built with renowned Norwegian quality, seaworthiness, and comfort. Powered by twin Volvo Penta KAD42 inboard engines, she features a practical hardtop layout, a spacious cockpit for dining and entertaining, and well-appointed interior accommodations.",
+        specs: {
+            "builder": "Windy",
+            "year": "1997",
+            "length": "10m / 33'",
+            "beam": "3.22m",
+            "engines": "2x Volvo Penta KAD42",
+            "engineType": "Inboard motor",
+            "subCategory": "boat",
+            "location": "Cyprus"
+        },
+        features: [
+            "Hardtop design",
+            "Twin Volvo Penta KAD42 engines",
+            "Inboard motor",
+            "Spacious cockpit",
+            "Scandinavian quality & craftsmanship"
+        ],
+        gallery: [
+            "/assets/sales/29037/profile.webp",
+            "/assets/sales/29037/gallery_1.webp",
+            "/assets/sales/29037/gallery_2.webp",
+            "/assets/sales/29037/gallery_3.webp",
+            "/assets/sales/29037/gallery_4.webp",
+            "/assets/sales/29037/gallery_5.webp",
+            "/assets/sales/29037/gallery_6.webp",
+            "/assets/sales/29037/gallery_7.webp",
+            "/assets/sales/29037/gallery_8.webp"
+        ],
+        location: "Limassol, Cyprus"
     }
 ];
 
